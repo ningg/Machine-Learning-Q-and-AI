@@ -56,11 +56,13 @@ regularization and the related weight decay method. We implement *L*~2~
 regularization by adding a penalty term to the loss function that is
 minimized during training. This added term represents the size of the
 weights, such as the squared sum of the weights. The following formula
-shows an *L*~2~ regularized loss
+shows an $L_2$ regularized loss
 
-\\\[RegularizedLoss=Loss+\\frac{\\lambda}{n} \\sum_j w\_{j}\^{2}\\\]
+$$
+\[RegularizedLoss=Loss+\\frac{\\lambda}{n} \\sum_j w\_{j}\^{2}\]
+$$
 
-where \\(\\lambda\\) is a hyperparameter that controls the
+where $\\lambda$ is a hyperparameter that controls the
 regularization strength.
 
 During backpropagation, the optimizer minimizes the modified loss, now
