@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width initial-scale=1" name="viewport">
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="Sebastian Raschka" name="author"/>
+<meta content="
+      Chapter 11
+    " property="og:title"/>
+<meta content="
+        I'm an LLM Research Engineer with over a decade of experience in artificial intelligence. My work bridges academia and industry, with roles including senior staff at an AI company and a statistics professor. My expertise lies in LLM research and the development of high-performance AI systems, with a deep focus on practical, code-driven implementations.
+
+      " property="og:description"/>
+<meta content="https://sebastianraschka.com/books/ml-q-and-ai-chapters/ch11/" property="og:url">
+<meta content="Sebastian Raschka, PhD" property="og:site_name">
+<meta content="en_US" property="og:locale">
+<meta content="@rasbt" name="twitter:site">
+<meta content="I'm an LLM Research Engineer with over a decade of experience in artificial intelligence. My work bridges academia and industry, with roles including senior staff at an AI company and a statistics professor. My expertise lies in LLM research and the development of high-performance AI systems, with a deep focus on practical, code-driven implementations.
+" name="twitter:description"/>
+<meta content="article" property="og:type"/>
+<meta content="" property="article:published_time"/>
+<meta content="@rasbt" name="twitter:creator"/>
+<meta content="Chapter 11" name="twitter:title"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="" name="twitter:image"/>
+<title>Chapter 11</title>
+<meta content="I'm an LLM Research Engineer with over a decade of experience in artificial intelligence. My work bridges academia and industry, with roles including senior staff at an AI company and a statistics professor. My expertise lies in LLM research and the development of high-performance AI systems, with a deep focus on practical, code-driven implementations.
+" name="description"/>
+<link href=" /css/combined_direct_no_sass.css" rel="stylesheet"/>
+<link href=" /css/fork-awesome.min.css" rel="stylesheet"/>
+<meta content="Chapter 11" property="og:title"/>
+<meta content="article" property="og:type"/>
+<meta content="https://sebastianraschka.com/books/ml-q-and-ai-chapters/ch11/" property="og:url"/>
+<meta content="" property="og:image"/>
+<meta content="" property="og:description"/>
+<meta content="Sebastian Raschka, PhD" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="" property="fb:admins"/>
+<meta content="" property="fb:app_id"/>
+<link href="https://sebastianraschka.com/books/ml-q-and-ai-chapters/ch11/" rel="canonical"/>
+<link href="/images/favicons/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="/images/favicons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/images/favicons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="/site.webmanifest" rel="manifest"/>
+<link color="#5bbad5" href="/images/favicons/safari-pinned-tab.svg" rel="mask-icon"/>
+<meta content="#ffc40d" name="msapplication-TileColor"/>
+<meta content="#ffffff" name="theme-color"/>
+</meta></meta></meta></meta></meta></head>
+<body>
+<img alt="Ahead of AI logo" src="../images/ahead-of-ai-icon.png" style="display: none;"/>
+<header class="site-header">
+<div class="site-title" style="text-decoration: none; margin-top: 2em;">
+<a href="/"><span style="color:black">Sebastian</span> <span style="color:#c5050c">Raschka</span> </a>
+<a href="https://x.com/rasbt"><img alt="Twitter/X icon" height="20" src="../images/twitter-bw.jpg" style="padding-left:20px;"/></a>
+<!--<a href="https://threads.net/@sebastianraschka"><img src="/images/logos/threads-logo-alt-small.png" height="20" style="padding-left:5px;" alt="Threads icon"></a>-->
+<a href="https://www.linkedin.com/in/sebastianraschka/"><img alt="LinkedIn Icon" height="20" src="../images/linkedin-bw.jpg" style="padding-left:5px;"/></a>
+<a href="https://github.com/rasbt"><img alt="GitHub icon" height="20" src="../images/github-bw.jpg" style="padding-left:5px;"/></a>
+</div>
+<!--  <div style="width:100%;height:50;float:left;margin-bottom:10px;">
+        &nbsp;<a href="https://twitter.com/rasbt"><img src="/images/logos/twitter-bw.jpg" height="20"></a>-->
+<!-- &nbsp;<a href="https://www.buymeacoffee.com/rasbt"><img src="/images/logos/coffee-bw.jpg" height="20"></a>-->
+<!--&nbsp;<a href="https://mastodon.social/@SebRaschka"><img src="/images/logos/mastodon-bw.jpg" height="20"></a>-->
+<!-- </div>-->
+<div class="wrapper">
+<nav class="site-nav">
+<a class="menu-icon" href="#">
+<svg viewbox="0 0 18 15">
+<path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z" fill="#424242"></path>
+<path d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z" fill="#424242"></path>
+<path d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z" fill="#424242"></path>
+</svg>
+</a>
+<div class="trigger">
+<!--<script type="text/javascript">
+          var total_images = 2;
+          var random_number = Math.floor((Math.random()*total_images));
+          var random_img = new Array();
+          random_img[0] = '<a href="https://twitter.com/rasbt"><img src="/images/logos/twitter-1.jpg" height="20"></a>';
+          random_img[1] = '<a href="https://linkedin.com/in/sebastianraschka"><img src="/images/logos/linkedin-1.jpg" height="20"></a>';
+          document.write(random_img[random_number]);
+          </script>-->
+<span style="padding-left:0px;margin-left:0px;"></span>
+<a class="page-link" href="https://magazine.sebastianraschka.com"><span style="color:#c5050c;"><img alt="Ahead of AI Logo" height="20" src="../images/ahead-of-ai-icon.png"/> Blog</span></a>
+<!--<a class="page-link" href="/blog/index.html">Blog</a>-->
+<a class="page-link" href="/books">Books</a>
+<!--<a class="page-link" href="/newsletter">AI Newsletter</a>-->
+<!--<a class="page-link" href="/teaching">Courses</a>-->
+<a class="page-link" href="https://github.com/rasbt/LLMs-from-scratch">LLMs From Scratch</a>
+<!--<a class="page-link" href="/publications">Research</a>-->
+<a class="page-link" href="/elsewhere">Talks</a>
+<a class="page-link" href="/contact">Contact</a>
+<a class="page-link" href="/resources">More</a>
+</div>
+</nav>
+</div>
+</header>
+<div class="page-content">
+<div class="wrapper">
+<!-- MathJax script for LaTeX rendering -->
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<!-- Open Graph Metadata -->
+<meta content="article" property="og:type"/>
+<meta content="Chapter 11" property="og:title"/>
+<meta content="" property="og:description"/>
+<meta content="https://sebastianraschka.com" property="og:image"/>
+<meta content="" property="og:image:alt"/>
+<meta content="https://sebastianraschka.com/books/ml-q-and-ai-chapters/ch11/" property="og:url"/>
+<meta content="Sebastian Raschka's Blog" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<!-- Twitter Metadata -->
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Chapter 11" name="twitter:title"/>
+<meta content="" name="twitter:description"/>
+<meta content="https://sebastianraschka.com" name="twitter:image"/>
+<meta content="" name="twitter:image:alt"/>
+<div class="post">
+<header class="post-header">
+<h1 class="post-title" style="text-align: left;">Machine Learning Q and AI</h1>
+<h2 class="post-subtitle">30 Essential Questions and Answers on Machine Learning and AI</h2>
+<p>
+      By Sebastian Raschka. <a href="#table-of-contents">Free to read</a>.
+      Published by <a href="https://nostarch.com/machine-learning-q-and-ai">No Starch Press</a>.<br/>
+      Copyright Â© 2024-2025 by Sebastian Raschka.
+    </p>
+<p>
+<img alt="Machine Learning and Q and AI" class="right-image-shadow-30" src="../images/2023-ml-ai-beyond.jpg"/>
+</p>
+<blockquote>
+      Machine learning and AI are moving at a rapid pace. Researchers and practitioners are constantly struggling to keep up with the breadth of concepts and techniques. This book provides bite-sized bits of knowledge for your journey from machine learning beginner to expert, covering topics from various machine learning areas. Even experienced machine learning researchers and practitioners will encounter something new that they can add to their arsenal of techniques.
+    </blockquote>
+<br/>
+<p><strong>ð Print Book:</strong><br/>
+<a href="https://amzn.to/4488ahe">Amazon</a><br/>
+<a href="https://nostarch.com/machine-learning-q-and-ai">No Starch Press</a>
+</p>
+<p><strong>ð Read Online:</strong><br/>
+<a href="#table-of-contents">Full Book (Free)</a>
+</p>
+</header>
+<article class="post-content">
+<!-- Optional: Anchor Headings -->
+<h1 id="part-2-computer-vision">
+        
+        
+          Part 2: Computer Vision <a href="#part-2-computer-vision"></a>
+</h1>
+<h2 id="chapter-11-calculating-the-number-of-parameters">
+        
+        
+          Chapter 11: Calculating the Number of Parameters <a href="#chapter-11-calculating-the-number-of-parameters"></a>
+</h2>
+<p><span id="ch11" label="ch11"></span></p>
+<p><strong>How do we compute the number of para-
+Â meters in a convolutional neural network, and why is this information
+useful?</strong></p>
+<p>Knowing the number of parameters in a model helps gauge the modelâs
+size, which affects storage and memory requirements. The following
+sections will explain how to compute the convolutional and fully
+connected layer parameter counts.</p>
+<h3 id="how-to-find-parameter-counts">
+        
+        
+          How to Find Parameter Counts <a href="#how-to-find-parameter-counts"></a>
+</h3>
+<p>Suppose we are working with a convolutional network that has two con-
+Â volutional layers with kernel size 5 and kernel size 3, respectively.
+The first convolutional layer has 3 input channels and 5 output
+channels, and the second one has 5 input channels and 12 output
+channels. The stride of these convolutional layers is 1. Furthermore,
+the network has two pooling layers, one with a kernel size of 3 and a
+stride of 2, and another with a kernel size of 5 and a stride of 2. It
+also has two fully connected hidden layers with 192 and 128 hidden units
+each, where the output layer is a classification layer for 10 classes.
+The architecture of this network is illustrated in
+FigureÂ <a data-reference="fig:ch11-fig01" data-reference-type="ref" href="#fig:ch11-fig01">[fig:ch11-fig01]</a>.</p>
+<div class="figurewide">
+<img alt="image" src="../images/ch11-fig01.png" style="width:5.625in">
+</img></div>
+<p>What is the number of trainable parameters in this convolutional
+network? We can approach this problem from left to right, computing
+the
+number of parameters for each layer and then summing up these counts to
+obtain the total number of parameters. Each layerâs number of trainable
+parameters consists of weights and bias units.</p>
+<h4 id="convolutional-layers">
+        
+        
+          Convolutional Layers <a href="#convolutional-layers"></a>
+</h4>
+<p>In a convolutional layer, the number of weights depends on the kernelâs
+width and height and the number of input and output channels. The number
+of bias units depends on the number of output channels only. To illu-
+Â strate the computation step by step, suppose we have a kernel width and
+height of 5, one input channel, and one output channel, as illustrated
+in
+FigureÂ <a data-reference="fig:ch11-fig02" data-reference-type="ref" href="#fig:ch11-fig02">1.1</a>.</p>
+<figure id="fig:ch11-fig02">
+<img src="../images/ch11-fig02.png">
+<figcaption>A convolutional layer with one input<br>
+channel and one output channel</br></figcaption>
+</img></figure>
+<p>In this case, we have 26 parameters, since we have 5 \(\times\) 5 = 25
+weights via the kernel plus the bias unit. The computation to determine
+an output value or pixel <em>z</em> is <em>z</em> = <em>b</em> + \(\sum_j\) <em>w<sub>j</sub></em>
+<em>x<sub>j</sub></em>, where <em>x<sub>j</sub></em> represents an input pixel,
+<em>w<sub>j</sub></em> represents a weight parameter of the kernel, and <em>b</em> is
+the bias unit.</p>
+<p>Now, suppose we have three input channels, as illustrated in
+FigureÂ <a data-reference="fig:ch11-fig03" data-reference-type="ref" href="#fig:ch11-fig03">1.2</a>.</p>
+<figure id="fig:ch11-fig03">
+<img src="../images/ch11-fig03.png">
+<figcaption>A convolutional layer with three<br>
+input channels and one output channel</br></figcaption>
+</img></figure>
+<p>In that case, we compute the output value by performing the
+aforementioned operation, \(\sum_j\) <em>w<sub>j</sub> x<sub>j</sub></em>, for
+each input channel and then add the bias unit. For three input channels,
+this would involve three different kernels with three sets of weights:</p>
+
+\[z = \sum_j w^{(1)}_{j} x_j + \sum_j w^{(2)}_{j} x_j + \sum_j w^{(3)}_{j} x_j + b\]
+
+<p>Since we have three sets of weights (<em>w</em><sup>(1)</sup>,<em>w</em><sup>(2)</sup>,and<em>w</em><sup>(3)</sup>for<em>j</em>=[1,â¦,25]),
+we have 3 \(\times\) 25 + 1 = 76 parameters in this convolutional layer.</p>
+<p>We use one kernel for each output channel, where each kernel is unique to a given
+output channel. Thus, if we extend the number of output channels from
+one to five, as shown in
+FigureÂ <a data-reference="fig:ch11-fig04" data-reference-type="ref" href="#fig:ch11-fig04">1.3</a>, we extend the number of
+parameters by a factor of 5. In other words, if the kernel for one
+output channel has 76 parameters, the 5 kernels required for the five
+output channels will have 5 \(\times\) 76 = 380 parameters.</p>
+<figure id="fig:ch11-fig04">
+<img src="../images/ch11-fig04.png">
+<figcaption>A convolutional layer with three input channels<br>
+and five output channels</br></figcaption>
+</img></figure>
+<p>Returning to the neural network architecture illustrated in
+FigureÂ <a data-reference="fig:ch11-fig01" data-reference-type="ref" href="#fig:ch11-fig01">[fig:ch11-fig01]</a> at the beginning of
+this section, we compute the number of parameters in the convolutional
+layers based on the kernel size and number of input and output channels.
+For example, the first convolutional layer has three input channels,
+five output channels, and a kernel size of 5. Thus, its number of
+parameters is 5 \(\times\) (5 \(\times\) 5 \(\times\) 3) + 5 = 380. The
+second convolutional layer,
+with five input channels, 12 output channels, and a kernel size of 3,
+has
+12 \(\times\) (3 \(\times\) 3 \(\times\) 5) + 12 = 552 parameters. Since
+the pooling layers do not have any trainable parameters, we can count
+380 + 552 = 932 for the convolutional part of this architecture.</p>
+<p>Next, letâs see how we can compute the number of parameters of fully
+connected layers.</p>
+<h4 id="fully-connected-layers">
+        
+        
+          Fully Connected Layers <a href="#fully-connected-layers"></a>
+</h4>
+<p>Counting the number of parameters in a fully connected layer is
+relatively straightforward. A fully connected node connects each input
+node to each output node, so the number of weights is the number of
+inputs times the number of outputs plus the bias units added to the
+output. For example, if we have a fully connected layer with five inputs
+and three outputs, as shown
+inFigureÂ <a data-reference="fig:ch11-fig05" data-reference-type="ref" href="#fig:ch11-fig05">1.4</a>,wehave5\(\times\)<!-- -->3=15weightsandthreebiasunits,thatis,
+18Â parameters total.</p>
+<figure id="fig:ch11-fig05">
+<img src="../images/ch11-fig05.png">
+<figcaption>A fully connected layer<br>
+with five inputs and three outputs</br></figcaption>
+</img></figure>
+<p>Returning once more to the neural network architecture illustrated in
+FigureÂ <a data-reference="fig:ch11-fig01" data-reference-type="ref" href="#fig:ch11-fig01">[fig:ch11-fig01]</a>, we can now
+calculate the parameters in the fully connected layers as follows: 192
+\(\times\) 128 + 128 = 24,704 in the first fully connected layer and 128
+\(\times\) 10 + 10 = 1,290 in the second fully connected layer, the
+output layer. Hence, we have 24,704 + 1,290 = 25,994 in the fully
+connected part of this network. After adding the 932 parameters from the
+convolutional layers and the 25,994 parameters from the fully connected
+layers, we can conclude that this networkâs total number of parameters
+isÂ 26,926.</p>
+<p>As a bonus, interested readers can find PyTorch code to compute the
+number of parameters programmatically in the
+<em>supplementary/q11-conv-size</em> subfolder at
+<a href="https://github.com/rasbt/MachineLearning-QandAI-book">https://github.com/rasbt/MachineLearning-QandAI-book</a>.</p>
+<h3 id="practical-applications">
+        
+        
+          Practical Applications <a href="#practical-applications"></a>
+</h3>
+<p>Why do we care about the number of parameters at all? First, we can use
+this number to estimate a modelâs complexity. As a rule of thumb, the
+more parameters there are, the more training data weâll need to train
+the modelÂ well.</p>
+<p>The number of parameters also lets us estimate the size of the neural
+network, which in turn helps us estimate whether the network can fit
+into GPU memory. Although the memory requirement during training often
+exceeds the model size due to the additional memory required for
+carrying out matrix multiplications and storing gradients, model size
+gives us a ballpark sense of whether training the model on a given
+hardware setup is feasible.</p>
+<h3 id="exercises">
+        
+        
+          Exercises <a href="#exercises"></a>
+</h3>
+<p>11-1. Suppose we want to optimize the neural
+network using a plain stochastic gradient descent (SGD) optimizer or the
+popular Adam optimizer. What are the respective numbers of parameters
+that need to be stored for SGD and Adam?</p>
+<p>11-2. Suppose weâre adding three batch
+normalization (BatchNorm) layers: one after the first convolutional
+layer, one after the second convolutional layer, and another one after
+the first fully connected layer (we
+typically do not want to add BatchNorm layers to the output layer).
+How many additional parameters do these three BatchNorm layers
+add to the model?</p>
+</article>
+<br/>
+<hr/>
+<div class="book-promotion" style="margin-top: 50px;">
+<h2>Support the Author</h2>
+<p>You can support the author in the following ways:</p>
+<ul>
+<li>
+        Subscribe to <a href="https://magazine.sebastianraschka.com">Sebastian's Substack blog</a>
+</li>
+<li>
+        Purchase a copy on
+        <a href="https://amzn.to/4488ahe">Amazon</a> or
+        <a href="https://nostarch.com/machine-learning-q-and-ai">No Starch Press</a>
+</li>
+<li>
+        Write an <a href="https://amzn.to/4488ahe">Amazon review</a>
+</li>
+</ul>
+</div>
+<div style="margin-bottom: 50px;"></div>
+</div>
+</div>
+</div>
+<footer class="site-footer">
+<div class="wrapper">
+<div class="footer-col-wrapper">
+<div class="footer-col social-col">
+<a href="https://magazine.sebastianraschka.com"><span><i class="fa fa-rss fa-2x"></i></span> </a>
+<a href="/contact"><span><i class="fa fa-envelope fa-2x"></i></span> </a>
+<a href="https://twitter.com/rasbt"> <span><i class="fa fa-twitter fa-2x"></i></span> </a>
+<a href="https://youtube.com/c/SebastianRaschka"><span><i class="fa fa-youtube fa-2x"></i></span> </a>
+<a href="https://github.com/rasbt"><span><i class="fa fa-github fa-2x"></i> </span></a>
+<a href="https://scholar.google.com/citations?user=X4RCC0IAAAAJ&amp;hl=enrasbt"><span><i class="fa fa-google fa-2x"></i> </span></a>
+<a href="https://linkedin.com/in/sebastianraschka"><span><i class="fa fa-linkedin fa-2x"></i> </span></a>
+</div>
+<div class="footer-col copyright-col">
+<p>© 2013-2025 Sebastian Raschka</p>
+</div>
+</div>
+</div>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-BYQXBRPK81"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BYQXBRPK81');
+</script>
+</footer>
+
+<script src="/js/anchor.min.js" type="text/javascript"></script>
+<script>
+    var selector = 'h2, h3, h4, h5, h6';
+    /*
+    anchors.options = {
+      icon: '#',
+      visible: 'always',
+      placement: 'left',
+      class: 'bb-anchor'
+    }
+    */
+    anchors.add(selector);
+  </script>
+</body>
+</html>

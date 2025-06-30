@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width initial-scale=1" name="viewport">
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="Sebastian Raschka" name="author"/>
+<meta content="
+      Chapter 18
+    " property="og:title"/>
+<meta content="
+        I'm an LLM Research Engineer with over a decade of experience in artificial intelligence. My work bridges academia and industry, with roles including senior staff at an AI company and a statistics professor. My expertise lies in LLM research and the development of high-performance AI systems, with a deep focus on practical, code-driven implementations.
+
+      " property="og:description"/>
+<meta content="https://sebastianraschka.com/books/ml-q-and-ai-chapters/ch18/" property="og:url">
+<meta content="Sebastian Raschka, PhD" property="og:site_name">
+<meta content="en_US" property="og:locale">
+<meta content="@rasbt" name="twitter:site">
+<meta content="I'm an LLM Research Engineer with over a decade of experience in artificial intelligence. My work bridges academia and industry, with roles including senior staff at an AI company and a statistics professor. My expertise lies in LLM research and the development of high-performance AI systems, with a deep focus on practical, code-driven implementations.
+" name="twitter:description"/>
+<meta content="article" property="og:type"/>
+<meta content="" property="article:published_time"/>
+<meta content="@rasbt" name="twitter:creator"/>
+<meta content="Chapter 18" name="twitter:title"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="" name="twitter:image"/>
+<title>Chapter 18</title>
+<meta content="I'm an LLM Research Engineer with over a decade of experience in artificial intelligence. My work bridges academia and industry, with roles including senior staff at an AI company and a statistics professor. My expertise lies in LLM research and the development of high-performance AI systems, with a deep focus on practical, code-driven implementations.
+" name="description"/>
+<link href=" /css/combined_direct_no_sass.css" rel="stylesheet"/>
+<link href=" /css/fork-awesome.min.css" rel="stylesheet"/>
+<meta content="Chapter 18" property="og:title"/>
+<meta content="article" property="og:type"/>
+<meta content="https://sebastianraschka.com/books/ml-q-and-ai-chapters/ch18/" property="og:url"/>
+<meta content="" property="og:image"/>
+<meta content="" property="og:description"/>
+<meta content="Sebastian Raschka, PhD" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="" property="fb:admins"/>
+<meta content="" property="fb:app_id"/>
+<link href="https://sebastianraschka.com/books/ml-q-and-ai-chapters/ch18/" rel="canonical"/>
+<link href="/images/favicons/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="/images/favicons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/images/favicons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="/site.webmanifest" rel="manifest"/>
+<link color="#5bbad5" href="/images/favicons/safari-pinned-tab.svg" rel="mask-icon"/>
+<meta content="#ffc40d" name="msapplication-TileColor"/>
+<meta content="#ffffff" name="theme-color"/>
+</meta></meta></meta></meta></meta></head>
+<body>
+<img alt="Ahead of AI logo" src="../images/ahead-of-ai-icon.png" style="display: none;"/>
+<header class="site-header">
+<div class="site-title" style="text-decoration: none; margin-top: 2em;">
+<a href="/"><span style="color:black">Sebastian</span> <span style="color:#c5050c">Raschka</span> </a>
+<a href="https://x.com/rasbt"><img alt="Twitter/X icon" height="20" src="../images/twitter-bw.jpg" style="padding-left:20px;"/></a>
+<!--<a href="https://threads.net/@sebastianraschka"><img src="/images/logos/threads-logo-alt-small.png" height="20" style="padding-left:5px;" alt="Threads icon"></a>-->
+<a href="https://www.linkedin.com/in/sebastianraschka/"><img alt="LinkedIn Icon" height="20" src="../images/linkedin-bw.jpg" style="padding-left:5px;"/></a>
+<a href="https://github.com/rasbt"><img alt="GitHub icon" height="20" src="../images/github-bw.jpg" style="padding-left:5px;"/></a>
+</div>
+<!--  <div style="width:100%;height:50;float:left;margin-bottom:10px;">
+        &nbsp;<a href="https://twitter.com/rasbt"><img src="/images/logos/twitter-bw.jpg" height="20"></a>-->
+<!-- &nbsp;<a href="https://www.buymeacoffee.com/rasbt"><img src="/images/logos/coffee-bw.jpg" height="20"></a>-->
+<!--&nbsp;<a href="https://mastodon.social/@SebRaschka"><img src="/images/logos/mastodon-bw.jpg" height="20"></a>-->
+<!-- </div>-->
+<div class="wrapper">
+<nav class="site-nav">
+<a class="menu-icon" href="#">
+<svg viewbox="0 0 18 15">
+<path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z" fill="#424242"></path>
+<path d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z" fill="#424242"></path>
+<path d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z" fill="#424242"></path>
+</svg>
+</a>
+<div class="trigger">
+<!--<script type="text/javascript">
+          var total_images = 2;
+          var random_number = Math.floor((Math.random()*total_images));
+          var random_img = new Array();
+          random_img[0] = '<a href="https://twitter.com/rasbt"><img src="/images/logos/twitter-1.jpg" height="20"></a>';
+          random_img[1] = '<a href="https://linkedin.com/in/sebastianraschka"><img src="/images/logos/linkedin-1.jpg" height="20"></a>';
+          document.write(random_img[random_number]);
+          </script>-->
+<span style="padding-left:0px;margin-left:0px;"></span>
+<a class="page-link" href="https://magazine.sebastianraschka.com"><span style="color:#c5050c;"><img alt="Ahead of AI Logo" height="20" src="../images/ahead-of-ai-icon.png"/> Blog</span></a>
+<!--<a class="page-link" href="/blog/index.html">Blog</a>-->
+<a class="page-link" href="/books">Books</a>
+<!--<a class="page-link" href="/newsletter">AI Newsletter</a>-->
+<!--<a class="page-link" href="/teaching">Courses</a>-->
+<a class="page-link" href="https://github.com/rasbt/LLMs-from-scratch">LLMs From Scratch</a>
+<!--<a class="page-link" href="/publications">Research</a>-->
+<a class="page-link" href="/elsewhere">Talks</a>
+<a class="page-link" href="/contact">Contact</a>
+<a class="page-link" href="/resources">More</a>
+</div>
+</nav>
+</div>
+</header>
+<div class="page-content">
+<div class="wrapper">
+<!-- MathJax script for LaTeX rendering -->
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<!-- Open Graph Metadata -->
+<meta content="article" property="og:type"/>
+<meta content="Chapter 18" property="og:title"/>
+<meta content="" property="og:description"/>
+<meta content="https://sebastianraschka.com" property="og:image"/>
+<meta content="" property="og:image:alt"/>
+<meta content="https://sebastianraschka.com/books/ml-q-and-ai-chapters/ch18/" property="og:url"/>
+<meta content="Sebastian Raschka's Blog" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<!-- Twitter Metadata -->
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Chapter 18" name="twitter:title"/>
+<meta content="" name="twitter:description"/>
+<meta content="https://sebastianraschka.com" name="twitter:image"/>
+<meta content="" name="twitter:image:alt"/>
+<div class="post">
+<header class="post-header">
+<h1 class="post-title" style="text-align: left;">Machine Learning Q and AI</h1>
+<h2 class="post-subtitle">30 Essential Questions and Answers on Machine Learning and AI</h2>
+<p>
+      By Sebastian Raschka. <a href="#table-of-contents">Free to read</a>.
+      Published by <a href="https://nostarch.com/machine-learning-q-and-ai">No Starch Press</a>.<br/>
+      Copyright Â© 2024-2025 by Sebastian Raschka.
+    </p>
+<p>
+<img alt="Machine Learning and Q and AI" class="right-image-shadow-30" src="../images/2023-ml-ai-beyond.jpg"/>
+</p>
+<blockquote>
+      Machine learning and AI are moving at a rapid pace. Researchers and practitioners are constantly struggling to keep up with the breadth of concepts and techniques. This book provides bite-sized bits of knowledge for your journey from machine learning beginner to expert, covering topics from various machine learning areas. Even experienced machine learning researchers and practitioners will encounter something new that they can add to their arsenal of techniques.
+    </blockquote>
+<br/>
+<p><strong>ð Print Book:</strong><br/>
+<a href="https://amzn.to/4488ahe">Amazon</a><br/>
+<a href="https://nostarch.com/machine-learning-q-and-ai">No Starch Press</a>
+</p>
+<p><strong>ð Read Online:</strong><br/>
+<a href="#table-of-contents">Full Book (Free)</a>
+</p>
+</header>
+<article class="post-content">
+<!-- Optional: Anchor Headings -->
+<h1 id="chapter-18-using-and-fine-tuning-pretrained-transformers">
+        
+        
+          Chapter 18: Using and Fine-Tuning Pretrained Transformers <a href="#chapter-18-using-and-fine-tuning-pretrained-transformers"></a>
+</h1>
+<p><span id="ch18" label="ch18"></span></p>
+<p><strong>What are the different ways to use and fine-tune pretrained large language models?</strong></p>
+<p>The three most common ways to use and fine-tune pretrained LLMs include
+a feature-based approach, in-context prompting, and updating a subset of
+the model parameters. First, most pretrained LLMs or language
+transformers can be utilized without the need for further fine-tuning.
+For instance, we can employ a feature-based method to train a new
+downstream model, such as a linear classifier, using embeddings
+generated by a pretrained transformer. Second, we can showcase examples
+of a new task within the input itself, which means we can directly
+exhibit the expected outcomes without requiring any updates or learning
+from the model. This concept is also known as <em>prompting</em>. Finally, itâs
+also possible to fine-tune all or just a small number of parameters to
+achieve the desired outcomes.</p>
+<p>Thefollowingsectionsdiscussthesetypesofapproachesingreaterdepth.</p>
+<h2 id="using-transformers-for-classification-tasks">
+        
+        
+          Using Transformers for Classification Tasks <a href="#using-transformers-for-classification-tasks"></a>
+</h2>
+<p>Letâsstartwiththeconventionalmethodsforutilizingpretrainedtransformers:
+training another model on feature embeddings, fine-tuning outputlayers,
+and fine-tuning all layers. Weâll discuss these in the context of
+classification. (We will revisit prompting later in the section
+âIn-Context Learning, Indexing, and Prompt Tuningâ on pageÂ .)</p>
+<p>In the feature-based approach, we load the pretrained model and keep it
+âfrozen,â meaning we do not update any parameters of the pretrained
+model. Instead, we treat the model as a feature extractor that we apply
+to our new dataset. We then train a downstream model on these
+embeddings.
+Thisdownstreammodelcanbeanymodelwelike(randomforests,XGBoost, and so
+on), but linear classifiers typically perform best. This is likely
+because pretrained transformers like BERT and GPT already extract
+high-quality, in-
+Â formative features from the input data. These feature embeddings often
+capture complex relationships and patterns, making it easy for
+aÂ linearÂ classifier to effectively separate the data into different
+classes. Furthermore, linear classifiers, such as logistic regression
+machines and support vector machines, tend to have strong regularization
+properties. These regularization properties help prevent overfitting
+when working with high-dimensional feature spaces generated by
+pretrained transformers. This feature-based approach is the most
+efficient method since it doesnât require updating the transformer model
+at all. Finally, the embeddings can be precomputed for a given training
+dataset (since they donât change) when training a classifier for
+multiple training epochs.</p>
+<p>FigureÂ <a data-reference="fig:ch18-fig01" data-reference-type="ref" href="#fig:ch18-fig01">1.1</a> illustrates how LLMs are
+typically created and adopted for downstream tasks using fine-tuning.
+Here, a pretrained model, trained on a general text corpus, is
+fine-tuned to perform tasks like German-to-English translation.</p>
+<figure id="fig:ch18-fig01">
+<img src="../images/ch18-fig01.png">
+<figcaption>The general fine-tuning workflow of large language
+models</figcaption>
+</img></figure>
+<p>The conventional methods for fine-tuning pretrained LLMs include
+updating only the output layers, a method weâll refer to as <em>fine-tuning
+I</em>, and updating all layers, which weâll call <em>fine-tuning II</em>.</p>
+<p>Fine-tuning I is similar to the feature-based approach described
+earlier, but it adds one or more output layers to the LLM itself. The
+backbone of the LLM remains frozen, and we update only the model
+parameters in these new layers. Since we donât need to backpropagate
+through the whole network, this approach is relatively efficient
+regarding throughput and memory requirements.</p>
+<p>In fine-tuning II, we load the model and add one or more output layers,
+similarly to fine-tuning I. However, instead of backpropagating only
+through the last layers, we update <em>all</em> layers via backpropagation,
+making this the most expensive approach. While this method is
+computationally more expensive than the feature-based approach and
+fine-tuning I, it typically leads to better modeling or predictive
+performance. This is especially true for more specialized
+domain-specific datasets.</p>
+<p>FigureÂ <a data-reference="fig:ch18-fig02" data-reference-type="ref" href="#fig:ch18-fig02">[fig:ch18-fig02]</a> summarizes the
+three approaches described in this section
+so far.</p>
+<div class="figurewide">
+<img alt="image" src="../images/ch18-fig02.png" style="width:5.625in">
+</img></div>
+<p>In addition to the conceptual summary of the three fine-tuning methods
+described in this section,
+FigureÂ <a data-reference="fig:ch18-fig02" data-reference-type="ref" href="#fig:ch18-fig02">[fig:ch18-fig02]</a> also provides a
+rule-of-thumb guideline for these methods regarding training efficiency.
+Since fine-tuning II involves updating more layers and parameters than
+fine-tuning I, backpropagation is costlier for fine-tuning II. For
+similar reasons, fine-tuning II is costlier than a simpler feature-based
+approach.</p>
+<h2 id="in-context-learning-indexing-and-prompt-tuning">
+        
+        
+          In-Context Learning, Indexing, and Prompt Tuning <a href="#in-context-learning-indexing-and-prompt-tuning"></a>
+</h2>
+<p>LLMs like GPT-2 and GPT-3 popularized the concept of <em>in-context
+learning</em>, often called <em>zero-shot</em> or <em>few-shot learning</em> in this
+context, which is illustrated in
+FigureÂ <a data-reference="fig:ch18-fig03" data-reference-type="ref" href="#fig:ch18-fig03">1.2</a>.</p>
+<figure id="fig:ch18-fig03">
+<img src="../images/ch18-fig03.png" style="width:98.0%">
+<figcaption>Prompting an LLM for in-context learning</figcaption>
+</img></figure>
+<p>As FigureÂ <a data-reference="fig:ch18-fig03" data-reference-type="ref" href="#fig:ch18-fig03">1.2</a> shows, in-context learning aims
+to provide context or examples of the task within the input or prompt,
+allowing the model to infer the desired behavior and generate
+appropriate responses. This approach takes advantage of the modelâs
+ability to learn from vast amounts of data during pretraining, which
+includes diverse tasks and contexts.</p>
+<div class="note">
+
+The definition of few-shot learning, considered synonymous with
+in-context learning-based methods, differs from the conventional
+approach to few-shot learning discussed in
+ChapterÂ <a data-reference="ch03" data-reference-type="ref" href="../ch03">[ch03]</a>.
+
+</div>
+<p>For example, suppose we want to use in-context learning for few-shot
+GermanâEnglish translation using a large-scale pretrained language model
+like GPT-3. To do so, we provide a few examples of GermanâEnglish
+translations to help the model understand the desired task, as follows:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Translate the following German sentences into English:
+
+Example 1:
+German: "Ich liebe Pfannkuchen."
+English: "I love pancakes."
+
+Example 2:
+German: "Das Wetter ist heute schoen."
+English: "The weather is nice today."
+
+Translate this sentence:
+German: "Wo ist die naechste Bushaltestelle?"
+</code></pre></div></div>
+<p>Generally, in-context learning does not perform as well as fine-tuning
+for certain tasks or specific datasets since it relies on the pretrained
+modelâs ability to generalize from its training data without further
+adapting its parameters for the particular task at hand.</p>
+<p>However, in-context learning has its advantages. It can be particularly
+useful when labeled data for fine-tuning is limited or unavailable. It
+also enables rapid experimentation with different tasks without
+fine-tuning the model parameters in cases where we donât have direct
+access to the model or where we interact only with the model through a
+UI or API (for example, ChatGPT).</p>
+<p>Related to in-context learning is the concept of <em>hard prompt tuning</em>,
+where <em>hard</em> refers to the non-differentiable nature of the input
+tokens. Where the previously described fine-tuning methods update the
+model parameters to better perform the task at hand, hard prompt tuning
+aims to optimize the prompt itself to achieve better performance. Prompt
+tuning does not modify the model parameters, but it may involve using a
+smaller labeled dataset to identify the best prompt formulation for the
+specific task. For example, to improve the prompts for the previous
+GermanâEnglish translation task, we might try the following three
+prompting variations:</p>
+<ul>
+<li>
+<p>âTranslate the German sentence â{german_sentence}â into English:
+    {english_translation}â</p>
+</li>
+<li>
+<table>
+<tbody>
+<tr>
+<td>âGerman: â{german_sentence}â</td>
+<td>English: {english_translation}â</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>âFrom German to English: â{german_sentence}â -&gt; {english_translation}â</li>
+</ul>
+<p>Prompttuningisaresource-efficientalternativetoparameterfine-tuning.
+However, its performance is usually not as good as full model
+fine-tuning, as it does not update the modelâs parameters for a specific
+task, potentially limiting its ability to adapt to task-specific
+nuances. Furthermore, prompt tuning can be labor intensive since it
+requires either human involvement comparing the quality of the different
+prompts or another similar method to do so. This is often known as
+<em>hard</em> prompting since, again, the input tokens are not differentiable.
+In addition, other methods exist that propose to use another LLM for
+automatic prompt generation and evaluation.</p>
+<p>Yet another way to leverage a purely in-context learning-based approach
+is <em>indexing</em>, illustrated in
+FigureÂ <a data-reference="fig:ch18-fig04" data-reference-type="ref" href="#fig:ch18-fig04">1.3</a>.</p>
+<figure id="fig:ch18-fig04">
+<img src="../images/ch18-fig04.png">
+<figcaption>LLM indexing to retrieve information from external
+documents</figcaption>
+</img></figure>
+<p>In the context of LLMs,we can think of indexing  as a workaround based on in-context learning that allows us to turn LLMs into information retrieval systems to extract information from external resources and websites. In FigureÂ <a data-reference="fig:ch18-fig04" data-reference-type="ref" href="#fig:ch18-fig04">1.3</a>, an indexing module parses a document or website into smaller chunks, embedded into vectors that can
+be stored in a vector database. When a user submits a query, the indexing module computes the vector similarity between the embedded query and each vector stored in the database. Finally, the indexing module retrieves the top <em>k</em> most similar embeddings to synthesize the response.</p>
+<h2 id="parameter-efficient-fine-tuning">
+        
+        
+          Parameter-Efficient Fine-Tuning <a href="#parameter-efficient-fine-tuning"></a>
+</h2>
+<p>In recent years, many methods have been developed to adapt pretrained
+transformers more efficiently for new target tasks. These methods are
+commonly referred to as <em>parameter-efficient fine-tuning</em>, with the most
+popular methods at the time of writing summarized in
+FigureÂ <a data-reference="fig:ch18-fig05" data-reference-type="ref" href="#fig:ch18-fig05">1.4</a>.</p>
+<figure id="fig:ch18-fig05">
+<img src="../images/ch18-fig05.png">
+<figcaption>The main categories of parameter-efficient<br>
+fine-tuning techniques, with popular examples</br></figcaption>
+</img></figure>
+<p>In contrast to the hard prompting approach discussed in the previous
+section, <em>softprompting</em> strategies optimize embedded versions of the prompts.
+While in hard prompt tuning we modify the discrete input tokens, in soft
+prompt tuning we utilize trainable parameter tensors instead. The idea
+behind soft prompt tuning is to prepend a trainable parameter tensor
+(the âsoft promptâ) to the embedded query tokens. The prepended tensor
+is then tuned to improve the modeling performance on a target data-
+Â set using gradient descent. In Python-like pseudocode, soft prompt
+tuning can be described as</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>x = EmbeddingLayer(input_ids)
+x = concatenate([soft_prompt_tensor, x],
+                 dim=seq_len)
+output = model(x)
+</code></pre></div></div>
+<p>where the <code class="language-plaintext highlighter-rouge">soft_prompt_tensor</code> has the same feature dimension as
+the embedded inputs produced by the embedding layer. Consequently, the
+modified input matrix has additional rows (as if it extended the
+original input sequence with additional tokens, making it longer).</p>
+<p>Another popular prompt tuning method is prefix tuning. <em>Prefix tuning</em>
+is similar to soft prompt tuning, except that in prefix tuning, we
+prepend trainable tensors (soft prompts) to each transformer block
+instead of only the embedded inputs, which can stabilize the training.
+The implementation of prefix tuning is illustrated in the following
+pseudocode:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def transformer_block_with_prefix(x):
+    soft_prompt = FullyConnectedLayers(# Prefix
+      soft_prompt)                     # Prefix
+    x = concatenate([soft_prompt, x],  # Prefix
+                     dim=seq_len)      # Prefix
+    residual = x
+    x = SelfAttention(x)
+    x = LayerNorm(x + residual)
+    residual = x
+    x = FullyConnectedLayers(x)
+    x = LayerNorm(x + residual)
+    return x
+</code></pre></div></div>
+<p>Letâs break ListingÂ <a data-reference="prefixTuning" data-reference-type="ref" href="#prefixTuning">[prefixTuning]</a> into three main parts:
+implementing the soft prompt, concatenating the soft prompt (prefix)
+with the input, and implementing the rest of the transformer block.</p>
+<p>First, the <code class="language-plaintext highlighter-rouge">soft_prompt</code>, a tensor, is processed through a set of fully
+connected layers . Second, the transformed soft prompt is concatenated
+with the main input, <code class="language-plaintext highlighter-rouge">x</code> . The dimension along which they are
+concatenated is denoted by <code class="language-plaintext highlighter-rouge">seq_len</code>, referring to the sequence length
+dimension. Third, the subsequent lines of code describe the standard
+operations in a transformer block, including self-attention, layer
+normalization, and feed-forward neural network layers, wrapped around
+residual connections.</p>
+<p>As shown in ListingÂ <a data-reference="prefixTuning" data-reference-type="ref" href="#prefixTuning">[prefixTuning]</a>, prefix tuning modifies
+a transformer block by adding a trainable soft prompt.
+FigureÂ <a data-reference="fig:ch18-fig06" data-reference-type="ref" href="#fig:ch18-fig06">1.5</a> further illustrates the
+difference between a regular transformer block and a prefix tuning
+transformer block.</p>
+<figure id="fig:ch18-fig06">
+<img src="../images/ch18-fig06.png" style="width:95.0%">
+<figcaption>A regular transformer compared with prefix
+tuning</figcaption>
+</img></figure>
+<p>Both soft prompt tuning and prefix tuning are considered parameter
+efficient since they require training only the prepended parameter
+tensors and not the LLM parameters themselves.</p>
+<p><em>Adaptermethods</em> are related to prefix tuning in that they add additional
+parameters to the transformer layers. In the original adapter method, additionalfully
+connected layers were added after the multihead self-attention
+and existing fully connected layers in each transformer block, as
+illustrated in
+FigureÂ <a data-reference="fig:ch18-fig07" data-reference-type="ref" href="#fig:ch18-fig07">1.6</a>.</p>
+<figure id="fig:ch18-fig07">
+<img src="../images/ch18-fig07.png" style="width:95.0%"/>
+<figcaption>Comparison of a regular transformer block (left) and a
+transformer block with adapter layers</figcaption>
+</figure>
+<p>Only the new adapter layers are updated when training the LLM using the
+original adapter method, while the remaining transformer layers remain
+frozen. Since the adapter layers are usually smallâthe first fully
+connected layer in an adapter block projects its input into a
+low-dimensional representation, while the second layer projects it back
+into the original input dimensionâthis adapter method is usually
+considered parameter efficient.</p>
+<p>In pseudocode, the original adapter method can be written as follows:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def transformer_block_with_adapter(x):
+    residual = x
+    x = SelfAttention(x)
+    x = FullyConnectedLayers(x)  # Adapter
+    x = LayerNorm(x + residual)
+    residual = x
+    x = FullyConnectedLayers(x)
+    x = FullyConnectedLayers(x)  # Adapter
+    x = LayerNorm(x + residual)
+    return x
+</code></pre></div></div>
+<p><em>Low-rankadaptation(LoRA)</em>, another popular parameter-efficient fine-tuning method worth considering,refers to reparameterizing pretrained LLM weights using low-rank transformations. LoRA is related to the conceptof <em>low-ranktransformation</em>, a technique to approximate a high-dimensional
+matrix or dataset using a lower-dimensional representation. The lower-dimensional representation (or<em>low-rankapproximation</em>)is achieved by finding a combination of fewer dimensions that can effectively capture most
+of the information in the original data. Popular low-rank transformation
+techniques include principal component analysis and singular vector
+decomposition.</p>
+<p>For example, suppose \(\Delta\)<em>W</em> represents the parameter update for a
+weight matrix of the LLM with dimension
+\(\mathbb{R}\)<em><sup>A\(\times\)B</sup></em>. We can decompose the weight
+update matrix into two smaller matrices: \(\Delta\)<em>W</em> =
+<em>W<sub>A</sub>W<sub>B</sub></em>, where <em>W<sub>A</sub></em>\(\in\)
+\(\mathbb{R}\)<em><sup>A\(\times\)h</sup></em> and <em>W<sub>A</sub></em>\(\in\)
+\(\mathbb{R}\)<em><sup>h\(\times\)B</sup></em>. Here, we keep the original
+weight frozen and train only the new matrices <em>W<sub>A</sub></em> and
+<em>W<sub>B</sub></em>.</p>
+<p>How is this method parameter efficient if we introduce new weight
+matrices? These new matrices can be very small. For example, if <em>A</em> = 25
+and
+<em>B</em> = 50, then the size of \(\Delta\)<em>W</em> is 25 \(\times\) 50 = 1,250. If
+<em>h</em> = 5, then <em>W<sub>A</sub></em> has 125 parameters, <em>W<sub>B</sub></em> has
+250 parameters, and the two matrices combined have only 125 + 250 = 375
+parameters in total.</p>
+<p>After learning the weight update matrix, we can then write the matrix
+multiplication of a fully connected layer, as shown in this pseudocode:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def lora_forward_matmul(x):
+    h = x . W  # Regular matrix multiplication
+    h += x . (W_A . W_B) * scalar
+    return h
+</code></pre></div></div>
+<p>In ListingÂ <a data-reference="matrixMultiplication" data-reference-type="ref" href="#matrixMultiplication">[matrixMultiplication]</a>,<code class="language-plaintext highlighter-rouge">scalar</code> is a scaling factor that
+adjusts the magnitude of the combined result (original model output plus low-rank adaptation).
+This balances the pretrained modelâs knowledge and the new task-specific adaptation.</p>
+<p>According to the original paper introducing the LoRA method, models
+using LoRA perform slightly better than models using the adapter method
+across several task-specific benchmarks. Often, LoRA performs even
+better than models fine-tuned using the fine-tuning II method described
+earlier.</p>
+<h2 id="reinforcement-learning-with-human-feedback">
+        
+        
+          Reinforcement Learning with Human Feedback <a href="#reinforcement-learning-with-human-feedback"></a>
+</h2>
+<p>The previous section focused on ways to make fine-tuning more efficient.
+Switching gears, how can we improve the modeling performance of LLMs via
+fine-tuning?</p>
+<p>The conventional way to adapt or fine-tune an LLM for a new target
+domain or task is to use a supervised approach with labeled target data.
+For instance, the fine-tuning II approach allows us to adapt a
+pretrained LLM and fine-tune it on a target task such as sentiment
+classification, using a dataset that contains texts with sentiment
+labels like <em>positive</em>, <em>neutral</em>, and <em>negative</em>.</p>
+<p>Supervised fine-tuning is a foundational step in training an LLM. An
+additional, more advanced step is <em>reinforcement learning with human
+feedback (RLHF)</em>, which can be used to further improve the modelâs
+alignment with human preferences. For example, ChatGPT and its
+predecessor, InstructGPT, are two popular examples of pretrained LLMs
+(GPT-3) fine-tuned
+using RLHF.</p>
+<p>In RLHF, a pretrained model is fine-tuned using a combination of
+supervised learning and reinforcement learning. This approach was
+popularized by the original ChatGPT model, which was in turn based on
+InstructGPT. Human feedback is collected by having humans rank or rate
+different model outputs, providing a reward signal. The collected reward
+labels can be used to train a reward model that is then used to guide
+the LLMsâ adaptation to human preferences. The reward model is learned
+via supervised learning, typically using a pretrained LLM as the base
+model, and is then used to adapt the pretrained LLM to human preferences
+via additional fine-tuning. The training in this additional fine-tuning
+stage uses a flavor of reinforcement learning called <em>proximal policy
+optimization</em>.</p>
+<p>RLHF uses a reward model instead of training the pretrained model on the human
+feedback directly because involving humans in the learning process would create a bottleneck
+since we cannot obtain feedback in realtime.</p>
+<h2 id="adapting-pretrained-language-models">
+        
+        
+          Adapting Pretrained Language Models <a href="#adapting-pretrained-language-models"></a>
+</h2>
+<p>While fine-tuning all layers of a pretrained LLM remains the gold
+standard for adaption to new target tasks, several efficient
+alternatives exist for leveraging pretrained transformers. For instance,
+we can effectively apply LLMsto new tasks while minimizing computational
+costs and resources by utilizing feature-based methods, in-context
+learning, or parameter-efficient fine-tuning techniques.</p>
+<p>The three conventional methodsâfeature-based approach, fine-tuningÂ I,
+and fine-tuning IIâprovide different computational efficiency and
+performance trade-offs. Parameter-efficient fine-tuning methods like
+soft prompt tuning, prefix tuning, and adapter methods further optimize
+the adaptation process, reducing the number of parameters to be updated.
+Meanwhile, RLHF presents an alternative approach to supervised
+fine-tuning, potentially improving modeling performance.</p>
+<p>In sum, the versatility and efficiency of pretrained LLMs continue to
+advance, offering new opportunities and strategies for effectively
+adapting these models to a wide array of tasks and domains. As research
+in this area progresses, we can expect further improvements and
+innovations in using pretrained language models.</p>
+<h3 id="exercises">
+        
+        
+          Exercises <a href="#exercises"></a>
+</h3>
+<p>18-1. When does it make more sense to use
+in-context learning rather than fine-tuning, and vice versa?</p>
+<p>18-2. In prefix tuning, adapters, and LoRA, how can
+we ensure that the model preserves (and does not forget) the original
+knowledge?</p>
+<h2 id="references">
+        
+        
+          References <a href="#references"></a>
+</h2>
+<ul>
+<li>
+<p>The paper introducing the GPT-2 model: Alec Radford et al., âLanguage
+Models Are Unsupervised Multitask Learnersâ (2019),
+<a href="https://www.semanticscholar.org/paper/Language-Models-are-Unsupervised-Multitask-Learners-Radford-Wu/9405cc0d6169988371b2755e573cc28650d14dfe"><em>https://</em></a>
+<a href="https://www.semanticscholar.org/paper/Language-Models-are-Unsupervised-Multitask-Learners-Radford-Wu/9405cc0d6169988371b2755e573cc28650d14dfe"><em>www.semanticscholar.org/paper/Language-Models-are-Unsupervised</em></a>
+<a href="https://www.semanticscholar.org/paper/Language-Models-are-Unsupervised-Multitask-Learners-Radford-Wu/9405cc0d6169988371b2755e573cc28650d14dfe"><em>-Multitask-Learners-Radford-Wu/9405cc0d6169988371b2755e573</em></a>
+<a href="https://www.semanticscholar.org/paper/Language-Models-are-Unsupervised-Multitask-Learners-Radford-Wu/9405cc0d6169988371b2755e573cc28650d14dfe"><em>cc28650d14dfe</em></a>.</p>
+</li>
+<li>
+<p>The paper introducing the GPT-3 model: Tom B. Brown et al., âLanguage
+Models Are Few-Shot Learnersâ (2020),
+<a href="https://arxiv.org/abs/2005.14165">https://arxiv.org/abs/2005.14165</a>.</p>
+</li>
+<li>
+<p>The automatic prompt engineering method, which proposes using another
+LLM for automatic prompt generation and evaluation: Yongchao Zhou et
+al., âLarge Language Models Are Human-Level Prompt Engineersâ (2023),
+<a href="https://arxiv.org/abs/2211.01910">https://arxiv.org/abs/2211.01910</a>.</p>
+</li>
+<li>
+<p>LlamaIndex is an example of an indexing approach that leverages
+in-context learning: <a href="https://github.com/jerryjliu/llama_index">https://github.com/jerryjliu/llama_index</a>.</p>
+</li>
+<li>
+<p>DSPy is a popular open source library for retrieval augmentation and
+indexing: <a href="https://github.com/stanfordnlp/dsp">https://github.com/stanfordnlp/dsp</a>.</p>
+</li>
+<li>
+<p>A first instance of soft prompting: Brian Lester, Rami Al-Rfou, and
+Noah Constant, âThe Power of Scale for Parameter-Efficient Prompt
+Tuningâ (2021), <a href="https://arxiv.org/abs/2104.08691">https://arxiv.org/abs/2104.08691</a>.</p>
+</li>
+<li>
+<p>The paper that first described prefix tuning: Xiang Lisa Li and Percy
+Liang, âPrefix-Tuning: Optimizing Continuous Prompts for Generationâ
+(2021), <a href="https://arxiv.org/abs/2101.00190">https://arxiv.org/abs/2101.00190</a>.</p>
+</li>
+<li>
+<p>The paper introducing the original adapter method: Neil Houlsby et
+al., âParameter-Efficient Transfer Learning for NLPâ (2019)
+<a href="https://arxiv.org/abs/1902.00751">https://arxiv.org/abs/1902.00751</a>.</p>
+</li>
+<li>
+<p>The paper introducing the LoRA method: Edward J. Hu et al.,
+âLoRA: Low-Rank Adaptation of Large Language Modelsâ (2021),
+<a href="https://arxiv.org/abs/2106.09685">https://arxiv.org/abs/2106.09685</a>.</p>
+</li>
+<li>
+<p>A survey of more than 40 research papers covering parameter-
+efficient fine-tuning methods: Vladislav Lialin, Vijeta Deshpande, and
+Anna Rumshisky, âScaling Down to Scale Up: A Guide to
+Parameter-Efficient Fine-Tuningâ (2023),
+<a href="https://arxiv.org/abs/2303.15647"><em>https://arxiv.org/abs/</em></a>
+<a href="https://arxiv.org/abs/2303.15647"><em>2303.15647</em></a>.</p>
+</li>
+<li>
+<p>The InstructGPT paper: Long Ouyang et al., âTraining Language Models
+to Follow Instructions with Human Feedbackâ (2022),
+<a href="https://arxiv.org/abs/2203.02155">https://arxiv.org/abs/2203.02155</a>.</p>
+</li>
+<li>
+<p>Proximal policy optimization, which is used for reinforcement learning
+with human feedback: John Schulman et al., âProximal Policy
+Optimization Algorithmsâ (2017), <a href="https://arxiv.org/abs/1707.06347">https://arxiv.org/abs/1707.06347</a>.</p>
+</li>
+</ul>
+</article>
+<br/>
+<hr/>
+<div class="book-promotion" style="margin-top: 50px;">
+<h2>Support the Author</h2>
+<p>You can support the author in the following ways:</p>
+<ul>
+<li>
+        Subscribe to <a href="https://magazine.sebastianraschka.com">Sebastian's Substack blog</a>
+</li>
+<li>
+        Purchase a copy on
+        <a href="https://amzn.to/4488ahe">Amazon</a> or
+        <a href="https://nostarch.com/machine-learning-q-and-ai">No Starch Press</a>
+</li>
+<li>
+        Write an <a href="https://amzn.to/4488ahe">Amazon review</a>
+</li>
+</ul>
+</div>
+<div style="margin-bottom: 50px;"></div>
+</div>
+</div>
+</div>
+<footer class="site-footer">
+<div class="wrapper">
+<div class="footer-col-wrapper">
+<div class="footer-col social-col">
+<a href="https://magazine.sebastianraschka.com"><span><i class="fa fa-rss fa-2x"></i></span> </a>
+<a href="/contact"><span><i class="fa fa-envelope fa-2x"></i></span> </a>
+<a href="https://twitter.com/rasbt"> <span><i class="fa fa-twitter fa-2x"></i></span> </a>
+<a href="https://youtube.com/c/SebastianRaschka"><span><i class="fa fa-youtube fa-2x"></i></span> </a>
+<a href="https://github.com/rasbt"><span><i class="fa fa-github fa-2x"></i> </span></a>
+<a href="https://scholar.google.com/citations?user=X4RCC0IAAAAJ&amp;hl=enrasbt"><span><i class="fa fa-google fa-2x"></i> </span></a>
+<a href="https://linkedin.com/in/sebastianraschka"><span><i class="fa fa-linkedin fa-2x"></i> </span></a>
+</div>
+<div class="footer-col copyright-col">
+<p>© 2013-2025 Sebastian Raschka</p>
+</div>
+</div>
+</div>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-BYQXBRPK81"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BYQXBRPK81');
+</script>
+</footer>
+
+<script src="/js/anchor.min.js" type="text/javascript"></script>
+<script>
+    var selector = 'h2, h3, h4, h5, h6';
+    /*
+    anchors.options = {
+      icon: '#',
+      visible: 'always',
+      placement: 'left',
+      class: 'bb-anchor'
+    }
+    */
+    anchors.add(selector);
+  </script>
+</body>
+</html>

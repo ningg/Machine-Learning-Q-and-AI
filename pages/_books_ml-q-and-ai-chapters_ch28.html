@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width initial-scale=1" name="viewport">
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="Sebastian Raschka" name="author"/>
+<meta content="
+      Chapter 28
+    " property="og:title"/>
+<meta content="
+        I'm an LLM Research Engineer with over a decade of experience in artificial intelligence. My work bridges academia and industry, with roles including senior staff at an AI company and a statistics professor. My expertise lies in LLM research and the development of high-performance AI systems, with a deep focus on practical, code-driven implementations.
+
+      " property="og:description"/>
+<meta content="https://sebastianraschka.com/books/ml-q-and-ai-chapters/ch28/" property="og:url">
+<meta content="Sebastian Raschka, PhD" property="og:site_name">
+<meta content="en_US" property="og:locale">
+<meta content="@rasbt" name="twitter:site">
+<meta content="I'm an LLM Research Engineer with over a decade of experience in artificial intelligence. My work bridges academia and industry, with roles including senior staff at an AI company and a statistics professor. My expertise lies in LLM research and the development of high-performance AI systems, with a deep focus on practical, code-driven implementations.
+" name="twitter:description"/>
+<meta content="article" property="og:type"/>
+<meta content="" property="article:published_time"/>
+<meta content="@rasbt" name="twitter:creator"/>
+<meta content="Chapter 28" name="twitter:title"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="" name="twitter:image"/>
+<title>Chapter 28</title>
+<meta content="I'm an LLM Research Engineer with over a decade of experience in artificial intelligence. My work bridges academia and industry, with roles including senior staff at an AI company and a statistics professor. My expertise lies in LLM research and the development of high-performance AI systems, with a deep focus on practical, code-driven implementations.
+" name="description"/>
+<link href=" /css/combined_direct_no_sass.css" rel="stylesheet"/>
+<link href=" /css/fork-awesome.min.css" rel="stylesheet"/>
+<meta content="Chapter 28" property="og:title"/>
+<meta content="article" property="og:type"/>
+<meta content="https://sebastianraschka.com/books/ml-q-and-ai-chapters/ch28/" property="og:url"/>
+<meta content="" property="og:image"/>
+<meta content="" property="og:description"/>
+<meta content="Sebastian Raschka, PhD" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="" property="fb:admins"/>
+<meta content="" property="fb:app_id"/>
+<link href="https://sebastianraschka.com/books/ml-q-and-ai-chapters/ch28/" rel="canonical"/>
+<link href="/images/favicons/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="/images/favicons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/images/favicons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="/site.webmanifest" rel="manifest"/>
+<link color="#5bbad5" href="/images/favicons/safari-pinned-tab.svg" rel="mask-icon"/>
+<meta content="#ffc40d" name="msapplication-TileColor"/>
+<meta content="#ffffff" name="theme-color"/>
+</meta></meta></meta></meta></meta></head>
+<body>
+<img alt="Ahead of AI logo" src="../images/ahead-of-ai-icon.png" style="display: none;"/>
+<header class="site-header">
+<div class="site-title" style="text-decoration: none; margin-top: 2em;">
+<a href="/"><span style="color:black">Sebastian</span> <span style="color:#c5050c">Raschka</span> </a>
+<a href="https://x.com/rasbt"><img alt="Twitter/X icon" height="20" src="../images/twitter-bw.jpg" style="padding-left:20px;"/></a>
+<!--<a href="https://threads.net/@sebastianraschka"><img src="/images/logos/threads-logo-alt-small.png" height="20" style="padding-left:5px;" alt="Threads icon"></a>-->
+<a href="https://www.linkedin.com/in/sebastianraschka/"><img alt="LinkedIn Icon" height="20" src="../images/linkedin-bw.jpg" style="padding-left:5px;"/></a>
+<a href="https://github.com/rasbt"><img alt="GitHub icon" height="20" src="../images/github-bw.jpg" style="padding-left:5px;"/></a>
+</div>
+<!--  <div style="width:100%;height:50;float:left;margin-bottom:10px;">
+        &nbsp;<a href="https://twitter.com/rasbt"><img src="/images/logos/twitter-bw.jpg" height="20"></a>-->
+<!-- &nbsp;<a href="https://www.buymeacoffee.com/rasbt"><img src="/images/logos/coffee-bw.jpg" height="20"></a>-->
+<!--&nbsp;<a href="https://mastodon.social/@SebRaschka"><img src="/images/logos/mastodon-bw.jpg" height="20"></a>-->
+<!-- </div>-->
+<div class="wrapper">
+<nav class="site-nav">
+<a class="menu-icon" href="#">
+<svg viewbox="0 0 18 15">
+<path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z" fill="#424242"></path>
+<path d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z" fill="#424242"></path>
+<path d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z" fill="#424242"></path>
+</svg>
+</a>
+<div class="trigger">
+<!--<script type="text/javascript">
+          var total_images = 2;
+          var random_number = Math.floor((Math.random()*total_images));
+          var random_img = new Array();
+          random_img[0] = '<a href="https://twitter.com/rasbt"><img src="/images/logos/twitter-1.jpg" height="20"></a>';
+          random_img[1] = '<a href="https://linkedin.com/in/sebastianraschka"><img src="/images/logos/linkedin-1.jpg" height="20"></a>';
+          document.write(random_img[random_number]);
+          </script>-->
+<span style="padding-left:0px;margin-left:0px;"></span>
+<a class="page-link" href="https://magazine.sebastianraschka.com"><span style="color:#c5050c;"><img alt="Ahead of AI Logo" height="20" src="../images/ahead-of-ai-icon.png"/> Blog</span></a>
+<!--<a class="page-link" href="/blog/index.html">Blog</a>-->
+<a class="page-link" href="/books">Books</a>
+<!--<a class="page-link" href="/newsletter">AI Newsletter</a>-->
+<!--<a class="page-link" href="/teaching">Courses</a>-->
+<a class="page-link" href="https://github.com/rasbt/LLMs-from-scratch">LLMs From Scratch</a>
+<!--<a class="page-link" href="/publications">Research</a>-->
+<a class="page-link" href="/elsewhere">Talks</a>
+<a class="page-link" href="/contact">Contact</a>
+<a class="page-link" href="/resources">More</a>
+</div>
+</nav>
+</div>
+</header>
+<div class="page-content">
+<div class="wrapper">
+<!-- MathJax script for LaTeX rendering -->
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<!-- Open Graph Metadata -->
+<meta content="article" property="og:type"/>
+<meta content="Chapter 28" property="og:title"/>
+<meta content="" property="og:description"/>
+<meta content="https://sebastianraschka.com" property="og:image"/>
+<meta content="" property="og:image:alt"/>
+<meta content="https://sebastianraschka.com/books/ml-q-and-ai-chapters/ch28/" property="og:url"/>
+<meta content="Sebastian Raschka's Blog" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<!-- Twitter Metadata -->
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Chapter 28" name="twitter:title"/>
+<meta content="" name="twitter:description"/>
+<meta content="https://sebastianraschka.com" name="twitter:image"/>
+<meta content="" name="twitter:image:alt"/>
+<div class="post">
+<header class="post-header">
+<h1 class="post-title" style="text-align: left;">Machine Learning Q and AI</h1>
+<h2 class="post-subtitle">30 Essential Questions and Answers on Machine Learning and AI</h2>
+<p>
+      By Sebastian Raschka. <a href="#table-of-contents">Free to read</a>.
+      Published by <a href="https://nostarch.com/machine-learning-q-and-ai">No Starch Press</a>.<br/>
+      Copyright Â© 2024-2025 by Sebastian Raschka.
+    </p>
+<p>
+<img alt="Machine Learning and Q and AI" class="right-image-shadow-30" src="../images/2023-ml-ai-beyond.jpg"/>
+</p>
+<blockquote>
+      Machine learning and AI are moving at a rapid pace. Researchers and practitioners are constantly struggling to keep up with the breadth of concepts and techniques. This book provides bite-sized bits of knowledge for your journey from machine learning beginner to expert, covering topics from various machine learning areas. Even experienced machine learning researchers and practitioners will encounter something new that they can add to their arsenal of techniques.
+    </blockquote>
+<br/>
+<p><strong>ð Print Book:</strong><br/>
+<a href="https://amzn.to/4488ahe">Amazon</a><br/>
+<a href="https://nostarch.com/machine-learning-q-and-ai">No Starch Press</a>
+</p>
+<p><strong>ð Read Online:</strong><br/>
+<a href="#table-of-contents">Full Book (Free)</a>
+</p>
+</header>
+<article class="post-content">
+<!-- Optional: Anchor Headings -->
+<h1 id="chapter-28-the-k-in-k-fold-cross-validation">
+        
+        
+          Chapter 28: The k in k-Fold Cross-Validation <a href="#chapter-28-the-k-in-k-fold-cross-validation"></a>
+</h1>
+<p><span id="ch28" label="ch28"></span></p>
+<p><strong>k-fold cross-validation is a common choice for evaluating machine
+learning classifiers because it lets us use all training data to
+simulate how well a machine learning algorithm might perform on new
+data. What are the advantages and disadvantages of choosing a large k?</strong></p>
+<p>We can think of <em>k</em>-fold cross-validation as a workaround for model
+evaluation when we have limited data. In machine learning model
+evaluation, we care about the generalization performance of our model,
+that is, how well it performs on new data. In <em>k</em>-fold cross-validation,
+we use the training data for model selection and evaluation by
+partitioning it into <em>k</em> validation rounds and folds. If we have <em>k</em>
+folds, we have <em>k</em> iterations, leading to <em>k</em> different models, as
+illustrated in
+FigureÂ <a data-reference="fig:ch28-fig01" data-reference-type="ref" href="#fig:ch28-fig01">1.1</a>.</p>
+<figure id="fig:ch28-fig01">
+<img src="../images/ch28-fig01.png">
+<figcaption>An example of <span class="upright">k</span>-fold
+cross-validation for model evaluation where <span class="upright">k</span> = 5</figcaption>
+</img></figure>
+<p>Using <em>k</em>-fold cross-validation, we usually evaluate the performance of
+a particular hyperparameter configuration by computing the average
+performance over the <em>k</em> models. This performance reflects or
+approximates the performance of a model trained on the complete training
+dataset after evaluation.</p>
+<p>The following sections cover the trade-offs of selecting values for <em>k</em>
+in
+<em>k</em>-fold cross-validation and address the challenges of large <em>k</em> values
+and their computational demands, especially in deep learning contexts.
+We then discuss the core purposes of <em>k</em> and how to choose an
+appropriate value based on specific modeling needs.</p>
+<h2 id="trade-offs-in-selecting-values-for-k">
+        
+        
+          Trade-offs in Selecting Values for k <a href="#trade-offs-in-selecting-values-for-k"></a>
+</h2>
+<p>If <em>k</em> is too large, the training sets are too similar between the
+different rounds of cross-validation. The <em>k</em> models are thus very
+similar to the model we obtain by training on the whole training set. In
+this case, we can still leverage the advantage of <em>k</em>-fold
+cross-validation: evaluating the performance for the entire training set
+via the held-out validation fold in each round. (Here, we obtain the
+training set by concatenating all <em>k</em> â 1 training folds in a given
+iteration.) However, a disadvantage of a large <em>k</em> is that it is more
+challenging to analyze how the machine learning algorithm with the
+particular choice of hyperparameter setting behaves on different
+training datasets.</p>
+<p>Besides the issue of too-similar datasets, running <em>k</em>-fold
+cross-validation with a large value of <em>k</em> is also computationally more
+demanding. A larger <em>k</em> is more expensive since it increases both the
+number of iterations and the training set size at each iteration. This
+is especially problematic if we work with relatively large models that
+are expensive to train, such as contemporary deep neural networks.</p>
+<p>A common choice for <em>k</em> is typically 5 or 10, for practical and
+historical reasons. A study by Ron Kohavi (see ââ at the end of this
+chapter) found that <em>k</em> = 10 offers a good bias and variance trade-off
+for classical machine learning algorithms, such as decision trees and
+naive Bayes classifiers, on a handful of small datasets.</p>
+<p>For example, in 10-fold cross-validation, we use 9/10 (90 percent) of
+the data for training in each round, whereas in 5-fold cross-validation,
+we use only 4/5 (80 percent) of the data, as shown in
+FigureÂ <a data-reference="fig:ch28-fig02" data-reference-type="ref" href="#fig:ch28-fig02">1.2</a>.</p>
+<figure id="fig:ch28-fig02">
+<img src="../images/ch28-fig02.png">
+<figcaption>A comparison of 5-fold and 10-fold
+cross-validation</figcaption>
+</img></figure>
+<p>However, this does not mean large training sets are bad, since they can
+reduce the pessimistic bias of the performance estimate (mostly a good
+thing) if we assume that the model training can benefit from more
+training data. (See
+FigureÂ <a data-reference="fig:ch05-fig01" data-reference-type="ref" href="#fig:ch05-fig01">[fig:ch05-fig01]</a> on pageÂ  for an
+example of a learning curve.)</p>
+<p>In practice, both a very small and a very large <em>k</em> may increase
+variance. For instance, a larger <em>k</em> makes the training folds more
+similar to each other since a smaller proportion is left for the
+held-out validation sets. Since the training folds are more similar, the
+models in each round will be more similar. In practice, we may observe
+that the variance of the held-out validation fold scores is more similar
+for larger values of <em>k</em>. On the other hand, when <em>k</em> is large, the
+validation sets are small, so they may contain more random noise or be
+more susceptible to quirks of the data, leading to more variation in the
+validation scores across the different folds. Even though the models
+themselves are more similar (since the training sets are more similar),
+the validation scores may be more sensitive to the particularities of
+the small validation sets, leading to higher variance in the overall
+cross-validation score.</p>
+<h2 id="determining-appropriate-values-for-k">
+        
+        
+          Determining Appropriate Values for k <a href="#determining-appropriate-values-for-k"></a>
+</h2>
+<p>When deciding upon an appropriate value of <em>k</em>, we are often guided by
+computational performance and conventions. However, itâs worthwhile to
+define the purpose and context of using <em>k</em>-fold cross-validation. For
+example,
+if we care primarily about approximating the predictive performance of
+the final model, using a large <em>k</em> makes sense. This way, the training
+folds are very similar to the combined training dataset, yet we still
+get to evaluate the model on all data points via the validation folds.</p>
+<p>On the other hand, if we care to evaluate how sensitive a given
+hyperparameter configuration and training pipeline is to different
+training datasets, then choosing a smaller number for <em>k</em> makes more
+sense.</p>
+<p>Since most practical scenarios consist of two stepsâtuning
+hyperparameters and evaluating the performance of a modelâwe can also
+consider a two-step procedure. For instance, we can use a smaller <em>k</em>
+during hyperparameter tuning. This will help speed up the hyperparameter
+search and probe the hyperparameter configurations for robustness (in
+addition to the average performance, we can also consider the variance
+as a selection criterion). Then, after hyperparameter tuning and
+selection, we can increase the value of <em>k</em> to evaluate the model.</p>
+<p>However, reusing the same dataset for model selection and evaluation
+introduces biases, and it is usually better to use a separate test set
+for model evaluation. Also, nested cross-validation may be preferred as
+an alternative to <em>k</em>-fold cross-validation.</p>
+<h3 id="exercises">
+        
+        
+          Exercises <a href="#exercises"></a>
+</h3>
+<p>28-1. Suppose we want to provide a model
+with as much training data as possible. We consider using <em>leave-one-out
+cross-validation (LOOCV)</em>, a special case of <em>k</em>-fold cross-validation
+where <em>k</em> is equal to the number of training examples, such that the
+validation folds contain only a single data point. A colleague mentions
+that LOOCV is defective for discontinuous loss functions and performance
+measures such as classification accuracy. For instance, for a validation
+fold consisting of only one example, the accuracy is always either 0 (0
+percent) or 1 (99 percent). Is this really a problem?</p>
+<p>28-2. This chapter discussed model selection and
+model evaluation as two use cases of <em>k</em>-fold cross-validation. Can you
+think of other use cases?</p>
+<h2 id="references">
+        
+        
+          References <a href="#references"></a>
+</h2>
+<ul>
+<li>
+<p>For a longer and more detailed explanation of why and how to use
+<em>k</em>-fold cross-validation, see my article: âModel Evaluation, Model
+Selection, and Algorithm Selection in Machine Learningâ (2018),
+<a href="https://arxiv.org/abs/1811.12808">https://arxiv.org/abs/1811.12808</a>.</p>
+</li>
+<li>
+<p>The paper that popularized the recommendation of choosing <em>k</em> = 5 and
+<em>k</em> = 10: Ron Kohavi, âA Study of Cross-Validation and Bootstrap for
+Accuracy Estimation and Model Selectionâ (1995),
+<a href="https://dl.acm.org/doi/10.5555/1643031.1643047">https://dl.acm.org/doi/10.5555/1643031.1643047</a>.</p>
+</li>
+</ul>
+</article>
+<br/>
+<hr/>
+<div class="book-promotion" style="margin-top: 50px;">
+<h2>Support the Author</h2>
+<p>You can support the author in the following ways:</p>
+<ul>
+<li>
+        Subscribe to <a href="https://magazine.sebastianraschka.com">Sebastian's Substack blog</a>
+</li>
+<li>
+        Purchase a copy on
+        <a href="https://amzn.to/4488ahe">Amazon</a> or
+        <a href="https://nostarch.com/machine-learning-q-and-ai">No Starch Press</a>
+</li>
+<li>
+        Write an <a href="https://amzn.to/4488ahe">Amazon review</a>
+</li>
+</ul>
+</div>
+<div style="margin-bottom: 50px;"></div>
+</div>
+</div>
+</div>
+<footer class="site-footer">
+<div class="wrapper">
+<div class="footer-col-wrapper">
+<div class="footer-col social-col">
+<a href="https://magazine.sebastianraschka.com"><span><i class="fa fa-rss fa-2x"></i></span> </a>
+<a href="/contact"><span><i class="fa fa-envelope fa-2x"></i></span> </a>
+<a href="https://twitter.com/rasbt"> <span><i class="fa fa-twitter fa-2x"></i></span> </a>
+<a href="https://youtube.com/c/SebastianRaschka"><span><i class="fa fa-youtube fa-2x"></i></span> </a>
+<a href="https://github.com/rasbt"><span><i class="fa fa-github fa-2x"></i> </span></a>
+<a href="https://scholar.google.com/citations?user=X4RCC0IAAAAJ&amp;hl=enrasbt"><span><i class="fa fa-google fa-2x"></i> </span></a>
+<a href="https://linkedin.com/in/sebastianraschka"><span><i class="fa fa-linkedin fa-2x"></i> </span></a>
+</div>
+<div class="footer-col copyright-col">
+<p>© 2013-2025 Sebastian Raschka</p>
+</div>
+</div>
+</div>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-BYQXBRPK81"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BYQXBRPK81');
+</script>
+</footer>
+
+<script src="/js/anchor.min.js" type="text/javascript"></script>
+<script>
+    var selector = 'h2, h3, h4, h5, h6';
+    /*
+    anchors.options = {
+      icon: '#',
+      visible: 'always',
+      placement: 'left',
+      class: 'bb-anchor'
+    }
+    */
+    anchors.add(selector);
+  </script>
+</body>
+</html>

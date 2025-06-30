@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width initial-scale=1" name="viewport">
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="Sebastian Raschka" name="author"/>
+<meta content="
+      Chapter 07
+    " property="og:title"/>
+<meta content="
+        I'm an LLM Research Engineer with over a decade of experience in artificial intelligence. My work bridges academia and industry, with roles including senior staff at an AI company and a statistics professor. My expertise lies in LLM research and the development of high-performance AI systems, with a deep focus on practical, code-driven implementations.
+
+      " property="og:description"/>
+<meta content="https://sebastianraschka.com/books/ml-q-and-ai-chapters/ch07/" property="og:url">
+<meta content="Sebastian Raschka, PhD" property="og:site_name">
+<meta content="en_US" property="og:locale">
+<meta content="@rasbt" name="twitter:site">
+<meta content="I'm an LLM Research Engineer with over a decade of experience in artificial intelligence. My work bridges academia and industry, with roles including senior staff at an AI company and a statistics professor. My expertise lies in LLM research and the development of high-performance AI systems, with a deep focus on practical, code-driven implementations.
+" name="twitter:description"/>
+<meta content="article" property="og:type"/>
+<meta content="" property="article:published_time"/>
+<meta content="@rasbt" name="twitter:creator"/>
+<meta content="Chapter 07" name="twitter:title"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="" name="twitter:image"/>
+<title>Chapter 07</title>
+<meta content="I'm an LLM Research Engineer with over a decade of experience in artificial intelligence. My work bridges academia and industry, with roles including senior staff at an AI company and a statistics professor. My expertise lies in LLM research and the development of high-performance AI systems, with a deep focus on practical, code-driven implementations.
+" name="description"/>
+<link href=" /css/combined_direct_no_sass.css" rel="stylesheet"/>
+<link href=" /css/fork-awesome.min.css" rel="stylesheet"/>
+<meta content="Chapter 07" property="og:title"/>
+<meta content="article" property="og:type"/>
+<meta content="https://sebastianraschka.com/books/ml-q-and-ai-chapters/ch07/" property="og:url"/>
+<meta content="" property="og:image"/>
+<meta content="" property="og:description"/>
+<meta content="Sebastian Raschka, PhD" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="" property="fb:admins"/>
+<meta content="" property="fb:app_id"/>
+<link href="https://sebastianraschka.com/books/ml-q-and-ai-chapters/ch07/" rel="canonical"/>
+<link href="/images/favicons/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="/images/favicons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/images/favicons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="/site.webmanifest" rel="manifest"/>
+<link color="#5bbad5" href="/images/favicons/safari-pinned-tab.svg" rel="mask-icon"/>
+<meta content="#ffc40d" name="msapplication-TileColor"/>
+<meta content="#ffffff" name="theme-color"/>
+</meta></meta></meta></meta></meta></head>
+<body>
+<img alt="Ahead of AI logo" src="../images/ahead-of-ai-icon.png" style="display: none;"/>
+<header class="site-header">
+<div class="site-title" style="text-decoration: none; margin-top: 2em;">
+<a href="/"><span style="color:black">Sebastian</span> <span style="color:#c5050c">Raschka</span> </a>
+<a href="https://x.com/rasbt"><img alt="Twitter/X icon" height="20" src="../images/twitter-bw.jpg" style="padding-left:20px;"/></a>
+<!--<a href="https://threads.net/@sebastianraschka"><img src="/images/logos/threads-logo-alt-small.png" height="20" style="padding-left:5px;" alt="Threads icon"></a>-->
+<a href="https://www.linkedin.com/in/sebastianraschka/"><img alt="LinkedIn Icon" height="20" src="../images/linkedin-bw.jpg" style="padding-left:5px;"/></a>
+<a href="https://github.com/rasbt"><img alt="GitHub icon" height="20" src="../images/github-bw.jpg" style="padding-left:5px;"/></a>
+</div>
+<!--  <div style="width:100%;height:50;float:left;margin-bottom:10px;">
+        &nbsp;<a href="https://twitter.com/rasbt"><img src="/images/logos/twitter-bw.jpg" height="20"></a>-->
+<!-- &nbsp;<a href="https://www.buymeacoffee.com/rasbt"><img src="/images/logos/coffee-bw.jpg" height="20"></a>-->
+<!--&nbsp;<a href="https://mastodon.social/@SebRaschka"><img src="/images/logos/mastodon-bw.jpg" height="20"></a>-->
+<!-- </div>-->
+<div class="wrapper">
+<nav class="site-nav">
+<a class="menu-icon" href="#">
+<svg viewbox="0 0 18 15">
+<path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z" fill="#424242"></path>
+<path d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z" fill="#424242"></path>
+<path d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z" fill="#424242"></path>
+</svg>
+</a>
+<div class="trigger">
+<!--<script type="text/javascript">
+          var total_images = 2;
+          var random_number = Math.floor((Math.random()*total_images));
+          var random_img = new Array();
+          random_img[0] = '<a href="https://twitter.com/rasbt"><img src="/images/logos/twitter-1.jpg" height="20"></a>';
+          random_img[1] = '<a href="https://linkedin.com/in/sebastianraschka"><img src="/images/logos/linkedin-1.jpg" height="20"></a>';
+          document.write(random_img[random_number]);
+          </script>-->
+<span style="padding-left:0px;margin-left:0px;"></span>
+<a class="page-link" href="https://magazine.sebastianraschka.com"><span style="color:#c5050c;"><img alt="Ahead of AI Logo" height="20" src="../images/ahead-of-ai-icon.png"/> Blog</span></a>
+<!--<a class="page-link" href="/blog/index.html">Blog</a>-->
+<a class="page-link" href="/books">Books</a>
+<!--<a class="page-link" href="/newsletter">AI Newsletter</a>-->
+<!--<a class="page-link" href="/teaching">Courses</a>-->
+<a class="page-link" href="https://github.com/rasbt/LLMs-from-scratch">LLMs From Scratch</a>
+<!--<a class="page-link" href="/publications">Research</a>-->
+<a class="page-link" href="/elsewhere">Talks</a>
+<a class="page-link" href="/contact">Contact</a>
+<a class="page-link" href="/resources">More</a>
+</div>
+</nav>
+</div>
+</header>
+<div class="page-content">
+<div class="wrapper">
+<!-- MathJax script for LaTeX rendering -->
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<!-- Open Graph Metadata -->
+<meta content="article" property="og:type"/>
+<meta content="Chapter 07" property="og:title"/>
+<meta content="" property="og:description"/>
+<meta content="https://sebastianraschka.com" property="og:image"/>
+<meta content="" property="og:image:alt"/>
+<meta content="https://sebastianraschka.com/books/ml-q-and-ai-chapters/ch07/" property="og:url"/>
+<meta content="Sebastian Raschka's Blog" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<!-- Twitter Metadata -->
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Chapter 07" name="twitter:title"/>
+<meta content="" name="twitter:description"/>
+<meta content="https://sebastianraschka.com" name="twitter:image"/>
+<meta content="" name="twitter:image:alt"/>
+<div class="post">
+<header class="post-header">
+<h1 class="post-title" style="text-align: left;">Machine Learning Q and AI</h1>
+<h2 class="post-subtitle">30 Essential Questions and Answers on Machine Learning and AI</h2>
+<p>
+      By Sebastian Raschka. <a href="#table-of-contents">Free to read</a>.
+      Published by <a href="https://nostarch.com/machine-learning-q-and-ai">No Starch Press</a>.<br/>
+      Copyright Â© 2024-2025 by Sebastian Raschka.
+    </p>
+<p>
+<img alt="Machine Learning and Q and AI" class="right-image-shadow-30" src="../images/2023-ml-ai-beyond.jpg"/>
+</p>
+<blockquote>
+      Machine learning and AI are moving at a rapid pace. Researchers and practitioners are constantly struggling to keep up with the breadth of concepts and techniques. This book provides bite-sized bits of knowledge for your journey from machine learning beginner to expert, covering topics from various machine learning areas. Even experienced machine learning researchers and practitioners will encounter something new that they can add to their arsenal of techniques.
+    </blockquote>
+<br/>
+<p><strong>ð Print Book:</strong><br/>
+<a href="https://amzn.to/4488ahe">Amazon</a><br/>
+<a href="https://nostarch.com/machine-learning-q-and-ai">No Starch Press</a>
+</p>
+<p><strong>ð Read Online:</strong><br/>
+<a href="#table-of-contents">Full Book (Free)</a>
+</p>
+</header>
+<article class="post-content">
+<!-- Optional: Anchor Headings -->
+<h1 id="chapter-7-multi-gpu-training-paradigms">
+        
+        
+          Chapter 7: Multi-GPU Training Paradigms <a href="#chapter-7-multi-gpu-training-paradigms"></a>
+</h1>
+<p><span id="ch07" label="ch07"></span></p>
+<p><strong>What are the different multi-GPU training paradigms, and what are their
+respective advantages and disadvantages?</strong></p>
+<p>Multi-GPU training paradigms can be categorized into two groups:
+dividing data for parallel processing with multiple GPUs and dividing
+the model among multiple GPUs to handle memory constraints when the
+model size surpasses that of a single GPU. Data parallelism falls into
+the first category, while model parallelism and tensor parallelism fall
+into the second category. Techniques like pipeline parallelism borrow
+ideas from both categories. In addition, current software
+implementations such as DeepSpeed, Colossal AI, and others blend
+multiple approaches into a hybrid technique.</p>
+<p>This chapter introduces several training paradigms and provides advice
+on which to use in practice.</p>
+<div class="note">
+
+This chapter primarily uses the term <span class="upright">GPUs</span>
+to describe the hardware utilized for parallel processing. However, the
+same concepts and techniques discussed can be applied to other
+specialized hardware devices, such as tensor processing units (TPUs) or
+other accelerators, depending on the specific architecture and
+requirements of the system.
+
+</div>
+<h2 id="the-training-paradigms">
+        
+        
+          The Training Paradigms <a href="#the-training-paradigms"></a>
+</h2>
+<p>The following sections discuss the model parallelism, data parallelism,
+tensor parallelism, and sequence parallelism multi-GPU training
+paradigms.</p>
+<h3 id="model-parallelism">
+        
+        
+          Model Parallelism <a href="#model-parallelism"></a>
+</h3>
+<p><em>Model parallelism</em>, or <em>inter-op parallelism</em>, is a technique in which
+different sections of a large model are placed on different GPUs and are
+computed sequentially, with intermediate results passed between the
+devices. This allows for the training and execution of models that might
+not fit entirely on a single device, but it can require intricate
+coordination to manage the dependencies between different parts of the
+model.</p>
+<p>Model parallelism is perhaps the most intuitive form of parallelization
+across devices. For example, for a simple neural network that consists
+of only two layersâa hidden layer and an output layerâwe can keep one
+layer on one GPU and the other layer on another GPU. Of course, this can
+scale to an arbitrary number of layers and GPUs.</p>
+<p>This is a good strategy for dealing with limited GPU memory where the
+complete network does not fit into one GPU. However, there are more
+efficient ways of using multiple GPUs, such as tensor parallelism,
+because the chain-like structure (layer 1 on GPU 1 \(\rightarrow\) layer
+2 on GPU 2 \(\rightarrow\) .â.â.) in model parallelism introduces a
+bottleneck. In other words, a major disadvantage of model parallelism is
+that the GPUs have to wait for each other. They cannot efficiently work
+in parallel, as they depend on one otherâs outputs.</p>
+<h3 id="data-parallelism">
+        
+        
+          Data Parallelism <a href="#data-parallelism"></a>
+</h3>
+<p><em>Data parallelism</em> has been the default mode for multi-GPU training for
+several years. Here, we divide a minibatch into smaller microbatches.
+Each GPU then processes a microbatch separately to compute the loss and
+loss gradients for the model weights. After the individual devices
+process the
+microbatches, the gradients are combined to compute the weight update
+for the next round.</p>
+<p>An advantage of data parallelism over model parallelism is that the
+GPUs can run in parallel. Each GPU processes a portion of the training
+minibatch, that is, a microbatch. However, a caveat is that each GPU
+requires a full copy of the model. This is obviously not feasible if we
+have
+large models that donât fit into the GPUâs VRAM.</p>
+<h3 id="tensor-parallelism">
+        
+        
+          Tensor Parallelism <a href="#tensor-parallelism"></a>
+</h3>
+<p><em>Tensor parallelism</em>, or <em>intra-op parallelism</em>, is a more efficient
+form of model parallelism. Here, the weight and activation matrices are
+spread across the devices instead of distributing whole layers across
+devices: the individual matrices are split, so we split an individual
+matrix multiplication across GPUs.</p>
+<p>We can implement tensor parallelism using basic principles of linear
+algebra; we can split a matrix multiplication across two GPUs in a row-
+or column-wise fashion, as illustrated in
+FigureÂ <a data-reference="fig:ch07-fig01" data-reference-type="ref" href="#fig:ch07-fig01">[fig:ch07-fig01]</a> for two GPUs. (This
+concept can be extended to an arbitrary number of GPUs.)</p>
+<div class="figurewide">
+<img alt="image" src="../images/ch07-fig01.png" style="width:5.525in">
+</img></div>
+<p>Like model parallelism, tensor parallelism allows us to work around
+memory limitations. At the same time, it also lets us execute operations
+in parallel, similar to data parallelism.</p>
+<p>A small weakness of tensor parallelism is that it can result in high
+communication overhead between the multiple GPUs across which the
+matrices are split or sharded. For instance, tensor parallelism requires
+frequent synchronization of the model parameters across devices, which
+can slow down the overall training process.</p>
+<p>FigureÂ <a data-reference="fig:ch07-fig02" data-reference-type="ref" href="#fig:ch07-fig02">1.1</a> compares model, data, and tensor
+parallelism.</p>
+<figure id="fig:ch07-fig02">
+<img src="../images/ch07-fig02.png" style="width:98.0%">
+<figcaption>A comparison of model, data, and tensor
+parallelism</figcaption>
+</img></figure>
+<p>In model parallelism, we put different layers onto different GPUs to
+work around GPU memory limitations. In data parallelism, we split a
+batch across GPUs to train copies of the model in parallel, averaging
+gradients for the weight update afterward. In tensor parallelism, we
+split matrices (inputs and weights) across different GPUs for parallel
+processing when models are too large to fit into GPU memory.</p>
+<h3 id="pipeline-parallelism">
+        
+        
+          Pipeline Parallelism <a href="#pipeline-parallelism"></a>
+</h3>
+<p>In <em>pipeline parallelism</em>, activations are passed during the forward
+pass, as in model parallelism. The twist is that the gradients of the
+input tensor are passed backward to prevent the devices from being idle.
+In a sense, pipeline parallelism is a sophisticated hybrid version of
+data and model parallelism.</p>
+<p>We can think of pipeline parallelism as a form of model parallelism that
+tries to minimize the sequential computation bottleneck, enhancing the
+parallelism between the individual layers sitting on different devices.
+However, pipeline parallelism also borrows ideas from data parallelism,
+such as splitting minibatches further into microbatches.</p>
+<p>Pipeline parallelism is definitely an improvement over model
+parallelism, though it is not perfect and there will be idle bubbles. A
+further disadvantage of pipeline parallelism is that it may require
+significant effort to design and implement the pipeline stages and
+associated communication patterns. Additionally, the performance gains
+it generates may not be as substantial as those from other
+parallelization techniques, such as pure data parallelism, especially
+for small models or in cases where the communication overhead is high.</p>
+<p>For modern architectures that are too large to fit into GPU memory, it
+is more common nowadays to use a blend of data parallelism and tensor
+parallelism techniques instead of pipeline parallelism.</p>
+<h3 id="sequence-parallelism">
+        
+        
+          Sequence Parallelism <a href="#sequence-parallelism"></a>
+</h3>
+<p><em>Sequence parallelism</em> aims to address computational bottlenecks when
+working with long sequences using transformer-based LLMs. More
+specifically, one shortcoming of transformers is that the self-attention
+mechanism (the original scaled-dot product attention) scales
+quadratically with the input sequence length. There are, of course, more
+efficient alternatives to the original attention mechanism that scale
+linearly.</p>
+<p>However, these efficient self-attention mechanisms are less popular, and
+most people still prefer the original scaled-dot product attention
+mechanism as of this writing. Sequence parallelism, illustrated in
+FigureÂ <a data-reference="fig:ch07-fig03" data-reference-type="ref" href="#fig:ch07-fig03">1.2</a>, splits the input sequence into
+smaller chunks to be distributed across GPUs, which aims to reduce
+computation memory constraints of self-attention mechanisms.</p>
+<figure id="fig:ch07-fig03">
+<img src="../images/ch07-fig03.png">
+<figcaption>Sequence parallelism divides long inputs<br>
+among GPUs.</br></figcaption>
+</img></figure>
+<p>How does sequence parallelism relate to the multi-GPU techniques
+discussed earlier? Sequence parallelism deals specifically with
+sequential data, tensor parallelism deals with the modelâs internal
+structure, and data parallelism deals with how the training data is
+divided. Theoretically, since each of these parallelism strategies
+addresses a different aspect of the computational challenge, they can
+thus be combined in various ways to optimize the training or inference
+process. Sequence parallelism is not as well studied as other
+parallelization techniques, however.</p>
+<p>While sequence parallelism appears useful in practice, it also
+introduces additional communication overheads similar to the
+aforementioned parallelism techniques. Like data parallelism, it
+requires us to duplicate the model and make sure it fits into the device
+memory. Another of its disadvantages (depending on the implementation)
+for multi-GPU training of transformers is that breaking up the input
+sequence into smaller subsequences can decrease the modelâs accuracy
+(mainly when the model is applied to longer sequences).</p>
+<h2 id="recommendations">
+        
+        
+          Recommendations <a href="#recommendations"></a>
+</h2>
+<p>Practical recommendations depend on the context. If we train small
+models that fit onto a single GPU, then data parallelism strategies may
+be the most efficient. Performance gains from pipeline parallelism may
+not be as significant as those from other parallelization techniques,
+such as data parallelism, especially for small models or in cases where
+the communication overhead
+is high.</p>
+<p>If models are too large to fit into the memory of a single GPU, we need
+to explore model or tensor parallelism. Tensor parallelism is naturally
+moreefficient; the GPUs can work in parallel since there is no
+sequential dependency as in model parallelism.</p>
+<p>Modern multi-GPU strategies also typically combine data parallelism and
+tensor parallelism.</p>
+<h3 id="exercises">
+        
+        
+          Exercises <a href="#exercises"></a>
+</h3>
+<p>7-1. Suppose we are implementing our own
+version of tensor parallelism, which works great when we train our model
+with a standard stochastic gradient descent optimizer. However, when we
+try the Adam optimizer by Diederik P. Kingma and Jimmy Ba, we encounter
+an out-of-memory device. What problem might explain this issue?</p>
+<p>7-2. Suppose we donât have access to a GPU and are
+considering using data parallelism on the CPU. Is this a good idea?</p>
+<h2 id="references">
+        
+        
+          References <a href="#references"></a>
+</h2>
+<ul>
+<li>
+<p>The original paper on the Adam optimizer: Diederik P. Kingma and Jimmy
+Ba, âAdam: A Method for Stochastic Optimizationâ (2014),
+<a href="https://arxiv.org/abs/1412.6980">https://arxiv.org/abs/1412.6980</a>.</p>
+</li>
+<li>
+<p>FormoreonDeepSpeedandColossal-AIformulti-GPUtraining:
+<a href="https://github.com/microsoft/DeepSpeed">https://github.com/microsoft/DeepSpeed</a> and
+<a href="https://github.com/hpcaitech/ColossalAI">https://github.com/hpcaitech/ColossalAI</a>.</p>
+</li>
+<li>
+<p>Pipeline parallelism tutorials and research by the DeepSpeed team:
+<a href="https://www.deepspeed.ai/tutorials/pipeline">https://www.deepspeed.ai/tutorials/pipeline</a> and Yanping Huang et
+al., âGPipe: Efficient Training of Giant Neural Networks Using
+Pipeline Parallelismâ (2018), <a href="https://arxiv.org/abs/1811.06965">https://arxiv.org/abs/1811.06965</a>.</p>
+</li>
+<li>
+<p>The paper proposing sequence parallelism for transformer-based
+language models: Shenggui Li et al., âSequence Parallelism: Long
+Sequence Training from [a] System[s] Perspectiveâ (2022),
+<a href="https://arxiv.org/abs/2105.13120">https://arxiv.org/abs/2105.13120</a>.</p>
+</li>
+<li>
+<p>The scaled-dot product attention mechanism was proposed with the
+original transformer architecture: Ashish Vaswani et al., âAttention
+Is All You Needâ (2017), <a href="https://arxiv.org/abs/1706.03762">https://arxiv.org/abs/1706.03762</a>.</p>
+</li>
+<li>
+<p>A survey covering alternatives to the original self-attention
+mechanism that scale linearly: Yi Tay et al., âEfficient Transformers:
+A Surveyâ (2020), <a href="https://arxiv.org/abs/2009.06732">https://arxiv.org/abs/2009.06732</a>.</p>
+</li>
+<li>
+<p>A survey covering additional techniques to improve the training
+efficiency of transformers: Bohan Zhuang et al., âA Survey on
+Efficient Training of Transformersâ (2023),
+<a href="https://arxiv.org/abs/2302.01107">https://arxiv.org/abs/2302.01107</a>.</p>
+</li>
+<li>
+<p>Modern multi-GPU strategies typically combine data parallelism and
+tensor parallelism. Popular examples include DeepSpeed stages 2
+and 3, described in this tutorial on the zero redundancy optimizer:
+<a href="https://www.deepspeed.ai/tutorials/zero/">https://www.deepspeed.ai/tutorials/zero/</a>.</p>
+</li>
+</ul>
+</article>
+<br/>
+<hr/>
+<div class="book-promotion" style="margin-top: 50px;">
+<h2>Support the Author</h2>
+<p>You can support the author in the following ways:</p>
+<ul>
+<li>
+        Subscribe to <a href="https://magazine.sebastianraschka.com">Sebastian's Substack blog</a>
+</li>
+<li>
+        Purchase a copy on
+        <a href="https://amzn.to/4488ahe">Amazon</a> or
+        <a href="https://nostarch.com/machine-learning-q-and-ai">No Starch Press</a>
+</li>
+<li>
+        Write an <a href="https://amzn.to/4488ahe">Amazon review</a>
+</li>
+</ul>
+</div>
+<div style="margin-bottom: 50px;"></div>
+</div>
+</div>
+</div>
+<footer class="site-footer">
+<div class="wrapper">
+<div class="footer-col-wrapper">
+<div class="footer-col social-col">
+<a href="https://magazine.sebastianraschka.com"><span><i class="fa fa-rss fa-2x"></i></span> </a>
+<a href="/contact"><span><i class="fa fa-envelope fa-2x"></i></span> </a>
+<a href="https://twitter.com/rasbt"> <span><i class="fa fa-twitter fa-2x"></i></span> </a>
+<a href="https://youtube.com/c/SebastianRaschka"><span><i class="fa fa-youtube fa-2x"></i></span> </a>
+<a href="https://github.com/rasbt"><span><i class="fa fa-github fa-2x"></i> </span></a>
+<a href="https://scholar.google.com/citations?user=X4RCC0IAAAAJ&amp;hl=enrasbt"><span><i class="fa fa-google fa-2x"></i> </span></a>
+<a href="https://linkedin.com/in/sebastianraschka"><span><i class="fa fa-linkedin fa-2x"></i> </span></a>
+</div>
+<div class="footer-col copyright-col">
+<p>© 2013-2025 Sebastian Raschka</p>
+</div>
+</div>
+</div>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-BYQXBRPK81"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BYQXBRPK81');
+</script>
+</footer>
+
+<script src="/js/anchor.min.js" type="text/javascript"></script>
+<script>
+    var selector = 'h2, h3, h4, h5, h6';
+    /*
+    anchors.options = {
+      icon: '#',
+      visible: 'always',
+      placement: 'left',
+      class: 'bb-anchor'
+    }
+    */
+    anchors.add(selector);
+  </script>
+</body>
+</html>

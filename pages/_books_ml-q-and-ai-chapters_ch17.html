@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width initial-scale=1" name="viewport">
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="Sebastian Raschka" name="author"/>
+<meta content="
+      Chapter 17
+    " property="og:title"/>
+<meta content="
+        I'm an LLM Research Engineer with over a decade of experience in artificial intelligence. My work bridges academia and industry, with roles including senior staff at an AI company and a statistics professor. My expertise lies in LLM research and the development of high-performance AI systems, with a deep focus on practical, code-driven implementations.
+
+      " property="og:description"/>
+<meta content="https://sebastianraschka.com/books/ml-q-and-ai-chapters/ch17/" property="og:url">
+<meta content="Sebastian Raschka, PhD" property="og:site_name">
+<meta content="en_US" property="og:locale">
+<meta content="@rasbt" name="twitter:site">
+<meta content="I'm an LLM Research Engineer with over a decade of experience in artificial intelligence. My work bridges academia and industry, with roles including senior staff at an AI company and a statistics professor. My expertise lies in LLM research and the development of high-performance AI systems, with a deep focus on practical, code-driven implementations.
+" name="twitter:description"/>
+<meta content="article" property="og:type"/>
+<meta content="" property="article:published_time"/>
+<meta content="@rasbt" name="twitter:creator"/>
+<meta content="Chapter 17" name="twitter:title"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="" name="twitter:image"/>
+<title>Chapter 17</title>
+<meta content="I'm an LLM Research Engineer with over a decade of experience in artificial intelligence. My work bridges academia and industry, with roles including senior staff at an AI company and a statistics professor. My expertise lies in LLM research and the development of high-performance AI systems, with a deep focus on practical, code-driven implementations.
+" name="description"/>
+<link href=" /css/combined_direct_no_sass.css" rel="stylesheet"/>
+<link href=" /css/fork-awesome.min.css" rel="stylesheet"/>
+<meta content="Chapter 17" property="og:title"/>
+<meta content="article" property="og:type"/>
+<meta content="https://sebastianraschka.com/books/ml-q-and-ai-chapters/ch17/" property="og:url"/>
+<meta content="" property="og:image"/>
+<meta content="" property="og:description"/>
+<meta content="Sebastian Raschka, PhD" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="" property="fb:admins"/>
+<meta content="" property="fb:app_id"/>
+<link href="https://sebastianraschka.com/books/ml-q-and-ai-chapters/ch17/" rel="canonical"/>
+<link href="/images/favicons/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="/images/favicons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/images/favicons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="/site.webmanifest" rel="manifest"/>
+<link color="#5bbad5" href="/images/favicons/safari-pinned-tab.svg" rel="mask-icon"/>
+<meta content="#ffc40d" name="msapplication-TileColor"/>
+<meta content="#ffffff" name="theme-color"/>
+</meta></meta></meta></meta></meta></head>
+<body>
+<img alt="Ahead of AI logo" src="../images/ahead-of-ai-icon.png" style="display: none;"/>
+<header class="site-header">
+<div class="site-title" style="text-decoration: none; margin-top: 2em;">
+<a href="/"><span style="color:black">Sebastian</span> <span style="color:#c5050c">Raschka</span> </a>
+<a href="https://x.com/rasbt"><img alt="Twitter/X icon" height="20" src="../images/twitter-bw.jpg" style="padding-left:20px;"/></a>
+<!--<a href="https://threads.net/@sebastianraschka"><img src="/images/logos/threads-logo-alt-small.png" height="20" style="padding-left:5px;" alt="Threads icon"></a>-->
+<a href="https://www.linkedin.com/in/sebastianraschka/"><img alt="LinkedIn Icon" height="20" src="../images/linkedin-bw.jpg" style="padding-left:5px;"/></a>
+<a href="https://github.com/rasbt"><img alt="GitHub icon" height="20" src="../images/github-bw.jpg" style="padding-left:5px;"/></a>
+</div>
+<!--  <div style="width:100%;height:50;float:left;margin-bottom:10px;">
+        &nbsp;<a href="https://twitter.com/rasbt"><img src="/images/logos/twitter-bw.jpg" height="20"></a>-->
+<!-- &nbsp;<a href="https://www.buymeacoffee.com/rasbt"><img src="/images/logos/coffee-bw.jpg" height="20"></a>-->
+<!--&nbsp;<a href="https://mastodon.social/@SebRaschka"><img src="/images/logos/mastodon-bw.jpg" height="20"></a>-->
+<!-- </div>-->
+<div class="wrapper">
+<nav class="site-nav">
+<a class="menu-icon" href="#">
+<svg viewbox="0 0 18 15">
+<path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z" fill="#424242"></path>
+<path d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z" fill="#424242"></path>
+<path d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z" fill="#424242"></path>
+</svg>
+</a>
+<div class="trigger">
+<!--<script type="text/javascript">
+          var total_images = 2;
+          var random_number = Math.floor((Math.random()*total_images));
+          var random_img = new Array();
+          random_img[0] = '<a href="https://twitter.com/rasbt"><img src="/images/logos/twitter-1.jpg" height="20"></a>';
+          random_img[1] = '<a href="https://linkedin.com/in/sebastianraschka"><img src="/images/logos/linkedin-1.jpg" height="20"></a>';
+          document.write(random_img[random_number]);
+          </script>-->
+<span style="padding-left:0px;margin-left:0px;"></span>
+<a class="page-link" href="https://magazine.sebastianraschka.com"><span style="color:#c5050c;"><img alt="Ahead of AI Logo" height="20" src="../images/ahead-of-ai-icon.png"/> Blog</span></a>
+<!--<a class="page-link" href="/blog/index.html">Blog</a>-->
+<a class="page-link" href="/books">Books</a>
+<!--<a class="page-link" href="/newsletter">AI Newsletter</a>-->
+<!--<a class="page-link" href="/teaching">Courses</a>-->
+<a class="page-link" href="https://github.com/rasbt/LLMs-from-scratch">LLMs From Scratch</a>
+<!--<a class="page-link" href="/publications">Research</a>-->
+<a class="page-link" href="/elsewhere">Talks</a>
+<a class="page-link" href="/contact">Contact</a>
+<a class="page-link" href="/resources">More</a>
+</div>
+</nav>
+</div>
+</header>
+<div class="page-content">
+<div class="wrapper">
+<!-- MathJax script for LaTeX rendering -->
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<!-- Open Graph Metadata -->
+<meta content="article" property="og:type"/>
+<meta content="Chapter 17" property="og:title"/>
+<meta content="" property="og:description"/>
+<meta content="https://sebastianraschka.com" property="og:image"/>
+<meta content="" property="og:image:alt"/>
+<meta content="https://sebastianraschka.com/books/ml-q-and-ai-chapters/ch17/" property="og:url"/>
+<meta content="Sebastian Raschka's Blog" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<!-- Twitter Metadata -->
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Chapter 17" name="twitter:title"/>
+<meta content="" name="twitter:description"/>
+<meta content="https://sebastianraschka.com" name="twitter:image"/>
+<meta content="" name="twitter:image:alt"/>
+<div class="post">
+<header class="post-header">
+<h1 class="post-title" style="text-align: left;">Machine Learning Q and AI</h1>
+<h2 class="post-subtitle">30 Essential Questions and Answers on Machine Learning and AI</h2>
+<p>
+      By Sebastian Raschka. <a href="#table-of-contents">Free to read</a>.
+      Published by <a href="https://nostarch.com/machine-learning-q-and-ai">No Starch Press</a>.<br/>
+      Copyright Â© 2024-2025 by Sebastian Raschka.
+    </p>
+<p>
+<img alt="Machine Learning and Q and AI" class="right-image-shadow-30" src="../images/2023-ml-ai-beyond.jpg"/>
+</p>
+<blockquote>
+      Machine learning and AI are moving at a rapid pace. Researchers and practitioners are constantly struggling to keep up with the breadth of concepts and techniques. This book provides bite-sized bits of knowledge for your journey from machine learning beginner to expert, covering topics from various machine learning areas. Even experienced machine learning researchers and practitioners will encounter something new that they can add to their arsenal of techniques.
+    </blockquote>
+<br/>
+<p><strong>ð Print Book:</strong><br/>
+<a href="https://amzn.to/4488ahe">Amazon</a><br/>
+<a href="https://nostarch.com/machine-learning-q-and-ai">No Starch Press</a>
+</p>
+<p><strong>ð Read Online:</strong><br/>
+<a href="#table-of-contents">Full Book (Free)</a>
+</p>
+</header>
+<article class="post-content">
+<!-- Optional: Anchor Headings -->
+<h1 id="chapter-17-encoder--and-decoder-style-transformers">
+        
+        
+          Chapter 17: Encoder- and Decoder-Style Transformers <a href="#chapter-17-encoder--and-decoder-style-transformers"></a>
+</h1>
+<p><span id="ch17" label="ch17"></span></p>
+<p><strong>What are the differences between encoder- and decoder-based language
+transformers?</strong></p>
+<p>Both encoder- and decoder-style architectures use the same
+self-attention layers to encode word tokens. The main difference is that
+encoders are designed to learn embeddings that can be used for various
+predictive modeling tasks such as classification. In contrast, decoders
+are designed to generate new texts, for example, to answer user queries.</p>
+<p>This chapter starts by describing the original transformer architecture
+consisting of an encoder that processes input text and a decoder that
+produces translations. The subsequent sections then describe how models
+like BERT and RoBERTa utilize only the encoder to understand context and
+how the GPT architectures emphasize decoder-only mechanisms for text
+generation.</p>
+<h2 id="the-original-transformer">
+        
+        
+          The Original Transformer <a href="#the-original-transformer"></a>
+</h2>
+<p>The original transformer architecture introduced in
+ChapterÂ <a data-reference="ch16" data-reference-type="ref" href="../ch16">[ch16]</a> was developed for English-to-French and
+English-to-German language translation. It utilized both an encoder and
+a decoder, as illustrated in
+FigureÂ <a data-reference="fig:ch17-fig01" data-reference-type="ref" href="#fig:ch17-fig01">[fig:ch17-fig01]</a>.</p>
+<div class="figurewide">
+<img alt="image" src="../images/ch17-fig01.png" style="width:5.625in">
+</img></div>
+<p>InFigureÂ <a data-reference="fig:ch17-fig01" data-reference-type="ref" href="#fig:ch17-fig01">[fig:ch17-fig01]</a>,the input text (that is, the sentences of the text to betranslated) is first tokenized into individual word tokens, which are then encoded via an embedding layer before they enter the encoder part (see ChapterÂ <a data-reference="ch01" data-reference-type="ref" href="../ch01">[ch01]</a> for more on embeddings). After a positional encoding vector is added to each embedded word,the embeddings go through a multi-head self-attention layer. This layer is followed by an addition step, indicated by a plus sign (+) in FigureÂ <a data-reference="fig:ch17-fig01" data-reference-type="ref" href="#fig:ch17-fig01">[fig:ch17-fig01]</a>, which performs a layer normalization and adds the original embeddings via a skip connection,also known as a <em>residual</em> or <em>shortcut</em> connection. Following this is a LayerNormblock, short for <em>layernormalization</em>,  which normalizes the activations of the previous layer to improve the stability of the neural networkâs training. The addition of the original embeddings and the layer normalization steps are often summarized as the <em>Add&amp;Normstep</em>. Finally, after entering the fully connected networkâa small,multilayer perceptron consisting of two fully connected layers with a nonlinear activation function in betweenâthe outputs are again added and normalized before they are passed to a multi-head self-attention layer of the decoder.</p>
+<p>The decoder in
+FigureÂ <a data-reference="fig:ch17-fig01" data-reference-type="ref" href="#fig:ch17-fig01">[fig:ch17-fig01]</a> has a similar
+overall structure to the encoder. The key difference is that the inputs
+and outputs are different: the encoder receives the input text to be
+translated, while the decoder generates the translated text.</p>
+<h3 id="encoders">
+        
+        
+          Encoders <a href="#encoders"></a>
+</h3>
+<p>The encoder part in the original transformer, as illustrated in
+FigureÂ <a data-reference="fig:ch17-fig01" data-reference-type="ref" href="#fig:ch17-fig01">[fig:ch17-fig01]</a>, is responsible for
+understanding and extracting the relevant information from the input
+text. It then outputs a continuous representation (embedding)
+of the input text, which is passed to the decoder. Finally, the decoder
+generates the translated text (target language) based on the continuous
+representation received from the encoder.</p>
+<p>Over the years, various encoder-only architectures have been developed
+based on the encoder module of the original transformer model outlined
+earlier. One notable example is BERT, which stands for bidirectional
+encoder representations from transformers.</p>
+<p>As noted in ChapterÂ <a data-reference="ch14" data-reference-type="ref" href="../ch14">[ch14]</a>, BERT is an encoder-only architecture
+based on the transformerâs encoder module. The BERT model is pretrained
+on a large text corpus using masked language modeling and next-sentence
+prediction tasks.
+FigureÂ <a data-reference="fig:ch17-fig02" data-reference-type="ref" href="#fig:ch17-fig02">1.1</a> illustrates the masked language
+modeling pretraining objective used in BERT-style transformers.</p>
+<figure id="fig:ch17-fig02">
+<img src="../images/ch17-fig02.png">
+<figcaption>BERT randomly masks 15 percent of the input tokens during
+pretraining.</figcaption>
+</img></figure>
+<p>As FigureÂ <a data-reference="fig:ch17-fig02" data-reference-type="ref" href="#fig:ch17-fig02">1.1</a> demonstrates, the main idea
+behind masked language modeling is to mask (or replace) random word
+tokens in the input sequence and then train the model to predict the
+original masked tokens based on the surrounding context.</p>
+<p>Inadditiontothemaskedlanguagemodelingpretrainingtaskillustrated in
+FigureÂ <a data-reference="fig:ch17-fig02" data-reference-type="ref" href="#fig:ch17-fig02">1.1</a>, the next-sentence prediction
+task asks the model to predict whether the original documentâs sentence
+order of two randomly shuffled sentences is correct. For example, say
+that two sentences, in random order, are separated by the [SEP] token
+(<em>SEP</em> is short for <em>separate</em>). The brackets are a part of the tokenâs
+notation and are used to make it clear that this is a special token as
+opposed to a regular word in the text. BERT-style transformers also use
+a [CLS] token. The [CLS] token serves as a placeholder token for the
+model, prompting the model to return a <em>True</em> or <em>False</em> label
+indicating whether the sentences are in the correct order:</p>
+<ul>
+<li>
+<p>â[CLS] Toast is a simple yet delicious food. [SEP] Itâs often
+served with butter, jam, or honey.â</p>
+</li>
+<li>
+<p>â[CLS] Itâs often served with butter, jam, or honey. [SEP] Toast
+is a simple yet delicious food.â</p>
+</li>
+</ul>
+<p>The masked language and next-sentence pretraining objectives allow BERT
+to learn rich contextual representations of the input texts, which can
+then be fine-tuned for various downstream tasks like sentiment analysis,
+question answering, and named entity recognition. Itâs worth noting that
+this pretraining is a form of self-supervised learning (see
+ChapterÂ <a data-reference="ch02" data-reference-type="ref" href="../ch02">[ch02]</a> for more details on this type of
+learning).</p>
+<p>RoBERTa, which stands for robustly optimized BERT approach, is an
+improved version of BERT. It maintains the same overall architecture as
+BERT but employs several training and optimization improvements, such as
+larger batch sizes, more training data, and eliminating the
+next-sentence prediction task. These changes have resulted in RoBERTa
+achieving better performance on various natural language understanding
+tasks than BERT.</p>
+<h3 id="decoders">
+        
+        
+          Decoders <a href="#decoders"></a>
+</h3>
+<p>Coming back to the original transformer architecture outlined in
+FigureÂ <a data-reference="fig:ch17-fig01" data-reference-type="ref" href="#fig:ch17-fig01">[fig:ch17-fig01]</a>, the multi-head
+self-attention mechanism in the decoder is similar to the one in the
+encoder, but it is masked to prevent the model from attending to future
+positions, ensuring that the predictions for position <em>i</em> can depend
+only on the known outputs at positions less than <em>i</em>. As illustrated in
+FigureÂ <a data-reference="fig:ch17-fig03" data-reference-type="ref" href="#fig:ch17-fig03">[fig:ch17-fig03]</a>, the decoder
+generates the output word by word.</p>
+<div class="figurewide">
+<img alt="image" src="../images/ch17-fig03.png" style="width:5.625in">
+</img></div>
+<p>This masking (shown explicitly in
+FigureÂ <a data-reference="fig:ch17-fig03" data-reference-type="ref" href="#fig:ch17-fig03">[fig:ch17-fig03]</a>, although it occurs
+internally in the decoderâs multi-head self-attention mechanism) is
+essential to maintaining the transformer modelâs autoregressive property
+during training and inference. This autoregressive property ensures that
+the model generates output tokens one at a time and uses previously
+generated tokens as context for generating the next word token.</p>
+<p>Over the years, researchers have built upon the original encoder-decoder
+transformer architecture and developed several decoder-only models that
+have proven highly effective in various natural language
+processingÂ tasks.Â The most notable models include the GPT family, which
+we briefly discussed in
+ChapterÂ <a data-reference="ch14" data-reference-type="ref" href="../ch14">[ch14]</a> and in various other chapters
+throughout the book. <em>GPT</em> stands for <em>generative pretrained
+transformer</em>. The GPT series comprises decoder-only models pretrained on
+large-scale unsupervised text data and fine-tuned for specific tasks
+such as text classification, sentiment analysis, question answering, and
+summarization. The GPT models, including at the time of writing GPT-2,
+GPT-3, and GPT-4, have shown remarkable performance in various
+benchmarks and are currently the most popular architecture for natural
+language processing.</p>
+<p>One of the most notable aspects of GPT models is their emergent
+properties. Emergent properties are the abilities and skills that a
+model develops due to its next-word prediction pretraining. Even though
+these models were taught only to predict the next word, the pretrained
+models are capable of text summarization, translation, question
+answering, classification, and more. Furthermore, these models can
+perform new tasks without updating the model parameters via in-context
+learning, which weâll discuss in more detail in
+ChapterÂ <a data-reference="ch18" data-reference-type="ref" href="../ch18">[ch18]</a>.</p>
+<h2 id="encoder-decoder-hybrids">
+        
+        
+          Encoder-Decoder Hybrids <a href="#encoder-decoder-hybrids"></a>
+</h2>
+<p>Next to the traditional encoder and decoder architectures, there have
+been advancements in the development of new encoder-decoder models that
+lev-
+Â erage the strengths of both components. These models often incorporate
+novel techniques, pretraining objectives, or architectural modifications
+to enhance their performance in various natural language processing
+tasks. Some notable examples of these new encoder-decoder models
+include
+BART and T5.</p>
+<p>Encoder-decoder models are typically used for natural language
+processing tasks that involve understanding input sequences and
+generating output sequences, often with different lengths and
+structures. They are particularly good at tasks where there is a complex
+mapping between the input and output sequences and where it is crucial
+to capture the relationships between the elements in both sequences.
+Some common use cases for encoder-decoder models include text
+translation and summarization.</p>
+<h2 id="terminology">
+        
+        
+          Terminology <a href="#terminology"></a>
+</h2>
+<p>All of these methodsâencoder-only, decoder-only, and encoder-decoder
+modelsâare sequence-to-sequence models (often abbreviated as <em>seq2seq</em>).
+While we refer to BERT-style methods as âencoder-only,â the description
+may be misleading since these methods also <em>decode</em> the embeddings into
+output tokens or text during pretraining. In other words, both
+encoder-only and decoder-only architectures perform decoding.</p>
+<p>However, the encoder-only architectures, in contrast to decoder-only and
+encoder-decoder architectures, donât decode in an autoregressive
+fashion. <em>Autoregressive decoding</em> refers to generating output sequences
+one token at a time, conditioning each token on the previously generated
+tokens. Encoder-only models do not generate coherent output sequences in
+this manner. Instead, they focus on understanding the input text and
+producing task-specific outputs, such as labels or token predictions.</p>
+<h2 id="contemporary-transformer-models">
+        
+        
+          Contemporary Transformer Models <a href="#contemporary-transformer-models"></a>
+</h2>
+<p>In brief, encoder-style models are popular for learning embeddings used
+in classification tasks, encoder-decoder models are used in generative
+tasks where the output heavily relies on the input (for example,
+translation and summarization), and decoder-only models are used for
+other types of generative tasks, including Q&amp;A. Since the first
+transformer architecture emerged, hundreds of encoder-only,
+decoder-only, and encoder-decoder hybrids have been developed, as
+diagrammed in FigureÂ <a data-reference="fig:ch17-fig04" data-reference-type="ref" href="#fig:ch17-fig04">1.2</a>.</p>
+<figure id="fig:ch17-fig04">
+<img src="../images/ch17-fig04.png" style="width:99.0%">
+<figcaption>Some of the most popular large language transformers
+organized by<br>
+architecture type and developer</br></figcaption>
+</img></figure>
+<p>While encoder-only models have gradually become less popular,
+decoder-only models like GPT have exploded in popularity, thanks to
+breakthroughs in text generation via GPT-3, ChatGPT, and GPT-4. However,
+encoder-only models are still very useful for training predictive models
+based on text embeddings as opposed to generating texts.</p>
+<h3 id="exercises">
+        
+        
+          Exercises <a href="#exercises"></a>
+</h3>
+<p>17-1. As discussed in this chapter,
+BERT-style encoder models are pretrained using masked language modeling
+and next-sentence prediction pretraining objectives. How could we adopt
+such a pretrained model for a classification task (for example,
+predicting whether a text has a positive or negative sentiment)?</p>
+<p>17-2. Can we fine-tune a decoder-only model like
+GPT for classification?</p>
+<h2 id="references">
+        
+        
+          References <a href="#references"></a>
+</h2>
+<ul>
+<li>
+<p>The Bahdanau attention mechanism for RNNs: Dzmitry Bahdanau, Kyunghyun
+Cho, and Yoshua Bengio, âNeural Machine Translation by Jointly
+Learning to Align and Translateâ (2014),
+<a href="https://arxiv.org/abs/1409.0473">https://arxiv.org/abs/1409.0473</a>.</p>
+</li>
+<li>
+<p>The original BERT paper, which popularized encoder-style transformers
+with a masked word and a next-sentence prediction pretraining
+objective: Jacob Devlin et al., âBERT: Pre-training of Deep
+Bidirectional Transformers for Language Understandingâ (2018),
+<a href="https://arxiv.org/abs/1810.04805">https://arxiv.org/abs/1810.04805</a>.</p>
+</li>
+<li>
+<p>RoBERTaimprovesuponBERTbyoptimizingtrainingprocedures,usinglargertrainingdatasets,andremovingthenext-sentencepred-
+Â ictiontask:YinhanLiuetal.,âRoBERTa:ARobustlyOptimizedBERTPretrainingApproachâ(2019),<a href="https://arxiv.org/abs/1907.11692">https://arxiv.org/abs/1907.11692</a>.</p>
+</li>
+<li>
+<p>The BART encoder-decoder architecture: Mike Lewis et al., âBART:
+Denoising Sequence-to-Sequence Pre-training for Natural Language
+Generation, Translation, and Comprehensionâ (2018),
+<a href="https://arxiv.org/abs/1910.13461">https://arxiv.org/abs/1910.13461</a>.</p>
+</li>
+<li>
+<p>The T5 encoder-decoder architecture: Colin Raffel et al., âExploring
+the Limits of Transfer Learning with a Unified Text-to-Text
+Transformerâ (2019), <a href="https://arxiv.org/abs/1910.10683">https://arxiv.org/abs/1910.10683</a>.</p>
+</li>
+<li>
+<p>The paper proposing the first GPT architecture: Alec Radford et al.,
+âImproving Language Understanding by Generative Pre-Trainingâ (2018),
+<a href="https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf">https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf</a>.</p>
+</li>
+<li>
+<p>The GPT-2 model: Alec Radford et al., âLanguage Models Are
+Unsupervised Multitask Learnersâ (2019),
+<a href="https://www.semanticscholar.org/paper/Language-Models-are-Unsupervised-Multitask-Learners-Radford-Wu/9405cc0d6169988371b2755e573cc28650d14dfe">https://www.semanticscholar.org/paper/Language-Models-are-Unsupervised-Multitask-Learners-Radford-Wu/9405cc0d6169988371b2755e573cc28650d14dfe</a>.</p>
+</li>
+<li>
+<p>The GPT-3 model: Tom B. Brown et al., âLanguage Models Are Few-Shot
+Learnersâ (2020), <a href="https://arxiv.org/abs/2005.14165">https://arxiv.org/abs/2005.14165</a>.</p>
+</li>
+</ul>
+</article>
+<br/>
+<hr/>
+<div class="book-promotion" style="margin-top: 50px;">
+<h2>Support the Author</h2>
+<p>You can support the author in the following ways:</p>
+<ul>
+<li>
+        Subscribe to <a href="https://magazine.sebastianraschka.com">Sebastian's Substack blog</a>
+</li>
+<li>
+        Purchase a copy on
+        <a href="https://amzn.to/4488ahe">Amazon</a> or
+        <a href="https://nostarch.com/machine-learning-q-and-ai">No Starch Press</a>
+</li>
+<li>
+        Write an <a href="https://amzn.to/4488ahe">Amazon review</a>
+</li>
+</ul>
+</div>
+<div style="margin-bottom: 50px;"></div>
+</div>
+</div>
+</div>
+<footer class="site-footer">
+<div class="wrapper">
+<div class="footer-col-wrapper">
+<div class="footer-col social-col">
+<a href="https://magazine.sebastianraschka.com"><span><i class="fa fa-rss fa-2x"></i></span> </a>
+<a href="/contact"><span><i class="fa fa-envelope fa-2x"></i></span> </a>
+<a href="https://twitter.com/rasbt"> <span><i class="fa fa-twitter fa-2x"></i></span> </a>
+<a href="https://youtube.com/c/SebastianRaschka"><span><i class="fa fa-youtube fa-2x"></i></span> </a>
+<a href="https://github.com/rasbt"><span><i class="fa fa-github fa-2x"></i> </span></a>
+<a href="https://scholar.google.com/citations?user=X4RCC0IAAAAJ&amp;hl=enrasbt"><span><i class="fa fa-google fa-2x"></i> </span></a>
+<a href="https://linkedin.com/in/sebastianraschka"><span><i class="fa fa-linkedin fa-2x"></i> </span></a>
+</div>
+<div class="footer-col copyright-col">
+<p>© 2013-2025 Sebastian Raschka</p>
+</div>
+</div>
+</div>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-BYQXBRPK81"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BYQXBRPK81');
+</script>
+</footer>
+
+<script src="/js/anchor.min.js" type="text/javascript"></script>
+<script>
+    var selector = 'h2, h3, h4, h5, h6';
+    /*
+    anchors.options = {
+      icon: '#',
+      visible: 'always',
+      placement: 'left',
+      class: 'bb-anchor'
+    }
+    */
+    anchors.add(selector);
+  </script>
+</body>
+</html>

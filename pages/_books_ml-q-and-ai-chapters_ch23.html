@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width initial-scale=1" name="viewport">
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="Sebastian Raschka" name="author"/>
+<meta content="
+      Chapter 23
+    " property="og:title"/>
+<meta content="
+        I'm an LLM Research Engineer with over a decade of experience in artificial intelligence. My work bridges academia and industry, with roles including senior staff at an AI company and a statistics professor. My expertise lies in LLM research and the development of high-performance AI systems, with a deep focus on practical, code-driven implementations.
+
+      " property="og:description"/>
+<meta content="https://sebastianraschka.com/books/ml-q-and-ai-chapters/ch23/" property="og:url">
+<meta content="Sebastian Raschka, PhD" property="og:site_name">
+<meta content="en_US" property="og:locale">
+<meta content="@rasbt" name="twitter:site">
+<meta content="I'm an LLM Research Engineer with over a decade of experience in artificial intelligence. My work bridges academia and industry, with roles including senior staff at an AI company and a statistics professor. My expertise lies in LLM research and the development of high-performance AI systems, with a deep focus on practical, code-driven implementations.
+" name="twitter:description"/>
+<meta content="article" property="og:type"/>
+<meta content="" property="article:published_time"/>
+<meta content="@rasbt" name="twitter:creator"/>
+<meta content="Chapter 23" name="twitter:title"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="" name="twitter:image"/>
+<title>Chapter 23</title>
+<meta content="I'm an LLM Research Engineer with over a decade of experience in artificial intelligence. My work bridges academia and industry, with roles including senior staff at an AI company and a statistics professor. My expertise lies in LLM research and the development of high-performance AI systems, with a deep focus on practical, code-driven implementations.
+" name="description"/>
+<link href=" /css/combined_direct_no_sass.css" rel="stylesheet"/>
+<link href=" /css/fork-awesome.min.css" rel="stylesheet"/>
+<meta content="Chapter 23" property="og:title"/>
+<meta content="article" property="og:type"/>
+<meta content="https://sebastianraschka.com/books/ml-q-and-ai-chapters/ch23/" property="og:url"/>
+<meta content="" property="og:image"/>
+<meta content="" property="og:description"/>
+<meta content="Sebastian Raschka, PhD" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="" property="fb:admins"/>
+<meta content="" property="fb:app_id"/>
+<link href="https://sebastianraschka.com/books/ml-q-and-ai-chapters/ch23/" rel="canonical"/>
+<link href="/images/favicons/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="/images/favicons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/images/favicons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="/site.webmanifest" rel="manifest"/>
+<link color="#5bbad5" href="/images/favicons/safari-pinned-tab.svg" rel="mask-icon"/>
+<meta content="#ffc40d" name="msapplication-TileColor"/>
+<meta content="#ffffff" name="theme-color"/>
+</meta></meta></meta></meta></meta></head>
+<body>
+<img alt="Ahead of AI logo" src="../images/ahead-of-ai-icon.png" style="display: none;"/>
+<header class="site-header">
+<div class="site-title" style="text-decoration: none; margin-top: 2em;">
+<a href="/"><span style="color:black">Sebastian</span> <span style="color:#c5050c">Raschka</span> </a>
+<a href="https://x.com/rasbt"><img alt="Twitter/X icon" height="20" src="../images/twitter-bw.jpg" style="padding-left:20px;"/></a>
+<!--<a href="https://threads.net/@sebastianraschka"><img src="/images/logos/threads-logo-alt-small.png" height="20" style="padding-left:5px;" alt="Threads icon"></a>-->
+<a href="https://www.linkedin.com/in/sebastianraschka/"><img alt="LinkedIn Icon" height="20" src="../images/linkedin-bw.jpg" style="padding-left:5px;"/></a>
+<a href="https://github.com/rasbt"><img alt="GitHub icon" height="20" src="../images/github-bw.jpg" style="padding-left:5px;"/></a>
+</div>
+<!--  <div style="width:100%;height:50;float:left;margin-bottom:10px;">
+        &nbsp;<a href="https://twitter.com/rasbt"><img src="/images/logos/twitter-bw.jpg" height="20"></a>-->
+<!-- &nbsp;<a href="https://www.buymeacoffee.com/rasbt"><img src="/images/logos/coffee-bw.jpg" height="20"></a>-->
+<!--&nbsp;<a href="https://mastodon.social/@SebRaschka"><img src="/images/logos/mastodon-bw.jpg" height="20"></a>-->
+<!-- </div>-->
+<div class="wrapper">
+<nav class="site-nav">
+<a class="menu-icon" href="#">
+<svg viewbox="0 0 18 15">
+<path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z" fill="#424242"></path>
+<path d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z" fill="#424242"></path>
+<path d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z" fill="#424242"></path>
+</svg>
+</a>
+<div class="trigger">
+<!--<script type="text/javascript">
+          var total_images = 2;
+          var random_number = Math.floor((Math.random()*total_images));
+          var random_img = new Array();
+          random_img[0] = '<a href="https://twitter.com/rasbt"><img src="/images/logos/twitter-1.jpg" height="20"></a>';
+          random_img[1] = '<a href="https://linkedin.com/in/sebastianraschka"><img src="/images/logos/linkedin-1.jpg" height="20"></a>';
+          document.write(random_img[random_number]);
+          </script>-->
+<span style="padding-left:0px;margin-left:0px;"></span>
+<a class="page-link" href="https://magazine.sebastianraschka.com"><span style="color:#c5050c;"><img alt="Ahead of AI Logo" height="20" src="../images/ahead-of-ai-icon.png"/> Blog</span></a>
+<!--<a class="page-link" href="/blog/index.html">Blog</a>-->
+<a class="page-link" href="/books">Books</a>
+<!--<a class="page-link" href="/newsletter">AI Newsletter</a>-->
+<!--<a class="page-link" href="/teaching">Courses</a>-->
+<a class="page-link" href="https://github.com/rasbt/LLMs-from-scratch">LLMs From Scratch</a>
+<!--<a class="page-link" href="/publications">Research</a>-->
+<a class="page-link" href="/elsewhere">Talks</a>
+<a class="page-link" href="/contact">Contact</a>
+<a class="page-link" href="/resources">More</a>
+</div>
+</nav>
+</div>
+</header>
+<div class="page-content">
+<div class="wrapper">
+<!-- MathJax script for LaTeX rendering -->
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<!-- Open Graph Metadata -->
+<meta content="article" property="og:type"/>
+<meta content="Chapter 23" property="og:title"/>
+<meta content="" property="og:description"/>
+<meta content="https://sebastianraschka.com" property="og:image"/>
+<meta content="" property="og:image:alt"/>
+<meta content="https://sebastianraschka.com/books/ml-q-and-ai-chapters/ch23/" property="og:url"/>
+<meta content="Sebastian Raschka's Blog" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<!-- Twitter Metadata -->
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Chapter 23" name="twitter:title"/>
+<meta content="" name="twitter:description"/>
+<meta content="https://sebastianraschka.com" name="twitter:image"/>
+<meta content="" name="twitter:image:alt"/>
+<div class="post">
+<header class="post-header">
+<h1 class="post-title" style="text-align: left;">Machine Learning Q and AI</h1>
+<h2 class="post-subtitle">30 Essential Questions and Answers on Machine Learning and AI</h2>
+<p>
+      By Sebastian Raschka. <a href="#table-of-contents">Free to read</a>.
+      Published by <a href="https://nostarch.com/machine-learning-q-and-ai">No Starch Press</a>.<br/>
+      Copyright Â© 2024-2025 by Sebastian Raschka.
+    </p>
+<p>
+<img alt="Machine Learning and Q and AI" class="right-image-shadow-30" src="../images/2023-ml-ai-beyond.jpg"/>
+</p>
+<blockquote>
+      Machine learning and AI are moving at a rapid pace. Researchers and practitioners are constantly struggling to keep up with the breadth of concepts and techniques. This book provides bite-sized bits of knowledge for your journey from machine learning beginner to expert, covering topics from various machine learning areas. Even experienced machine learning researchers and practitioners will encounter something new that they can add to their arsenal of techniques.
+    </blockquote>
+<br/>
+<p><strong>ð Print Book:</strong><br/>
+<a href="https://amzn.to/4488ahe">Amazon</a><br/>
+<a href="https://nostarch.com/machine-learning-q-and-ai">No Starch Press</a>
+</p>
+<p><strong>ð Read Online:</strong><br/>
+<a href="#table-of-contents">Full Book (Free)</a>
+</p>
+</header>
+<article class="post-content">
+<!-- Optional: Anchor Headings -->
+<h1 id="chapter-23-data-distribution-shifts">
+        
+        
+          Chapter 23: Data Distribution Shifts <a href="#chapter-23-data-distribution-shifts"></a>
+</h1>
+<p><span id="ch23" label="ch23"></span></p>
+<p><strong>What are the main types of data distribution shifts we may encounter
+after model deployment?</strong></p>
+<p><em>Data distribution shifts</em> are one of the most common problems when
+putting machine learning and AI models into production. In short, they
+refer to the differences between the distribution of data on which a
+model was trained and the distribution of data it encounters in the real
+world. Often, these changes can lead to significant drops in model
+performance because the modelâs predictions are no longer accurate.</p>
+<p>There are several types of distribution shifts, some of which are more
+problematic than others. The most common are covariate shift, concept
+drift, label shift, and domain shift; all discussed in more detail in
+the following sections.</p>
+<h2 id="covariate-shift">
+        
+        
+          Covariate Shift <a href="#covariate-shift"></a>
+</h2>
+<p>Suppose <em>p</em>(<em>x</em>) describes the distribution of the input data (for
+instance, the features), <em>p</em>(<em>y</em>) refers to the distribution of the
+target variable (or class label distribution), and <em>p</em>(<em>y</em>\(|\)<em>x</em>) is
+the distribution of the targets <em>y</em> given the inputs <em>x</em>.</p>
+<p><em>Covariate shift</em> happens when the distribution of the input data,
+<em>p</em>(<em>x</em>), changes, but the conditional distribution of the output given
+the input, <em>p</em>(<em>y</em>\(|\)<em>x</em>), remains the same.</p>
+<p>FigureÂ <a data-reference="fig:ch23-fig01" data-reference-type="ref" href="#fig:ch23-fig01">1.1</a> illustrates covariate shift
+where both the feature values of the training data and the new data
+encountered during production follow a normal distribution. However, the
+mean of the new data has changed from the training data.</p>
+<figure id="fig:ch23-fig01">
+<img src="../images/ch23-fig01.png" style="width:70.0%">
+<figcaption>Training data and new data distributions differ under
+covariate shift.</figcaption>
+</img></figure>
+<p>For example, suppose we trained a model to predict whether an email is
+spam based on specific features. Now, after we embed the email spam
+filter in an email client, the email messages that customers receive
+have drastically different features. For example, the email messages are
+much longer and are sent from someone in a different time zone. However,
+if the way those features relate to an email being spam or not doesnât
+change, then we have a covariate shift.</p>
+<p>Covariate shift is a very common challenge when deploying machine
+learning models. It means that the data the model receives in a live or
+production environment is different from the data on which it was
+trained.Â How-
+Â ever, because the relationship between inputs and outputs,
+<em>p</em>(<em>y</em>\(|\)<em>x</em>), remains the same under covariate shift, techniques are
+available to adjust for it.</p>
+<p>A common technique to detect covariate shift is <em>adversarial
+validation</em>, which is covered in more detail in
+ChapterÂ <a data-reference="ch29" data-reference-type="ref" href="../ch29">[ch29]</a>. Once covariate shift is detec-
+Â ted, a common method to deal with it is <em>importance weighting</em>, which
+assigns different weights to the training example to emphasize or
+de-emphasize certain instances during training. Essentially, instances
+that are more likely to appear in the test distribution are given more
+weight, while instances that are less likely to occur are given less
+weight. This approach allows the model to focus more on the instances
+representative of the test data during training, making it more robust
+to covariate shift.</p>
+<h2 id="label-shift">
+        
+        
+          Label Shift <a href="#label-shift"></a>
+</h2>
+<p><em>Label shift</em>, sometimes referred to as <em>prior probability shift</em>,
+occurs when the class label distribution <em>p</em>(<em>y</em>) changes, but the
+class-conditional distribution <em>p</em>(<em>y</em>\(|\)<em>x</em>) remains unchanged. In
+other words, there is a significant change in the label distribution or
+target variable.</p>
+<p>As an example of such a scenario, suppose we trained an email spam
+classifier on a balanced training dataset with 50 percent spam and 50
+percent non-spam email. In contrast, in the real world, only 10 percent
+of email messages are spam.</p>
+<p>A common way to address label shifts is to update the model using the
+weighted loss function, especially when we have an idea of the new
+distribution of the labels. This is essentially a form of importance
+weighting. By adjusting the weights in the loss function according to
+the new label distribution, we are incentivizing the model to pay more
+attention to certain classes that have become more common (or less
+common) in the new data. This helps align the modelâs predictions more
+closely with the current reality, improving its performance on the new
+data.</p>
+<h2 id="concept-drift">
+        
+        
+          Concept Drift <a href="#concept-drift"></a>
+</h2>
+<p><em>Concept drift</em> refers to the change in the mapping between the input
+features and the target variable. In other words, concept drift is
+typically associated with changes in the conditional distribution
+<em>p</em>(<em>y</em>\(|\)<em>x</em>), such as the relationship between the inputs <em>x</em> and
+the output <em>y</em>.</p>
+<p>Using the example of the spam email classifier from the previous
+section, the features of the email messages might remain the same, but
+<em>how</em> those features relate to whether an email is spam might change.
+This could be due to a new spamming strategy that wasnât present in the
+training data. Concept drift can be much harder to deal with than the
+other distribution shifts discussed so far since it requires continuous
+monitoring and potential model retraining.</p>
+<h2 id="domain-shift">
+        
+        
+          Domain Shift <a href="#domain-shift"></a>
+</h2>
+<p>The terms <em>domain shift</em> and <em>concept drift</em> are used somewhat
+inconsistently across the literature and are sometimes taken to be
+interchangeable. In reality, the two are related but slightly different
+phenomena. <em>Concept drift</em> refers to a change in the function that maps
+from the inputs to the outputs, specifically to situations where the
+relationship between features and target variables changes as more data
+is collected over time.</p>
+<p>In <em>domain shift</em>, the distribution of inputs, <em>p</em>(<em>x</em>), and the
+conditional distribution of outputs given inputs, <em>p</em>(<em>y</em>\(|\)<em>x</em>), both
+change. This is sometimes also called <em>joint distribution shift</em> due to
+the joint distribution <em>p</em>(<em>x</em> and <em>y</em>) = <em>p</em>(<em>y</em>\(|\)<em>x</em>) \(\cdot\)
+<em>p</em>(<em>x</em>). We can thus think of domain shift as a combination of both
+covariate shift and concept drift. In addition, since we can obtain the
+marginal distribution <em>p</em>(<em>y</em>) by integrating over the joint
+distribution <em>p</em>(<em>x</em>, <em>y</em>) over the variable <em>x</em> (mathematically
+expressed as <em>p</em>(<em>y</em>) = \(\int\)<em>p</em>(<em>x</em>, <em>y</em>) <em>dx</em>), covariate drift and
+concept shift also imply label shift. (However, exceptions may exist
+where the change in <em>p</em>(<em>x</em>) compensates for the change in
+<em>p</em>(<em>y</em>\(|\)<em>x</em>) such that <em>p</em>(<em>y</em>) may not change.) Conversely, label
+shift and concept drift usually also imply covariate shift.</p>
+<p>To return once more to the example of email spam classification, domain
+shift would mean that the features (content and structure of email)
+<em>and</em> the relationship between the features and target both change over
+time. For instance, spam email in 2023 might have different features
+(new types of phishing schemes, new language, and so forth), and the
+definition of what constitutes spam might have changed as well. This
+type of shift would be the most challenging scenario for a spam filter
+trained on 2020 data, as it would have to adjust to changes in both the
+input data and the target concept.</p>
+<p>Domain shift is perhaps the most difficult type of shift to handle, but
+monitoring model performance and data statistics over time can help
+detect domain shifts early. Once they are detected, mitigation
+strategies include collecting more labeled data from the target domain
+and retraining
+or adapting the model.</p>
+<h2 id="types-of-data-distribution-shifts">
+        
+        
+          Types of Data Distribution Shifts <a href="#types-of-data-distribution-shifts"></a>
+</h2>
+<p>FigureÂ <a data-reference="fig:ch23-fig02" data-reference-type="ref" href="#fig:ch23-fig02">1.2</a> provides a visual summary of
+different types of data shifts in the context of a binary (2-class)
+classification problem, where the black circles refer to examples from
+one class and the diamonds refer to examples from another class.</p>
+<figure id="fig:ch23-fig02">
+<img src="../images/ch23-fig02.png">
+<figcaption>Different types of data shifts in a binary<br>
+classification context</br></figcaption>
+</img></figure>
+<p>As noted in the previous sections, some types of distribution shift are
+more problematic than others. The least problematic among them is
+typically covariate shift. Here, the distribution of the input features,
+<em>p</em>(<em>x</em>),
+changes between the training and testing data, but the conditional
+distribution of the output given the inputs, <em>p</em>(<em>y</em>\(|\)<em>x</em>), remains
+constant. Since the underlying relationship between the inputs and
+outputs remains the same, the model trained on the training data can
+still apply, in principle, to the testing data and new data.</p>
+<p>The most problematic type of distribution shift is typically joint
+distribution shift, where both the input distribution <em>p</em>(<em>x</em>) and the
+conditional output distribution <em>p</em>(<em>y</em>\(|\)<em>x</em>) change. This makes it
+particularly difficult for a model to adjust, as the learned
+relationship from the training data may no longer hold. The model has to
+cope with both new input patterns and new rules for making predictions
+based on those patterns.</p>
+<p>However, the âseverityâ of a shift can vary widely depending on the
+real-world context. For example, even a covariate shift can be extremely
+problematic if the shift is severe or if the model cannot adapt to the
+new input distribution. On the other hand, a joint distribution shift
+might be manageable if the shift is relatively minor or if we have
+access to a sufficient amount of labeled data from the new distribution
+to retrain our model.</p>
+<p>In general, itâs crucial to monitor our modelsâ performance and be aware
+of potential shifts in the data distribution so that we can take
+appropriate action if necessary.</p>
+<h3 id="exercises">
+        
+        
+          Exercises <a href="#exercises"></a>
+</h3>
+<p>23-1. What is the big issue with importance
+weighting as a technique to mitigate covariate shift?</p>
+<p>23-2. How can we detect these types of shifts in
+real-world scenarios, especially when we do not have access to labels
+for the new data?</p>
+<h2 id="references">
+        
+        
+          References <a href="#references"></a>
+</h2>
+<ul>
+<li>Recommendations and pointers to advanced mitigation techniques for
+avoiding domain shift: Abolfazl Farahani et al., âA Brief Review of
+Domain Adaptationâ (2020), <a href="https://arxiv.org/abs/2010.03978">https://arxiv.org/abs/2010.03978</a>.</li>
+</ul>
+</article>
+<br/>
+<hr/>
+<div class="book-promotion" style="margin-top: 50px;">
+<h2>Support the Author</h2>
+<p>You can support the author in the following ways:</p>
+<ul>
+<li>
+        Subscribe to <a href="https://magazine.sebastianraschka.com">Sebastian's Substack blog</a>
+</li>
+<li>
+        Purchase a copy on
+        <a href="https://amzn.to/4488ahe">Amazon</a> or
+        <a href="https://nostarch.com/machine-learning-q-and-ai">No Starch Press</a>
+</li>
+<li>
+        Write an <a href="https://amzn.to/4488ahe">Amazon review</a>
+</li>
+</ul>
+</div>
+<div style="margin-bottom: 50px;"></div>
+</div>
+</div>
+</div>
+<footer class="site-footer">
+<div class="wrapper">
+<div class="footer-col-wrapper">
+<div class="footer-col social-col">
+<a href="https://magazine.sebastianraschka.com"><span><i class="fa fa-rss fa-2x"></i></span> </a>
+<a href="/contact"><span><i class="fa fa-envelope fa-2x"></i></span> </a>
+<a href="https://twitter.com/rasbt"> <span><i class="fa fa-twitter fa-2x"></i></span> </a>
+<a href="https://youtube.com/c/SebastianRaschka"><span><i class="fa fa-youtube fa-2x"></i></span> </a>
+<a href="https://github.com/rasbt"><span><i class="fa fa-github fa-2x"></i> </span></a>
+<a href="https://scholar.google.com/citations?user=X4RCC0IAAAAJ&amp;hl=enrasbt"><span><i class="fa fa-google fa-2x"></i> </span></a>
+<a href="https://linkedin.com/in/sebastianraschka"><span><i class="fa fa-linkedin fa-2x"></i> </span></a>
+</div>
+<div class="footer-col copyright-col">
+<p>© 2013-2025 Sebastian Raschka</p>
+</div>
+</div>
+</div>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-BYQXBRPK81"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BYQXBRPK81');
+</script>
+</footer>
+
+<script src="/js/anchor.min.js" type="text/javascript"></script>
+<script>
+    var selector = 'h2, h3, h4, h5, h6';
+    /*
+    anchors.options = {
+      icon: '#',
+      visible: 'always',
+      placement: 'left',
+      class: 'bb-anchor'
+    }
+    */
+    anchors.add(selector);
+  </script>
+</body>
+</html>

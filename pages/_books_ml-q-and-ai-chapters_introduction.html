@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width initial-scale=1" name="viewport">
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="Sebastian Raschka" name="author"/>
+<meta content="
+      Introduction
+    " property="og:title"/>
+<meta content="
+        I'm an LLM Research Engineer with over a decade of experience in artificial intelligence. My work bridges academia and industry, with roles including senior staff at an AI company and a statistics professor. My expertise lies in LLM research and the development of high-performance AI systems, with a deep focus on practical, code-driven implementations.
+
+      " property="og:description"/>
+<meta content="https://sebastianraschka.com/books/ml-q-and-ai-chapters/introduction/" property="og:url">
+<meta content="Sebastian Raschka, PhD" property="og:site_name">
+<meta content="en_US" property="og:locale">
+<meta content="@rasbt" name="twitter:site">
+<meta content="I'm an LLM Research Engineer with over a decade of experience in artificial intelligence. My work bridges academia and industry, with roles including senior staff at an AI company and a statistics professor. My expertise lies in LLM research and the development of high-performance AI systems, with a deep focus on practical, code-driven implementations.
+" name="twitter:description"/>
+<meta content="article" property="og:type"/>
+<meta content="" property="article:published_time"/>
+<meta content="@rasbt" name="twitter:creator"/>
+<meta content="Introduction" name="twitter:title"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="" name="twitter:image"/>
+<title>Introduction</title>
+<meta content="I'm an LLM Research Engineer with over a decade of experience in artificial intelligence. My work bridges academia and industry, with roles including senior staff at an AI company and a statistics professor. My expertise lies in LLM research and the development of high-performance AI systems, with a deep focus on practical, code-driven implementations.
+" name="description"/>
+<link href=" /css/combined_direct_no_sass.css" rel="stylesheet"/>
+<link href=" /css/fork-awesome.min.css" rel="stylesheet"/>
+<meta content="Introduction" property="og:title"/>
+<meta content="article" property="og:type"/>
+<meta content="https://sebastianraschka.com/books/ml-q-and-ai-chapters/introduction/" property="og:url"/>
+<meta content="" property="og:image"/>
+<meta content="" property="og:description"/>
+<meta content="Sebastian Raschka, PhD" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="" property="fb:admins"/>
+<meta content="" property="fb:app_id"/>
+<link href="https://sebastianraschka.com/books/ml-q-and-ai-chapters/introduction/" rel="canonical"/>
+<link href="/images/favicons/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="/images/favicons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/images/favicons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="/site.webmanifest" rel="manifest"/>
+<link color="#5bbad5" href="/images/favicons/safari-pinned-tab.svg" rel="mask-icon"/>
+<meta content="#ffc40d" name="msapplication-TileColor"/>
+<meta content="#ffffff" name="theme-color"/>
+</meta></meta></meta></meta></meta></head>
+<body>
+<img alt="Ahead of AI logo" src="../images/ahead-of-ai-icon.png" style="display: none;"/>
+<header class="site-header">
+<div class="site-title" style="text-decoration: none; margin-top: 2em;">
+<a href="/"><span style="color:black">Sebastian</span> <span style="color:#c5050c">Raschka</span> </a>
+<a href="https://x.com/rasbt"><img alt="Twitter/X icon" height="20" src="../images/twitter-bw.jpg" style="padding-left:20px;"/></a>
+<!--<a href="https://threads.net/@sebastianraschka"><img src="/images/logos/threads-logo-alt-small.png" height="20" style="padding-left:5px;" alt="Threads icon"></a>-->
+<a href="https://www.linkedin.com/in/sebastianraschka/"><img alt="LinkedIn Icon" height="20" src="../images/linkedin-bw.jpg" style="padding-left:5px;"/></a>
+<a href="https://github.com/rasbt"><img alt="GitHub icon" height="20" src="../images/github-bw.jpg" style="padding-left:5px;"/></a>
+</div>
+<!--  <div style="width:100%;height:50;float:left;margin-bottom:10px;">
+        &nbsp;<a href="https://twitter.com/rasbt"><img src="/images/logos/twitter-bw.jpg" height="20"></a>-->
+<!-- &nbsp;<a href="https://www.buymeacoffee.com/rasbt"><img src="/images/logos/coffee-bw.jpg" height="20"></a>-->
+<!--&nbsp;<a href="https://mastodon.social/@SebRaschka"><img src="/images/logos/mastodon-bw.jpg" height="20"></a>-->
+<!-- </div>-->
+<div class="wrapper">
+<nav class="site-nav">
+<a class="menu-icon" href="#">
+<svg viewbox="0 0 18 15">
+<path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z" fill="#424242"></path>
+<path d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z" fill="#424242"></path>
+<path d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z" fill="#424242"></path>
+</svg>
+</a>
+<div class="trigger">
+<!--<script type="text/javascript">
+          var total_images = 2;
+          var random_number = Math.floor((Math.random()*total_images));
+          var random_img = new Array();
+          random_img[0] = '<a href="https://twitter.com/rasbt"><img src="/images/logos/twitter-1.jpg" height="20"></a>';
+          random_img[1] = '<a href="https://linkedin.com/in/sebastianraschka"><img src="/images/logos/linkedin-1.jpg" height="20"></a>';
+          document.write(random_img[random_number]);
+          </script>-->
+<span style="padding-left:0px;margin-left:0px;"></span>
+<a class="page-link" href="https://magazine.sebastianraschka.com"><span style="color:#c5050c;"><img alt="Ahead of AI Logo" height="20" src="../images/ahead-of-ai-icon.png"/> Blog</span></a>
+<!--<a class="page-link" href="/blog/index.html">Blog</a>-->
+<a class="page-link" href="/books">Books</a>
+<!--<a class="page-link" href="/newsletter">AI Newsletter</a>-->
+<!--<a class="page-link" href="/teaching">Courses</a>-->
+<a class="page-link" href="https://github.com/rasbt/LLMs-from-scratch">LLMs From Scratch</a>
+<!--<a class="page-link" href="/publications">Research</a>-->
+<a class="page-link" href="/elsewhere">Talks</a>
+<a class="page-link" href="/contact">Contact</a>
+<a class="page-link" href="/resources">More</a>
+</div>
+</nav>
+</div>
+</header>
+<div class="page-content">
+<div class="wrapper">
+<!-- MathJax script for LaTeX rendering -->
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<!-- Open Graph Metadata -->
+<meta content="article" property="og:type"/>
+<meta content="Introduction" property="og:title"/>
+<meta content="" property="og:description"/>
+<meta content="https://sebastianraschka.com" property="og:image"/>
+<meta content="" property="og:image:alt"/>
+<meta content="https://sebastianraschka.com/books/ml-q-and-ai-chapters/introduction/" property="og:url"/>
+<meta content="Sebastian Raschka's Blog" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<!-- Twitter Metadata -->
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Introduction" name="twitter:title"/>
+<meta content="" name="twitter:description"/>
+<meta content="https://sebastianraschka.com" name="twitter:image"/>
+<meta content="" name="twitter:image:alt"/>
+<div class="post">
+<header class="post-header">
+<h1 class="post-title" style="text-align: left;">Machine Learning Q and AI</h1>
+<h2 class="post-subtitle">30 Essential Questions and Answers on Machine Learning and AI</h2>
+<p>
+      By Sebastian Raschka. <a href="#table-of-contents">Free to read</a>.
+      Published by <a href="https://nostarch.com/machine-learning-q-and-ai">No Starch Press</a>.<br/>
+      Copyright Â© 2024-2025 by Sebastian Raschka.
+    </p>
+<p>
+<img alt="Machine Learning and Q and AI" class="right-image-shadow-30" src="../images/2023-ml-ai-beyond.jpg"/>
+</p>
+<blockquote>
+      Machine learning and AI are moving at a rapid pace. Researchers and practitioners are constantly struggling to keep up with the breadth of concepts and techniques. This book provides bite-sized bits of knowledge for your journey from machine learning beginner to expert, covering topics from various machine learning areas. Even experienced machine learning researchers and practitioners will encounter something new that they can add to their arsenal of techniques.
+    </blockquote>
+<br/>
+<p><strong>ð Print Book:</strong><br/>
+<a href="https://amzn.to/4488ahe">Amazon</a><br/>
+<a href="https://nostarch.com/machine-learning-q-and-ai">No Starch Press</a>
+</p>
+<p><strong>ð Read Online:</strong><br/>
+<a href="#table-of-contents">Full Book (Free)</a>
+</p>
+</header>
+<article class="post-content">
+<!-- Optional: Anchor Headings -->
+<h1 id="introduction">
+        
+        
+          Introduction <a href="#introduction"></a>
+</h1>
+<p>Thanks to rapid advancements in deep learning, we have seen a
+significant expansion of machine learning and AI in recent years.</p>
+<p>This progress is exciting if we expect these advancements to create new
+industries, transform existing ones, and improve the quality of life for
+people around the world. On the other hand, the constant emergence of
+new techniques can make it challenging and time-consuming to keep
+abreast of the latest developments. Nonetheless, staying current is
+essential for professionals and organizations that use these
+technologies.</p>
+<p>I wrote this book as a resource for readers and machine learning
+practitioners who want to advance their expertise in the field and learn
+about techniques that I consider useful and significant but that are
+often overlooked in traditional and introductory textbooks and classes.
+I hope youâll find this book a valuable resource for obtaining new
+insights and discovering new techniques you can implement in your work.</p>
+<h2 id="who-is-this-book-for">
+        
+        
+          Who Is This Book For? <a href="#who-is-this-book-for"></a>
+</h2>
+<p>Navigating the world of AI and machine learning literature can often
+feel like walking a tightrope, with most books positioned at either end:
+broad
+beginnerâs introductions or deeply mathematical treatises. This book illustrates and discusses important developments in these fields while staying approachable and not requiring an advanced math or coding background.</p>
+<p>This book is for people with some experience with machine learning who
+want to learn new concepts and techniques. Itâs ideal for those who have
+taken a beginner course in machine learning or deep learning or have
+read an equivalent introductory book on the topic. (Throughout this
+book, I will use <em>machine learning</em> as an umbrella term for machine
+learning, deep learning, and AI.)</p>
+<h2 id="what-will-you-get-out-of-this-book">
+        
+        
+          What Will You Get Out of This Book? <a href="#what-will-you-get-out-of-this-book"></a>
+</h2>
+<p>This book adopts a unique Q&amp;A style, where each brief chapter is
+structured around a central question related to fundamental concepts in
+machine learning, deep learning, and AI. Every question is followed by
+an explanation, with several illustrations and figures, as well as
+exercises to test your understanding. Many chapters also include
+references for further reading. These bite-sized nuggets of information
+provide an enjoyable jumping-off point on your journey from machine
+learning beginner to expert.</p>
+<p>The book covers a wide range of topics. It includes new insights about
+established architectures, such as convolutional networks, that allow
+you to utilize these technologies more effectively. It also discusses
+more advanced techniques, such as the inner workings of large language
+models (LLMs) and vision transformers. Even experienced machine learning
+researchers and practitioners will encounter something new to add to
+their arsenal of techniques.</p>
+<p>While this book will expose you to new concepts and ideas, itâs not a
+math or coding book. You wonât need to solve any proofs or run any code
+while reading. In other words, this book is a perfect travel companion
+or something you can read on your favorite reading chair with your
+morning coffee or tea.</p>
+<h2 id="how-to-read-this-book">
+        
+        
+          How to Read This Book <a href="#how-to-read-this-book"></a>
+</h2>
+<p>Each chapter of this book is designed to be self-contained, offering you
+the freedom to jump between topics as you wish. When a concept from one
+chapter is explained in more detail in another, Iâve included chapter
+references you can follow to fill in gaps in your understanding.</p>
+<p>However, thereâs a strategic sequence to the chapters. For example,<br>
+the early chapter on embeddings sets the stage for later discussions
+on self-supervised learning and few-shot learning. For the easiest reading
+experience and the most comprehensive grasp of the content, my
+recommendation is to approach the book from start to finish.</br></p>
+<p>Each chapter is accompanied by optional exercises for readers who want
+to test their understanding, with an answer key located at the end of
+the book. In addition, for any papers referenced in a chapter or further
+reading on that chapterâs topic, you can find the complete citation
+information in that chapterâs âReferencesâ section.</p>
+<p>The book is structured into five main parts centered on the most
+important topics in machine learning and AI today.</p>
+<p><strong>Part I: Neural Networks and Deep Learning</strong> covers questions about
+deep neural networks and deep learning that are not specific to a
+particular subdomain. For example, we discuss alternatives to supervised
+learning and techniques for reducing overfitting, which is a common
+problem when using machine learning models for real-world problems where
+data is limited.</p>
+<p>ChapterÂ <a data-reference="ch01" data-reference-type="ref" href="../ch01">[ch01]</a>: Embeddings, Latent Space, and Representations<br>
+Delves into the distinctions and similarities between embedding vectors,
+latent vectors, and representations. Elucidates how these concepts help
+encode information in the context of machine learning.</br></p>
+<p>ChapterÂ <a data-reference="ch02" data-reference-type="ref" href="../ch02">[ch02]</a>: Self-Supervised Learning<br>
+Focuses on self-supervised learning, a method that allows neural
+networks to utilize large, unlabeled datasets in a supervised manner.</br></p>
+<p>ChapterÂ <a data-reference="ch03" data-reference-type="ref" href="../ch03">[ch03]</a>: Few-Shot Learning<br>
+Introduces few-shot learning, a specialized supervised learning
+technique tailored for small training datasets.</br></p>
+<p>ChapterÂ <a data-reference="ch04" data-reference-type="ref" href="../ch04">[ch04]</a>: The Lottery Ticket Hypothesis<br>
+Explores the idea that ran-<br/>
+Â domlyinitializedneuralnetworkscontainsmaller,efficient subnetworks.</br></p>
+<p>ChapterÂ <a data-reference="ch05" data-reference-type="ref" href="../ch05">[ch05]</a>: Reducing Overfitting with Data<br/>
+Addresses the challenge of overfitting in machine learning, discussing
+strategies centered on data augmentation and the use of unlabeled data
+to reduce overfitting.</p>
+<p>ChapterÂ <a data-reference="ch06" data-reference-type="ref" href="../ch06">[ch06]</a>: Reducing Overfitting with Model Modifications<br/>
+Extends the conversation on overfitting, focusing on model-related
+solutions like regularization, opting for simpler models, and ensemble
+techniques.</p>
+<p>ChapterÂ <a data-reference="ch07" data-reference-type="ref" href="../ch07">[ch07]</a>: Multi-GPU Training Paradigms<br/>
+Explains various training paradigms for multi-GPU setups to accelerate
+model training, including data and model parallelism.</p>
+<p>ChapterÂ <a data-reference="ch08" data-reference-type="ref" href="../ch08">[ch08]</a>: The Success of Transformers<br/>
+Explores the popular transformer architecture, highlighting features
+like attention mechanisms, parallelization ease, and high parameter
+counts.</p>
+<p>ChapterÂ <a data-reference="ch09" data-reference-type="ref" href="../ch09">[ch09]</a>: Generative AI Models<br/>
+Provides a comprehensive overview of deep generative models, which are
+used to produce various media forms, including images, text, and audio.
+Discusses the strengths and weaknesses of each model type.</p>
+<p>ChapterÂ <a data-reference="ch10" data-reference-type="ref" href="../ch10">[ch10]</a>: Sources of Randomness<br/>
+Addresses the various sources of randomness in the training of deep
+neural networks that may lead to inconsistent and non-reproducible
+results during both training and inference. While randomness can be
+accidental, it can also be intentionally introduced by design.</p>
+<p><strong>Part II: Computer Vision</strong> focuses on topics mainly related to deep
+learning but specific to computer vision, many of which cover
+convolutional neural networks and vision transformers.</p>
+<p>ChapterÂ <a data-reference="ch11" data-reference-type="ref" href="../ch11">[ch11]</a>: Calculating the Number of Parameters<br/>
+Explains the<br/>
+procedure for determining the parameters in a convolutional neural
+network, which is useful for gauging a modelâs storage and memory<br/>
+requirements.</p>
+<p>ChapterÂ <a data-reference="ch12" data-reference-type="ref" href="../ch12">[ch12]</a>: Fully Connected and Convolutional Layers<br/>
+Illustrates the circumstances in which convolutional layers can
+seamlessly replace fully connected layers, which can be useful for
+hardware optimization or simplifying implementations.</p>
+<p>ChapterÂ <a data-reference="ch13" data-reference-type="ref" href="../ch13">[ch13]</a>: Large Training Sets for Vision Transformers<br/>
+Probes the rationale behind vision transformers requiring more extensive
+training sets compared to conventional convolutional neural networks.</p>
+<p><strong>Part III: Natural Language Processing</strong> covers topics around working
+with text, many of which are related to transformer architectures and
+self-attention.</p>
+<p>ChapterÂ <a data-reference="ch14" data-reference-type="ref" href="../ch14">[ch14]</a>: The Distributional Hypothesis<br/>
+Delves into the distributional hypothesis, a linguistic theory
+suggesting that words appearing in the same contexts tend to possess
+similar meanings, which has useful implications for training machine
+learning models.</p>
+<p>ChapterÂ <a data-reference="ch15" data-reference-type="ref" href="../ch15">[ch15]</a>: Data Augmentation for Text<br/>
+Highlights the significance of data augmentation for text, a technique
+used to artificially increase dataset sizes, which can help with
+improving model performance.</p>
+<p>ChapterÂ <a data-reference="ch16" data-reference-type="ref" href="../ch16">[ch16]</a>: Self-Attention<br/>
+Introduces self-attention, a mechanism allowing each segment of a neural
+networkâs input to refer to other parts. Self-attention is a key
+mechanism in modern large language models.</p>
+<p>ChapterÂ <a data-reference="ch17" data-reference-type="ref" href="../ch17">[ch17]</a>: Encoder- and Decoder-Style Transformers<br/>
+Describes<br/>
+the nuances of encoder and decoder transformer architectures and
+explains which type of architecture is most useful for each language
+processing task.</p>
+<p>ChapterÂ <a data-reference="ch18" data-reference-type="ref" href="../ch18">[ch18]</a>: Using and Fine-Tuning Pretrained Transformers<br/>
+Explains different methods for fine-tuning pretrained large language
+models and discusses their strengths and weaknesses.</p>
+<p>ChapterÂ <a data-reference="ch19" data-reference-type="ref" href="../ch19">[ch19]</a>: Evaluating Generative Large Language Models<br/>
+ListsÂ pro-<br/>
+Â minent evaluation metrics for language models like Perplexity, BLEU,
+ROUGE, and BERTScore.</p>
+<p><strong>Part IV: Production and Deployment</strong> covers questions pertaining to
+practical scenarios, such as increasing inference speeds and various
+types of distribution shifts.</p>
+<p>ChapterÂ <a data-reference="ch20" data-reference-type="ref" href="../ch20">[ch20]</a>: Stateless and Stateful Training<br/>
+Distinguishes between stateless and stateful training methodologies used
+in deploying models.</p>
+<p>ChapterÂ <a data-reference="ch21" data-reference-type="ref" href="../ch21">[ch21]</a>: Data-Centric AI<br/>
+Explores data-centric AI, which priori-<br/>
+Â tizes refining datasets to enhance model performance. This approach
+contrasts with the conventional model-centric approach, which emphasizes
+improving model architectures or methods.</p>
+<p>ChapterÂ <a data-reference="ch22" data-reference-type="ref" href="../ch22">[ch22]</a>: Speeding Up Inference<br/>
+Introduces techniques to enhance the speed of model inference without
+tweaking the modelâs architecture or compromising accuracy.</p>
+<p>ChapterÂ <a data-reference="ch23" data-reference-type="ref" href="../ch23">[ch23]</a>: Data Distribution Shifts<br/>
+Post-deployment, AI models<br/>
+may face discrepancies between training data and real-world data
+distributions, known as data distribution shifts. These shifts can
+deteriorate model performance. This chapter categorizes and elaborates
+on common shifts like covariate shift, concept drift, label shift, and
+do-<br/>
+Â main shift.</p>
+<p><strong>Part V: Predictive Performance and Model Evaluation</strong> dives deeper
+into various aspects of squeezing out predictive performance, such as
+changing the loss function, setting up <em>k</em>-fold cross-validation, and
+dealing with limited labeled data.</p>
+<p>ChapterÂ <a data-reference="ch24" data-reference-type="ref" href="../ch24">[ch24]</a>: Poisson and Ordinal Regression<br/>
+Highlights the differences between Poisson and ordinal regression.
+Poisson regression is suitable for count data that follows a Poisson
+distribution, like the number of colds contracted on an airplane. In
+contrast, ordinal regression caters to ordered categorical data without
+assuming equidistant categories, such as disease severity.</p>
+<p>ChapterÂ <a data-reference="ch25" data-reference-type="ref" href="../ch25">[ch25]</a>: Confidence Intervals<br/>
+Delves into methods for constructing confidence intervals for machine
+learning classifiers. Reviews the purpose of confidence intervals,
+discusses how they estimate unknown population parameters, and
+introduces techniques such as normal approximation intervals,
+bootstrapping, and retraining with various random seeds.</p>
+<p>ChapterÂ <a data-reference="ch26" data-reference-type="ref" href="../ch26">[ch26]</a>: Confidence Intervals vs. Conformal Predictions<br/>
+Discusses the distinction between confidence intervals and conformal
+predictions and describes the latter as a tool for creating prediction
+intervals that cover actual outcomes with specific probability.</p>
+<p>ChapterÂ <a data-reference="ch27" data-reference-type="ref" href="../ch27">[ch27]</a>: Proper Metrics<br/>
+Focuses on the essential properties of a proper metric in mathematics
+and computer science. Examines whether commonly used loss functions in
+machine learning, such as mean squared error and cross-entropy loss,
+satisfy these properties.</p>
+<p>ChapterÂ <a data-reference="ch28" data-reference-type="ref" href="../ch28">[ch28]</a>: The <em>k</em> in <em>k</em>-Fold Cross-Validation<br/>
+Explores the role of the <em>k</em> in <em>k</em>-fold cross-validation and provides
+insight into the advantages and disadvantages of selecting a large <em>k</em>.</p>
+<p>ChapterÂ <a data-reference="ch29" data-reference-type="ref" href="../ch29">[ch29]</a>: Training and Test Set Discordance<br/>
+Addresses the scenario where a model performs better on a test dataset  than the training dataset. Offers strategies to discover and address discrepancies<br/>
+Â between training and test datasets, introducing the concept of adversarial validation.</p>
+<p>ChapterÂ <a data-reference="ch30" data-reference-type="ref" href="../ch30">[ch30]</a>: Limited Labeled Data<br/>
+Introduces various techniques to enhance model performance in situations
+where data is limited. Covers data labeling, bootstrapping, and
+paradigms such as transfer learning, active learning, and multimodal
+learning.</p>
+<h2 id="online-resources">
+        
+        
+          Online Resources <a href="#online-resources"></a>
+</h2>
+<p>Iâve provided optional supplementary materials on GitHub with code
+examples for certain chapters to enhance your learning experience (see
+<a href="https://github.com/rasbt/MachineLearning-QandAI-book">https://github.com/rasbt/MachineLearning-QandAI-book</a>). These materials
+are designed as practical extensions and deep dives into topics covered
+in the book. You can use them alongside each chapter or explore them
+after reading to solidify and expand your knowledge.</p>
+<p>Without further ado, letâs dive in.</p>
+</article>
+<br/>
+<hr/>
+<div class="book-promotion" style="margin-top: 50px;">
+<h2>Support the Author</h2>
+<p>You can support the author in the following ways:</p>
+<ul>
+<li>
+        Subscribe to <a href="https://magazine.sebastianraschka.com">Sebastian's Substack blog</a>
+</li>
+<li>
+        Purchase a copy on
+        <a href="https://amzn.to/4488ahe">Amazon</a> or
+        <a href="https://nostarch.com/machine-learning-q-and-ai">No Starch Press</a>
+</li>
+<li>
+        Write an <a href="https://amzn.to/4488ahe">Amazon review</a>
+</li>
+</ul>
+</div>
+<div style="margin-bottom: 50px;"></div>
+</div>
+</div>
+</div>
+<footer class="site-footer">
+<div class="wrapper">
+<div class="footer-col-wrapper">
+<div class="footer-col social-col">
+<a href="https://magazine.sebastianraschka.com"><span><i class="fa fa-rss fa-2x"></i></span> </a>
+<a href="/contact"><span><i class="fa fa-envelope fa-2x"></i></span> </a>
+<a href="https://twitter.com/rasbt"> <span><i class="fa fa-twitter fa-2x"></i></span> </a>
+<a href="https://youtube.com/c/SebastianRaschka"><span><i class="fa fa-youtube fa-2x"></i></span> </a>
+<a href="https://github.com/rasbt"><span><i class="fa fa-github fa-2x"></i> </span></a>
+<a href="https://scholar.google.com/citations?user=X4RCC0IAAAAJ&amp;hl=enrasbt"><span><i class="fa fa-google fa-2x"></i> </span></a>
+<a href="https://linkedin.com/in/sebastianraschka"><span><i class="fa fa-linkedin fa-2x"></i> </span></a>
+</div>
+<div class="footer-col copyright-col">
+<p>© 2013-2025 Sebastian Raschka</p>
+</div>
+</div>
+</div>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-BYQXBRPK81"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BYQXBRPK81');
+</script>
+</footer>
+
+<script src="/js/anchor.min.js" type="text/javascript"></script>
+<script>
+    var selector = 'h2, h3, h4, h5, h6';
+    /*
+    anchors.options = {
+      icon: '#',
+      visible: 'always',
+      placement: 'left',
+      class: 'bb-anchor'
+    }
+    */
+    anchors.add(selector);
+  </script>
+</body>
+</html>

@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width initial-scale=1" name="viewport">
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="Sebastian Raschka" name="author"/>
+<meta content="
+      Chapter 19
+    " property="og:title"/>
+<meta content="
+        I'm an LLM Research Engineer with over a decade of experience in artificial intelligence. My work bridges academia and industry, with roles including senior staff at an AI company and a statistics professor. My expertise lies in LLM research and the development of high-performance AI systems, with a deep focus on practical, code-driven implementations.
+
+      " property="og:description"/>
+<meta content="https://sebastianraschka.com/books/ml-q-and-ai-chapters/ch19/" property="og:url">
+<meta content="Sebastian Raschka, PhD" property="og:site_name">
+<meta content="en_US" property="og:locale">
+<meta content="@rasbt" name="twitter:site">
+<meta content="I'm an LLM Research Engineer with over a decade of experience in artificial intelligence. My work bridges academia and industry, with roles including senior staff at an AI company and a statistics professor. My expertise lies in LLM research and the development of high-performance AI systems, with a deep focus on practical, code-driven implementations.
+" name="twitter:description"/>
+<meta content="article" property="og:type"/>
+<meta content="" property="article:published_time"/>
+<meta content="@rasbt" name="twitter:creator"/>
+<meta content="Chapter 19" name="twitter:title"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="" name="twitter:image"/>
+<title>Chapter 19</title>
+<meta content="I'm an LLM Research Engineer with over a decade of experience in artificial intelligence. My work bridges academia and industry, with roles including senior staff at an AI company and a statistics professor. My expertise lies in LLM research and the development of high-performance AI systems, with a deep focus on practical, code-driven implementations.
+" name="description"/>
+<link href=" /css/combined_direct_no_sass.css" rel="stylesheet"/>
+<link href=" /css/fork-awesome.min.css" rel="stylesheet"/>
+<meta content="Chapter 19" property="og:title"/>
+<meta content="article" property="og:type"/>
+<meta content="https://sebastianraschka.com/books/ml-q-and-ai-chapters/ch19/" property="og:url"/>
+<meta content="" property="og:image"/>
+<meta content="" property="og:description"/>
+<meta content="Sebastian Raschka, PhD" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="" property="fb:admins"/>
+<meta content="" property="fb:app_id"/>
+<link href="https://sebastianraschka.com/books/ml-q-and-ai-chapters/ch19/" rel="canonical"/>
+<link href="/images/favicons/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="/images/favicons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/images/favicons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="/site.webmanifest" rel="manifest"/>
+<link color="#5bbad5" href="/images/favicons/safari-pinned-tab.svg" rel="mask-icon"/>
+<meta content="#ffc40d" name="msapplication-TileColor"/>
+<meta content="#ffffff" name="theme-color"/>
+</meta></meta></meta></meta></meta></head>
+<body>
+<img alt="Ahead of AI logo" src="../images/ahead-of-ai-icon.png" style="display: none;"/>
+<header class="site-header">
+<div class="site-title" style="text-decoration: none; margin-top: 2em;">
+<a href="/"><span style="color:black">Sebastian</span> <span style="color:#c5050c">Raschka</span> </a>
+<a href="https://x.com/rasbt"><img alt="Twitter/X icon" height="20" src="../images/twitter-bw.jpg" style="padding-left:20px;"/></a>
+<!--<a href="https://threads.net/@sebastianraschka"><img src="/images/logos/threads-logo-alt-small.png" height="20" style="padding-left:5px;" alt="Threads icon"></a>-->
+<a href="https://www.linkedin.com/in/sebastianraschka/"><img alt="LinkedIn Icon" height="20" src="../images/linkedin-bw.jpg" style="padding-left:5px;"/></a>
+<a href="https://github.com/rasbt"><img alt="GitHub icon" height="20" src="../images/github-bw.jpg" style="padding-left:5px;"/></a>
+</div>
+<!--  <div style="width:100%;height:50;float:left;margin-bottom:10px;">
+        &nbsp;<a href="https://twitter.com/rasbt"><img src="/images/logos/twitter-bw.jpg" height="20"></a>-->
+<!-- &nbsp;<a href="https://www.buymeacoffee.com/rasbt"><img src="/images/logos/coffee-bw.jpg" height="20"></a>-->
+<!--&nbsp;<a href="https://mastodon.social/@SebRaschka"><img src="/images/logos/mastodon-bw.jpg" height="20"></a>-->
+<!-- </div>-->
+<div class="wrapper">
+<nav class="site-nav">
+<a class="menu-icon" href="#">
+<svg viewbox="0 0 18 15">
+<path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z" fill="#424242"></path>
+<path d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z" fill="#424242"></path>
+<path d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z" fill="#424242"></path>
+</svg>
+</a>
+<div class="trigger">
+<!--<script type="text/javascript">
+          var total_images = 2;
+          var random_number = Math.floor((Math.random()*total_images));
+          var random_img = new Array();
+          random_img[0] = '<a href="https://twitter.com/rasbt"><img src="/images/logos/twitter-1.jpg" height="20"></a>';
+          random_img[1] = '<a href="https://linkedin.com/in/sebastianraschka"><img src="/images/logos/linkedin-1.jpg" height="20"></a>';
+          document.write(random_img[random_number]);
+          </script>-->
+<span style="padding-left:0px;margin-left:0px;"></span>
+<a class="page-link" href="https://magazine.sebastianraschka.com"><span style="color:#c5050c;"><img alt="Ahead of AI Logo" height="20" src="../images/ahead-of-ai-icon.png"/> Blog</span></a>
+<!--<a class="page-link" href="/blog/index.html">Blog</a>-->
+<a class="page-link" href="/books">Books</a>
+<!--<a class="page-link" href="/newsletter">AI Newsletter</a>-->
+<!--<a class="page-link" href="/teaching">Courses</a>-->
+<a class="page-link" href="https://github.com/rasbt/LLMs-from-scratch">LLMs From Scratch</a>
+<!--<a class="page-link" href="/publications">Research</a>-->
+<a class="page-link" href="/elsewhere">Talks</a>
+<a class="page-link" href="/contact">Contact</a>
+<a class="page-link" href="/resources">More</a>
+</div>
+</nav>
+</div>
+</header>
+<div class="page-content">
+<div class="wrapper">
+<!-- MathJax script for LaTeX rendering -->
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<!-- Open Graph Metadata -->
+<meta content="article" property="og:type"/>
+<meta content="Chapter 19" property="og:title"/>
+<meta content="" property="og:description"/>
+<meta content="https://sebastianraschka.com" property="og:image"/>
+<meta content="" property="og:image:alt"/>
+<meta content="https://sebastianraschka.com/books/ml-q-and-ai-chapters/ch19/" property="og:url"/>
+<meta content="Sebastian Raschka's Blog" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<!-- Twitter Metadata -->
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Chapter 19" name="twitter:title"/>
+<meta content="" name="twitter:description"/>
+<meta content="https://sebastianraschka.com" name="twitter:image"/>
+<meta content="" name="twitter:image:alt"/>
+<div class="post">
+<header class="post-header">
+<h1 class="post-title" style="text-align: left;">Machine Learning Q and AI</h1>
+<h2 class="post-subtitle">30 Essential Questions and Answers on Machine Learning and AI</h2>
+<p>
+      By Sebastian Raschka. <a href="#table-of-contents">Free to read</a>.
+      Published by <a href="https://nostarch.com/machine-learning-q-and-ai">No Starch Press</a>.<br/>
+      Copyright Â© 2024-2025 by Sebastian Raschka.
+    </p>
+<p>
+<img alt="Machine Learning and Q and AI" class="right-image-shadow-30" src="../images/2023-ml-ai-beyond.jpg"/>
+</p>
+<blockquote>
+      Machine learning and AI are moving at a rapid pace. Researchers and practitioners are constantly struggling to keep up with the breadth of concepts and techniques. This book provides bite-sized bits of knowledge for your journey from machine learning beginner to expert, covering topics from various machine learning areas. Even experienced machine learning researchers and practitioners will encounter something new that they can add to their arsenal of techniques.
+    </blockquote>
+<br/>
+<p><strong>ð Print Book:</strong><br/>
+<a href="https://amzn.to/4488ahe">Amazon</a><br/>
+<a href="https://nostarch.com/machine-learning-q-and-ai">No Starch Press</a>
+</p>
+<p><strong>ð Read Online:</strong><br/>
+<a href="#table-of-contents">Full Book (Free)</a>
+</p>
+</header>
+<article class="post-content">
+<!-- Optional: Anchor Headings -->
+<h1 id="chapter-19-evaluating-generative-large-language-models">
+        
+        
+          Chapter 19: Evaluating Generative Large Language Models <a href="#chapter-19-evaluating-generative-large-language-models"></a>
+</h1>
+<p><span id="ch19" label="ch19"></span></p>
+<p><strong>What are the standard metrics for evaluating the quality of text
+generated by large language models, and why are these metrics useful?</strong></p>
+<p>Perplexity, BLEU, ROUGE, and BERTScore are some of the most common
+evaluation metrics used in natural language processing to assess the
+performance of LLMs across various tasks. Although there is ultimately
+no way around human quality judgments, human evaluations are tedious,
+expensive, hard to automate, and subjective. Hence, we develop metrics
+to provide objective summary scores to measure progress and compare
+different approaches.</p>
+<p>This chapter discusses the difference between intrinsic and extrinsic
+performance metrics for evaluating LLMs, and then it dives deeper into
+popular metrics like BLEU, ROUGE, and BERTScore and provides simple
+hands-on examples for illustration purposes.</p>
+<h2 id="evaluation-metrics-for-llms">
+        
+        
+          Evaluation Metrics for LLMs <a href="#evaluation-metrics-for-llms"></a>
+</h2>
+<p>The <em>perplexity metric</em> is directly related to the loss function used
+for pretraining LLMs and is commonly used to evaluate text generation
+and text completion models. Essentially, it quantifies the average
+uncertainty of the model in predicting the next word in a given
+contextâthe lower the perplexity,
+the better.</p>
+<p>The <em>bilingual evaluation understudy (BLEU)</em> score is a widely used
+metric for evaluating the quality of machine-generated translations. It
+measures the overlap of n-grams between the machine-generated
+translation and a set of human-generated reference translations. A
+higher BLEU score indicates better performance, ranging from 0 (worst)
+to 1 (best).</p>
+<p>The <em>recall-oriented understudy for gisting evaluation (ROUGE)</em> score is
+a metric primarily used for evaluating automatic summarization (and
+sometimes machine translation) models. It measures the overlap between
+the generated summary and reference summaries.</p>
+<p>We can think of perplexity as an <em>intrinsic metric</em> and BLEU and ROUGE
+as <em>extrinsic metrics</em>. To illustrate the difference between the two
+types of metrics, think of optimizing the conventional cross entropy to
+train an image classifier. The cross entropy is a loss function we
+optimize during training, but our end goal is to maximize the
+classification accuracy. Since classification accuracy cannot be
+optimized directly during training, as itâs not differentiable, we
+minimize the surrogate loss function like the cross entropy. Minimizing
+the cross entropy loss more or less correlates with maximizing the
+classification accuracy.</p>
+<p>Perplexity is often used as an evaluation metric to compare the
+performance of different language models, but it is not the optimization
+target during training. BLEU and ROUGE are more related to
+classification accuracy, or rather precision and recall. In fact, BLEU
+is a precision-like score to evaluate the quality of a translated text,
+while ROUGE is a recall-like score
+to evaluate summarized texts.</p>
+<p>The following sections discuss the mechanics of these metrics in more
+detail.</p>
+<h3 id="perplexity">
+        
+        
+          Perplexity <a href="#perplexity"></a>
+</h3>
+<p>Perplexity is closely related to the cross entropy directly minimized
+during training, which is why we refer to perplexity as an <em>intrinsic
+metric</em>.</p>
+<p>Perplexity is defined as 2<sup><em>H</em>(<em>p</em>, <em>q</em>)/<em>n</em></sup>, where <em>H</em>(<em>p</em>,
+<em>q</em>) is the cross entropy between the true distribution of words <em>p</em> and
+the predicted distribution of words <em>q</em>, and <em>n</em> is the sentence length
+(the number of words or tokens) to normalize the score. As cross entropy
+decreases, perplexity decreases as wellâthe lower the perplexity, the
+better. While we typically compute the cross entropy using a natural
+logarithm, we calculate the cross entropy and perplexity with a base-2
+logarithm for the intuitive relationship to hold. (However, whether we
+use a base-2 or natural logarithm is only a minor implementation
+detail.)</p>
+<p>In practice, since the probability for each word in the target sentence
+is always 1, we compute the cross entropy as the logarithm of the
+probability scores returned by the model we want to evaluate. In other
+words, if we have the predicted probability score for each word in a
+sentence <em>s</em>, we can compute the perplexity directly as follows:</p>
+
+\[Perplexity(s) = 2^{-\frac{1}{n} \log_2 (p(s))}\]
+
+<p>where <em>s</em> is the sentence or text we want to evaluate, such as âThe
+quick brown fox jumps over the lazy dog,â <em>p</em>(<em>s</em>) is the probability
+scores returned by the model, and <em>n</em> is the number of words or tokens.
+For example, if the model returns the probability scores [0.99, 0.85,
+0.89, 0.99, 0.99, 0.99, 0.99, 0.99], the perplexity is:</p>
+
+\[\begin{aligned}
+    &amp; 2^{-\frac{1}{8} \cdot \sum_i  \log_2 p(w_i)} \\
+    =\,&amp; 2^{-\frac{1}{8} \cdot  \sum \log_2 (0.99 \,\times\, 0.85 \,\times\, 0.89 \,\times\, 0.99 \,\times\, 0.99 \,\times\, 0.99 \,\times\, 0.99 \,\times\, 0.99) }\\
+    =\,&amp;1.043
+\end{aligned}\]
+
+<p>If the sentence was âThe fast black cat jumps over the lazy dog,â with
+probabilities [0.99, 0.65, 0.13, 0.05, 0.21, 0.99, 0.99, 0.99], the
+corresponding perplexity would be 2.419.</p>
+<p>You can find a code implementation and example of this calculation in
+the <em>supplementary/q19-evaluation-llms</em> subfolder at
+<a href="https://github.com/rasbt/MachineLearning-QandAI-book">https://github.com/rasbt/MachineLearning-QandAI-book</a>.</p>
+<h3 id="bleu-score">
+        
+        
+          BLEU Score <a href="#bleu-score"></a>
+</h3>
+<p>BLEU is the most popular and most widely used metric for evaluating
+translated texts. Itâs used in almost all LLMs capable of translation,
+including popular tools such as OpenAIâs Whisper and GPT models.</p>
+<p>BLEU is a reference-based metric that compares the model output to
+human-generated references and was first developed to capture or
+automate the essence of human evaluation. In short, BLEU measures the
+lexical overlap between the model output and the human-generated
+references based on a precision score.</p>
+<p>In more detail, as a precision-based metric, BLEU counts how many words
+in the generated text (candidate text) occur in the reference text
+divided by the candidate text length (the number of words), where the
+reference text is a sample translation provided by a human, for example.
+This is commonly done for n-grams rather than individual words, but for
+simplicity, we will stick to words or 1-grams. (In practice, BLEU is
+often computed for 4-grams.)</p>
+<p>FigureÂ <a data-reference="fig:ch19-fig01" data-reference-type="ref" href="#fig:ch19-fig01">[fig:ch19-fig01]</a> demonstrates the
+BLEU score calculation, using the example of calculating the 1-gram BLEU
+score. The individual steps in
+FigureÂ <a data-reference="fig:ch19-fig01" data-reference-type="ref" href="#fig:ch19-fig01">[fig:ch19-fig01]</a> illustrate how we
+compute the 1-gram BLEU score based on its individual components, the
+weighted precision times a brevity penalty. You can also find a code
+implementation of this calculation in the <em>supplementary/q15-text</em>
+<em>-augment</em> subfolder at
+<a href="https://github.com/rasbt/MachineLearning-QandAI-book">https://github.com/rasbt/MachineLearning-QandAI-book</a>.</p>
+<div class="figurewide">
+<img alt="image" src="../images/ch19-fig01.png" style="width:5.625in">
+</img></div>
+<p>BLEU has several shortcomings, mostly owing to the fact that it measures
+string similarity, and similarity alone is not sufficient for capturing
+quality. For instance, sentences with similar words but different word
+orders might still score high, even though altering the word order can
+significantly change the meaning of a sentence and result in poor
+grammatical structure. Furthermore, since BLEU relies on exact string
+matches, it is sensitive to lexical variations and is incapable of
+identifying semantically similar translations that use synonyms or
+paraphrases. In other words, BLEU may assign lower scores to
+translations that are, in fact, accurate and meaningful.</p>
+<p>The original BLEU paper found a high correlation with human evaluations,
+though this was disproven later.</p>
+<p>Is BLEU flawed? Yes. Is it still useful? Also yes. BLEU is a helpful
+tool
+to measure or assess whether a model improves during training, as a
+proxy for fluency. However, it may not reliably give a correct
+assessment of the quality of the generated translations and is not well
+suited for detecting issues. In other words, itâs best used as a model
+selection tool, not a model evaluation tool.</p>
+<p>Atthetimeofwriting,themostpopularalternativestoBLEUare
+METEOR and COMET (see the ââ section at the end of this
+chapter for more details).</p>
+<h3 id="rouge-score">
+        
+        
+          ROUGE Score <a href="#rouge-score"></a>
+</h3>
+<p>While BLEU is commonly used for translation tasks, ROUGE is a popular
+metric for scoring text summaries.</p>
+<p>There are many similarities between BLEU and ROUGE. The
+precision-basedBLEUscorecheckshowmanywordsinthecandidatetranslation
+occur in the reference translation. The ROUGE score also takes a flipped
+approach, checking how many words in the reference text appear in the
+generated text (here typically a summarization instead of a
+translation); this can be interpreted as a recall-based score.</p>
+<p>Modern implementations compute ROUGE as an F1 score that is the harmonic
+mean of recall (how many words in the reference occur in the
+candidate text) and precision (how many words in the candidate text
+occur in the reference text). For example,
+FigureÂ <a data-reference="fig:ch19-fig02" data-reference-type="ref" href="#fig:ch19-fig02">[fig:ch19-fig02]</a> shows a 1-gram
+ROUGE score computation (though in practice, ROUGE is often computed for
+bigrams, that is, 2-grams).</p>
+<div class="figurewide">
+<img alt="image" src="../images/ch19-fig02.png" style="width:6.5in">
+</img></div>
+<p>There are other ROUGE variants beyond ROUGE-1 (the F1 scoreâbased ROUGE
+score for 1-grams):</p>
+<p>ROUGE-N
+Measures the overlap of n-grams between the candidate and reference
+summaries. For example, ROUGE-1 would look at the overlap of individual
+words (1-grams), while ROUGE-2 would consider the overlap of 2-grams
+(bigrams).</p>
+<p>ROUGE-L
+Measures the longest common subsequence (LCS) between the candidate and
+reference summaries. This metric captures the longest co-occurring
+in-order subsequence of words, which may have gaps in between them.</p>
+<p>ROUGE-S
+Measures the overlap of <em>skip-bigrams</em>, or word pairs with a flexible
+number of words in between them. It can be useful to capture the
+similarity between sentences with different word orderings.</p>
+<p>ROUGE shares similar weaknesses with BLEU. Like BLEU, ROUGE does not
+account for synonyms or paraphrases. It measures the n-gram overlap
+between the candidate and reference summaries, which can lead to lower
+scores for semantically similar but lexically different sentences.
+However, itâs still worth knowing about ROUGE since, according to a
+study, <em>all</em> papers introducing new summarization models at
+computational linguistics conferences in 2021 used it, and 69 percent of
+those papers used <em>only</em> ROUGE.</p>
+<h3 id="bertscore">
+        
+        
+          BERTScore <a href="#bertscore"></a>
+</h3>
+<p>Another more recently developed extrinsic metric is BERTScore.</p>
+<p>Forreadersfamiliarwiththeinceptionscoreforgenerativevision
+models, BERTScore takes a similar approach, using embeddings from a
+pretrained model (for more on embeddings, see
+ChapterÂ <a data-reference="ch01" data-reference-type="ref" href="../ch01">[ch01]</a>). Here, BERT-
+Â Score measures the similarity between a candidate text and a reference
+text by leveraging the contextual embeddings produced by the BERT
+model
+(the encoder-style transformer discussed in
+ChapterÂ <a data-reference="ch17" data-reference-type="ref" href="../ch17">[ch17]</a>).</p>
+<p>The steps to compute BERTScore are as follows:</p>
+<ol>
+<li>
+<p>Obtain the candidate text via the LLM you want to evaluate (PaLM,
+LLaMA, GPT, BLOOM, and so on).</p>
+</li>
+<li>
+<p>Tokenize the candidate and reference texts into subwords, preferably
+using the same tokenizer used for training BERT.</p>
+</li>
+<li>
+<p>Use a pretrained BERT model to create the embeddings for all tokens
+in the candidate and reference texts.</p>
+</li>
+<li>
+<p>Compare each token embedding in the candidate text to all token
+embeddings in the reference text, computing their cosine similarity.</p>
+</li>
+<li>
+<p>Align each token in the candidate text with the token in the
+reference text that has the highest cosine similarity.</p>
+</li>
+<li>
+<p>Compute the final BERTScore by taking the average similarity scores
+of all tokens in the candidate text.</p>
+</li>
+</ol>
+<p>FigureÂ <a data-reference="fig:ch19-fig03" data-reference-type="ref" href="#fig:ch19-fig03">[fig:ch19-fig03]</a> further illustrates
+these six steps. You can also find a computational example in the
+<em>subfolder/q15-text-augment</em> subfolder at
+<a href="https://github.com/rasbt/MachineLearning-QandAI-book">https://github.com/rasbt/MachineLearning-QandAI-book</a>.</p>
+<div class="figurewide">
+<img alt="image" src="../images/ch19-fig03.png" style="width:5.625in">
+</img></div>
+<p>BERTScore can be used for translations and summaries, and it captures
+the semantic similarity better than traditional metrics like BLEU and
+ROUGE. However, BERTScore is more robust in paraphrasing than BLEU and
+ROUGE and captures semantic similarity better due to its contextual
+embeddings. Also, it may be computationally more expensive than BLEU and
+ROUGE, as it requires using a pretrained BERT model for the evaluation.
+While BERTScore provides a useful automatic evaluation metric, itâs not
+perfect and should be used alongside other evaluation techniques,
+including human judgment.</p>
+<h2 id="surrogate-metrics">
+        
+        
+          Surrogate Metrics <a href="#surrogate-metrics"></a>
+</h2>
+<p>All metrics covered in this chapter are surrogates or proxies to
+evaluate how useful the model is in terms of measuring how well the
+model compares to human performance for accomplishing a goal. As
+mentioned earlier, the best way to evaluate LLMs is to assign human
+raters who judge the results. However, since this is often expensive and
+not easy to scale, we use the aforementioned metrics to estimate model
+performance. To quote from the InstructGPTpaper âTraining Language
+Models to Follow Instructions with Human Feedbackâ: âPublic NLP datasets
+are not reflective of how our language models are used .â.â. [They]
+are designed to capture tasks that are easy to evaluate with automatic
+metrics.â</p>
+<p>Besides perplexity, ROUGE, BLEU, and BERTScore, several other popular evaluation metrics are used
+ to assess the predictive performance of LLMs.</p>
+<h3 id="exercises">
+        
+        
+          Exercises <a href="#exercises"></a>
+</h3>
+<p>19-1. In step 5 of
+FigureÂ <a data-reference="fig:ch19-fig03" data-reference-type="ref" href="#fig:ch19-fig03">[fig:ch19-fig03]</a>, the cosine
+similarity between the two embeddings of âcatâ is not 1.0, where 1.0
+indicates a maximum cosine similarity. Why is that?</p>
+<p>19-2. In practice, we might find that the BERTScore
+is not symmetric. This means that switching the candidate and reference
+sentences could result in different BERTScores for specific texts. How
+could we address this?</p>
+<h2 id="references">
+        
+        
+          References <a href="#references"></a>
+</h2>
+<ul>
+<li>
+<p>The paper proposing the original BLEU method: Kishore Papineni et al.,âBLEU: A Method for Automatic Evaluation of Machine Translationâ
+(2002), <a href="https://aclanthology.org/P02-1040/">https://aclanthology.org/P02-1040/</a>.</p>
+</li>
+<li>
+<p>A follow-up study disproving BLEUâs high correlation with human evaluations: Chris Callison-Burch, Miles Osborne, and Philipp Koehn,
+âRe-Evaluating the Role of BLEU in Machine Translation Researchâ
+(2006), <a href="https://aclanthology.org/E06-1032/">https://aclanthology.org/E06-1032/</a>.</p>
+</li>
+<li>
+<p>The shortcomings of BLEU, based on 37 studies published over 20 years:
+Benjamin Marie, â12 Critical Flaws of BLEUâ (2022),
+<a href="https://medium.com/@bnjmn_marie/12-critical-flaws-of-bleu-1d790ccbe1b1">https://medium.com/@bnjmn_marie/12-critical-flaws-of-bleu-1d790ccbe1b1</a>.</p>
+</li>
+<li>
+<p>The paper proposing the original ROUGE method: Chin-Yew Lin,
+âROUGE:APackageforAutomaticEvaluationofSummariesâ
+(2004), <a href="https://aclanthology.org/W04-1013/">https://aclanthology.org/W04-1013/</a>.</p>
+</li>
+<li>
+<p>A survey on the usage of ROUGE in conference papers: Sebastian
+Gehrmann, Elizabeth Clark, and Thibault Sellam, âRepairing the Cracked
+Foundation: A Survey of Obstacles in Evaluation Practices for
+Generated Textâ (2022), <a href="https://arxiv.org/abs/2202.06935">https://arxiv.org/abs/2202.06935</a>.</p>
+</li>
+<li>
+<p>BERTScore, an evaluation metric based on a large language model:
+Tianyi Zhang et al., âBERTScore: Evaluating Text Generation with BERTâ
+(2019), <a href="https://arxiv.org/abs/1904.09675">https://arxiv.org/abs/1904.09675</a>.</p>
+</li>
+<li>
+<p>A comprehensive survey on evaluation metrics for large language
+models: Asli Celikyilmaz, Elizabeth Clark, and Jianfeng Gao,
+âEvaluation of Text Generation: A Surveyâ (2021),
+<a href="https://arxiv.org/abs/2006.14799">https://arxiv.org/abs/2006.14799</a>.</p>
+</li>
+<li>
+<p>METEOR is a machine translation metric that improves upon BLEU by
+using advanced matching techniques and aiming for better
+correlationwithhumanjudgmentatthesentencelevel:SatanjeevBanerjee and
+Alon Lavie, âMETEOR: An Automatic Metric for MT Evaluation with
+Improved Correlation with Human Judgmentsâ (2005),
+<a href="https://aclanthology.org/W05-0909/">https://aclanthology.org/W05-0909/</a>.</p>
+</li>
+<li>
+<p>COMET is a neural framework that sets new standards for correlating
+machine translation quality with human judgments, using cross-lingual
+pretrained models and multiple types of evaluation:
+Ricardo Rei et al., âCOMET: A Neural Framework for MT Evaluationâ
+(2020), <a href="https://arxiv.org/abs/2009.09025">https://arxiv.org/abs/2009.09025</a>.</p>
+</li>
+<li>
+<p>The InstructGPT paper: Long Ouyang et al., âTraining Language Models
+to Follow Instructions with Human Feedbackâ (2022),
+<a href="https://arxiv.org/abs/2203.02155">https://arxiv.org/abs/2203.02155</a>.</p>
+</li>
+</ul>
+</article>
+<br/>
+<hr/>
+<div class="book-promotion" style="margin-top: 50px;">
+<h2>Support the Author</h2>
+<p>You can support the author in the following ways:</p>
+<ul>
+<li>
+        Subscribe to <a href="https://magazine.sebastianraschka.com">Sebastian's Substack blog</a>
+</li>
+<li>
+        Purchase a copy on
+        <a href="https://amzn.to/4488ahe">Amazon</a> or
+        <a href="https://nostarch.com/machine-learning-q-and-ai">No Starch Press</a>
+</li>
+<li>
+        Write an <a href="https://amzn.to/4488ahe">Amazon review</a>
+</li>
+</ul>
+</div>
+<div style="margin-bottom: 50px;"></div>
+</div>
+</div>
+</div>
+<footer class="site-footer">
+<div class="wrapper">
+<div class="footer-col-wrapper">
+<div class="footer-col social-col">
+<a href="https://magazine.sebastianraschka.com"><span><i class="fa fa-rss fa-2x"></i></span> </a>
+<a href="/contact"><span><i class="fa fa-envelope fa-2x"></i></span> </a>
+<a href="https://twitter.com/rasbt"> <span><i class="fa fa-twitter fa-2x"></i></span> </a>
+<a href="https://youtube.com/c/SebastianRaschka"><span><i class="fa fa-youtube fa-2x"></i></span> </a>
+<a href="https://github.com/rasbt"><span><i class="fa fa-github fa-2x"></i> </span></a>
+<a href="https://scholar.google.com/citations?user=X4RCC0IAAAAJ&amp;hl=enrasbt"><span><i class="fa fa-google fa-2x"></i> </span></a>
+<a href="https://linkedin.com/in/sebastianraschka"><span><i class="fa fa-linkedin fa-2x"></i> </span></a>
+</div>
+<div class="footer-col copyright-col">
+<p>© 2013-2025 Sebastian Raschka</p>
+</div>
+</div>
+</div>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-BYQXBRPK81"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BYQXBRPK81');
+</script>
+</footer>
+
+<script src="/js/anchor.min.js" type="text/javascript"></script>
+<script>
+    var selector = 'h2, h3, h4, h5, h6';
+    /*
+    anchors.options = {
+      icon: '#',
+      visible: 'always',
+      placement: 'left',
+      class: 'bb-anchor'
+    }
+    */
+    anchors.add(selector);
+  </script>
+</body>
+</html>

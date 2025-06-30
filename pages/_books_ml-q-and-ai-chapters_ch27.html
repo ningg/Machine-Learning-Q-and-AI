@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width initial-scale=1" name="viewport">
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="Sebastian Raschka" name="author"/>
+<meta content="
+      Chapter 27
+    " property="og:title"/>
+<meta content="
+        I'm an LLM Research Engineer with over a decade of experience in artificial intelligence. My work bridges academia and industry, with roles including senior staff at an AI company and a statistics professor. My expertise lies in LLM research and the development of high-performance AI systems, with a deep focus on practical, code-driven implementations.
+
+      " property="og:description"/>
+<meta content="https://sebastianraschka.com/books/ml-q-and-ai-chapters/ch27/" property="og:url">
+<meta content="Sebastian Raschka, PhD" property="og:site_name">
+<meta content="en_US" property="og:locale">
+<meta content="@rasbt" name="twitter:site">
+<meta content="I'm an LLM Research Engineer with over a decade of experience in artificial intelligence. My work bridges academia and industry, with roles including senior staff at an AI company and a statistics professor. My expertise lies in LLM research and the development of high-performance AI systems, with a deep focus on practical, code-driven implementations.
+" name="twitter:description"/>
+<meta content="article" property="og:type"/>
+<meta content="" property="article:published_time"/>
+<meta content="@rasbt" name="twitter:creator"/>
+<meta content="Chapter 27" name="twitter:title"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="" name="twitter:image"/>
+<title>Chapter 27</title>
+<meta content="I'm an LLM Research Engineer with over a decade of experience in artificial intelligence. My work bridges academia and industry, with roles including senior staff at an AI company and a statistics professor. My expertise lies in LLM research and the development of high-performance AI systems, with a deep focus on practical, code-driven implementations.
+" name="description"/>
+<link href=" /css/combined_direct_no_sass.css" rel="stylesheet"/>
+<link href=" /css/fork-awesome.min.css" rel="stylesheet"/>
+<meta content="Chapter 27" property="og:title"/>
+<meta content="article" property="og:type"/>
+<meta content="https://sebastianraschka.com/books/ml-q-and-ai-chapters/ch27/" property="og:url"/>
+<meta content="" property="og:image"/>
+<meta content="" property="og:description"/>
+<meta content="Sebastian Raschka, PhD" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="" property="fb:admins"/>
+<meta content="" property="fb:app_id"/>
+<link href="https://sebastianraschka.com/books/ml-q-and-ai-chapters/ch27/" rel="canonical"/>
+<link href="/images/favicons/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="/images/favicons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/images/favicons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="/site.webmanifest" rel="manifest"/>
+<link color="#5bbad5" href="/images/favicons/safari-pinned-tab.svg" rel="mask-icon"/>
+<meta content="#ffc40d" name="msapplication-TileColor"/>
+<meta content="#ffffff" name="theme-color"/>
+</meta></meta></meta></meta></meta></head>
+<body>
+<img alt="Ahead of AI logo" src="../images/ahead-of-ai-icon.png" style="display: none;"/>
+<header class="site-header">
+<div class="site-title" style="text-decoration: none; margin-top: 2em;">
+<a href="/"><span style="color:black">Sebastian</span> <span style="color:#c5050c">Raschka</span> </a>
+<a href="https://x.com/rasbt"><img alt="Twitter/X icon" height="20" src="../images/twitter-bw.jpg" style="padding-left:20px;"/></a>
+<!--<a href="https://threads.net/@sebastianraschka"><img src="/images/logos/threads-logo-alt-small.png" height="20" style="padding-left:5px;" alt="Threads icon"></a>-->
+<a href="https://www.linkedin.com/in/sebastianraschka/"><img alt="LinkedIn Icon" height="20" src="../images/linkedin-bw.jpg" style="padding-left:5px;"/></a>
+<a href="https://github.com/rasbt"><img alt="GitHub icon" height="20" src="../images/github-bw.jpg" style="padding-left:5px;"/></a>
+</div>
+<!--  <div style="width:100%;height:50;float:left;margin-bottom:10px;">
+        &nbsp;<a href="https://twitter.com/rasbt"><img src="/images/logos/twitter-bw.jpg" height="20"></a>-->
+<!-- &nbsp;<a href="https://www.buymeacoffee.com/rasbt"><img src="/images/logos/coffee-bw.jpg" height="20"></a>-->
+<!--&nbsp;<a href="https://mastodon.social/@SebRaschka"><img src="/images/logos/mastodon-bw.jpg" height="20"></a>-->
+<!-- </div>-->
+<div class="wrapper">
+<nav class="site-nav">
+<a class="menu-icon" href="#">
+<svg viewbox="0 0 18 15">
+<path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z" fill="#424242"></path>
+<path d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z" fill="#424242"></path>
+<path d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z" fill="#424242"></path>
+</svg>
+</a>
+<div class="trigger">
+<!--<script type="text/javascript">
+          var total_images = 2;
+          var random_number = Math.floor((Math.random()*total_images));
+          var random_img = new Array();
+          random_img[0] = '<a href="https://twitter.com/rasbt"><img src="/images/logos/twitter-1.jpg" height="20"></a>';
+          random_img[1] = '<a href="https://linkedin.com/in/sebastianraschka"><img src="/images/logos/linkedin-1.jpg" height="20"></a>';
+          document.write(random_img[random_number]);
+          </script>-->
+<span style="padding-left:0px;margin-left:0px;"></span>
+<a class="page-link" href="https://magazine.sebastianraschka.com"><span style="color:#c5050c;"><img alt="Ahead of AI Logo" height="20" src="../images/ahead-of-ai-icon.png"/> Blog</span></a>
+<!--<a class="page-link" href="/blog/index.html">Blog</a>-->
+<a class="page-link" href="/books">Books</a>
+<!--<a class="page-link" href="/newsletter">AI Newsletter</a>-->
+<!--<a class="page-link" href="/teaching">Courses</a>-->
+<a class="page-link" href="https://github.com/rasbt/LLMs-from-scratch">LLMs From Scratch</a>
+<!--<a class="page-link" href="/publications">Research</a>-->
+<a class="page-link" href="/elsewhere">Talks</a>
+<a class="page-link" href="/contact">Contact</a>
+<a class="page-link" href="/resources">More</a>
+</div>
+</nav>
+</div>
+</header>
+<div class="page-content">
+<div class="wrapper">
+<!-- MathJax script for LaTeX rendering -->
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<!-- Open Graph Metadata -->
+<meta content="article" property="og:type"/>
+<meta content="Chapter 27" property="og:title"/>
+<meta content="" property="og:description"/>
+<meta content="https://sebastianraschka.com" property="og:image"/>
+<meta content="" property="og:image:alt"/>
+<meta content="https://sebastianraschka.com/books/ml-q-and-ai-chapters/ch27/" property="og:url"/>
+<meta content="Sebastian Raschka's Blog" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<!-- Twitter Metadata -->
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Chapter 27" name="twitter:title"/>
+<meta content="" name="twitter:description"/>
+<meta content="https://sebastianraschka.com" name="twitter:image"/>
+<meta content="" name="twitter:image:alt"/>
+<div class="post">
+<header class="post-header">
+<h1 class="post-title" style="text-align: left;">Machine Learning Q and AI</h1>
+<h2 class="post-subtitle">30 Essential Questions and Answers on Machine Learning and AI</h2>
+<p>
+      By Sebastian Raschka. <a href="#table-of-contents">Free to read</a>.
+      Published by <a href="https://nostarch.com/machine-learning-q-and-ai">No Starch Press</a>.<br/>
+      Copyright Â© 2024-2025 by Sebastian Raschka.
+    </p>
+<p>
+<img alt="Machine Learning and Q and AI" class="right-image-shadow-30" src="../images/2023-ml-ai-beyond.jpg"/>
+</p>
+<blockquote>
+      Machine learning and AI are moving at a rapid pace. Researchers and practitioners are constantly struggling to keep up with the breadth of concepts and techniques. This book provides bite-sized bits of knowledge for your journey from machine learning beginner to expert, covering topics from various machine learning areas. Even experienced machine learning researchers and practitioners will encounter something new that they can add to their arsenal of techniques.
+    </blockquote>
+<br/>
+<p><strong>ð Print Book:</strong><br/>
+<a href="https://amzn.to/4488ahe">Amazon</a><br/>
+<a href="https://nostarch.com/machine-learning-q-and-ai">No Starch Press</a>
+</p>
+<p><strong>ð Read Online:</strong><br/>
+<a href="#table-of-contents">Full Book (Free)</a>
+</p>
+</header>
+<article class="post-content">
+<!-- Optional: Anchor Headings -->
+<h1 id="chapter-27-proper-metrics">
+        
+        
+          Chapter 27: Proper Metrics <a href="#chapter-27-proper-metrics"></a>
+</h1>
+<p><span id="ch27" label="ch27"></span></p>
+<p><strong>What are the three properties of a distance function that make it a
+<em>proper</em> metric?</strong></p>
+<p>Metrics are foundational to mathematics, computer science, and various
+other scientific domains. Understanding the fundamental
+properties that define a good distance function to measure distances or
+differences between points or datasets is important. For instance, when
+dealing with functions like loss functions in neural networks,
+understanding whether they behave like proper metrics can be
+instrumental in knowing how optimization algorithms will converge to a
+solution.</p>
+<p>This chapter analyzes two commonly utilized loss functions, the mean
+squared error and the cross-entropy loss, to demonstrate whether they
+meet the criteria for proper metrics.</p>
+<h2 id="the-criteria">
+        
+        
+          The Criteria <a href="#the-criteria"></a>
+</h2>
+<p>To illustrate the criteria of a proper metric, consider two vectors or
+points <strong>v</strong> and <strong>w</strong> and their distance <em>d</em>(<strong>v</strong>, <strong>w</strong>), as shown in
+FigureÂ <a data-reference="fig:ch27-fig01" data-reference-type="ref" href="#fig:ch27-fig01">1.1</a>.</p>
+<figure id="fig:ch27-fig01">
+<img src="../images/ch27-fig01.png">
+<figcaption>The Euclidean distance between two 2D vectors</figcaption>
+</img></figure>
+<p>The criteria of a proper metric are the following:</p>
+<ul>
+<li>
+<p>The distance between two points is always non-negative, <em>d</em>(<strong>v</strong>,
+<strong>w</strong>) \(\geq\) 0, and can be 0 only if the two points are identical,
+that is, <strong>v</strong> = <strong>w</strong>.</p>
+</li>
+<li>
+<p>The distance is symmetric; for instance, <em>d</em>(<strong>v</strong>, <strong>w</strong>) =
+<em>d</em>(<strong>w</strong>, <strong>v</strong>).</p>
+</li>
+<li>
+<p>The distance function satisfies the <em>triangle inequality</em> for any
+three points: <strong>v</strong>, <strong>w</strong>, <strong>x</strong>, meaning <em>d</em>(<strong>v</strong>, <strong>w</strong>) \(\leq\)
+<em>d</em>(<strong>v</strong>, <strong>x</strong>) + <em>d</em>(<strong>x</strong>, <strong>w</strong>).</p>
+</li>
+</ul>
+<p>To better understand the triangle inequality, think of the points as
+vertices of a triangle. If we consider any triangle, the sum of two of
+the sides is always larger than the third side, as illustrated in
+FigureÂ <a data-reference="fig:ch27-fig02" data-reference-type="ref" href="#fig:ch27-fig02">1.2</a>.</p>
+<figure id="fig:ch27-fig02">
+<img src="../images/ch27-fig02.png">
+<figcaption>Triangle inequality</figcaption>
+</img></figure>
+<p>Considerwhatwouldhappenifthetriangleinequalitydepictedin
+FigureÂ <a data-reference="fig:ch27-fig02" data-reference-type="ref" href="#fig:ch27-fig02">1.2</a> werenât true. If the sum of the
+lengths of sides AB and BC was shorter than AC, then sides AB and BC
+would not meet to form a triangle; instead, they would fall short of
+each other. Thus, the fact that they meet and form a triangle
+demonstrates the triangle inequality.</p>
+<h2 id="the-mean-squared-error">
+        
+        
+          The Mean Squared Error <a href="#the-mean-squared-error"></a>
+</h2>
+<p>The <em>mean squared error (MSE)</em> loss computes the squared Euclidean
+distance between a target variable <em>y</em> and a predicted target value
+\(\hat{\text{\emph{y}}}\):</p>
+<p>$$
+\mathrm{MSE}=\frac{1}{n} \sum_{i\,=\,1}^n\left(y^{(i)} - \hat{y}^{(i)}\right)^2</p>
+<p>The index <em>i</em> denotes the <em>i</em>th data point in the dataset or sample. Is
+this loss function a proper metric?</p>
+<p>For simplicityâs sake, we will consider the <em>squared error (SE)</em> loss
+between two data points (though the following insights also hold for the
+MSE). As shown in the following equation, the SE loss quantifies the
+squared difference between the predicted and actual values for a single
+data point, while the MSE loss averages these squared differences over
+all data points in a dataset:</p>
+
+\[\mathrm{SE}(y, \hat{y})=\left(y - \hat{y}\right)^2\]
+
+<p>In this case, the SE satisfies the first part of the first criterion:
+the distance between two points is always non-negative. Since we are
+raising the difference to the power of 2, it cannot be negative.</p>
+<p>How about the second criterion, that the distance can be 0 only if the
+two points are identical? Due to the subtraction in the SE, it is
+intuitive to see that it can be 0 only if the prediction matches the
+target variable, <em>y</em> = \(\hat{\text{\emph{y}}}\). As with the first
+criterion, we can use the square to confirm that SE satisfies the second
+criterion: we have (<em>y</em> â \(\hat{\text{\emph{y}}}\))<sup>2</sup> =
+(\(\hat{\text{\emph{y}}}\) â <em>y</em>)<sup>2</sup>.</p>
+<p>At first glance, it seems that the squared error loss also satisfies the
+third criterion, the triangle inequality. Intuitively, you can check
+this by choosing three arbitrary numbers, here 1, 2, 3:</p>
+<ul>
+<li>
+<p>(1 â 2)<sup>2</sup> \(\leq\) (1 â 3)<sup>2</sup> + (2 â 3)<sup>2</sup></p>
+</li>
+<li>
+<p>(1 â 3)<sup>2</sup> \(\leq\) (1 â 2)<sup>2</sup> + (2 â 3)<sup>2</sup></p>
+</li>
+<li>
+<p>(2 â 3)<sup>2</sup> \(\leq\) (1 â 2)<sup>2</sup> + (1 â 3)<sup>2</sup></p>
+</li>
+</ul>
+<p>However, there are values for which this is not true. For example,
+consider the values <em>a</em> = 0, <em>b</em> = 2, and <em>c</em> = 1. This gives us
+<em>d</em>(<em>a</em>, <em>b</em>) = 4, <em>d</em>(<em>a</em>, <em>c</em>) = 1, and <em>d</em>(<em>b</em>, <em>c</em>) = 1, such that
+we have the following scenario, which violates the triangle inequality:</p>
+<ul>
+<li>
+<p>(0 â 2)<sup>2</sup> \(\nleq\) (0 â 1)<sup>2</sup> + (2 â
+1)<sup>2</sup></p>
+</li>
+<li>
+<p>(2 â 1)<sup>2</sup> \(\leq\) (0 â1)<sup>2</sup> + (0 â 2)<sup>2</sup></p>
+</li>
+<li>
+<p>(0 â 1)<sup>2</sup> \(\leq\) (0 â2)<sup>2</sup> + (1 â 2)<sup>2</sup></p>
+</li>
+</ul>
+<p>Since it does not satisfy the triangle inequality via the example above,
+we conclude that the (mean) squared error loss is not a proper metric.</p>
+<p>However, if we change the squared error into the <em>root-squared error</em></p>
+
+\[\sqrt\text{(\emph{y} -- } \hat{\text{\emph{y}}})\textsuperscript{2}\]
+
+<p>the triangle inequality can be satisfied:</p>
+
+\[\sqrt{\text{(0 -- 2)\textsuperscript{2}}} \leq \sqrt{\text{(0 -- 1)\textsuperscript{2} +}} \sqrt{\text{(2 -- 1)\textsuperscript{2}}}\]
+
+<div class="note">
+
+You might be familiar with the
+<span class="upright">L</span><sub>2</sub> distance or Euclidean
+distance, which is known to satisfy the triangle inequality. These two
+distance metrics are equivalent to the root-squared error when
+considering two scalar values.
+
+</div>
+<h2 id="the-cross-entropy-loss">
+        
+        
+          The Cross-Entropy Loss <a href="#the-cross-entropy-loss"></a>
+</h2>
+<p><em>Cross entropy</em> is used to measure the distance between two probability
+distributions. In machine learning contexts, we use the discrete
+cross-entropy loss (CE) between class label <em>y</em> and the predicted
+probability <em>p</em> when we train logistic regression or neural network
+classifiers on a dataset consisting of <em>n</em> training examples:</p>
+
+\[\mathrm{CE}(\mathbf{y}, \mathbf{p}) = -\frac{1}{n} \sum_{i\,=\,1}^n y^{(i)} \times \log \left(p^{(i)}\right)\]
+
+<p>Is this loss function a proper metric? Again, for simplicityâs sake, we
+will look at the cross-entropy function (<em>H</em>) between only two data
+points:</p>
+
+\[H(y, p) = - y \times \log(p)\]
+
+<p>The cross-entropy loss satisfies one part of the first criterion: the
+distance is always non-negative because the probability score is a
+number in the range [0, 1]. Hence, log(<em>p</em>) ranges between â\(\infty\)
+and 0. The important part is that the <em>H</em> function includes a negative
+sign. Hence, the cross entropy ranges between \(\infty\) and 0 and thus
+satisfies one aspect of the first criterion shown above.</p>
+<p>However, the cross-entropy loss is not 0 for two identical points. For
+example, <em>H</em>(0.9, 0.9) = â0.9 \(\times\) log(0.9) = 0.095.</p>
+<p>The second criterion shown above is also violated by the cross-entropy
+loss because the loss is not symmetric: â<em>y</em> \(\times\) log(<em>p</em>)
+\(\neq\) â<em>p</em> \(\times\) log(<em>y</em>). Letâs illustrate this with a
+concrete, numeric example:</p>
+<ul>
+<li>
+<p>If <em>y</em> = 1 and <em>p</em> = 0.5, then â1 \(\times\) log(0.5) = 0.693.</p>
+</li>
+<li>
+<p>If <em>y</em> = 0.5 and <em>p</em> = 1, then â0.5 \(\times\) log(1) = 0.</p>
+</li>
+</ul>
+<p>Finally, the cross-entropy loss does not satisfy the triangle
+inequality, <em>H</em>(<em>r</em>, <em>p</em>) \(\geq\) <em>H</em>(<em>r</em>, <em>q</em>) + <em>H</em>(<em>q</em>, <em>p</em>). Letâs
+illustrate this with an example as well. Suppose we choose <em>r</em> = 0.9,
+<em>p</em> = 0.5, and <em>q</em> = 0.4. We have:</p>
+<ul>
+<li>
+<p><em>H</em>(0.9, 0.5) = 0.624</p>
+</li>
+<li>
+<p><em>H</em>(0.9, 0.4) = 0.825</p>
+</li>
+<li>
+<p><em>H</em>(0.4, 0.5) = 0.277</p>
+</li>
+</ul>
+<p>As you can see, 0.624 \(\geq\) 0.825 + 0.277 does not hold here.</p>
+<p>In conclusion, while the cross-entropy loss is a useful loss function
+for training neural networks via (stochastic) gradient descent, it is
+not a proper distance metric, as it does not satisfy any of the three
+criteria. ### Exercises</p>
+<p>27-1. Suppose we consider using the mean
+absolute error (MAE) as an alternative to the root mean square error
+(RMSE) for measuring the performance of a machine learning model, where
+MAE =
+\(\frac{\text{1}}{\text{\emph{n}}} \sum_{\text{\emph{i}\,=\,1}}^{\text{\emph{n}}}|\)
+<em>y</em><sup>(<em>i</em>)</sup> â
+\(\hat{\text{\emph{y}}}\textsuperscript{(\text{\emph{i}})}|\) and RMSE =
+\(\sqrt{\frac{\text{1}}{\text{\emph{n}}} \sum_{\text{\emph{i}\,=\,1}}^{\text{\emph{n}}}( \emph{\text{y}}\textsuperscript{(\emph{\text{i}})} - \hat{\text{\emph{y}}}\textsuperscript{(\emph{\text{i}})})}^\text{2}\).
+However, a colleague argues that the MAE is not a proper distance metric
+in metric space because it involves an absolute value, so we should use
+the RMSE instead. Is this argument correct?</p>
+<p>27-2. Based on your answer to the previous
+question, would you say that the MAE is better or is worse than the
+RMSE?</p>
+</article>
+<br/>
+<hr/>
+<div class="book-promotion" style="margin-top: 50px;">
+<h2>Support the Author</h2>
+<p>You can support the author in the following ways:</p>
+<ul>
+<li>
+        Subscribe to <a href="https://magazine.sebastianraschka.com">Sebastian's Substack blog</a>
+</li>
+<li>
+        Purchase a copy on
+        <a href="https://amzn.to/4488ahe">Amazon</a> or
+        <a href="https://nostarch.com/machine-learning-q-and-ai">No Starch Press</a>
+</li>
+<li>
+        Write an <a href="https://amzn.to/4488ahe">Amazon review</a>
+</li>
+</ul>
+</div>
+<div style="margin-bottom: 50px;"></div>
+</div>
+</div>
+</div>
+<footer class="site-footer">
+<div class="wrapper">
+<div class="footer-col-wrapper">
+<div class="footer-col social-col">
+<a href="https://magazine.sebastianraschka.com"><span><i class="fa fa-rss fa-2x"></i></span> </a>
+<a href="/contact"><span><i class="fa fa-envelope fa-2x"></i></span> </a>
+<a href="https://twitter.com/rasbt"> <span><i class="fa fa-twitter fa-2x"></i></span> </a>
+<a href="https://youtube.com/c/SebastianRaschka"><span><i class="fa fa-youtube fa-2x"></i></span> </a>
+<a href="https://github.com/rasbt"><span><i class="fa fa-github fa-2x"></i> </span></a>
+<a href="https://scholar.google.com/citations?user=X4RCC0IAAAAJ&amp;hl=enrasbt"><span><i class="fa fa-google fa-2x"></i> </span></a>
+<a href="https://linkedin.com/in/sebastianraschka"><span><i class="fa fa-linkedin fa-2x"></i> </span></a>
+</div>
+<div class="footer-col copyright-col">
+<p>© 2013-2025 Sebastian Raschka</p>
+</div>
+</div>
+</div>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-BYQXBRPK81"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BYQXBRPK81');
+</script>
+</footer>
+
+<script src="/js/anchor.min.js" type="text/javascript"></script>
+<script>
+    var selector = 'h2, h3, h4, h5, h6';
+    /*
+    anchors.options = {
+      icon: '#',
+      visible: 'always',
+      placement: 'left',
+      class: 'bb-anchor'
+    }
+    */
+    anchors.add(selector);
+  </script>
+</body>
+</html>

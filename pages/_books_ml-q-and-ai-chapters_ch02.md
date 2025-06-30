@@ -1,0 +1,243 @@
+# Machine Learning Q and AI {#machine-learning-q-and-ai .post-title style="text-align: left;"}
+
+## 30 Essential Questions and Answers on Machine Learning and AI {#essential-questions-and-answers-on-machine-learning-and-ai .post-subtitle}
+
+By Sebastian Raschka. [Free to read](#table-of-contents). Published by
+[No Starch Press](https://nostarch.com/machine-learning-q-and-ai).\
+Copyright Â© 2024-2025 by Sebastian Raschka.
+
+![Machine Learning and Q and
+AI](../images/2023-ml-ai-beyond.jpg){.right-image-shadow-30}
+
+> Machine learning and AI are moving at a rapid pace. Researchers and
+> practitioners are constantly struggling to keep up with the breadth of
+> concepts and techniques. This book provides bite-sized bits of
+> knowledge for your journey from machine learning beginner to expert,
+> covering topics from various machine learning areas. Even experienced
+> machine learning researchers and practitioners will encounter
+> something new that they can add to their arsenal of techniques.
+
+\
+
+# Chapter 2: Self-Supervised Learning [](#chapter-2-self-supervised-learning)
+
+[]{#ch02 label="ch02"}
+
+**What is self-supervised learning, when is it useful, and what are the
+main approaches to implementing it?**
+
+*Self-supervised learning* is a pretraining procedure that lets neural
+networks leverage large, unlabeled datasets in a supervised fashion.
+This chapter compares self-supervised learning to transfer learning, a
+related method for pretraining neural networks, and discusses the
+practical applications of self-supervised learning. Finally, it outlines
+the main categories of self-supervised learning.
+
+## Self-Supervised Learning vs. Transfer Learning [](#self-supervised-learning-vs-transfer-learning) {#self-supervised-learning-vs-transfer-learning}
+
+Self-supervised learning is related to transfer learning, a technique in
+which a model pretrained on one task is reused as the starting point for
+a model on a second task. For example, suppose we are interested in
+training an image classifier to classify bird species. In transfer
+learning, we would pretrain a convolutional neural network on the
+ImageNet dataset, a large, labeled image dataset with many different
+categories, including various objects and animals. After pretraining on
+the general ImageNet dataset, we would take that pretrained model and
+train it on the smaller, more specific target dataset that contains the
+bird species of interest. (Often, we just have to change the
+class-specific output layer, but we can otherwise adopt the pretrained
+network as is.)
+
+FigureÂ [1.1](#fig:ch02-fig01){reference="fig:ch02-fig01"
+reference-type="ref"} illustrates the process of transfer learning.
+
+![Pretraining with conventional transfer
+learning](../images/ch02-fig01.png){#fig:ch02-fig01}
+
+Self-supervised learning is an alternative approach to transfer learning
+in which the model is pretrained not on labeled data but on *unlabeled*
+data. We consider an unlabeled dataset for which we do not have label
+information, and then we find a way to obtain labels from the
+datasetâ€™s structure to formulate a prediction task for the neural
+network, as illustrated in
+FigureÂ [1.2](#fig:ch02-fig02){reference="fig:ch02-fig02"
+reference-type="ref"}. These self-supervised training tasks are also
+called *pretext tasks*.
+
+![Pretraining with self-supervised
+learning](../images/ch02-fig02.png){#fig:ch02-fig02}
+
+The main difference between transfer learning and self-supervised
+learning lies in how we obtain the labels during step 1 in
+FiguresÂ [1.1](#fig:ch02-fig01){reference="fig:ch02-fig01"
+reference-type="ref"}
+andÂ [1.2](#fig:ch02-fig02){reference="fig:ch02-fig02"
+reference-type="ref"}. In transfer learning, we assume that the labels
+are provided alongÂ withÂ theÂ data- Â set; they are typically created
+by human labelers. In self-supervised learning, the labels can be
+directly derived from the training examples.
+
+A self-supervised learning task could be a missing-word prediction in a
+natural language processing context. For example, given the sentence
+â€œIt is beautiful and sunny outside,â€? we can mask out the word
+*sunny*, feed the network the input â€œIt is beautiful and \[MASK\]
+outside,â€? and have the network predict the missing word in the
+â€œ\[MASK\]â€? location. Similarly, we could remove image patches in a
+computer vision context and have the neural network fill in the blanks.
+These are just two examples of self-supervised learning tasks; many more
+methods and paradigms for this type of learning exist.
+
+In sum, we can think of self-supervised learning on the pretext task as
+*representation learning*. We can take the pretrained model to fine-tune
+it on the target task (also known as the *downstream* task).
+
+## Leveraging Unlabeled Data [](#leveraging-unlabeled-data)
+
+Large neural network architectures require large amounts of labeled data
+to perform and generalize well. However, for many problem areas, we
+donâ€™t have access to large labeled datasets. With self-supervised
+learning, we can leverage unlabeled data. Hence, self-supervised
+learning is likely to be useful when working with large neural networks
+and with a limited quantity of labeled training data.
+
+Transformer-based architectures that form the basis of LLMs and vision
+transformers are known to require self-supervised learning for
+pretraining to perform well.
+
+For small neural network models such as multilayer perceptrons with two
+or three layers, self-supervised learning is typically considered
+neither useful nor necessary.
+
+Self-supervised learning likewise isnâ€™t useful in traditional machine
+learning with nonparametric models such as tree-based random forests or
+gradient boosting. Conventional tree-based methods do not have a fixed
+parameter structure (in contrast to the weight matrices, for example).
+Thus, conventional tree-based methods are not capable of transfer
+learning and are incompatible with self-supervised learning.
+
+## Self-Prediction and Contrastive Self-Supervised Learning [](#self-prediction-and-contrastive-self-supervised-learning)
+
+There are two main categories of self-supervised learning:
+self-prediction and contrastive self-supervised learning. In
+*self-prediction*, illustrated in
+FigureÂ [1.3](#fig:ch02-fig03){reference="fig:ch02-fig03"
+reference-type="ref"}, we typically change or hide parts of the input
+and train the mo- Â del to reconstruct the original inputs, such as by
+using a perturbation mask that obfuscates certain pixels in an image.
+
+![Self-prediction after applying a\
+perturbation mask](../images/ch02-fig03.png){#fig:ch02-fig03}
+
+A classic example is a denoising autoencoder that learns to remove noise
+from an input image. Alternatively, consider a masked autoencoder that
+reconstructs the missing parts of an image, as shown in
+FigureÂ [1.4](#fig:ch02-fig04){reference="fig:ch02-fig04"
+reference-type="ref"}.
+
+![A masked autoencoder reconstructing a masked
+image](../images/ch02-fig04.png){#fig:ch02-fig04}
+
+Missing (masked) input self-prediction methods are also commonly used in
+natural language processing contexts. Many generative LLMs, such as GPT,
+are trained on a next-word prediction pretext task (GPT will be
+discussed at greater length in
+ChaptersÂ [\[ch14\]](../ch14){reference="ch14" reference-type="ref"}
+andÂ [\[ch17\]](../ch17){reference="ch17" reference-type="ref"}). Here,
+we feed the network text fragments, where it has to predict the next
+word in the sequence (as weâ€™ll discuss further in
+ChapterÂ [\[ch17\]](../ch17){reference="ch17" reference-type="ref"}).
+
+In *contrastive self-supervised learning*, we train the neural network
+to learn an embedding space where similar inputs are close to each other
+and dissimilar inputs are far apart. In other words, we train the
+network to produce embeddings that minimize the distance between similar
+training inputs and maximize the distance between dissimilar training
+examples.
+
+Letâ€™s discuss contrastive learning using concrete example inputs.
+Suppose we have a dataset consisting of random animal images. First, we
+draw a random image of a cat (the network does not know the label,
+because we assume that the dataset is unlabeled). We then augment,
+corrupt, or perturb this cat image, such as by adding a random noise
+layer and cropping it differently, as shown in
+FigureÂ [1.5](#fig:ch02-fig05){reference="fig:ch02-fig05"
+reference-type="ref"}.
+
+![Image pairs encountered in contrastive
+learning](../images/ch02-fig05.png){#fig:ch02-fig05}
+
+The perturbed cat image in this figure still shows the same cat, so we
+want the network to produce a similar embedding vector. We also consider
+a random image drawn from the training set (for example, an elephant,
+but again, the network doesnâ€™t know the label).
+
+For the cat-elephant pair, we want the network to produce dissimilar
+embeddings. This way, we implicitly force the network to capture the
+imageâ€™s core content while being somewhat agnostic to small
+differences and noise. For example, the simplest form of a contrastive
+loss is the *L*~2~-norm (Euclidean distance) between the embeddings
+produced by model *M*(\\(\\cdot\\)). Letâ€™s say we update the model
+weights to decrease the distance \\(\|\|\\)*M*(cat) â€"
+*M*(cat\\(\'\\))\\(\|\|\\)~2~ and increase the distance
+\\(\|\|\\)*M*(*cat*) â€" *M*(*elephant*)\\(\|\|\\)~2~.
+
+FigureÂ [1.6](#fig:ch02-fig06){reference="fig:ch02-fig06"
+reference-type="ref"} summarizes the central concept behind contrastive
+learning for the perturbed image scenario. The model is shown twice,
+which is known as a *siamese network* setup. Essentially, the same model
+is utilized in two instances: first, to generate the embedding for the
+original training example, and second, to produce the embedding for the
+perturbed version of the sample.
+
+![Contrastive learning](../images/ch02-fig06.png){#fig:ch02-fig06}
+
+This example outlines the main idea behind contrastive learning, but
+many subvariants exist. Broadly, we can categorize these into *sample*
+contrastive and *dimension* contrastive methods. The elephant-cat
+example in FigureÂ [1.6](#fig:ch02-fig06){reference="fig:ch02-fig06"
+reference-type="ref"} illustrates a sample contrastive method, where we
+focus on learning embeddings to minimize and maximize distances between
+training pairs. In *dimension*-contrastive approaches, on the other
+hand, we focus on making only certain variables in the embedding
+representations of similar training pairs appear close to each other
+while maximizing the distance of others.
+
+### Exercises [](#exercises)
+
+2-1. How could we apply self-supervised learning to video data?
+
+2-2. Can self-supervised learning be used for tabular data represented
+as rows and columns? If so, how could we approach this?
+
+## References [](#references)
+
+- For more on the ImageNet dataset:
+  <https://en.wikipedia.org/wiki/ImageNet>.
+
+- An example of a contrastive self-supervised learning method: Ting Chen
+  et al., â€œA Simple Framework for Contrastive Learning of Visual
+  Representationsâ€? (2020), <https://arxiv.org/abs/2002.05709>.
+
+- An example of a dimension-contrastive method: Adrien Bardes, Jean
+  Ponce, and Yann LeCun, â€œVICRegL: Self-Supervised Learning of Local
+  Visual Featuresâ€? (2022), <https://arxiv.org/abs/2210.01571>.
+
+- If you plan to employ self-supervised learning in practice: Randall
+  Balestriero et al., â€œA Cookbook of Self-Supervised Learningâ€?
+  (2023), <https://arxiv.org/abs/2304.12210>.
+
+- A paper proposing a method of transfer learning and self-supervised
+  learning for relatively small multilayer perceptrons on tabular
+  datasets: Dara Bahri et al., â€œSCARF: Self-Supervised Contrastive
+  Learning Using Random Feature Corruptionâ€? (2021),
+  <https://arxiv.org/abs/2106.15147>.
+
+- A second paper proposing such a method: Roman Levin et al.,
+  â€œTransfer Learning with Deep Tabular Modelsâ€? (2022),
+  [*https://arxiv.org/abs/*](https://arxiv.org/abs/2206.15306)
+  [*2206.15306*](https://arxiv.org/abs/2206.15306).
+
+\
+
+------------------------------------------------------------------------
+

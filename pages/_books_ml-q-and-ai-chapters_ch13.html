@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width initial-scale=1" name="viewport">
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="Sebastian Raschka" name="author"/>
+<meta content="
+      Chapter 13
+    " property="og:title"/>
+<meta content="
+        I'm an LLM Research Engineer with over a decade of experience in artificial intelligence. My work bridges academia and industry, with roles including senior staff at an AI company and a statistics professor. My expertise lies in LLM research and the development of high-performance AI systems, with a deep focus on practical, code-driven implementations.
+
+      " property="og:description"/>
+<meta content="https://sebastianraschka.com/books/ml-q-and-ai-chapters/ch13/" property="og:url">
+<meta content="Sebastian Raschka, PhD" property="og:site_name">
+<meta content="en_US" property="og:locale">
+<meta content="@rasbt" name="twitter:site">
+<meta content="I'm an LLM Research Engineer with over a decade of experience in artificial intelligence. My work bridges academia and industry, with roles including senior staff at an AI company and a statistics professor. My expertise lies in LLM research and the development of high-performance AI systems, with a deep focus on practical, code-driven implementations.
+" name="twitter:description"/>
+<meta content="article" property="og:type"/>
+<meta content="" property="article:published_time"/>
+<meta content="@rasbt" name="twitter:creator"/>
+<meta content="Chapter 13" name="twitter:title"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="" name="twitter:image"/>
+<title>Chapter 13</title>
+<meta content="I'm an LLM Research Engineer with over a decade of experience in artificial intelligence. My work bridges academia and industry, with roles including senior staff at an AI company and a statistics professor. My expertise lies in LLM research and the development of high-performance AI systems, with a deep focus on practical, code-driven implementations.
+" name="description"/>
+<link href=" /css/combined_direct_no_sass.css" rel="stylesheet"/>
+<link href=" /css/fork-awesome.min.css" rel="stylesheet"/>
+<meta content="Chapter 13" property="og:title"/>
+<meta content="article" property="og:type"/>
+<meta content="https://sebastianraschka.com/books/ml-q-and-ai-chapters/ch13/" property="og:url"/>
+<meta content="" property="og:image"/>
+<meta content="" property="og:description"/>
+<meta content="Sebastian Raschka, PhD" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="" property="fb:admins"/>
+<meta content="" property="fb:app_id"/>
+<link href="https://sebastianraschka.com/books/ml-q-and-ai-chapters/ch13/" rel="canonical"/>
+<link href="/images/favicons/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="/images/favicons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/images/favicons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="/site.webmanifest" rel="manifest"/>
+<link color="#5bbad5" href="/images/favicons/safari-pinned-tab.svg" rel="mask-icon"/>
+<meta content="#ffc40d" name="msapplication-TileColor"/>
+<meta content="#ffffff" name="theme-color"/>
+</meta></meta></meta></meta></meta></head>
+<body>
+<img alt="Ahead of AI logo" src="../images/ahead-of-ai-icon.png" style="display: none;"/>
+<header class="site-header">
+<div class="site-title" style="text-decoration: none; margin-top: 2em;">
+<a href="/"><span style="color:black">Sebastian</span> <span style="color:#c5050c">Raschka</span> </a>
+<a href="https://x.com/rasbt"><img alt="Twitter/X icon" height="20" src="../images/twitter-bw.jpg" style="padding-left:20px;"/></a>
+<!--<a href="https://threads.net/@sebastianraschka"><img src="/images/logos/threads-logo-alt-small.png" height="20" style="padding-left:5px;" alt="Threads icon"></a>-->
+<a href="https://www.linkedin.com/in/sebastianraschka/"><img alt="LinkedIn Icon" height="20" src="../images/linkedin-bw.jpg" style="padding-left:5px;"/></a>
+<a href="https://github.com/rasbt"><img alt="GitHub icon" height="20" src="../images/github-bw.jpg" style="padding-left:5px;"/></a>
+</div>
+<!--  <div style="width:100%;height:50;float:left;margin-bottom:10px;">
+        &nbsp;<a href="https://twitter.com/rasbt"><img src="/images/logos/twitter-bw.jpg" height="20"></a>-->
+<!-- &nbsp;<a href="https://www.buymeacoffee.com/rasbt"><img src="/images/logos/coffee-bw.jpg" height="20"></a>-->
+<!--&nbsp;<a href="https://mastodon.social/@SebRaschka"><img src="/images/logos/mastodon-bw.jpg" height="20"></a>-->
+<!-- </div>-->
+<div class="wrapper">
+<nav class="site-nav">
+<a class="menu-icon" href="#">
+<svg viewbox="0 0 18 15">
+<path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z" fill="#424242"></path>
+<path d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z" fill="#424242"></path>
+<path d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z" fill="#424242"></path>
+</svg>
+</a>
+<div class="trigger">
+<!--<script type="text/javascript">
+          var total_images = 2;
+          var random_number = Math.floor((Math.random()*total_images));
+          var random_img = new Array();
+          random_img[0] = '<a href="https://twitter.com/rasbt"><img src="/images/logos/twitter-1.jpg" height="20"></a>';
+          random_img[1] = '<a href="https://linkedin.com/in/sebastianraschka"><img src="/images/logos/linkedin-1.jpg" height="20"></a>';
+          document.write(random_img[random_number]);
+          </script>-->
+<span style="padding-left:0px;margin-left:0px;"></span>
+<a class="page-link" href="https://magazine.sebastianraschka.com"><span style="color:#c5050c;"><img alt="Ahead of AI Logo" height="20" src="../images/ahead-of-ai-icon.png"/> Blog</span></a>
+<!--<a class="page-link" href="/blog/index.html">Blog</a>-->
+<a class="page-link" href="/books">Books</a>
+<!--<a class="page-link" href="/newsletter">AI Newsletter</a>-->
+<!--<a class="page-link" href="/teaching">Courses</a>-->
+<a class="page-link" href="https://github.com/rasbt/LLMs-from-scratch">LLMs From Scratch</a>
+<!--<a class="page-link" href="/publications">Research</a>-->
+<a class="page-link" href="/elsewhere">Talks</a>
+<a class="page-link" href="/contact">Contact</a>
+<a class="page-link" href="/resources">More</a>
+</div>
+</nav>
+</div>
+</header>
+<div class="page-content">
+<div class="wrapper">
+<!-- MathJax script for LaTeX rendering -->
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<!-- Open Graph Metadata -->
+<meta content="article" property="og:type"/>
+<meta content="Chapter 13" property="og:title"/>
+<meta content="" property="og:description"/>
+<meta content="https://sebastianraschka.com" property="og:image"/>
+<meta content="" property="og:image:alt"/>
+<meta content="https://sebastianraschka.com/books/ml-q-and-ai-chapters/ch13/" property="og:url"/>
+<meta content="Sebastian Raschka's Blog" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<!-- Twitter Metadata -->
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Chapter 13" name="twitter:title"/>
+<meta content="" name="twitter:description"/>
+<meta content="https://sebastianraschka.com" name="twitter:image"/>
+<meta content="" name="twitter:image:alt"/>
+<div class="post">
+<header class="post-header">
+<h1 class="post-title" style="text-align: left;">Machine Learning Q and AI</h1>
+<h2 class="post-subtitle">30 Essential Questions and Answers on Machine Learning and AI</h2>
+<p>
+      By Sebastian Raschka. <a href="#table-of-contents">Free to read</a>.
+      Published by <a href="https://nostarch.com/machine-learning-q-and-ai">No Starch Press</a>.<br/>
+      Copyright Â© 2024-2025 by Sebastian Raschka.
+    </p>
+<p>
+<img alt="Machine Learning and Q and AI" class="right-image-shadow-30" src="../images/2023-ml-ai-beyond.jpg"/>
+</p>
+<blockquote>
+      Machine learning and AI are moving at a rapid pace. Researchers and practitioners are constantly struggling to keep up with the breadth of concepts and techniques. This book provides bite-sized bits of knowledge for your journey from machine learning beginner to expert, covering topics from various machine learning areas. Even experienced machine learning researchers and practitioners will encounter something new that they can add to their arsenal of techniques.
+    </blockquote>
+<br/>
+<p><strong>ð Print Book:</strong><br/>
+<a href="https://amzn.to/4488ahe">Amazon</a><br/>
+<a href="https://nostarch.com/machine-learning-q-and-ai">No Starch Press</a>
+</p>
+<p><strong>ð Read Online:</strong><br/>
+<a href="#table-of-contents">Full Book (Free)</a>
+</p>
+</header>
+<article class="post-content">
+<!-- Optional: Anchor Headings -->
+<h1 id="chapter-13-large-training-sets-for-vision-transformers">
+        
+        
+          Chapter 13: Large Training Sets for Vision Transformers <a href="#chapter-13-large-training-sets-for-vision-transformers"></a>
+</h1>
+<p><span id="ch13" label="ch13"></span></p>
+<p><strong>Why do vision transformers (ViTs) generally require larger training sets
+than convolutional neural networks (CNNs)?</strong></p>
+<p>Each machine learning algorithm and model encodes a particular set of
+assumptions or prior knowledge, commonly referred to as <em>inductive
+biases</em>, in its design. Some inductive biases are workarounds to make
+algorithms computationally more feasible, other inductive biases are
+based on domain knowledge, and some inductive biases are both.</p>
+<p>CNNs and ViTs can be used for the same tasks, including image
+classification, object detection, and image segmentation. CNNs are
+mainly composed of convolutional layers, while ViTs consist primarily of
+multi-head
+attention blocks (discussed in
+ChapterÂ <a data-reference="ch08" data-reference-type="ref" href="../ch08">[ch08]</a> in the context of transformers for
+natural language inputs).</p>
+<p>CNNs have more inductive biases that are hardcoded as part of the
+algorithmic design, so they generally require less training data than
+ViTs. In a sense, ViTs are given more degrees of freedom and can or must
+learn certain inductive biases from the data (assuming that these biases
+are conducive to optimizing the training objective). However, everything
+that needs to be learned requires more training examples.</p>
+<p>The following sections explain the main inductive biases encountered in
+CNNs and how ViTs work well without them.</p>
+<h2 id="inductive-biases-in-cnns">
+        
+        
+          Inductive Biases in CNNs <a href="#inductive-biases-in-cnns"></a>
+</h2>
+<p>The following are the primary inductive biases that largely define how
+CNNs function:</p>
+<p>Local connectivity
+In CNNs, each unit in a hidden layer is connected to only a subset of
+neurons in the previous layer. We can justify this restriction by
+assuming that neighboring pixels are more relevant to each other than
+pixels that are farther apart. As an intuitive example, consider how
+this assumption applies to the context of recognizing edges or contours
+in an image.</p>
+<p>Weight sharing
+Via the convolutional layers, we use the same small set of weights (the
+kernels or filters) throughout the whole image. This reflects the
+assumption that the same filters are useful for detecting the same
+patterns in different parts of the image.</p>
+<p>Hierarchical processing
+CNNs consist of multiple convolutional layers to extract features from
+the input image. As the network progresses from the input to the output
+layers, low-level features are successively combined to form
+increasingly complex features, ultimately leading to the recognition of
+more complex objects and shapes. Furthermore, the convolutional filters
+in these layers learn to detect specific patterns and features at
+different levels of abstraction.</p>
+<p>Spatial invariance
+CNNs exhibit the mathematical property of spatial invariance, meaning
+the output of a model remains consistent even if the input signal is
+shifted to a different location within the spatial domain. This
+characteristic arises from the combination of local connectivity, weight
+sharing, and the hierarchical architecture mentioned earlier.</p>
+<p>The combination of local connectivity, weight sharing, and hierarchical
+processing in a CNN leads to spatial invariance, allowing the model to
+recognize the same pattern or feature regardless of its location in the
+input image.</p>
+<p><em>Translation invariance</em> is a specific case of spatial invariance in
+which the output remains the same after a shift or translation of the
+input signal in the spatial domain. In this context, the emphasis is
+solely on moving an object to a different location within an image
+without any rotations or alterations of its other attributes.</p>
+<p>In reality, convolutional layers and networks are not truly
+translation-invariant; rather, they achieve a certain level of
+translation equivariance. What is the difference between translation
+invariance and equivariance? <em>Translation invariance</em> means that the
+output does not change with an input shift, while <em>translation
+equivariance</em> implies that the output shifts with the input in a
+corresponding manner. In other words, if we shift the input object to
+the right, the results will correspondingly shift to the right, as
+illustrated in
+FigureÂ <a data-reference="fig:ch13-fig01" data-reference-type="ref" href="#fig:ch13-fig01">1.1</a>.</p>
+<figure id="fig:ch13-fig01">
+<img src="../images/ch13-fig01.png">
+<figcaption>Equivariance under different image translations</figcaption>
+</img></figure>
+<p>As FigureÂ <a data-reference="fig:ch13-fig01" data-reference-type="ref" href="#fig:ch13-fig01">1.1</a> shows, under translation
+invariance, we get the same output pattern regardless of the order in
+which we apply the operations: transformation followed by translation or
+translation followed by transformation.</p>
+<p>As mentioned earlier, CNNs achieve translation equivariance through a
+combination of their local connectivity, weight sharing, and
+hierarchical processing properties.
+FigureÂ <a data-reference="fig:ch13-fig02" data-reference-type="ref" href="#fig:ch13-fig02">1.2</a> depicts a convolutional
+operation to illustrate the local connectivity and weight-sharing
+priors. This figure demonstrates the concept of translation equivariance
+in CNNs, in which a convolutional filter captures the input signal (the
+two dark blocks) irrespective of where it is located in the input.</p>
+<figure id="fig:ch13-fig02">
+<img src="../images/ch13-fig02.png">
+<figcaption>Convolutional filters and translation
+equivariance</figcaption>
+</img></figure>
+<p>FigureÂ <a data-reference="fig:ch13-fig02" data-reference-type="ref" href="#fig:ch13-fig02">1.2</a> shows a \(3 \times 3\)
+input image that consists of two nonzero pixel values in the upper-left
+corner (top portion of the figure) or upper-right corner (bottom portion
+of the figure). If we apply a \(2 \times 2\) convolutional filter
+to these two input image scenarios, we can see that the output feature
+maps contain the same extracted pattern, which is on either the left
+(top of the figure) or the right (bottom of the figure), demonstrating
+the translation equivariance of the convolutional operation.</p>
+<p>For comparison, a fully connected network such as a multilayer
+perceptron lacks this spatial invariance or equivariance. To illustrate
+this point, picture a multilayer perceptron with one hidden layer. Each
+pixel in the input image is connected with each value in the resulting
+output. If we shift the input by one or more pixels, a different set of
+weights will be activated, as illustrated in
+FigureÂ <a data-reference="fig:ch13-fig03" data-reference-type="ref" href="#fig:ch13-fig03">1.3</a>.</p>
+<figure id="fig:ch13-fig03">
+<img src="../images/ch13-fig03.png">
+<figcaption>Location-specific weights in fully<br>
+connected layers</br></figcaption>
+</img></figure>
+<p>Like fully connected networks, ViT architecture (and transformer
+architecture in general) lacks the inductive bias for spatial invariance
+or equi-
+Â variance. For instance, the model produces different outputs if we
+place the same object in two different spatial locations within an
+image. This is not ideal, as the semantic meaning of an object (the
+concept that an object represents or conveys) remains the same based on
+its location. Consequently, it must learn these invariances directly
+from the data. To facilitate learning useful patterns present in CNNs
+requires pretraining over a larger dataset.</p>
+<p>A common workaround for adding positional information in ViTs is to use
+relative positional embeddings (also known as <em>relative positional
+encodings</em>) that consider the relative distance between two tokens in
+the input sequence. However, while relative embeddings encode
+information that helps transformers keep track of the relative location
+of tokens, the transformer still needs to learn from the data whether
+and how far spatial information is relevant for the task at hand.</p>
+<h2 id="vits-can-outperform-cnns">
+        
+        
+          ViTs Can Outperform CNNs <a href="#vits-can-outperform-cnns"></a>
+</h2>
+<p>The hardcoded assumptions via the inductive biases discussed in previous
+sections reduce the number of parameters in CNNs substantially compared
+to fully connected layers. On the other hand, ViTs tend to have larger
+numbers of parameters than CNNs, which require more training data.
+(Refer to ChapterÂ <a data-reference="ch11" data-reference-type="ref" href="../ch11">[ch11]</a> for a refresher on how to precisely
+calculate the number of
+parameters in fully connected and convolutional layers.)</p>
+<p>ViTs may underperform compared to popular CNN architectures
+without extensivep retraining, but they can perform very well with a
+sufficiently large pretraining dataset. In contrast to language transformers, where
+unsupervised pretraining (such as self-supervisedlearning, disussed in ChapterÂ <a data-reference="ch02" data-reference-type="ref" href="../ch02">[ch02]</a>) is a preferred choice, vision transformers are often pretrained using
+large, labeled datasets like ImageNet, which provides
+millions of labeled images for training, and regular supervised learning.</p>
+<p>An example of ViTs surpassing the predictive performance of CNNs, given
+enough data, can be observed from initial research on the ViT
+architecture, as shown in the paper âAn Image Is Worth 16x16 Words:
+Transformers for Image Recognition at Scale.â This study compared
+ResNet, a type of convolutional network, with the original ViT design
+using different dataset sizes for pretraining. The findings also showed
+that the ViT model excelled over the convolutional approach only after
+being pretrained on a minimum of 100 million images.</p>
+<h2 id="inductive-biases-in-vits">
+        
+        
+          Inductive Biases in ViTs <a href="#inductive-biases-in-vits"></a>
+</h2>
+<p>ViTs also possess some inductive biases. For example, vision
+transformers <em>patchify</em> the input image to process each input patch
+individually. Here, each patch can attend to all other patches so that
+the model learns relationships between far-apart patches in the input
+image, as illustrated in
+FigureÂ <a data-reference="fig:ch13-fig04" data-reference-type="ref" href="#fig:ch13-fig04">1.4</a>.</p>
+<figure id="fig:ch13-fig04">
+<img src="../images/ch13-fig04.png">
+<figcaption>How a vision transformer operates on image
+patches</figcaption>
+</img></figure>
+<p>The patchify inductive bias allows ViTs to scale to larger image sizes
+without increasing the number of parameters in the model, which can be
+computationally expensive. By processing smaller patches individually,
+ViTs can efficiently capture spatial relationships between image regions
+while benefiting
+from the global context captured by the self-attention mechanism.</p>
+<p>This raises another question: how and what do ViTs learn from the
+training data? ViTs learn more uniform feature representations across
+all layers, with self-attention mechanisms enabling early aggregation of
+global information. In addition, the residual connections in ViTs
+strongly propagate features from lower to higher layers, in contrast to
+the more hierarchical structure of CNNs.</p>
+<p>ViTs tend to focus more on global than local relationships because their
+self-attention mechanism allows the model to consider long-range
+dependencies between different parts of the input image. Consequently,
+the self-attention layers in ViTs are often considered low-pass filters
+that focus more on shapes and curvature.</p>
+<p>In contrast, the convolutional layers in CNNs are often considered
+high-pass filters that focus more on texture. However, keep in mind that
+convolutional layers can act as both high-pass and low-pass filters,
+depending on the learned filters at each layer. High-pass filters detect
+an imageâs edges, fine details, and texture, while low-pass filters
+capture more global, smooth features and shapes. CNNs achieve this by
+applying convolutional kernels of varying sizes and learning different
+filters at each layer.</p>
+<h2 id="recommendations">
+        
+        
+          Recommendations <a href="#recommendations"></a>
+</h2>
+<p>ViTs have recently begun outperforming CNNs if enough data is available
+for pretraining. However, this doesnât make CNNs obsolete, as methods
+such as the popular EfficientNetV2 CNN architecture are less memory and
+data hungry.</p>
+<p>Moreover, recent ViT architectures donât rely solely on large datasets,
+parameter numbers, and self-attention. Instead, they have taken
+inspiration from CNNs and added soft convolutional inductive biases or
+even complete convolutional layers to get the best of both worlds.</p>
+<p>In short, vision transformer architectures without convolutional layers generally
+have fewer spatial and locality inductive biases than convolutional neuralnetworks.
+Consequently, vision transformers need to learn data-related concepts such as local relationships among pixels. Thus,
+vision transformers require more training data to achieve good predictive
+performance and produce acceptable visual representations in generative modeling contexts.</p>
+<h3 id="exercises">
+        
+        
+          Exercises <a href="#exercises"></a>
+</h3>
+<p>13-1. Consider the patchification of the
+input images shown in
+FigureÂ <a data-reference="fig:ch13-fig04" data-reference-type="ref" href="#fig:ch13-fig04">1.4</a>. The size of the resulting
+patches controls a computational and predictive performance trade-off.
+The optimal patch size depends on the application and desired trade-off
+between computational cost and model performance. Do smaller patches
+typically result in higher or lower
+computational costs?</p>
+<p>13-2. Following up on
+the previous question, do smaller patches typically lead to a higher or
+lower prediction accuracy?</p>
+<h2 id="references">
+        
+        
+          References <a href="#references"></a>
+</h2>
+<ul>
+<li>
+<p>The paper proposing the original vision transformer model: Alexey
+Dosovitskiy et al., âAn Image Is Worth 16x16 Words: Transformers for
+Image Recognition at Scaleâ (2020),
+<a href="https://arxiv.org/abs/2010.11929">https://arxiv.org/abs/2010.11929</a>.</p>
+</li>
+<li>
+<p>A workaround for adding positional information in ViTs is to use
+relative positional embeddings: Peter Shaw, Jakob Uszkoreit, and
+Ashish Vaswani, âSelf-Attention with Relative Position
+Representationsâ (2018), <a href="https://arxiv.org/abs/1803.02155">https://arxiv.org/abs/1803.02155</a>.</p>
+</li>
+<li>
+<p>Residual connections in ViTs strongly propagate features from lower to
+higher layers, in contrast to the more hierarchical structure of CNNs:
+Maithra Raghu et al., âDo Vision Transformers See Like Convolutional
+Neural Networks?â (2021), <a href="https://arxiv.org/abs/2108.08810">https://arxiv.org/abs/2108.08810</a>.</p>
+</li>
+<li>
+<p>AdetailedresearcharticlecoveringtheEfficientNetV2CNNarchitecture:MingxingTanandQuocV.Le,âEfficientNetV2:
+SmallerMo-
+Â delsandFasterTrainingâ(2021),<a href="https://arxiv.org/abs/2104.00298">https://arxiv.org/abs/2104.00298</a>.</p>
+</li>
+<li>
+<p>A ViT architecture that also incorporates convolutional layers:
+StÃ©phane dâAscoli et al., âConViT: Improving Vision Transform-
+Â ers with Soft Convolutional Inductive Biasesâ (2021),
+<a href="https://arxiv.org/abs/2103.10697">https://arxiv.org/abs/2103.10697</a>.</p>
+</li>
+<li>
+<p>Another example of a ViT using convolutional layers: Haiping Wu
+etÂ al., âCvT: Introducing Convolutions to Vision Transformersâ (2021),
+<a href="https://arxiv.org/abs/2103.15808">https://arxiv.org/abs/2103.15808</a>.</p>
+</li>
+</ul>
+</article>
+<br/>
+<hr/>
+<div class="book-promotion" style="margin-top: 50px;">
+<h2>Support the Author</h2>
+<p>You can support the author in the following ways:</p>
+<ul>
+<li>
+        Subscribe to <a href="https://magazine.sebastianraschka.com">Sebastian's Substack blog</a>
+</li>
+<li>
+        Purchase a copy on
+        <a href="https://amzn.to/4488ahe">Amazon</a> or
+        <a href="https://nostarch.com/machine-learning-q-and-ai">No Starch Press</a>
+</li>
+<li>
+        Write an <a href="https://amzn.to/4488ahe">Amazon review</a>
+</li>
+</ul>
+</div>
+<div style="margin-bottom: 50px;"></div>
+</div>
+</div>
+</div>
+<footer class="site-footer">
+<div class="wrapper">
+<div class="footer-col-wrapper">
+<div class="footer-col social-col">
+<a href="https://magazine.sebastianraschka.com"><span><i class="fa fa-rss fa-2x"></i></span> </a>
+<a href="/contact"><span><i class="fa fa-envelope fa-2x"></i></span> </a>
+<a href="https://twitter.com/rasbt"> <span><i class="fa fa-twitter fa-2x"></i></span> </a>
+<a href="https://youtube.com/c/SebastianRaschka"><span><i class="fa fa-youtube fa-2x"></i></span> </a>
+<a href="https://github.com/rasbt"><span><i class="fa fa-github fa-2x"></i> </span></a>
+<a href="https://scholar.google.com/citations?user=X4RCC0IAAAAJ&amp;hl=enrasbt"><span><i class="fa fa-google fa-2x"></i> </span></a>
+<a href="https://linkedin.com/in/sebastianraschka"><span><i class="fa fa-linkedin fa-2x"></i> </span></a>
+</div>
+<div class="footer-col copyright-col">
+<p>© 2013-2025 Sebastian Raschka</p>
+</div>
+</div>
+</div>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-BYQXBRPK81"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BYQXBRPK81');
+</script>
+</footer>
+
+<script src="/js/anchor.min.js" type="text/javascript"></script>
+<script>
+    var selector = 'h2, h3, h4, h5, h6';
+    /*
+    anchors.options = {
+      icon: '#',
+      visible: 'always',
+      placement: 'left',
+      class: 'bb-anchor'
+    }
+    */
+    anchors.add(selector);
+  </script>
+</body>
+</html>

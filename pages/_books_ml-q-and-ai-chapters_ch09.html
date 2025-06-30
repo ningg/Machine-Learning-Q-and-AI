@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width initial-scale=1" name="viewport">
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="Sebastian Raschka" name="author"/>
+<meta content="
+      Chapter 09
+    " property="og:title"/>
+<meta content="
+        I'm an LLM Research Engineer with over a decade of experience in artificial intelligence. My work bridges academia and industry, with roles including senior staff at an AI company and a statistics professor. My expertise lies in LLM research and the development of high-performance AI systems, with a deep focus on practical, code-driven implementations.
+
+      " property="og:description"/>
+<meta content="https://sebastianraschka.com/books/ml-q-and-ai-chapters/ch09/" property="og:url">
+<meta content="Sebastian Raschka, PhD" property="og:site_name">
+<meta content="en_US" property="og:locale">
+<meta content="@rasbt" name="twitter:site">
+<meta content="I'm an LLM Research Engineer with over a decade of experience in artificial intelligence. My work bridges academia and industry, with roles including senior staff at an AI company and a statistics professor. My expertise lies in LLM research and the development of high-performance AI systems, with a deep focus on practical, code-driven implementations.
+" name="twitter:description"/>
+<meta content="article" property="og:type"/>
+<meta content="" property="article:published_time"/>
+<meta content="@rasbt" name="twitter:creator"/>
+<meta content="Chapter 09" name="twitter:title"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="" name="twitter:image"/>
+<title>Chapter 09</title>
+<meta content="I'm an LLM Research Engineer with over a decade of experience in artificial intelligence. My work bridges academia and industry, with roles including senior staff at an AI company and a statistics professor. My expertise lies in LLM research and the development of high-performance AI systems, with a deep focus on practical, code-driven implementations.
+" name="description"/>
+<link href=" /css/combined_direct_no_sass.css" rel="stylesheet"/>
+<link href=" /css/fork-awesome.min.css" rel="stylesheet"/>
+<meta content="Chapter 09" property="og:title"/>
+<meta content="article" property="og:type"/>
+<meta content="https://sebastianraschka.com/books/ml-q-and-ai-chapters/ch09/" property="og:url"/>
+<meta content="" property="og:image"/>
+<meta content="" property="og:description"/>
+<meta content="Sebastian Raschka, PhD" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="" property="fb:admins"/>
+<meta content="" property="fb:app_id"/>
+<link href="https://sebastianraschka.com/books/ml-q-and-ai-chapters/ch09/" rel="canonical"/>
+<link href="/images/favicons/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="/images/favicons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/images/favicons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="/site.webmanifest" rel="manifest"/>
+<link color="#5bbad5" href="/images/favicons/safari-pinned-tab.svg" rel="mask-icon"/>
+<meta content="#ffc40d" name="msapplication-TileColor"/>
+<meta content="#ffffff" name="theme-color"/>
+</meta></meta></meta></meta></meta></head>
+<body>
+<img alt="Ahead of AI logo" src="../images/ahead-of-ai-icon.png" style="display: none;"/>
+<header class="site-header">
+<div class="site-title" style="text-decoration: none; margin-top: 2em;">
+<a href="/"><span style="color:black">Sebastian</span> <span style="color:#c5050c">Raschka</span> </a>
+<a href="https://x.com/rasbt"><img alt="Twitter/X icon" height="20" src="../images/twitter-bw.jpg" style="padding-left:20px;"/></a>
+<!--<a href="https://threads.net/@sebastianraschka"><img src="/images/logos/threads-logo-alt-small.png" height="20" style="padding-left:5px;" alt="Threads icon"></a>-->
+<a href="https://www.linkedin.com/in/sebastianraschka/"><img alt="LinkedIn Icon" height="20" src="../images/linkedin-bw.jpg" style="padding-left:5px;"/></a>
+<a href="https://github.com/rasbt"><img alt="GitHub icon" height="20" src="../images/github-bw.jpg" style="padding-left:5px;"/></a>
+</div>
+<!--  <div style="width:100%;height:50;float:left;margin-bottom:10px;">
+        &nbsp;<a href="https://twitter.com/rasbt"><img src="/images/logos/twitter-bw.jpg" height="20"></a>-->
+<!-- &nbsp;<a href="https://www.buymeacoffee.com/rasbt"><img src="/images/logos/coffee-bw.jpg" height="20"></a>-->
+<!--&nbsp;<a href="https://mastodon.social/@SebRaschka"><img src="/images/logos/mastodon-bw.jpg" height="20"></a>-->
+<!-- </div>-->
+<div class="wrapper">
+<nav class="site-nav">
+<a class="menu-icon" href="#">
+<svg viewbox="0 0 18 15">
+<path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z" fill="#424242"></path>
+<path d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z" fill="#424242"></path>
+<path d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z" fill="#424242"></path>
+</svg>
+</a>
+<div class="trigger">
+<!--<script type="text/javascript">
+          var total_images = 2;
+          var random_number = Math.floor((Math.random()*total_images));
+          var random_img = new Array();
+          random_img[0] = '<a href="https://twitter.com/rasbt"><img src="/images/logos/twitter-1.jpg" height="20"></a>';
+          random_img[1] = '<a href="https://linkedin.com/in/sebastianraschka"><img src="/images/logos/linkedin-1.jpg" height="20"></a>';
+          document.write(random_img[random_number]);
+          </script>-->
+<span style="padding-left:0px;margin-left:0px;"></span>
+<a class="page-link" href="https://magazine.sebastianraschka.com"><span style="color:#c5050c;"><img alt="Ahead of AI Logo" height="20" src="../images/ahead-of-ai-icon.png"/> Blog</span></a>
+<!--<a class="page-link" href="/blog/index.html">Blog</a>-->
+<a class="page-link" href="/books">Books</a>
+<!--<a class="page-link" href="/newsletter">AI Newsletter</a>-->
+<!--<a class="page-link" href="/teaching">Courses</a>-->
+<a class="page-link" href="https://github.com/rasbt/LLMs-from-scratch">LLMs From Scratch</a>
+<!--<a class="page-link" href="/publications">Research</a>-->
+<a class="page-link" href="/elsewhere">Talks</a>
+<a class="page-link" href="/contact">Contact</a>
+<a class="page-link" href="/resources">More</a>
+</div>
+</nav>
+</div>
+</header>
+<div class="page-content">
+<div class="wrapper">
+<!-- MathJax script for LaTeX rendering -->
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<!-- Open Graph Metadata -->
+<meta content="article" property="og:type"/>
+<meta content="Chapter 09" property="og:title"/>
+<meta content="" property="og:description"/>
+<meta content="https://sebastianraschka.com" property="og:image"/>
+<meta content="" property="og:image:alt"/>
+<meta content="https://sebastianraschka.com/books/ml-q-and-ai-chapters/ch09/" property="og:url"/>
+<meta content="Sebastian Raschka's Blog" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<!-- Twitter Metadata -->
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Chapter 09" name="twitter:title"/>
+<meta content="" name="twitter:description"/>
+<meta content="https://sebastianraschka.com" name="twitter:image"/>
+<meta content="" name="twitter:image:alt"/>
+<div class="post">
+<header class="post-header">
+<h1 class="post-title" style="text-align: left;">Machine Learning Q and AI</h1>
+<h2 class="post-subtitle">30 Essential Questions and Answers on Machine Learning and AI</h2>
+<p>
+      By Sebastian Raschka. <a href="#table-of-contents">Free to read</a>.
+      Published by <a href="https://nostarch.com/machine-learning-q-and-ai">No Starch Press</a>.<br/>
+      Copyright Â© 2024-2025 by Sebastian Raschka.
+    </p>
+<p>
+<img alt="Machine Learning and Q and AI" class="right-image-shadow-30" src="../images/2023-ml-ai-beyond.jpg"/>
+</p>
+<blockquote>
+      Machine learning and AI are moving at a rapid pace. Researchers and practitioners are constantly struggling to keep up with the breadth of concepts and techniques. This book provides bite-sized bits of knowledge for your journey from machine learning beginner to expert, covering topics from various machine learning areas. Even experienced machine learning researchers and practitioners will encounter something new that they can add to their arsenal of techniques.
+    </blockquote>
+<br/>
+<p><strong>ð Print Book:</strong><br/>
+<a href="https://amzn.to/4488ahe">Amazon</a><br/>
+<a href="https://nostarch.com/machine-learning-q-and-ai">No Starch Press</a>
+</p>
+<p><strong>ð Read Online:</strong><br/>
+<a href="#table-of-contents">Full Book (Free)</a>
+</p>
+</header>
+<article class="post-content">
+<!-- Optional: Anchor Headings -->
+<h1 id="chapter-9-generative-ai-models">
+        
+        
+          Chapter 9: Generative AI Models <a href="#chapter-9-generative-ai-models"></a>
+</h1>
+<p><span id="ch09" label="ch09"></span></p>
+<p><strong>What are the popular categories of deep generative models in deep
+learning (also called <em>generative AI</em>), and what are their
+respective downsides?</strong></p>
+<p>Many different types of deep generative models have been applied to
+generating different types of media: images, videos, text, and audio.
+Beyond these types of media, models can also be repurposed to generate
+domain-specific data, such as organic molecules and protein structures.
+This chapter will first define generative modeling and then outline each
+type of generative model and discuss its strengths and weaknesses.</p>
+<h2 id="generative-vs-discriminative-modeling">
+        
+        
+          Generative vs. Discriminative Modeling <a href="#generative-vs-discriminative-modeling"></a>
+</h2>
+<p>In traditional machine learning, there are two primary approaches to
+modeling the relationship between input data (<em>x</em>) and output labels
+(<em>y</em>): generative models and discriminative models. <em>Generative models</em>
+aim to capture the underlying probability distribution of the input data
+<em>p</em>(<em>x</em>) or the joint distribution <em>p</em>(<em>x</em>, <em>y</em>) between inputs and
+labels. In contrast, <em>discriminative models</em> focus on modeling the
+conditional distribution <em>p</em>(<em>y</em>\(|\)<em>x</em>) of the labels given the
+inputs.</p>
+<p>A classic example that highlights the differences between these
+approa-
+Â ches
+istocomparethenaiveBayesclassifierandthelogisticregressionclassifier.
+Both classifiers estimate the class label probabilities <em>p</em>(<em>y</em>\(|\)<em>x</em>)
+and can be used for classification tasks. However, logistic regression
+is considered a discriminative model because it directly models the
+conditional probability distribution <em>p</em>(<em>y</em>\(|\)<em>x</em>) of the class
+labels given the input features without making assumptions about the
+underlying joint distribution of inputs and labels. Naive Bayes, on the
+other hand, is considered a generative model because it models the joint
+probability distribution <em>p</em>(<em>x</em>, <em>y</em>) of the input features <em>x</em> and the
+output labels <em>y</em>. By learning the joint distribution, a generative
+model like naive Bayes captures the underlying data generation process,
+which enables it to generate new samples from the distribution if
+needed.</p>
+<h2 id="types-of-deep-generative-models">
+        
+        
+          Types of Deep Generative Models <a href="#types-of-deep-generative-models"></a>
+</h2>
+<p>When we speak of <em>deep</em> generative models or deep generative AI, we
+often loosen this definition to include all types of models capable of
+producing realistic-looking data (typically text, images, videos, and
+sound). The remainder of this chapter briefly discusses the different
+types of deep generative models used to generate such data.</p>
+<h3 id="energy-based-models">
+        
+        
+          Energy-Based Models <a href="#energy-based-models"></a>
+</h3>
+<p><em>Energy-based models (EBMs)</em> are a class of generative models that learn
+an energy function, which assigns a scalar value (energy) to each data
+point. Lower energy values correspond to more likely data points. The
+model is trained to minimize the energy of real data points while
+increasing the energy of generated data points.
+ExamplesofEBMsinclude<em>deepBoltzmannmachines(DBMs)</em>.Oneoftheearlybreakthroughsindeeplearning,DBMsprovideameanstolearncomplexrepresentationsofdata.Youcanthinkofthemasaformofunsupervisedpretraining,resultinginmodelsthatcanthenbefine-tunedforvarioustasks.</p>
+<p>Somewhat similar to naive Bayes and logistic regression, DBMs and
+multilayer perceptrons (MLPs) can be thought of as generative and
+discriminative counterparts, with DBMs focusing on capturing the data
+generation process and MLPs focusing on modeling the decision boundary
+between classes or mapping inputs to outputs.</p>
+<p>ADBMconsistsofmultiplelayersofhiddennodes,asshowninFigureÂ <a data-reference="fig:ch09-fig01" data-reference-type="ref" href="#fig:ch09-fig01">1.1</a>. As the figure illustrates,
+along with the hidden layers, thereâs usually a visible layer that
+corresponds to the observable data. This visible layer serves as the
+input layer where the actual data or features are fed into the network.
+In addition to using a different learning algorithm than MLPs
+(contrastive divergence instead of backpropagation), DBMs consist of
+binary nodes (neurons) instead of continuous ones.</p>
+<figure id="fig:ch09-fig01">
+<img src="../images/ch09-fig01.png">
+<figcaption>A four-layer deep Boltzmann machine<br>
+with three stacks of hidden nodes</br></figcaption>
+</img></figure>
+<p>Suppose we are interested in generating images. A DBM can learn the
+joint probability distribution over the pixel values in a simple image
+dataset like MNIST. To generate new images, the DBM then samples from
+this distribution by performing a process called <em>Gibbs sampling</em>. Here,
+the visible layer of the DBM represents the input image. To generate a
+new image, the DBM starts by initializing the visible layer with random
+values or, alternatively, uses an existing image as a seed. Then, after
+completing several Gibbs sampling iterations, the final state of the
+visible layer represents the generated image.</p>
+<p>DBMs played an important historical role as one of the first deep
+generative models, but they are no longer very popular for generating
+data. They are expensive and more complicated to train, and they have
+lower expressivity compared to the newer models described in the
+following sections, which generally results in lower-quality generated
+samples.</p>
+<h3 id="variational-autoencoders">
+        
+        
+          Variational Autoencoders <a href="#variational-autoencoders"></a>
+</h3>
+<p><em>Variational autoencoders (VAEs)</em> are built upon the principles of
+variational inference and autoencoder architectures. <em>Variational
+inference</em> is a method for approximating complex probability
+distributions by optimizing a simpler, tractable distribution to be as
+close as possible to the true distribution. <em>Autoencoders</em> are
+unsupervised neural networks that learn to compress input data into a
+low-dimensional representation (encoding) and subsequently reconstruct
+the original data from the compressed representation (decoding) by
+minimizing the reconstruction error.</p>
+<p>The VAE model consists of two main submodules: an encoder network and a
+decoder network. The encoder network takes, for example, an input image
+and maps it to a latent space by learning a probability distribution
+over the latent variables. This distribution is typically modeled as a
+Gaus-
+Â sian with parameters (mean and variance) that are functions of the
+inputimage. The decoder network then takes a sample from the learned
+latent distribution and reconstructs the input image from this sample.
+The goal of the VAE is to learn a compact and expressive latent
+representation that captures the essential structure of the input data
+while being able to generate new images by sampling from the latent
+space. (See ChapterÂ <a data-reference="ch01" data-reference-type="ref" href="../ch01">[ch01]</a> for more details on latent
+representations.)</p>
+<p>FigureÂ <a data-reference="fig:ch09-fig02" data-reference-type="ref" href="#fig:ch09-fig02">1.2</a> illustrates the encoder and
+decoder submodules of an auto-
+Â encoder, where <em>x</em>\('\) represents the reconstructed input <em>x</em>. In a
+standard variational autoencoder, the latent vector is sampled from a
+distribution that
+approximates a standard Gaussian distribution.</p>
+<figure id="fig:ch09-fig02">
+<img src="../images/ch09-fig02.png">
+<figcaption>An autoencoder</figcaption>
+</img></figure>
+<p>Training a VAE involves optimizing the modelâs parameters to minimize a
+loss function composed of two terms: a reconstruction loss and a
+KullbackâLeibler-divergence (KL-divergence) regularization term. The
+reconstruction loss ensures that the decoded samples closely resemble
+the input images, while the KL-divergence term acts as a surrogate loss
+that encourages the learned latent distribution to be close to a
+predefined prior distribution (usually a standard Gaussian). To generate
+new images, we then sample points from the latent spaceâs prior
+(standard Gaussian) distribution and pass them through the decoder
+network, which generates new, diverse images that look similar to the
+training data.</p>
+<p>Disadvantages of VAEs include their complicated loss function consisting
+of separate terms, as well as their often low expressiveness. The latter
+can result in blurrier images compared to other models, such as
+generative adversarial networks.</p>
+<h3 id="generative-adversarial-networks">
+        
+        
+          Generative Adversarial Networks <a href="#generative-adversarial-networks"></a>
+</h3>
+<p><em>Generative adversarial networks (GANs)</em> are models consisting of
+interacting subnetworks designed to generate new data samples that are
+similar to a given set of input data. While both GANs and VAEs are
+latent variable models that generate data by sampling from a learned
+latent space, their architectures and learning mechanisms are
+fundamentally different.</p>
+<p>GANs consist of two neural networks, a generator and a discriminator,
+that are trained simultaneously in an adversarial manner. The generator
+takes a random noise vector from the latent space as input and generates
+a synthetic data sample (such as an image). The discriminatorâs task is
+to distinguish between real samples from the training data and fake
+samples generated by the generator, as illustrated in
+FigureÂ <a data-reference="fig:ch09-fig03" data-reference-type="ref" href="#fig:ch09-fig03">1.3</a>.</p>
+<figure id="fig:ch09-fig03">
+<img src="../images/ch09-fig03.png">
+<figcaption>A generative adversarial network</figcaption>
+</img></figure>
+<p>The generator in a GAN somewhat resembles the decoder of a VAE in terms
+of its functionality. During inference, both GAN generators and VAE
+decoders take random noise vectors sampled from a known distribution
+(for example, a standard Gaussian) and transform them into synthetic
+data samples, such as images.</p>
+<p>One significant disadvantage of GANs is their unstable training due to
+the adversarial nature of the loss function and learning process.
+Balancing the learning rates of the generator and discriminator can be
+difficult and can often result in oscillations, mode collapse, or
+non-convergence. The second main disadvantage of GANs is the low
+diversity of their generated outputs, often due to mode collapse. Here,
+the generator is able to fool the discriminator successfully with a
+small set of samples, which are representative of only a small subset of
+the original training data.</p>
+<h3 id="flow-based-models">
+        
+        
+          Flow-Based Models <a href="#flow-based-models"></a>
+</h3>
+<p>The core concept of <em>flow-based models</em>, also known as <em>normalizing
+flows</em>, is inspired by long-standing methods in statistics. The primary
+goal is to transform a simple probability distribution (like a Gaussian)
+into a more complex one using invertible transformations.</p>
+<p>Althoughtheconceptofnormalizingflowshasbeenapartofthe
+statistics field for a long time, the implementation of early flow-based
+deep learning models, particularly for image generation, is a relatively
+recent development. One of the pioneering models in this area was the
+<em>non-linear independent components estimation (NICE)</em> approach. NICE
+begins with a simple probability distribution, often something
+straightforward like a normal distribution. You can think of this as a
+kind of ârandom noise,â or data with no particular shape or structure.
+NICE then applies a series of transformations to this simple
+distribution. Each transformation is designed to make the datalook more
+like the final target (for instance, the distribution of real-world
+images). These transformations are âinvertible,â meaning we can always
+reverse them back to the original simple distribution. After several
+successive transformations, the simple distribution has morphed into a
+complex distribution that closely matches the distribution of the target
+data (such as images). We can now generate new data that looks like the
+target data by picking random points from this complex distribution.</p>
+<p>FigureÂ <a data-reference="fig:ch09-fig04" data-reference-type="ref" href="#fig:ch09-fig04">1.4</a> illustrates the concept of a
+flow-based model, which maps the complex input distribution to a simpler
+distribution and back.</p>
+<figure id="fig:ch09-fig04">
+<img src="../images/ch09-fig04.png">
+<figcaption>A flow-based model</figcaption>
+</img></figure>
+<p>At first glance, the illustration is very similar to the VAE
+illustration in
+FigureÂ <a data-reference="fig:ch09-fig02" data-reference-type="ref" href="#fig:ch09-fig02">1.2</a>. However, while VAEs use neural
+network encoders like convolutional neural networks, the flow-based
+model uses simpler decoupling layers, such as simple linear
+transformations. Additionally, while the decoder in a VAE is independent
+of the encoder, the data-transforming functions in the flow-based model
+are mathematically inverted to obtain the outputs.</p>
+<p>Unlike VAEs and GANs, flow-based models provide exact likelihoods, which
+gives us insights into how well the generated samples fit the training
+data distribution. This can be useful in anomaly detection or density
+estimation, for example. However, the quality of flow-based models for
+generating image data is usually lower than GANs. Flow-based models also
+often require more memory and computational resources than GANs or VAEs
+since they must store and compute inverses of transformations.</p>
+<h3 id="autoregressive-models">
+        
+        
+          Autoregressive Models <a href="#autoregressive-models"></a>
+</h3>
+<p><em>Autoregressive models</em> are designed to predict the next value based on
+current (and past) values. LLMs for text generation, like ChatGPT
+(discussed further in ChapterÂ <a data-reference="ch17" data-reference-type="ref" href="../ch17">[ch17]</a>), are one popular example of this type
+of model.</p>
+<p>Similar to generating one word at a time, in the context of image gen-
+Â eration, autoregressive models like PixelCNN try to predict one pixel
+at a time, given the pixels they have seen so far. Such a model might
+predict
+pixels from top left to bottom right, in a raster scan order, or in any
+other defined order.</p>
+<p>To illustrate how autoregressive models generate an image one pixel at a
+time, suppose we have an image of size <em>H</em>\(\times\)<em>W</em> (where <em>H</em> is
+the height and <em>W</em> is the width), ignoring the color channel for
+simplicityâs sake. This image consists of <em>N</em> pixels, where <em>i</em> = 1, . .
+. , <em>N</em>. The probability of observing a particular image in the dataset
+is then <em>P</em>(<em>Image</em>) = <em>P</em>(<em>i</em><sub>1</sub>, <em>i</em><sub>2</sub>, . . . ,
+<em>i<sub>N</sub></em>). Basedon the chain rule of probability in statistics,
+we can decompose this joint probability into conditional probabilities:</p>
+<pre><code class="language-math">\begin{aligned}
+P( { Image })&amp;=P\left(i_1, i_2, .\,.\,., i_N\right) \\
+&amp;=P\left(i_1\right) \cdot P\left(i_2 \mid i_1\right) \cdot P\left(i_3 \mid i_1, i_2\right) \ldots P\left(i_N \mid i_1 \; to \; i_{N-1}\right)
+\end{aligned}
+</code></pre>
+<p>Here, <em>P</em>(<em>i</em><sub>1</sub>) is the probability of the first pixel,
+<em>P</em>(<em>i</em><sub>2</sub>\(|\)<em>i</em><sub>1</sub>) is the probability of the
+second pixel given the first pixel,
+<em>P</em>(<em>i</em><sub>3</sub>\(|\)<em>i</em><sub>1</sub>, <em>i</em><sub>2</sub>) is the
+probability of the third pixel given the first and second pixels, and so
+on.</p>
+<p>In the context of image generation, an autoregressive model essentially
+tries to predict one pixel at a time, as described earlier, given the
+pixels it has seen so far.
+FigureÂ <a data-reference="fig:ch09-fig05" data-reference-type="ref" href="#fig:ch09-fig05">1.5</a> illustrates this process, where
+pixels <em>i</em><sub>1</sub>, . . . , <em>i</em><sub>53</sub> represent the context
+and pixel <em>i</em><sub>54</sub> is the next pixel to be generated.</p>
+<figure id="fig:ch09-fig05">
+<img src="../images/ch09-fig05.png">
+<figcaption>Autoregressive<br>
+pixel generation</br></figcaption>
+</img></figure>
+<p>The advantage of autoregressive models is that the next-pixel (or word)
+prediction is relatively straightforward and interpretable. In addition,
+auto-
+Â regressive models can compute the likelihood of data exactly, similar
+to
+flow-based models, which can be useful for tasks like anomaly detection.
+Furthermore, autoregressive models are easier to train than GANs as they
+donât suffer from issues like mode collapse and other training
+instabilities.</p>
+<p>However, autoregressive models can be slow at generating new samples.
+This is because they have to generate data one step at a time (for
+example, pixel by pixel for images), which can be computationally
+expensive. Auto-
+Â regressive models may also struggle to capture long-range dependencies
+because each output is conditioned only on previously generated outputs.</p>
+<p>In terms of overall image quality, autoregressive models are therefore
+usually worse than GANs but are easier to train.</p>
+<h3 id="diffusion-models">
+        
+        
+          Diffusion Models <a href="#diffusion-models"></a>
+</h3>
+<p>As discussed in the previous section, flow-based models transform a
+simple distribution (such as a standard normal distribution) into a
+complex one (the target distribution) by applying a sequence of
+invertible and differentiable transformations (flows). Like flow-based
+models, <em>diffusion models</em> alsoapply a series of transformations.
+However, the underlying concept is fundamentally different.</p>
+<p>Diffusion models transform the input data distribution into a simple
+noise distribution over a series of steps using stochastic differential
+equations. Diffusion is a stochastic process in which noise is
+progressively added to the data until it resembles a simpler
+distribution, like Gaussian noise. To generate new samples, the process
+is then reversed, starting from noise and progressively removing it.</p>
+<p>FigureÂ <a data-reference="fig:ch09-fig06" data-reference-type="ref" href="#fig:ch09-fig06">1.6</a> outlines the process of adding
+and removing Gaussian noise from an input image <em>x</em>. During inference,
+the reverse diffusion process is used to generate a new image <em>x</em>,
+starting with the noise tensor <em>z<sub>n</sub></em> sampled from a Gaussian
+distribution.</p>
+<figure id="fig:ch09-fig06">
+<img src="../images/ch09-fig06.png">
+<figcaption>The diffusion process</figcaption>
+</img></figure>
+<p>While both diffusion models and flow-based models are generative models
+aiming to learn complex data distributions, they approach the problem
+from different angles. Flow-based models use deterministic invertible
+transformations, while diffusion models use the aforementioned
+stochastic diffusion process.</p>
+<p>Recent projects have established state-of-the-art performance in
+generating high-quality images with realistic details and textures.
+Diffusion models are also easier to train than GANs. The downside of
+diffusion models, however, is that they are slower to sample from since
+they require running a series of sequential steps, similar to flow-based
+models and autoregressive models.</p>
+<h3 id="consistency-models">
+        
+        
+          Consistency Models <a href="#consistency-models"></a>
+</h3>
+<p><em>Consistency models</em> train a neural network to
+mapÂ aÂ noisyÂ imageÂ toÂ aÂ cleanÂ one. The network is trained on a dataset of
+pairs of noisy and clean images and learns to identify patterns in the
+clean images that are modified by noise. Once the network is trained, it
+can be used to generate reconstructed images from noisy images in one
+step.</p>
+<p>ConsistencyÂ modelÂ trainingÂ employsÂ anÂ <em>ordinaryÂ differentialÂ equationÂ (ODE)</em>
+trajectory, a path that a noisy image follows as it is gradually
+denoised. The ODE trajectory is defined by a set of differential
+equations that describe how the noise in the image changes over time, as
+illustrated in
+FigureÂ <a data-reference="fig:ch09-fig07" data-reference-type="ref" href="#fig:ch09-fig07">1.7</a>.</p>
+<figure id="fig:ch09-fig07">
+<img src="../images/ch09-fig07.png"/>
+<figcaption>Trajectories of a consistency model for image<br>
+denoising</br></figcaption>
+</figure>
+<p>As FigureÂ <a data-reference="fig:ch09-fig07" data-reference-type="ref" href="#fig:ch09-fig07">1.7</a> demonstrates, we can think of
+consistency models as models that learn to map any point from a
+probability flow ODE, which smoothly converts data to noise, to the
+input.</p>
+<p>At the time of writing, consistency models are the most recent type of
+generative AI model. Based on the original paper proposing this method,
+consistency models rival diffusion models in terms of image quality.
+Consistency models are also faster than diffusion models because they do
+not require an iterative process to generate images; instead, they
+generate images in a single step.</p>
+<p>However, while consistency models allow for faster inference, they are
+still expensive to train because they require a large dataset of pairs
+of noisy and clean images.</p>
+<h2 id="recommendations">
+        
+        
+          Recommendations <a href="#recommendations"></a>
+</h2>
+<p>Deep Boltzmann machines are interesting from a historical perspective
+since they were one of the pioneering models to effectively demonstrate
+the concept of unsupervised learning. Flow-based and autoregressive
+models may be useful when you need to estimate exact likelihoods.
+However, other models are usually the first choice when it comes to
+generating high-quality images.</p>
+<p>In particular, VAEs and GANs have competed for years to generate the
+best high-fidelity images. However, in 2022, diffusion models began to
+take over image generation almost entirely. Consistency models are a
+promising alternative to diffusion models, but it remains to be seen
+whether they become more widely adopted to generate state-of-the-art
+results. The trade-off here is that sampling from diffusion models is
+generally slower since it involves a sequence of noise-removal steps
+that must be run in order, similar to autoregressive models. This can
+make diffusion models less practical for some applications requiring
+fast sampling.</p>
+<h3 id="exercises">
+        
+        
+          Exercises <a href="#exercises"></a>
+</h3>
+<p>9-1. How would we evaluate the quality of
+the images generated by a generative AI model?</p>
+<p>9-2. Given this chapterâs description of
+consistency models, how would we use them to generate new images?</p>
+<h2 id="references">
+        
+        
+          References <a href="#references"></a>
+</h2>
+<ul>
+<li>
+<p>The original paper proposing variational autoencoders: Diederik P.
+Kingma and Max Welling, âAuto-Encoding Variational Bayesâ (2013),
+<a href="https://arxiv.org/abs/1312.6114">https://arxiv.org/abs/1312.6114</a>.</p>
+</li>
+<li>
+<p>The paper introducing generative adversarial networks: Ian J.
+Goodfellow et al., âGenerative Adversarial Networksâ (2014),
+<a href="https://arxiv.org/abs/1406.2661">https://arxiv.org/abs/1406.2661</a>.</p>
+</li>
+<li>
+<p>The paper introducing NICE: Laurent Dinh, David Krueger, and
+Yoshua Bengio, âNICE: Non-linear Independent Components Estimationâ
+(2014), <a href="https://arxiv.org/abs/1410.8516">https://arxiv.org/abs/1410.8516</a>.</p>
+</li>
+<li>
+<p>The paper proposing the autoregressive PixelCNN model: Aaron van den
+Oord et al., âConditional Image Generation with PixelCNN Decodersâ
+(2016), <a href="https://arxiv.org/abs/1606.05328">https://arxiv.org/abs/1606.05328</a>.</p>
+</li>
+<li>
+<p>The paper introducing the popular Stable Diffusion latent diffusion
+model: Robin Rombach et al., âHigh-Resolution Image Synthesis with
+Latent Diffusion Modelsâ (2021), <a href="https://arxiv.org/abs/2112.10752">https://arxiv.org/abs/2112.10752</a>.</p>
+</li>
+<li>
+<p>The Stable Diffusion code implementation:
+<a href="https://github.com/CompVis/stable-diffusion"><em>https://github.com/Comp</em></a>
+<a href="https://github.com/CompVis/stable-diffusion"><em>Vis/stable-diffusion</em></a>.</p>
+</li>
+<li>
+<p>The paper originally proposing consistency models: Yang Song etÂ al.,
+âConsistency Modelsâ (2023), <a href="https://arxiv.org/abs/2303.01469">https://arxiv.org/abs/2303.01469</a>.</p>
+</li>
+</ul>
+</article>
+<br/>
+<hr/>
+<div class="book-promotion" style="margin-top: 50px;">
+<h2>Support the Author</h2>
+<p>You can support the author in the following ways:</p>
+<ul>
+<li>
+        Subscribe to <a href="https://magazine.sebastianraschka.com">Sebastian's Substack blog</a>
+</li>
+<li>
+        Purchase a copy on
+        <a href="https://amzn.to/4488ahe">Amazon</a> or
+        <a href="https://nostarch.com/machine-learning-q-and-ai">No Starch Press</a>
+</li>
+<li>
+        Write an <a href="https://amzn.to/4488ahe">Amazon review</a>
+</li>
+</ul>
+</div>
+<div style="margin-bottom: 50px;"></div>
+</div>
+</div>
+</div>
+<footer class="site-footer">
+<div class="wrapper">
+<div class="footer-col-wrapper">
+<div class="footer-col social-col">
+<a href="https://magazine.sebastianraschka.com"><span><i class="fa fa-rss fa-2x"></i></span> </a>
+<a href="/contact"><span><i class="fa fa-envelope fa-2x"></i></span> </a>
+<a href="https://twitter.com/rasbt"> <span><i class="fa fa-twitter fa-2x"></i></span> </a>
+<a href="https://youtube.com/c/SebastianRaschka"><span><i class="fa fa-youtube fa-2x"></i></span> </a>
+<a href="https://github.com/rasbt"><span><i class="fa fa-github fa-2x"></i> </span></a>
+<a href="https://scholar.google.com/citations?user=X4RCC0IAAAAJ&amp;hl=enrasbt"><span><i class="fa fa-google fa-2x"></i> </span></a>
+<a href="https://linkedin.com/in/sebastianraschka"><span><i class="fa fa-linkedin fa-2x"></i> </span></a>
+</div>
+<div class="footer-col copyright-col">
+<p>© 2013-2025 Sebastian Raschka</p>
+</div>
+</div>
+</div>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-BYQXBRPK81"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BYQXBRPK81');
+</script>
+</footer>
+
+<script src="/js/anchor.min.js" type="text/javascript"></script>
+<script>
+    var selector = 'h2, h3, h4, h5, h6';
+    /*
+    anchors.options = {
+      icon: '#',
+      visible: 'always',
+      placement: 'left',
+      class: 'bb-anchor'
+    }
+    */
+    anchors.add(selector);
+  </script>
+</body>
+</html>
