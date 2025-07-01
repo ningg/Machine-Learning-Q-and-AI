@@ -1,27 +1,12 @@
-# Machine Learning Q and AI {#machine-learning-q-and-ai .post-title style="text-align: left;"}
 
-## 30 Essential Questions and Answers on Machine Learning and AI {#essential-questions-and-answers-on-machine-learning-and-ai .post-subtitle}
 
-By Sebastian Raschka. [Free to read](#table-of-contents). Published by
-[No Starch Press](https://nostarch.com/machine-learning-q-and-ai).\
-Copyright Â© 2024-2025 by Sebastian Raschka.
 
-![Machine Learning and Q and
-AI](../images/2023-ml-ai-beyond.jpg){.right-image-shadow-30}
 
-> Machine learning and AI are moving at a rapid pace. Researchers and
-> practitioners are constantly struggling to keep up with the breadth of
-> concepts and techniques. This book provides bite-sized bits of
-> knowledge for your journey from machine learning beginner to expert,
-> covering topics from various machine learning areas. Even experienced
-> machine learning researchers and practitioners will encounter
-> something new that they can add to their arsenal of techniques.
+# Part 1: Neural Networks and Deep Learning 
+[](#part-1-neural-networks-and-deep-learning)
 
-\
-
-# Part 1: Neural Networks and Deep Learning [](#part-1-neural-networks-and-deep-learning)
-
-## Chapter 1: Embeddings, Latent Space, and Representations [](#chapter-1-embeddings-latent-space-and-representations)
+## Chapter 1: Embeddings, Latent Space, and Representations 
+[](#chapter-1-embeddings-latent-space-and-representations)
 
 []{#ch01 label="ch01"}
 
@@ -43,7 +28,8 @@ The following sections explore the relationship between embeddings,
 latent vectors, and representations and how each functions to encode
 information in machine learning contexts.
 
-### Embeddings [](#embeddings)
+### Embeddings 
+[](#embeddings)
 
 Embedding vectors, or *embeddings* for short, encode relatively
 high-dimensional data into relatively low-dimensional vectors.
@@ -99,7 +85,8 @@ that similar inputs will be located at points in close proximity within
 the embedding space, which can be seen as the â€œstructure-preservingâ€?
 characteristic of the embedding.
 
-### Latent Space [](#latent-space)
+### Latent Space 
+[](#latent-space)
 
 *Latent space* is typically used synonymously with *embedding space*,
 the space into which embedding vectors are mapped.
@@ -129,7 +116,8 @@ similar inputs (for example, pictures of cats) close to each other in
 the latent space, thus creating useful embedding vectors where similar
 inputs are close in the embedding (latent) space.
 
-### Representation [](#representation)
+### Representation 
+[](#representation)
 
 A *representation* is an encoded, typically intermediate form of an
 input. For instance, an embedding vector or vector in the latent space
@@ -141,7 +129,8 @@ The key idea is that the representation captures some essential features
 or characteristics of the original data to make it useful for further
 analysis or processing.
 
-### Exercises [](#exercises)
+### Exercises 
+[](#exercises)
 
 1-1. Suppose weâ€™re training a convolutional network with five
 convolutional layers followed by three fully connected (FC) layers,
@@ -164,7 +153,8 @@ Geoffrey Hinton.
 
 1-2. Name some types of input representations that are not embeddings.
 
-### References [](#references)
+### References 
+[](#references)
 
 - The original paper describing the AlexNet architecture and
   implementation: Alex Krizhevsky, Ilya Sutskever, and Geoffrey Hinton,
@@ -172,7 +162,6 @@ Geoffrey Hinton.
   (2012),
   <https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks>.
 
-\
 
 ------------------------------------------------------------------------
 
