@@ -25,7 +25,7 @@ we can use a normal distribution to approximate a Poisson distribution.)
 
 *Ordinal data* is a subcategory of categorical data where the categories
 have a natural order, such as 1 \< 2 \< 3, as illustrated in
-FigureÂ [1.1](#fig:ch24-fig01){reference="fig:ch24-fig01"
+Figure [1.1](#fig:ch24-fig01){reference="fig:ch24-fig01"
 reference-type="ref"}. Ordinal data is often represented as positive
 integers and may look similar to count
 data.Forexample,considerthestarratingonAmazon(1star,2stars,3stars, and

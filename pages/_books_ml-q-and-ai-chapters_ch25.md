@@ -32,7 +32,7 @@ intervals:
 - Confidence intervals from retraining models with different random
   seeds
 
-Before reviewing these in greater depth, letâ€™s briefly review the
+Before reviewing these in greater depth, let's briefly review the
 definition and interpretation of confidence intervals.
 
 ## Defining Confidence Intervals [](#defining-confidence-intervals)
@@ -53,7 +53,7 @@ encounter, and the parameter we are often most interested in is the true
 generalization accuracy of our model on this population.
 
 The accuracy we measure on the test set estimates the true
-generalization accuracy. However, itâ€™s subject to random error due to
+generalization accuracy. However, it's subject to random error due to
 the specific sample of test instances we happened to use. This is where
 the concept of a confidence interval comes in. A 95 percent confidence
 interval for the generalization accuracy gives us a range in which we
@@ -63,7 +63,7 @@ Forinstance,ifwetake100differentdatasamplesandcomputea 95 percent
 confidence interval for each sample, approximately 95 of the 100
 confidence intervals will contain the true population value (such as the
 generalization accuracy), as illustrated in
-FigureÂ [\[fig:ch25-fig01\]](#fig:ch25-fig01){reference="fig:ch25-fig01"
+Figure [\[fig:ch25-fig01\]](#fig:ch25-fig01){reference="fig:ch25-fig01"
 reference-type="ref"}.
 
 ::: figurewide
@@ -81,10 +81,10 @@ We can display confidence intervals in several ways. It is common to use
 a bar plot representation where the top of the bar represents the
 parameter value (for example, model accuracy) and the whiskers denote
 the upper andlower levels of the confidence interval (left chart of
-FigureÂ [1.1](#fig:ch25-fig02){reference="fig:ch25-fig02"
+Figure [1.1](#fig:ch25-fig02){reference="fig:ch25-fig02"
 reference-type="ref"}). Alternatively, the confidence intervals can be
 shown without bars, as in the right chart of
-FigureÂ [1.1](#fig:ch25-fig02){reference="fig:ch25-fig02"
+Figure [1.1](#fig:ch25-fig02){reference="fig:ch25-fig02"
 reference-type="ref"}.
 
 ![Two common plotting variants to illustrate confidence
@@ -92,22 +92,22 @@ intervals](../images/ch25-fig02.png){#fig:ch25-fig02}
 
 This visualization is functionally useful in a number of ways. For
 instance, when confidence intervals for two model performances do *not*
-overlap, itâ€™s a strong visual indicator that the performances are
-signifi- Â cantly different. Take the example of statistical
+overlap, it's a strong visual indicator that the performances are
+signifi-  cantly different. Take the example of statistical
 significance tests, such as t-tests: if two 95 percent confidence
 intervals do not overlap, it strongly suggests that the difference
 between the two measurements is statistically significant at the 0.05
 level.
 
 On the other hand, if two 95 percent confidence intervals overlap, we
-cannot automatically conclude that thereâ€™s no significant difference
+cannot automatically conclude that there's no significant difference
 between the two measurements. Even when confidence intervals overlap,
 there can still be a statistically significant difference.
 
 Alternatively, to provide more detailed information about the exact
 quantities, we can use a table view to express the confidence intervals.
 The two common notations are summarized in
-TableÂ [1.1](#confidence-intervals){reference="confidence-intervals"
+Table [1.1](#confidence-intervals){reference="confidence-intervals"
 reference-type="ref"}.
 
 ::: {#confidence-intervals}
@@ -137,7 +137,7 @@ The normal approximation interval involves generating the confidence
 interval from a single train-test split. It is often considered the
 simplest and most traditional method for computing confidence intervals.
 This approach is especially appealing in the realm of deep learning,
-where training models is computationally costly. Itâ€™s also desirable
+where training models is computationally costly. It's also desirable
 when we are interested in evaluating a specific model, instead of models
 trained on various data partitions like in *k*-fold cross-validation.
 
@@ -148,7 +148,7 @@ distribution, is expressed as \\(\\bar{\\text{\\emph{x}}}\\) \\(\\pm\\)
 *z* \\(\\times\\) *SE*.
 
 In this formula, *z* represents the *z*-score, which indicates a
-particular valueâ€™s number of standard deviations from the mean in a
+particular value's number of standard deviations from the mean in a
 standard normal distribution. *SE* represents the standard error of the
 predicted parameter (in this case, the sample mean).
 
@@ -156,7 +156,7 @@ predicted parameter (in this case, the sample mean).
 Most readers will be familiar with [z]{.upright}-score tables that are
 usually found in the back of introductory statistics textbooks. However,
 a more convenient and preferred way to obtain [z]{.upright}-scores is to
-use functions like SciPyâ€™s \`stats.zscore\` function, which computes
+use functions like SciPy's \`stats.zscore\` function, which computes
 the [z]{.upright}-scores for given confidence levels.
 :::
 
@@ -231,7 +231,7 @@ points will likely be duplicated in this new sample, whereas other data
 points are not sampled at all.We can then repeat this procedure for
 multiple rounds to obtain multiple training and test sets. This process
 is known as *out-of-bag bootstrapping*, illustrated in
-FigureÂ [\[fig:ch25-fig04\]](#fig:ch25-fig04){reference="fig:ch25-fig04"
+Figure [\[fig:ch25-fig04\]](#fig:ch25-fig04){reference="fig:ch25-fig04"
 reference-type="ref"}.
 
 ::: figurewide
@@ -243,7 +243,7 @@ of these splits to train and evaluate the model to obtain *k* test set
 accuracy estimates. Considering this distribution of test set accuracy
 estimates, we can take the range between the 2.5th and 97.5th percentile
 to obtain the 95 percent confidence interval, as illustrated in
-FigureÂ [1.2](#fig:ch25-fig05){reference="fig:ch25-fig05"
+Figure [1.2](#fig:ch25-fig05){reference="fig:ch25-fig05"
 reference-type="ref"}.
 
 ![The distribution of test accuracies from 1,000 bootstrap\
@@ -256,14 +256,14 @@ distribution. Ideally, if the assumptions for the normal approximation
 are satisfied, both methodologies would yield identical outcomes.
 
 Since bootstrapping relies on resampling the existing test data, its
-downside is that it doesnâ€™t bring in any new information that could be
+downside is that it doesn't bring in any new information that could be
 available in a broader population or unseen data. Therefore, it may not
 always be able to generalize the performance of the model to new, unseen
 data.
 
 Note that we are using the bootstrap sampling approach in this chapter
 instead of obtaining the train-test splits via *k*-fold
-cross-validation, because of the bootstrapâ€™s theoretical grounding via
+cross-validation, because of the bootstrap's theoretical grounding via
 the central limit theorem discussed earlier. There are also more
 advanced out-of-bag bootstrap methods, such as the .632 and .632+
 estimates, which are reweighting the accuracy estimates.
@@ -273,7 +273,7 @@ estimates, which are reweighting the accuracy estimates.
 An alternative approach to bootstrapping training sets is to bootstrap
 test sets.The idea is to train the model on the existing training set as
 usual and then to evaluate the model on bootstrapped test sets, as
-illustrated in FigureÂ [1.3](#fig:ch25-fig06){reference="fig:ch25-fig06"
+illustrated in Figure [1.3](#fig:ch25-fig06){reference="fig:ch25-fig06"
 reference-type="ref"}. After obtaining the test set performance
 estimates, we can then apply the percentile method described in the
 previous section.
@@ -283,9 +283,9 @@ previous section.
 Contrary to the prior bootstrap technique, this method uses a trained
 model and simply resamples the test set (instead of the training sets).
 This approach is especially appealing for evaluating deep neural
-networks, as it doesnâ€™t require retraining the model on the new data
-splits. However, a disadvantage of this approach is that it doesnâ€™t
-assess the modelâ€™s variability toward small changes in the training
+networks, as it doesn't require retraining the model on the new data
+splits. However, a disadvantage of this approach is that it doesn't
+assess the model's variability toward small changes in the training
 data.
 
 ### Method 4: Retraining Models with Different Random Seeds [](#method-4-retraining-models-with-different-random-seeds)
@@ -338,9 +338,9 @@ Tosummarize,calculatingtheconfidenceintervalsusingvarious random seeds
 is another effective alternative. However, it is primarily beneficial
 for deep learning models. It proves to be costlier than both the normal
 approximation approach (method 1) and bootstrapping the test set
-(methodÂ 3), as it necessitates retraining the model. On the bright
+(method 3), as it necessitates retraining the model. On the bright
 side, the outcomes derived from disparate random seeds provide us with a
-robust understanding of the modelâ€™s stability.
+robust understanding of the model's stability.
 
 ## Recommendations [](#recommendations)
 
@@ -353,7 +353,7 @@ bootstrapping the test only, but this involves bootstrapping a smaller
 dataset and may be misleading for small or nonrepresentative test set
 sizes. Lastly, constructing confidence intervals from different random
 seeds is expensive but can give us additional insights into the
-modelâ€™s stability.
+model's stability.
 
 ### Exercises [](#exercises)
 
@@ -362,7 +362,7 @@ is 95 percent confidence intervals. However, 90 percent and 99 percent
 are also common. Are 90 percent confidence intervals smaller or wider
 than 95 percent confidence intervals, and why is this the case?
 
-25-2. In â€œâ€? on pageÂ , we created test sets by bootstrapping and
+25-2. In â€œâ€? on page , we created test sets by bootstrapping and
 then applied the already trained model to compute the test set accuracy
 on each of these datasets. Can you think of a method or modification to
 obtain these test accuracies more efficiently?
@@ -384,7 +384,7 @@ obtain these test accuracies more efficiently?
   <https://arxiv.org/abs/1811.12808>.
 
 - Additional information on the central limit theorem for inde-
-  Â pendent and identically distributed random variables:
+   pendent and identically distributed random variables:
   <https://en.wikipedia.org/wiki/Central_limit_theorem>.
 
 - For more on the Berryâ€"Esseen theorem:

@@ -25,7 +25,7 @@ initial model on the original training set and then retrain it as new
 data arrives. Hence, stateless training is also commonly referred to as
 stateless *retraining*.
 
-As FigureÂ [1.1](#fig:ch20-fig01){reference="fig:ch20-fig01"
+As Figure [1.1](#fig:ch20-fig01){reference="fig:ch20-fig01"
 reference-type="ref"} shows, we can think of stateless retraining as a
 sliding window approach in which we retrain the initial model on
 different parts of the data from a given data stream.
@@ -34,7 +34,7 @@ different parts of the data from a given data stream.
 periodically.](../images/ch20-fig01.png){#fig:ch20-fig01}
 
 For example, to update the initial model in
-FigureÂ [1.1](#fig:ch20-fig01){reference="fig:ch20-fig01"
+Figure [1.1](#fig:ch20-fig01){reference="fig:ch20-fig01"
 reference-type="ref"} (Model 1) to a newer model (Model 2), we train the
 model on 30 percent of the initial data and 70 percent of the most
 recent data at a given point in time.
@@ -45,7 +45,7 @@ feature-target relationships via retraining the model from scratch in
 user-defined checkpoint intervals. This approach is prevalent with
 conventional machine learning systems that cannot be fine-tuned as part
 of a transfer or self-supervised learning workflow (see
-ChapterÂ [\[ch02\]](../ch02){reference="ch02" reference-type="ref"}).
+Chapter [\[ch02\]](../ch02){reference="ch02" reference-type="ref"}).
 For example, standard implementations of tree-based models, such as
 random forests and gradient boosting (XGBoost, CatBoost, and LightGBM),
 fall into this category.
@@ -56,7 +56,7 @@ In stateful training, we train the model on an initial batch of data and
 then update it periodically (as opposed to retraining it) when new data
 arrives.
 
-AsillustratedinFigureÂ [1.2](#fig:ch20-fig02){reference="fig:ch20-fig02"
+AsillustratedinFigure [1.2](#fig:ch20-fig02){reference="fig:ch20-fig02"
 reference-type="ref"},we do not retrain the initial model (Model1.0)
 from scratch; instead, we update or fine-tune it as new data arrives.
 This approach is particularly attractive for models compatible with
@@ -93,7 +93,7 @@ update the classifier?
 ChatGPT that can answer user queries. The dialogue interface includes
 thumbs-up and thumbs-down buttons so that users can give direct feedback
 based on the generated queries. While collecting the user feedback, we
-donâ€™t update the model immediately as new feedback arrives. However,
+don't update the model immediately as new feedback arrives. However,
 we are planning to release a new or updated model at least once per
 month. Should we use stateless or stateful retraining for this model?
 

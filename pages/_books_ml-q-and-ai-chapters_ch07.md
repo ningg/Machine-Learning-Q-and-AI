@@ -63,7 +63,7 @@ because the chain-like structure (layer 1 on GPU 1 \\(\\rightarrow\\)
 layer 2 on GPU 2 \\(\\rightarrow\\) .â€†.â€†.) in model parallelism
 introduces a bottleneck. In other words, a major disadvantage of model
 parallelism is that the GPUs have to wait for each other. They cannot
-efficiently work in parallel, as they depend on one otherâ€™s outputs.
+efficiently work in parallel, as they depend on one other's outputs.
 
 ### Data Parallelism [](#data-parallelism)
 
@@ -78,7 +78,7 @@ An advantage of data parallelism over model parallelism is that the GPUs
 can run in parallel. Each GPU processes a portion of the training
 minibatch, that is, a microbatch. However, a caveat is that each GPU
 requires a full copy of the model. This is obviously not feasible if we
-have large models that donâ€™t fit into the GPUâ€™s VRAM.
+have large models that don't fit into the GPU's VRAM.
 
 ### Tensor Parallelism [](#tensor-parallelism)
 
@@ -91,7 +91,7 @@ matrix multiplication across GPUs.
 We can implement tensor parallelism using basic principles of linear
 algebra; we can split a matrix multiplication across two GPUs in a row-
 or column-wise fashion, as illustrated in
-FigureÂ [\[fig:ch07-fig01\]](#fig:ch07-fig01){reference="fig:ch07-fig01"
+Figure [\[fig:ch07-fig01\]](#fig:ch07-fig01){reference="fig:ch07-fig01"
 reference-type="ref"} for two GPUs. (This concept can be extended to an
 arbitrary number of GPUs.)
 
@@ -109,7 +109,7 @@ matrices are split or sharded. For instance, tensor parallelism requires
 frequent synchronization of the model parameters across devices, which
 can slow down the overall training process.
 
-FigureÂ [1.1](#fig:ch07-fig02){reference="fig:ch07-fig02"
+Figure [1.1](#fig:ch07-fig02){reference="fig:ch07-fig02"
 reference-type="ref"} compares model, data, and tensor parallelism.
 
 ![A comparison of model, data, and tensor
@@ -163,7 +163,7 @@ linearly.
 However, these efficient self-attention mechanisms are less popular, and
 most people still prefer the original scaled-dot product attention
 mechanism as of this writing. Sequence parallelism, illustrated in
-FigureÂ [1.2](#fig:ch07-fig03){reference="fig:ch07-fig03"
+Figure [1.2](#fig:ch07-fig03){reference="fig:ch07-fig03"
 reference-type="ref"}, splits the input sequence into smaller chunks to
 be distributed across GPUs, which aims to reduce computation memory
 constraints of self-attention mechanisms.
@@ -173,7 +173,7 @@ among GPUs.](../images/ch07-fig03.png){#fig:ch07-fig03}
 
 How does sequence parallelism relate to the multi-GPU techniques
 discussed earlier? Sequence parallelism deals specifically with
-sequential data, tensor parallelism deals with the modelâ€™s internal
+sequential data, tensor parallelism deals with the model's internal
 structure, and data parallelism deals with how the training data is
 divided. Theoretically, since each of these parallelism strategies
 addresses a different aspect of the computational challenge, they can
@@ -187,7 +187,7 @@ aforementioned parallelism techniques. Like data parallelism, it
 requires us to duplicate the model and make sure it fits into the device
 memory. Another of its disadvantages (depending on the implementation)
 for multi-GPU training of transformers is that breaking up the input
-sequence into smaller subsequences can decrease the modelâ€™s accuracy
+sequence into smaller subsequences can decrease the model's accuracy
 (mainly when the model is applied to longer sequences).
 
 ## Recommendations [](#recommendations)
@@ -215,7 +215,7 @@ gradient descent optimizer. However, when we try the Adam optimizer by
 Diederik P. Kingma and Jimmy Ba, we encounter an out-of-memory device.
 What problem might explain this issue?
 
-7-2. Suppose we donâ€™t have access to a GPU and are considering using
+7-2. Suppose we don't have access to a GPU and are considering using
 data parallelism on the CPU. Is this a good idea?
 
 ## References [](#references)

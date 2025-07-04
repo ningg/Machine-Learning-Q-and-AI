@@ -31,7 +31,7 @@ attention mechanisms.
 Attention mechanisms were first developed in the context of image
 recognition back in 2010, before being adopted to aid the translation of
 long sentences in recurrent neural networks.
-(ChapterÂ [\[ch16\]](../ch16){reference="ch16" reference-type="ref"}
+(Chapter [\[ch16\]](../ch16){reference="ch16" reference-type="ref"}
 compares the attention mechanisms found in recurrent neural networks and
 transformers in greater detail.)
 
@@ -61,7 +61,7 @@ comparing each input element to all others. The attention weights
 obtained by this approach are dynamic and input dependent. In contrast,
 the weights of a convolutional or fully connected layer are fixed after
 training, as illustrated in
-FigureÂ [1.1](#fig:ch08-fig01){reference="fig:ch08-fig01"
+Figure [1.1](#fig:ch08-fig01){reference="fig:ch08-fig01"
 reference-type="ref"}.
 
 ![The conceptual difference between model weights in fully connected\
@@ -69,7 +69,7 @@ layers (top) and attention scores
 (bottom)](../images/ch08-fig01.png){#fig:ch08-fig01}
 
 As the top part of
-FigureÂ [1.1](#fig:ch08-fig01){reference="fig:ch08-fig01"
+Figure [1.1](#fig:ch08-fig01){reference="fig:ch08-fig01"
 reference-type="ref"} shows, once trained, the weights of fully
 connected layers remain fixed regardless of the input. In contrast, as
 shown at the bottom, self-attention weights change depending on the
@@ -95,7 +95,7 @@ fine-tuned for a wide range of downstream tasks.
 While unsupervised pretraining has been highly effective for natural
 language processing tasks, its effectiveness for computer vision tasks
 is still an active area of research. (Refer to
-ChapterÂ [\[ch02\]](../ch02){reference="ch02" reference-type="ref"} for
+Chapter [\[ch02\]](../ch02){reference="ch02" reference-type="ref"} for
 a more detailed discussion of self-supervised learning.)
 
 ## Large Numbers of Parameters [](#large-numbers-of-parameters)
@@ -121,7 +121,7 @@ Since labeled data is limited, utilizing large amounts of data during
 unsupervised pretraining is vital.
 
 To summarize, large model sizes and large datasets are critical factors
-in transformersâ€™ success. Additionally, using self-supervised
+in transformers' success. Additionally, using self-supervised
 learning, the ability to pretrain transformers is closely tied to using
 large model sizes and large datasets. This combination has been critical
 in enabling the success of transformers in a wide range of natural
@@ -130,7 +130,7 @@ language processing tasks.
 ## Easy Parallelization [](#easy-parallelization)
 
 Traininglargemodelsonlargedatasetsrequiresvastcomputational resources,
-and itâ€™s key that the computations can be parallelized to utilize
+and it's key that the computations can be parallelized to utilize
 these resources.
 
 Fortunately,transformersareeasytoparallelizesincetheytakea fixed-length
@@ -139,7 +139,7 @@ self-attention mechanism used in most transformer architectures involves
 computing the weighted sum between a pair of input elements.
 Furthermore, these pair-wise token comparisons can be computed
 independently, as illustrated in
-FigureÂ [1.2](#fig:ch08-fig02){reference="fig:ch08-fig02"
+Figure [1.2](#fig:ch08-fig02){reference="fig:ch08-fig02"
 reference-type="ref"}, making the self-attention mechanism relatively
 easy to parallelize across different GPU cores.
 
@@ -148,7 +148,7 @@ weight parameters](../images/ch08-fig02.png){#fig:ch08-fig02}
 
 In addition, the individual weight matrices used in the self-attention
 mechanism (not shown in
-FigureÂ [1.2](#fig:ch08-fig02){reference="fig:ch08-fig02"
+Figure [1.2](#fig:ch08-fig02){reference="fig:ch08-fig02"
 reference-type="ref"}) can be distributed across different machines for
 distributed and parallel computing.
 
@@ -165,7 +165,7 @@ feature selection?
 ## References [](#references)
 
 - An example of an attention mechanism in the context of image rec-
-  Â ognition: Hugo Larochelle and Geoffrey Hinton, â€œLearning to
+   ognition: Hugo Larochelle and Geoffrey Hinton, â€œLearning to
   Combine Foveal Glimpses with a Third-Order Boltzmann Machineâ€?
   (2010), <https://dl.acm.org/doi/10.5555/2997189.2997328>.
 

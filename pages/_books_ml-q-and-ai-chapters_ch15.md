@@ -16,7 +16,7 @@ augmentation techniques for text data?**
 Data augmentation is useful for artificially increasing dataset sizes to
 improve model performance, such as by reducing the degree of
 overfitting, as discussed in
-ChapterÂ [\[ch05\]](../ch05){reference="ch05" reference-type="ref"}.
+Chapter [\[ch05\]](../ch05){reference="ch05" reference-type="ref"}.
 This includes techniques often used in computer vision models, like
 rotation, scaling, and flipping.
 
@@ -63,7 +63,7 @@ may teach the model to focus on key aspects of the text that are most
 relevant to the task at hand.
 
 However, we must be careful not to remove critical words that may
-significantly alter a sentenceâ€™s meaning. For example, it would be
+significantly alter a sentence's meaning. For example, it would be
 suboptimal to remove the word *cat* in the previous sentence: â€œThe
 quickly jumped over the lazy dog.â€? We must also choose the deletion
 rate carefully to ensure that the text still makes sense after words
@@ -86,7 +86,7 @@ augmentation because the model can still recognize the important words
 and their associations with each other. However, this method has its
 limitations. For example, shuffling words too much or in certain ways
 can drastically change the meaning of a sentence or make it completely
-nonsensical. Moreover, word shuffling may interfere with the modelâ€™s
+nonsensical. Moreover, word shuffling may interfere with the model's
 learning process, as the positional relationships between certain words
 can be vital in these contexts.
 
@@ -97,7 +97,7 @@ document are rearranged to create new versions of the input text. By
 shuffling sentences within a document, we expose the model to different
 arrangements of the same content, helping it learn to recognize thematic
 elements and key concepts rather than relying on specific sentence
-order. This promotes a more robust understanding of the documentâ€™s
+order. This promotes a more robust understanding of the document's
 overall topic or category. Consequently, this technique is particularly
 useful for tasks that deal with document-level analysis or
 paragraph-level understanding, such as document classification, topic
@@ -178,12 +178,12 @@ maintaining the overall meaning while creating something new.
 
 Modern techniques to generate synthetic data now also include using
 decoder-style LLMs such as GPT (decoder-style LLMs are discussed in more
-detail in ChapterÂ [\[ch17\]](../ch17){reference="ch17"
+detail in Chapter [\[ch17\]](../ch17){reference="ch17"
 reference-type="ref"}). We can use these models to generate new data
 from scratch by using â€œcomplete the sentenceâ€? or â€œgenerate example
 sentencesâ€? prompts, among others. We can also use LLMs as alternatives
 to back translation, prompting them to rewrite sentences as shown in
-FigureÂ [1.1](#fig:ch15-fig01){reference="fig:ch15-fig01"
+Figure [1.1](#fig:ch15-fig01){reference="fig:ch15-fig01"
 reference-type="ref"}.
 
 <figure id="fig:ch15-fig01">
@@ -192,7 +192,7 @@ reference-type="ref"}.
 </figure>
 
 Note that an LLM, as shown in
-FigureÂ [1.1](#fig:ch15-fig01){reference="fig:ch15-fig01"
+Figure [1.1](#fig:ch15-fig01){reference="fig:ch15-fig01"
 reference-type="ref"}, runs in a nondeterministic mode by default, which
 means we can prompt it multiple times to obtain a variety of rewritten
 sentences.

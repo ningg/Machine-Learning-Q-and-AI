@@ -29,7 +29,7 @@ meet the criteria for proper metrics.
 
 To illustrate the criteria of a proper metric, consider two vectors or
 points **v** and **w** and their distance *d*(**v**, **w**), as shown in
-FigureÂ [1.1](#fig:ch27-fig01){reference="fig:ch27-fig01"
+Figure [1.1](#fig:ch27-fig01){reference="fig:ch27-fig01"
 reference-type="ref"}.
 
 ![The Euclidean distance between two 2D
@@ -51,14 +51,14 @@ The criteria of a proper metric are the following:
 To better understand the triangle inequality, think of the points as
 vertices of a triangle. If we consider any triangle, the sum of two of
 the sides is always larger than the third side, as illustrated in
-FigureÂ [1.2](#fig:ch27-fig02){reference="fig:ch27-fig02"
+Figure [1.2](#fig:ch27-fig02){reference="fig:ch27-fig02"
 reference-type="ref"}.
 
 ![Triangle inequality](../images/ch27-fig02.png){#fig:ch27-fig02}
 
 Considerwhatwouldhappenifthetriangleinequalitydepictedin
-FigureÂ [1.2](#fig:ch27-fig02){reference="fig:ch27-fig02"
-reference-type="ref"} werenâ€™t true. If the sum of the lengths of sides
+Figure [1.2](#fig:ch27-fig02){reference="fig:ch27-fig02"
+reference-type="ref"} weren't true. If the sum of the lengths of sides
 AB and BC was shorter than AC, then sides AB and BC would not meet to
 form a triangle; instead, they would fall short of each other. Thus, the
 fact that they meet and form a triangle demonstrates the triangle
@@ -76,7 +76,7 @@ distance between a target variable *y* and a predicted target value
 The index *i* denotes the *i*th data point in the dataset or sample. Is
 this loss function a proper metric?
 
-For simplicityâ€™s sake, we will consider the *squared error (SE)* loss
+For simplicity's sake, we will consider the *squared error (SE)* loss
 between two data points (though the following insights also hold for the
 MSE). As shown in the following equation, the SE loss quantifies the
 squared difference between the predicted and actual values for a single
@@ -150,7 +150,7 @@ classifiers on a dataset consisting of *n* training examples:
 \\\[\\mathrm{CE}(\\mathbf{y}, \\mathbf{p}) = -\\frac{1}{n}
 \\sum\_{i\\,=\\,1}\^n y\^{(i)} \\times \\log \\left(p\^{(i)}\\right)\\\]
 
-Is this loss function a proper metric? Again, for simplicityâ€™s sake,
+Is this loss function a proper metric? Again, for simplicity's sake,
 we will look at the cross-entropy function (*H*) between only two data
 points:
 
@@ -169,7 +169,7 @@ example, *H*(0.9, 0.9) = â€"0.9 \\(\\times\\) log(0.9) = 0.095.
 
 The second criterion shown above is also violated by the cross-entropy
 loss because the loss is not symmetric: â€"*y* \\(\\times\\) log(*p*)
-\\(\\neq\\) â€"*p* \\(\\times\\) log(*y*). Letâ€™s illustrate this with
+\\(\\neq\\) â€"*p* \\(\\times\\) log(*y*). Let's illustrate this with
 a concrete, numeric example:
 
 - If *y* = 1 and *p* = 0.5, then â€"1 \\(\\times\\) log(0.5) = 0.693.
@@ -178,7 +178,7 @@ a concrete, numeric example:
 
 Finally, the cross-entropy loss does not satisfy the triangle
 inequality, *H*(*r*, *p*) \\(\\geq\\) *H*(*r*, *q*) + *H*(*q*, *p*).
-Letâ€™s illustrate this with an example as well. Suppose we choose *r* =
+Let's illustrate this with an example as well. Suppose we choose *r* =
 0.9, *p* = 0.5, and *q* = 0.4. We have:
 
 - *H*(0.9, 0.5) = 0.624

@@ -27,13 +27,13 @@ run the model on a batch of samples rather than on a single sample at a
 time. This is sometimes also referred to as *batched inference* and
 assumes that we are receiving multiple input samples or user inputs
 simultaneously or within a short time window, as illustrated in
-FigureÂ [1.1](#fig:ch22-fig01){reference="fig:ch22-fig01"
+Figure [1.1](#fig:ch22-fig01){reference="fig:ch22-fig01"
 reference-type="ref"}.
 
 ![Sequential inference and batched
 inference](../images/ch22-fig01.png){#fig:ch22-fig01}
 
-FigureÂ [1.1](#fig:ch22-fig01){reference="fig:ch22-fig01"
+Figure [1.1](#fig:ch22-fig01){reference="fig:ch22-fig01"
 reference-type="ref"} shows sequential inference processing one item at
 a time, which creates a bottleneck if there are several samples waiting
 to be classified. In batched inference, the model processes all four
@@ -66,7 +66,7 @@ doing this would be to use a `for`{.language-plaintext
 by one. However, this can be quite slow, especially for large arrays.
 With vectorization, you can perform the dot product operation on the
 entire array at once, as shown in
-FigureÂ [1.2](#fig:ch22-fig02){reference="fig:ch22-fig02"
+Figure [1.2](#fig:ch22-fig02){reference="fig:ch22-fig02"
 reference-type="ref"}.
 
 ![A classic loop versus a vectorized dot\
@@ -85,11 +85,11 @@ vectorization, resulting in faster and more efficient computations.
 
 *Loop tiling* (also often referred to as *loop nest optimization*) is an
 advanced optimization technique to enhance data locality by breaking
-down a loopâ€™s iteration space into smaller chunks or â€œtiles.â€? This
+down a loop's iteration space into smaller chunks or â€œtiles.â€? This
 ensures that once data is loaded into cache, all possible computations
 are performed on it before the cache is cleared.
 
-FigureÂ [1.3](#fig:ch22-fig03){reference="fig:ch22-fig03"
+Figure [1.3](#fig:ch22-fig03){reference="fig:ch22-fig03"
 reference-type="ref"} illustrates the concept of loop tiling for
 accessing elements in a two-dimensional array. In a regular
 `for`{.language-plaintext .highlighter-rouge} loop, we iterate over
@@ -99,7 +99,7 @@ subdivide the array into smaller tiles.
 ![Loop tiling in a two-dimensional
 array](../images/ch22-fig03.png){#fig:ch22-fig03}
 
-Note that in languages such as Python, we donâ€™t usually perform loop
+Note that in languages such as Python, we don't usually perform loop
 tiling, because Python and many other high-level languages do not allow
 control over cache memory like lower-level languages such as C and C++
 do. These kinds of optimizations are often handled by underlying
@@ -110,7 +110,7 @@ arrays.
 
 *Operator fusion*, sometimes called *loop fusion*, is an optimization
 technique that combines multiple loops into a single loop. This is
-illustrated in FigureÂ [1.4](#fig:ch22-fig04){reference="fig:ch22-fig04"
+illustrated in Figure [1.4](#fig:ch22-fig04){reference="fig:ch22-fig04"
 reference-type="ref"}, where two separate loops to calculate the sum and
 the product of an array of numbers are fused into a single loop.
 
@@ -149,7 +149,7 @@ machine learning models, particularly deep neural networks. This
 technique involves converting the floating-point numbers (technically
 discrete but representing continuous values within a specific range) for
 implementing weights and biases in a trained neural network to more
-discrete, lower- Â precision representations such as integers. Using
+discrete, lower-  precision representations such as integers. Using
 less precision reduces the model size and makes it quicker to execute,
 which can lead to significant improvements in speed and hardware
 efficiency during inference.
@@ -164,10 +164,10 @@ quantization*, the model is first trained normally with full-precision
 weights, which are then quantized after training. *Quantization-aware
 training*, on the other hand, introduces the quantization step during
 the training process. This allows the model to learn to compensate for
-the effects of quantization, which can help maintain the modelâ€™s
+the effects of quantization, which can help maintain the model's
 accuracy.
 
-However, itâ€™s important to note that quantization can occasionally
+However, it's important to note that quantization can occasionally
 lead to a reduction in model accuracy. Since this chapter focuses on
 techniques to speed up model inference *without* sacrificing accuracy,
 quantization is not as good a fit for this chapter as the previous
@@ -176,14 +176,14 @@ categories.
 ::: note
 Other techniques to improve inference speeds include knowledge
 distillation and pruning, discussed in
-ChapterÂ [\[ch06\]](../ch06){reference="ch06" reference-type="ref"}.
+Chapter [\[ch06\]](../ch06){reference="ch06" reference-type="ref"}.
 However, these techniques affect the model architecture, resulting in
-smaller models, so they are out of scope for this chapterâ€™s question.
+smaller models, so they are out of scope for this chapter's question.
 :::
 
 ### Exercises [](#exercises)
 
-22-1. ChapterÂ [\[ch07\]](../ch07){reference="ch07"
+22-1. Chapter [\[ch07\]](../ch07){reference="ch07"
 reference-type="ref"} covered several multi-GPU training paradigms to
 speed up modeltraining.UsingmultipleGPUscan,intheory,alsospeedupmodel
 inference. However, in reality, this approach is often not the most
@@ -205,7 +205,7 @@ ideal situation in which to use each?
   Ding et al., â€œRepVGG: Making VGG-style ConvNets Great Againâ€?
   (2021), <https://arxiv.org/abs/2101.03697>.
 
-- A new method for quantizing the weights in large language mod- Â els
+- A new method for quantizing the weights in large language mod-  els
   downto8-bitintegerrepresentations:TimDettmersetal., â€œLLM.int8():
   8-bit Matrix Multiplication for Transformers at Scaleâ€? (2022),
   <https://arxiv.org/abs/2208.07339>.

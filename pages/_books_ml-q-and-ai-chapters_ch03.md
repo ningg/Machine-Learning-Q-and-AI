@@ -37,7 +37,7 @@ N-*way* K-*shot*, where *N* stands for the number of classes and *K*
 stands for the number of examples per class. The most common values are
 *K* = 1 or *K* = 5. For instance, in a 5-way 1-shot problem, there are
 five classes with only one example each.
-FigureÂ [1.1](#fig:ch03-fig01){reference="fig:ch03-fig01"
+Figure [1.1](#fig:ch03-fig01){reference="fig:ch03-fig01"
 reference-type="ref"} depicts a 3-way 1-shot setting to illustrate the
 concept with a smaller example.
 
@@ -46,7 +46,7 @@ learning](../images/ch03-fig01.png){#fig:ch03-fig01}
 
 Rather than fitting the model to the training dataset, we can think of
 few-shot learning as â€œlearning to learn.â€? In contrast to supervised
-learn- Â ing, few-shot learning uses not a training dataset but a
+learn-  ing, few-shot learning uses not a training dataset but a
 so-called *support set*, from which we sample training tasks that mimic
 the use-case scenario during prediction. With each training task comes a
 query image to be classified. The model is trained on several training
@@ -59,13 +59,13 @@ training is also often called the *base set*. Again, the task is to
 classify the query images. Test tasks are similar to training tasks,
 except that none of the classes during testing overlap with those
 encountered during training, as illustrated in
-FigureÂ [1.2](#fig:ch03-fig02){reference="fig:ch03-fig02"
+Figure [1.2](#fig:ch03-fig02){reference="fig:ch03-fig02"
 reference-type="ref"}.
 
 ![Classes seen during training and
 testing](../images/ch03-fig02.png){#fig:ch03-fig02}
 
-As FigureÂ [1.2](#fig:ch03-fig02){reference="fig:ch03-fig02"
+As Figure [1.2](#fig:ch03-fig02){reference="fig:ch03-fig02"
 reference-type="ref"} shows, the support and query sets contain
 different images from the same class during training. The same is true
 during testing. However, notice that the classes in the support and
@@ -73,12 +73,12 @@ query sets differ from the support and query sets encountered during
 training.
 
 There are many different types of few-shot learning. In the most common,
-*meta-learning*, training is essentially about updating the modelâ€™s
+*meta-learning*, training is essentially about updating the model's
 parameters such that it can *adapt* well to a new task. On a high level,
 one few-shot learning strategy is to learn a model that produces
 embeddings where we can find the target class via a nearest-neighbor
 search among the images in the support set.
-FigureÂ [1.3](#fig:ch03-fig03){reference="fig:ch03-fig03"
+Figure [1.3](#fig:ch03-fig03){reference="fig:ch03-fig03"
 reference-type="ref"} illustrates this approach.
 
 ![Learning embeddings that are suitable for\

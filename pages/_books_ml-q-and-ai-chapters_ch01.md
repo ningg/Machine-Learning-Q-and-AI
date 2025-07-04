@@ -38,7 +38,7 @@ We can apply embedding methods to create a continuous dense (non-sparse)
 vector from a (sparse) one-hot encoding. *One-hot encoding* is a method
 used to represent categorical data as binary vectors, where each
 category is mapped to a vector containing 1 in the position
-corresponding to the categoryâ€™s index, and 0 in all other positions.
+corresponding to the category's index, and 0 in all other positions.
 This ensures that the categorical values are represented in a way that
 certain machine learning algorithms can process. For example, if we have
 a categorical variable Color with three categories, Red, Green, and
@@ -50,7 +50,7 @@ utilizing the learned weight matrix of an embedding layer or module.
 We can also use embedding methods for dense data such as images. For
 example, the last layers of a convolutional neural network may yield
 embedding vectors, as illustrated in
-FigureÂ [1.1](#fig:ch01-fig01){reference="fig:ch01-fig01"
+Figure [1.1](#fig:ch01-fig01){reference="fig:ch01-fig01"
 reference-type="ref"}.
 
 ![An input embedding (left) and an embedding from a neural network
@@ -60,7 +60,7 @@ To be technically correct, all intermediate layer outputs of a neural
 network could yield embedding vectors. Depending on the training
 objective, the output layer may also produce useful embedding vectors.
 For the sake of simplicity, the convolutional neural network in
-FigureÂ [1.1](#fig:ch01-fig01){reference="fig:ch01-fig01"
+Figure [1.1](#fig:ch01-fig01){reference="fig:ch01-fig01"
 reference-type="ref"} associates the second-to-last layer with
 embeddings.
 
@@ -68,7 +68,7 @@ Embeddings can have higher or lower numbers of dimensions than the
 original input. For instance, using embeddings methods for extreme
 expression, we can encode data into two-dimensional dense and continuous
 representations for visualization purposes and clustering analysis, as
-illustrated in FigureÂ [1.2](#fig:ch01-fig02){reference="fig:ch01-fig02"
+illustrated in Figure [1.2](#fig:ch01-fig02){reference="fig:ch01-fig02"
 reference-type="ref"}.
 
 ![Mapping words (left) and images (right) to a two-dimensional feature
@@ -97,14 +97,14 @@ any feature space that contains features, often compressed versions of
 the original input features. These latent space features can be learned
 by a neural network, such as an autoencoder that reconstructs input
 images, as shown in
-FigureÂ [1.3](#fig:ch01-fig03){reference="fig:ch01-fig03"
+Figure [1.3](#fig:ch01-fig03){reference="fig:ch01-fig03"
 reference-type="ref"}.
 
 ![An autoencoder reconstructing the input
 image](../images/ch01-fig03.png){#fig:ch01-fig03}
 
 The bottleneck in
-FigureÂ [1.3](#fig:ch01-fig03){reference="fig:ch01-fig03"
+Figure [1.3](#fig:ch01-fig03){reference="fig:ch01-fig03"
 reference-type="ref"} represents a small, intermediate neural network
 layer that encodes or maps the input image into a lower-dimensional
 representation. We can think of the target space of this mapping as a
@@ -132,11 +132,11 @@ analysis or processing.
 ### Exercises 
 [](#exercises)
 
-1-1. Suppose weâ€™re training a convolutional network with five
+1-1. Suppose we're training a convolutional network with five
 convolutional layers followed by three fully connected (FC) layers,
 similar to AlexNet (<https://en.wikipedia.org/wiki/AlexNet>), as
 illustrated in
-FigureÂ [\[fig:ch01-fig04\]](#fig:ch01-fig04){reference="fig:ch01-fig04"
+Figure [\[fig:ch01-fig04\]](#fig:ch01-fig04){reference="fig:ch01-fig04"
 reference-type="ref"}.
 
 ::: minipage

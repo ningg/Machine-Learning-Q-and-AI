@@ -23,7 +23,7 @@
 > â€œSebastian uniquely combines academic depth, engineering agility,
 > and the ability to demystify complex ideas. He can go deep into any
 > theoretical topics, experiment to validate new ideas, then explain
-> them all to you in simple words. If youâ€™re starting your journey
+> them all to you in simple words. If you're starting your journey
 > into machine learning, Sebastian is your guide.â€? â€"Chip Huyen,
 > Author of Designing Machine Learning Systems
 
@@ -34,14 +34,14 @@
 > expertise.â€? â€"Chris Albon, Director of Machine Learning, The
 > Wikimedia Foundation
 
-> â€œSebastian Raschkaâ€™s new book, Machine Learning Q and AI, is a
+> â€œSebastian Raschka's new book, Machine Learning Q and AI, is a
 > one-stop shop for overviews of crucial AI topics beyond the core
 > covered in most introductory coursesâ€¦If you have already stepped
 > into the world of AI via deep neural networks, then this book will
 > give you what you need to locate and understand the next level.â€?
 > â€"Ronald T. Kneusel, author of How AI Works
 
-Â 
+ 
 
 ## Table of Contents
 

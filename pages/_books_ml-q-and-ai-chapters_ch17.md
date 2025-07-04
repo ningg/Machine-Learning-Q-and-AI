@@ -29,32 +29,32 @@ generation.
 ## The Original Transformer [](#the-original-transformer)
 
 The original transformer architecture introduced in
-ChapterÂ [\[ch16\]](../ch16){reference="ch16" reference-type="ref"} was
+Chapter [\[ch16\]](../ch16){reference="ch16" reference-type="ref"} was
 developed for English-to-French and English-to-German language
 translation. It utilized both an encoder and a decoder, as illustrated
 in
-FigureÂ [\[fig:ch17-fig01\]](#fig:ch17-fig01){reference="fig:ch17-fig01"
+Figure [\[fig:ch17-fig01\]](#fig:ch17-fig01){reference="fig:ch17-fig01"
 reference-type="ref"}.
 
 ::: figurewide
 ![image](../images/ch17-fig01.png){style="width:5.625in"}
 :::
 
-InFigureÂ [\[fig:ch17-fig01\]](#fig:ch17-fig01){reference="fig:ch17-fig01"
+InFigure [\[fig:ch17-fig01\]](#fig:ch17-fig01){reference="fig:ch17-fig01"
 reference-type="ref"},the input text (that is, the sentences of the text
 to betranslated) is first tokenized into individual word tokens, which
 are then encoded via an embedding layer before they enter the encoder
-part (see ChapterÂ [\[ch01\]](../ch01){reference="ch01"
+part (see Chapter [\[ch01\]](../ch01){reference="ch01"
 reference-type="ref"} for more on embeddings). After a positional
 encoding vector is added to each embedded word,the embeddings go through
 a multi-head self-attention layer. This layer is followed by an addition
 step, indicated by a plus sign (+) in
-FigureÂ [\[fig:ch17-fig01\]](#fig:ch17-fig01){reference="fig:ch17-fig01"
+Figure [\[fig:ch17-fig01\]](#fig:ch17-fig01){reference="fig:ch17-fig01"
 reference-type="ref"}, which performs a layer normalization and adds the
 original embeddings via a skip connection,also known as a *residual* or
 *shortcut* connection. Following this is a LayerNormblock, short for
 *layernormalization*, which normalizes the activations of the previous
-layer to improve the stability of the neural networkâ€™s training. The
+layer to improve the stability of the neural network's training. The
 addition of the original embeddings and the layer normalization steps
 are often summarized as the *Add&Normstep*. Finally, after entering the
 fully connected networkâ€"a small,multilayer perceptron consisting of
@@ -63,7 +63,7 @@ betweenâ€"the outputs are again added and normalized before they are
 passed to a multi-head self-attention layer of the decoder.
 
 The decoder in
-FigureÂ [\[fig:ch17-fig01\]](#fig:ch17-fig01){reference="fig:ch17-fig01"
+Figure [\[fig:ch17-fig01\]](#fig:ch17-fig01){reference="fig:ch17-fig01"
 reference-type="ref"} has a similar overall structure to the encoder.
 The key difference is that the inputs and outputs are different: the
 encoder receives the input text to be translated, while the decoder
@@ -72,7 +72,7 @@ generates the translated text.
 ### Encoders [](#encoders)
 
 The encoder part in the original transformer, as illustrated in
-FigureÂ [\[fig:ch17-fig01\]](#fig:ch17-fig01){reference="fig:ch17-fig01"
+Figure [\[fig:ch17-fig01\]](#fig:ch17-fig01){reference="fig:ch17-fig01"
 reference-type="ref"}, is responsible for understanding and extracting
 the relevant information from the input text. It then outputs a
 continuous representation (embedding) of the input text, which is passed
@@ -85,48 +85,48 @@ based on the encoder module of the original transformer model outlined
 earlier. One notable example is BERT, which stands for bidirectional
 encoder representations from transformers.
 
-As noted in ChapterÂ [\[ch14\]](../ch14){reference="ch14"
+As noted in Chapter [\[ch14\]](../ch14){reference="ch14"
 reference-type="ref"}, BERT is an encoder-only architecture based on the
-transformerâ€™s encoder module. The BERT model is pretrained on a large
+transformer's encoder module. The BERT model is pretrained on a large
 text corpus using masked language modeling and next-sentence prediction
-tasks. FigureÂ [1.1](#fig:ch17-fig02){reference="fig:ch17-fig02"
+tasks. Figure [1.1](#fig:ch17-fig02){reference="fig:ch17-fig02"
 reference-type="ref"} illustrates the masked language modeling
 pretraining objective used in BERT-style transformers.
 
 ![BERT randomly masks 15 percent of the input tokens during
 pretraining.](../images/ch17-fig02.png){#fig:ch17-fig02}
 
-As FigureÂ [1.1](#fig:ch17-fig02){reference="fig:ch17-fig02"
+As Figure [1.1](#fig:ch17-fig02){reference="fig:ch17-fig02"
 reference-type="ref"} demonstrates, the main idea behind masked language
 modeling is to mask (or replace) random word tokens in the input
 sequence and then train the model to predict the original masked tokens
 based on the surrounding context.
 
 Inadditiontothemaskedlanguagemodelingpretrainingtaskillustrated in
-FigureÂ [1.1](#fig:ch17-fig02){reference="fig:ch17-fig02"
+Figure [1.1](#fig:ch17-fig02){reference="fig:ch17-fig02"
 reference-type="ref"}, the next-sentence prediction task asks the model
-to predict whether the original documentâ€™s sentence order of two
+to predict whether the original document's sentence order of two
 randomly shuffled sentences is correct. For example, say that two
 sentences, in random order, are separated by the \[SEP\] token (*SEP* is
-short for *separate*). The brackets are a part of the tokenâ€™s notation
+short for *separate*). The brackets are a part of the token's notation
 and are used to make it clear that this is a special token as opposed to
 a regular word in the text. BERT-style transformers also use a \[CLS\]
 token. The \[CLS\] token serves as a placeholder token for the model,
 prompting the model to return a *True* or *False* label indicating
 whether the sentences are in the correct order:
 
-- â€œ\[CLS\] Toast is a simple yet delicious food. \[SEP\] Itâ€™s often
+- â€œ\[CLS\] Toast is a simple yet delicious food. \[SEP\] It's often
   served with butter, jam, or honey.â€?
 
-- â€œ\[CLS\] Itâ€™s often served with butter, jam, or honey. \[SEP\]
+- â€œ\[CLS\] It's often served with butter, jam, or honey. \[SEP\]
   Toast is a simple yet delicious food.â€?
 
 The masked language and next-sentence pretraining objectives allow BERT
 to learn rich contextual representations of the input texts, which can
 then be fine-tuned for various downstream tasks like sentiment analysis,
-question answering, and named entity recognition. Itâ€™s worth noting
+question answering, and named entity recognition. It's worth noting
 that this pretraining is a form of self-supervised learning (see
-ChapterÂ [\[ch02\]](../ch02){reference="ch02" reference-type="ref"} for
+Chapter [\[ch02\]](../ch02){reference="ch02" reference-type="ref"} for
 more details on this type of learning).
 
 RoBERTa, which stands for robustly optimized BERT approach, is an
@@ -140,13 +140,13 @@ tasks than BERT.
 ### Decoders [](#decoders)
 
 Coming back to the original transformer architecture outlined in
-FigureÂ [\[fig:ch17-fig01\]](#fig:ch17-fig01){reference="fig:ch17-fig01"
+Figure [\[fig:ch17-fig01\]](#fig:ch17-fig01){reference="fig:ch17-fig01"
 reference-type="ref"}, the multi-head self-attention mechanism in the
 decoder is similar to the one in the encoder, but it is masked to
 prevent the model from attending to future positions, ensuring that the
 predictions for position *i* can depend only on the known outputs at
 positions less than *i*. As illustrated in
-FigureÂ [\[fig:ch17-fig03\]](#fig:ch17-fig03){reference="fig:ch17-fig03"
+Figure [\[fig:ch17-fig03\]](#fig:ch17-fig03){reference="fig:ch17-fig03"
 reference-type="ref"}, the decoder generates the output word by word.
 
 ::: figurewide
@@ -154,10 +154,10 @@ reference-type="ref"}, the decoder generates the output word by word.
 :::
 
 This masking (shown explicitly in
-FigureÂ [\[fig:ch17-fig03\]](#fig:ch17-fig03){reference="fig:ch17-fig03"
-reference-type="ref"}, although it occurs internally in the decoderâ€™s
+Figure [\[fig:ch17-fig03\]](#fig:ch17-fig03){reference="fig:ch17-fig03"
+reference-type="ref"}, although it occurs internally in the decoder's
 multi-head self-attention mechanism) is essential to maintaining the
-transformer modelâ€™s autoregressive property during training and
+transformer model's autoregressive property during training and
 inference. This autoregressive property ensures that the model generates
 output tokens one at a time and uses previously generated tokens as
 context for generating the next word token.
@@ -165,9 +165,9 @@ context for generating the next word token.
 Over the years, researchers have built upon the original encoder-decoder
 transformer architecture and developed several decoder-only models that
 have proven highly effective in various natural language
-processingÂ tasks.Â The most notable models include the GPT family,
+processing tasks. The most notable models include the GPT family,
 which we briefly discussed in
-ChapterÂ [\[ch14\]](../ch14){reference="ch14" reference-type="ref"} and
+Chapter [\[ch14\]](../ch14){reference="ch14" reference-type="ref"} and
 in various other chapters throughout the book. *GPT* stands for
 *generative pretrained transformer*. The GPT series comprises
 decoder-only models pretrained on large-scale unsupervised text data and
@@ -184,14 +184,14 @@ these models were taught only to predict the next word, the pretrained
 models are capable of text summarization, translation, question
 answering, classification, and more. Furthermore, these models can
 perform new tasks without updating the model parameters via in-context
-learning, which weâ€™ll discuss in more detail in
-ChapterÂ [\[ch18\]](../ch18){reference="ch18" reference-type="ref"}.
+learning, which we'll discuss in more detail in
+Chapter [\[ch18\]](../ch18){reference="ch18" reference-type="ref"}.
 
 ## Encoder-Decoder Hybrids [](#encoder-decoder-hybrids)
 
 Next to the traditional encoder and decoder architectures, there have
 been advancements in the development of new encoder-decoder models that
-lev- Â erage the strengths of both components. These models often
+lev-  erage the strengths of both components. These models often
 incorporate novel techniques, pretraining objectives, or architectural
 modifications to enhance their performance in various natural language
 processing tasks. Some notable examples of these new encoder-decoder
@@ -217,7 +217,7 @@ words, both encoder-only and decoder-only architectures perform
 decoding.
 
 However, the encoder-only architectures, in contrast to decoder-only and
-encoder-decoder architectures, donâ€™t decode in an autoregressive
+encoder-decoder architectures, don't decode in an autoregressive
 fashion. *Autoregressive decoding* refers to generating output sequences
 one token at a time, conditioning each token on the previously generated
 tokens. Encoder-only models do not generate coherent output sequences in
@@ -233,7 +233,7 @@ translation and summarization), and decoder-only models are used for
 other types of generative tasks, including Q&A. Since the first
 transformer architecture emerged, hundreds of encoder-only,
 decoder-only, and encoder-decoder hybrids have been developed, as
-diagrammed in FigureÂ [1.2](#fig:ch17-fig04){reference="fig:ch17-fig04"
+diagrammed in Figure [1.2](#fig:ch17-fig04){reference="fig:ch17-fig04"
 reference-type="ref"}.
 
 ![Some of the most popular large language transformers organized by\
@@ -271,7 +271,7 @@ positive or negative sentiment)?
   <https://arxiv.org/abs/1810.04805>.
 
 - RoBERTaimprovesuponBERTbyoptimizingtrainingprocedures,usinglargertrainingdatasets,andremovingthenext-sentencepred-
-  Â ictiontask:YinhanLiuetal.,â€œRoBERTa:ARobustlyOptimizedBERTPretrainingApproachâ€?(2019),<https://arxiv.org/abs/1907.11692>.
+   ictiontask:YinhanLiuetal.,â€œRoBERTa:ARobustlyOptimizedBERTPretrainingApproachâ€?(2019),<https://arxiv.org/abs/1907.11692>.
 
 - The BART encoder-decoder architecture: Mike Lewis et al., â€œBART:
   Denoising Sequence-to-Sequence Pre-training for Natural Language

@@ -24,7 +24,7 @@ filter is equal to the size of the receptive field and when the size of
 the convolutional filter is 1. As an illustration of these two
 scenarios, consider a fully connected layer with two input and four
 output units, as shown in
-FigureÂ [1.1](#fig:ch12-fig01){reference="fig:ch12-fig01"
+Figure [1.1](#fig:ch12-fig01){reference="fig:ch12-fig01"
 reference-type="ref"}.
 
 ![Four inputs and\
@@ -51,14 +51,14 @@ fully connected layer described.
 
 ## When the Kernel and Input Sizes Are Equal [](#when-the-kernel-and-input-sizes-are-equal)
 
-Letâ€™s start with the first scenario, where the size of the
+Let's start with the first scenario, where the size of the
 convolutional filter is equal to the size of the receptive field. Recall
-from ChapterÂ [\[ch11\]](../ch11){reference="ch11" reference-type="ref"}
+from Chapter [\[ch11\]](../ch11){reference="ch11" reference-type="ref"}
 how we compute a number of parameters in a convolutional kernel with one
 input channel and multiple output channels. We have a kernel size of
 2\\(\\times\\)2, one input channel, and two output channels. The input
 size is also 2\\(\\times\\)2, a reshaped version of the four inputs
-depicted in FigureÂ [1.2](#fig:ch12-fig02){reference="fig:ch12-fig02"
+depicted in Figure [1.2](#fig:ch12-fig02){reference="fig:ch12-fig02"
 reference-type="ref"}.
 
 ![A convolutional layer with a 2Ã---2 kernel\
@@ -66,7 +66,7 @@ that equals the input size and two output
 channels](../images/ch12-fig02.png){#fig:ch12-fig02}
 
 If the convolutional kernel dimensions equal the input size, as depicted
-in FigureÂ [1.2](#fig:ch12-fig02){reference="fig:ch12-fig02"
+in Figure [1.2](#fig:ch12-fig02){reference="fig:ch12-fig02"
 reference-type="ref"}, there is no sliding window mechanism in the
 convolutional layer. For the first output channel, we have the following
 set of weights:
@@ -104,7 +104,7 @@ code to show this equivalence with a hands-on example in the
 The second scenario assumes that we reshape the input into an input
 â€œimageâ€? with \\(1\\times1\\) dimensions where the number of â€œcolor
 channelsâ€? equals the number of input features, as depicted in
-FigureÂ [1.3](#fig:ch12-fig03){reference="fig:ch12-fig03"
+Figure [1.3](#fig:ch12-fig03){reference="fig:ch12-fig03"
 reference-type="ref"}.
 
 ![The number of output nodes equals the number\
@@ -123,7 +123,7 @@ while the weights for the second channel are:
 w\^{(4)}\_{2}\]\\\]
 
 To get a better intuitive understanding of this computation, check out
-the illustrations in ChapterÂ [\[ch11\]](../ch11){reference="ch11"
+the illustrations in Chapter [\[ch11\]](../ch11){reference="ch11"
 reference-type="ref"}, which describe how to compute the parameters in a
 convolutional layer.
 

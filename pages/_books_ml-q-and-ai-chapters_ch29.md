@@ -28,7 +28,7 @@ shuffling or inconsistent (often missing) data normalization.
 
 If the test set performance is much better than the training set
 performance, we can rule out overfitting. More likely, there are
-substantial diff- Â erences in the training and test data distributions.
+substantial diff-  erences in the training and test data distributions.
 These distributionaldifferences may affect both the features and the
 targets. Here, plotting the target or label distributions of training
 and test data is a good idea. For example, a common issue is that the
@@ -43,7 +43,7 @@ general approach to check for discrepancies between training and test
 sets is adversarial validation.
 
 *Adversarial validation*, illustrated in
-FigureÂ [\[fig:ch29-fig01\]](#fig:ch29-fig01){reference="fig:ch29-fig01"
+Figure [\[fig:ch29-fig01\]](#fig:ch29-fig01){reference="fig:ch29-fig01"
 reference-type="ref"}, is a technique to identify the degree of
 similarity between the training and test data. We first merge the
 training and test sets into a single dataset, and then we create a
@@ -62,7 +62,7 @@ between the training and test data that we need to investigate further.
 :::
 
 What mitigation techniques should we use if we detect a trainingâ€"test
-set discrepancy using adversarial validation? If weâ€™re working with a
+set discrepancy using adversarial validation? If we're working with a
 tabular dataset, we can remove features one at a time to see if this
 helps address the issue, as spurious features can sometimes be highly
 correlated with the target variable. To implement this strategy, we can

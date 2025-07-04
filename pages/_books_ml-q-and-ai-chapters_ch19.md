@@ -52,7 +52,7 @@ types of metrics, think of optimizing the conventional cross entropy to
 train an image classifier. The cross entropy is a loss function we
 optimize during training, but our end goal is to maximize the
 classification accuracy. Since classification accuracy cannot be
-optimized directly during training, as itâ€™s not differentiable, we
+optimized directly during training, as it's not differentiable, we
 minimize the surrogate loss function like the cross entropy. Minimizing
 the cross entropy loss more or less correlates with maximizing the
 classification accuracy.
@@ -115,8 +115,8 @@ the *supplementary/q19-evaluation-llms* subfolder at
 ### BLEU Score [](#bleu-score)
 
 BLEU is the most popular and most widely used metric for evaluating
-translated texts. Itâ€™s used in almost all LLMs capable of translation,
-including popular tools such as OpenAIâ€™s Whisper and GPT models.
+translated texts. It's used in almost all LLMs capable of translation,
+including popular tools such as OpenAI's Whisper and GPT models.
 
 BLEU is a reference-based metric that compares the model output to
 human-generated references and was first developed to capture or
@@ -132,10 +132,10 @@ This is commonly done for n-grams rather than individual words, but for
 simplicity, we will stick to words or 1-grams. (In practice, BLEU is
 often computed for 4-grams.)
 
-FigureÂ [\[fig:ch19-fig01\]](#fig:ch19-fig01){reference="fig:ch19-fig01"
+Figure [\[fig:ch19-fig01\]](#fig:ch19-fig01){reference="fig:ch19-fig01"
 reference-type="ref"} demonstrates the BLEU score calculation, using the
 example of calculating the 1-gram BLEU score. The individual steps in
-FigureÂ [\[fig:ch19-fig01\]](#fig:ch19-fig01){reference="fig:ch19-fig01"
+Figure [\[fig:ch19-fig01\]](#fig:ch19-fig01){reference="fig:ch19-fig01"
 reference-type="ref"} illustrate how we compute the 1-gram BLEU score
 based on its individual components, the weighted precision times a
 brevity penalty. You can also find a code implementation of this
@@ -164,7 +164,7 @@ Is BLEU flawed? Yes. Is it still useful? Also yes. BLEU is a helpful
 tool to measure or assess whether a model improves during training, as a
 proxy for fluency. However, it may not reliably give a correct
 assessment of the quality of the generated translations and is not well
-suited for detecting issues. In other words, itâ€™s best used as a model
+suited for detecting issues. In other words, it's best used as a model
 selection tool, not a model evaluation tool.
 
 Atthetimeofwriting,themostpopularalternativestoBLEUare METEOR and COMET
@@ -186,7 +186,7 @@ Modern implementations compute ROUGE as an F1 score that is the harmonic
 mean of recall (how many words in the reference occur in the candidate
 text) and precision (how many words in the candidate text occur in the
 reference text). For example,
-FigureÂ [\[fig:ch19-fig02\]](#fig:ch19-fig02){reference="fig:ch19-fig02"
+Figure [\[fig:ch19-fig02\]](#fig:ch19-fig02){reference="fig:ch19-fig02"
 reference-type="ref"} shows a 1-gram ROUGE score computation (though in
 practice, ROUGE is often computed for bigrams, that is, 2-grams).
 
@@ -215,7 +215,7 @@ ROUGE shares similar weaknesses with BLEU. Like BLEU, ROUGE does not
 account for synonyms or paraphrases. It measures the n-gram overlap
 between the candidate and reference summaries, which can lead to lower
 scores for semantically similar but lexically different sentences.
-However, itâ€™s still worth knowing about ROUGE since, according to a
+However, it's still worth knowing about ROUGE since, according to a
 study, *all* papers introducing new summarization models at
 computational linguistics conferences in 2021 used it, and 69 percent of
 those papers used *only* ROUGE.
@@ -227,11 +227,11 @@ Another more recently developed extrinsic metric is BERTScore.
 Forreadersfamiliarwiththeinceptionscoreforgenerativevision models,
 BERTScore takes a similar approach, using embeddings from a pretrained
 model (for more on embeddings, see
-ChapterÂ [\[ch01\]](../ch01){reference="ch01" reference-type="ref"}).
-Here, BERT- Â Score measures the similarity between a candidate text and
+Chapter [\[ch01\]](../ch01){reference="ch01" reference-type="ref"}).
+Here, BERT-  Score measures the similarity between a candidate text and
 a reference text by leveraging the contextual embeddings produced by the
 BERT model (the encoder-style transformer discussed in
-ChapterÂ [\[ch17\]](../ch17){reference="ch17" reference-type="ref"}).
+Chapter [\[ch17\]](../ch17){reference="ch17" reference-type="ref"}).
 
 The steps to compute BERTScore are as follows:
 
@@ -253,7 +253,7 @@ The steps to compute BERTScore are as follows:
 6.  Compute the final BERTScore by taking the average similarity scores
     of all tokens in the candidate text.
 
-FigureÂ [\[fig:ch19-fig03\]](#fig:ch19-fig03){reference="fig:ch19-fig03"
+Figure [\[fig:ch19-fig03\]](#fig:ch19-fig03){reference="fig:ch19-fig03"
 reference-type="ref"} further illustrates these six steps. You can also
 find a computational example in the *subfolder/q15-text-augment*
 subfolder at <https://github.com/rasbt/MachineLearning-QandAI-book>.
@@ -268,7 +268,7 @@ ROUGE. However, BERTScore is more robust in paraphrasing than BLEU and
 ROUGE and captures semantic similarity better due to its contextual
 embeddings. Also, it may be computationally more expensive than BLEU and
 ROUGE, as it requires using a pretrained BERT model for the evaluation.
-While BERTScore provides a useful automatic evaluation metric, itâ€™s
+While BERTScore provides a useful automatic evaluation metric, it's
 not perfect and should be used alongside other evaluation techniques,
 including human judgment.
 
@@ -293,7 +293,7 @@ LLMs.
 ### Exercises [](#exercises)
 
 19-1. In step 5 of
-FigureÂ [\[fig:ch19-fig03\]](#fig:ch19-fig03){reference="fig:ch19-fig03"
+Figure [\[fig:ch19-fig03\]](#fig:ch19-fig03){reference="fig:ch19-fig03"
 reference-type="ref"}, the cosine similarity between the two embeddings
 of â€œcatâ€? is not 1.0, where 1.0 indicates a maximum cosine
 similarity. Why is that?
@@ -309,7 +309,7 @@ this?
   al.,â€œBLEU: A Method for Automatic Evaluation of Machine
   Translationâ€? (2002), <https://aclanthology.org/P02-1040/>.
 
-- A follow-up study disproving BLEUâ€™s high correlation with human
+- A follow-up study disproving BLEU's high correlation with human
   evaluations: Chris Callison-Burch, Miles Osborne, and Philipp Koehn,
   â€œRe-Evaluating the Role of BLEU in Machine Translation Researchâ€?
   (2006), <https://aclanthology.org/E06-1032/>.

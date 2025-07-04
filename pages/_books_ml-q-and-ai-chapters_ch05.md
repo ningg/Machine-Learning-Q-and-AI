@@ -19,7 +19,7 @@ or additional data?**
 fits the training data too closely, learning its noise and outliers
 rather than the underlying pattern. As a result, the model performs well
 on the training data but poorly on unseen or test data. While it is
-ideal to prevent overfitting, itâ€™s often not possible to completely
+ideal to prevent overfitting, it's often not possible to completely
 eliminate it. Instead, we aim to reduce or minimize overfitting as much
 as possible.
 
@@ -43,9 +43,9 @@ given model would benefit from more data. To construct a learning curve,
 we train the model to different training set sizes (10 percent, 20
 percent, and so on) and evaluate the trained model on the same
 fixed-size validation or test set. As shown in
-FigureÂ [1.1](#fig:ch05-fig01){reference="fig:ch05-fig01"
+Figure [1.1](#fig:ch05-fig01){reference="fig:ch05-fig01"
 reference-type="ref"}, the validation accuracy increases as the training
-set sizes increase. This indicates that we can improve the modelâ€™s
+set sizes increase. This indicates that we can improve the model's
 performance by collecting more data.
 
 ![The learning curve plot of a model fit to different training\
@@ -65,12 +65,12 @@ based on existing data. It allows for the expansion of a dataset without
 additional data collection.
 
 Data augmentation allows us to create different versions of the original
-input data, which can improve the modelâ€™s generalization performance.
+input data, which can improve the model's generalization performance.
 Why? Augmented data can help the model improve its ability to
 generalize, since it makes it harder to memorize spurious information
 via training examples or featuresâ€"or, in the case of image data, exact
 pixel values for specific pixel locations.
-FigureÂ [1.2](#fig:ch05-fig02){reference="fig:ch05-fig02"
+Figure [1.2](#fig:ch05-fig02){reference="fig:ch05-fig02"
 reference-type="ref"} highlights common image data augmentation
 techniques, including increasing brightness, flipping, and cropping.
 
@@ -78,9 +78,9 @@ techniques, including increasing brightness, flipping, and cropping.
 techniques](../images/ch05-fig02.png){#fig:ch05-fig02}
 
 Data augmentation is usually standard for image data (see
-FigureÂ [1.2](#fig:ch05-fig02){reference="fig:ch05-fig02"
+Figure [1.2](#fig:ch05-fig02){reference="fig:ch05-fig02"
 reference-type="ref"}) and text data (discussed further in
-ChapterÂ [\[ch15\]](../ch15){reference="ch15" reference-type="ref"}),
+Chapter [\[ch15\]](../ch15){reference="ch15" reference-type="ref"}),
 but data augmentation methods for tabular data also exist.
 
 Instead of collecting more data or augmenting existing data, it is also
@@ -90,7 +90,7 @@ datasets.
 
 ### Pretraining [](#pretraining)
 
-As discussed in ChapterÂ [\[ch02\]](../ch02){reference="ch02"
+As discussed in Chapter [\[ch02\]](../ch02){reference="ch02"
 reference-type="ref"}, self-supervised learning lets us leverage large,
 unlabeled datasets to pretrain neural networks. This can also help
 reduce overfitting on the smaller target datasets.
@@ -106,7 +106,7 @@ broad ImageNet dataset.
 
 A dataset may be extremely small and unsuitable for supervised
 learningâ€"for example, if it contains only a handful of labeled
-examples per class. IfÂ our classifier needs to operate in a context
+examples per class. If our classifier needs to operate in a context
 where the collection of additional labeled data is not feasible, we may
 also consider few-shot learning.
 
@@ -136,13 +136,13 @@ techniques we should consider in practice.
 manually extracted features obtained from collaborators. The dataset of
 labeled training examples is relatively small, but fortunately, our
 collaborators also have a labeled training set from an older project on
-a related domain. Weâ€™re considering implementing a transfer learning
+a related domain. We're considering implementing a transfer learning
 approach to train the XGBoost model. Is this a feasible option? If so,
 how could we do it? (Assume we are allowed to use only XGBoost and not
 another classification algorithm or model.)
 
-5-2. Suppose weâ€™re working on the image classification problem of
-implementing MNIST-based handwritten digit recognition. Weâ€™ve added a
+5-2. Suppose we're working on the image classification problem of
+implementing MNIST-based handwritten digit recognition. We've added a
 decent amount of data augmentation to try to reduce overfitting.
 Unfortunately, we find that the classification accuracy is much worse
 than it was before the augmentation. What are some potential reasons for
@@ -151,7 +151,7 @@ this?
 ## References [](#references)
 
 - Apaperondataaugmentationfortabulardata:DerekSnow, â€œDeltaPy: A
-  Framework for Tabular Data Augmentation in Py- Â thonâ€? (2020),
+  Framework for Tabular Data Augmentation in Py-  thonâ€? (2020),
   <https://github.com/firmai/deltapy>.
 
 - The paper proposing the GReaT method for generating synthetic tabular
@@ -163,9 +163,9 @@ this?
   Modelling Tabular Data with Diffusion Modelsâ€? (2022),
   <https://arxiv.org/abs/2209.15421>.
 
-- Scikit-learnâ€™s user guide offers a section on preprocessing data,
+- Scikit-learn's user guide offers a section on preprocessing data,
   featuring techniques like feature scaling and normalization that can
-  enhance your modelâ€™s performance:
+  enhance your model's performance:
   <https://scikit-learn.org/stable/modules/preprocessing.html>.
 
 - A survey on methods for robustly training deep models with noisy
@@ -175,7 +175,7 @@ this?
   <https://arxiv.org/abs/2011.04406>.
 
 - Theoretical and empirical evidence to support the idea that control-
-  Â ling the ratio of batch size to learning rate in stochastic gradient
+   ling the ratio of batch size to learning rate in stochastic gradient
   descent is crucial for good modeling performance in deep neural
   networks: Fengxiang He, Tongliang Liu, and Dacheng Tao, â€œControl
   Batch Size and Learning Rate to Generalize Well: Theoretical and
@@ -188,7 +188,7 @@ this?
   Image Recognitionâ€? (2019), <https://arxiv.org/abs/1911.09665>.
 
 - Label smoothing is a regularization technique that mitigates the im-
-  Â pact of potentially incorrect labels in the dataset by replacing
+   pact of potentially incorrect labels in the dataset by replacing
   hard 0 and 1 classification targets with softened values: Rafael
   MÃ¼ller, Simon Kornblith, and Geoffrey Hinton, â€œWhen Does Label
   Smoothing Help?â€? (2019), <https://arxiv.org/abs/1906.02629>.

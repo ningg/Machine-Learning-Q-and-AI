@@ -22,7 +22,7 @@ that is, how well it performs on new data. In *k*-fold cross-validation,
 we use the training data for model selection and evaluation by
 partitioning it into *k* validation rounds and folds. If we have *k*
 folds, we have *k* iterations, leading to *k* different models, as
-illustrated in FigureÂ [1.1](#fig:ch28-fig01){reference="fig:ch28-fig01"
+illustrated in Figure [1.1](#fig:ch28-fig01){reference="fig:ch28-fig01"
 reference-type="ref"}.
 
 ![An example of [k]{.upright}-fold cross-validation for model evaluation
@@ -70,7 +70,7 @@ naive Bayes classifiers, on a handful of small datasets.
 For example, in 10-fold cross-validation, we use 9/10 (90 percent) of
 the data for training in each round, whereas in 5-fold cross-validation,
 we use only 4/5 (80 percent) of the data, as shown in
-FigureÂ [1.2](#fig:ch28-fig02){reference="fig:ch28-fig02"
+Figure [1.2](#fig:ch28-fig02){reference="fig:ch28-fig02"
 reference-type="ref"}.
 
 ![A comparison of 5-fold and 10-fold
@@ -80,8 +80,8 @@ However, this does not mean large training sets are bad, since they can
 reduce the pessimistic bias of the performance estimate (mostly a good
 thing) if we assume that the model training can benefit from more
 training data. (See
-FigureÂ [\[fig:ch05-fig01\]](#fig:ch05-fig01){reference="fig:ch05-fig01"
-reference-type="ref"} on pageÂ  for an example of a learning curve.)
+Figure [\[fig:ch05-fig01\]](#fig:ch05-fig01){reference="fig:ch05-fig01"
+reference-type="ref"} on page  for an example of a learning curve.)
 
 In practice, both a very small and a very large *k* may increase
 variance. For instance, a larger *k* makes the training folds more
@@ -101,7 +101,7 @@ cross-validation score.
 ## Determining Appropriate Values for k [](#determining-appropriate-values-for-k)
 
 When deciding upon an appropriate value of *k*, we are often guided by
-computational performance and conventions. However, itâ€™s worthwhile to
+computational performance and conventions. However, it's worthwhile to
 define the purpose and context of using *k*-fold cross-validation. For
 example, if we care primarily about approximating the predictive
 performance of the final model, using a large *k* makes sense. This way,

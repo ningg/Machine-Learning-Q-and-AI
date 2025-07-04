@@ -11,10 +11,10 @@
 []{#ch21 label="ch21"}
 
 **What is data-centric AI, how does it compare to the conventional
-modeling paradigm, and how do we decide whether itâ€™s the right fit for
+modeling paradigm, and how do we decide whether it's the right fit for
 a project?**
 
-Data-centric AI is a paradigm or workflow in which we keep the mo- Â del
+Data-centric AI is a paradigm or workflow in which we keep the mo-  del
 training procedure fixed and iterate over the dataset to improve the
 predictive performance of a model. The following sections define what
 data-centric AI means in more detail and compare it to conventional
@@ -30,7 +30,7 @@ architectures or loss functions). Here, we consider existing benchmark
 datasets to compare the new method to previous approaches and determine
 whether it is an improvement over the status quo.
 
-FigureÂ [\[fig:ch21-fig01\]](#fig:ch21-fig01){reference="fig:ch21-fig01"
+Figure [\[fig:ch21-fig01\]](#fig:ch21-fig01){reference="fig:ch21-fig01"
 reference-type="ref"} summarizes the difference between data-centric and
 model-centric workflows.
 
@@ -39,7 +39,7 @@ model-centric workflows.
 :::
 
 While *data-centric AI* is a relatively new term, the idea behind it is
-not. Many people Iâ€™ve spoken with say they used a data-centric
+not. Many people I've spoken with say they used a data-centric
 approach in their projects before the term was coined. In my opinion,
 data-centric AI was created to make â€œcaring about data qualityâ€?
 attractive again, as data collection and curation are often considered
@@ -53,7 +53,7 @@ modifying the model to improve performance. Ideally, we should use both
 in an applied setting where we want to get the best possible predictive
 performance. However, in a research setting or an exploratory stage of
 an applied project, working with too many variables simultaneously is
-messy. If we change both model and data at once, itâ€™s hard to pinpoint
+messy. If we change both model and data at once, it's hard to pinpoint
 which change is responsible for the improvement.
 
 It is important to emphasize that data-centric AI is a paradigm and
@@ -75,11 +75,11 @@ the methods listed here), not the other aspects of the modeling
 pipeline.
 
 In machine learning and AI, we often use the phrase â€œgarbage in, gar-
-Â bage out,â€? meaning that poor-quality data will result in a poor
+ bage out,â€? meaning that poor-quality data will result in a poor
 predictive model. In other words, we cannot expect a well-performing
 model from a low-quality dataset.
 
-Iâ€™ve observed a common pattern in applied academic projects that
+I've observed a common pattern in applied academic projects that
 attempt to use machine learning to replace an existing methodology.
 Often, researchers have only a small dataset of examples (say, hundreds
 of training examples). Labeling data is often expensive or considered
@@ -97,7 +97,7 @@ modeling approaches will benefit from it downstream.
 Taking a data-centric approach is often a good idea in an applied
 project where we want to improve the predictive performance to solve a
 particular problem. In this context, it makes sense to start with a
-modeling baseline and improve the dataset since itâ€™s often more
+modeling baseline and improve the dataset since it's often more
 worthwhile than trying out bigger, more expensive models.
 
 If our task is to develop a new or better methodology, such as a new
@@ -119,7 +119,7 @@ can begin to focus on model tuning to improve performance.
 
 21-1. A recent trend is the increased use of predictive analytics in
 healthcare. For example, suppose a healthcare provider develops an AI
-system that analyzes patientsâ€™ electronic health records and provides
+system that analyzes patients' electronic health records and provides
 recommendations for lifestyle changes or preventive measures. For this,
 the provider requires patients to monitor and share their health data
 (such as pulse and blood pressure) daily. Is this an example of

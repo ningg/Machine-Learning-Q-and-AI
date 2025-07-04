@@ -33,7 +33,7 @@ default. This means that the final model will be different every time we
 start the training. The reason these trained models will differ when we
 start with different random weights is the nonconvex nature of the loss,
 as illustrated in
-FigureÂ [1.1](#fig:ch10-fig01){reference="fig:ch10-fig01"
+Figure [1.1](#fig:ch10-fig01){reference="fig:ch10-fig01"
 reference-type="ref"}. As the figure shows, the loss will converge to
 different local minima depending on where the initial starting weights
 are located.
@@ -74,7 +74,7 @@ We may include random components and algorithms depending on the
 architecture and hyperparameter choices. A popular example of this is
 *dropout*.
 
-Dropout works by randomly setting a fraction of a layerâ€™s units to
+Dropout works by randomly setting a fraction of a layer's units to
 zero during training, which helps the model learn more robust and
 generalized representations. This â€œdropping outâ€? is typically
 applied at each training iteration with a probability *p*, a
@@ -82,7 +82,7 @@ hyperparameter that controls the fraction of units dropped out. Typical
 values for *p* are in the range of 0.2 to 0.8.
 
 To illustrate this concept,
-FigureÂ [1.2](#fig:ch10-fig02){reference="fig:ch10-fig02"
+Figure [1.2](#fig:ch10-fig02){reference="fig:ch10-fig02"
 reference-type="ref"} shows a small neural network where dropout
 randomly drops a subset of the hidden layer nodes in each forward pass
 during training.
@@ -92,7 +92,7 @@ during each forward pass in
 training.](../images/ch10-fig02.png){#fig:ch10-fig02}
 
 To create reproducible training runs, we must seed the random gen-
-Â erator before training with dropout (analogous to seeding the random
+ erator before training with dropout (analogous to seeding the random
 generator before initializing the model weights). During inference, we
 need to disable dropout to guarantee deterministic results. Each deep
 learning framework has a specific setting for that purposeâ€"a PyTorch
@@ -114,7 +114,7 @@ convolution operation:
 The classic direct convolution The common implementation of discrete
 convolution via an element-wise product between the input and the
 window, followed by summing the result to get a single number. (See
-ChapterÂ [\[ch12\]](../ch12){reference="ch12" reference-type="ref"} for
+Chapter [\[ch12\]](../ch12){reference="ch12" reference-type="ref"} for
 a discussion of the convolution operation.)
 
 FFT-based convolution Uses fast Fourier transform (FFT) to convert the
@@ -182,22 +182,22 @@ variance added at each step of the diffusion process.
 
 Autoregressive LLMs like GPT tend to create different outputs for the
 same input prompt (GPT will be discussed at greater length in
-ChaptersÂ [\[ch14\]](../ch14){reference="ch14" reference-type="ref"}
-andÂ [\[ch17\]](../ch17){reference="ch17" reference-type="ref"}). The
+Chapters [\[ch14\]](../ch14){reference="ch14" reference-type="ref"}
+and [\[ch17\]](../ch17){reference="ch17" reference-type="ref"}). The
 ChatGPT user interface even has a Regenerate Response button for that
 purpose. The ability to generate different results is due to the
 sampling strategies these models employ. Techniques such as top-*k*
 sampling, nucleus sampling, and temperature scaling influence the
-modelâ€™s output by controlling the degree of randomness. This is a
+model's output by controlling the degree of randomness. This is a
 feature, not a bug, since it allows for diverse responses and prevents
 the model from producing overly deterministic or repetitive outputs.
-(See ChapterÂ [\[ch09\]](../ch09){reference="ch09" reference-type="ref"}
+(See Chapter [\[ch09\]](../ch09){reference="ch09" reference-type="ref"}
 for a more in-depth overview of generative AI and deep learning models;
-see ChapterÂ [\[ch17\]](../ch17){reference="ch17" reference-type="ref"}
+see Chapter [\[ch17\]](../ch17){reference="ch17" reference-type="ref"}
 for more detail on autoregressive LLMs.)
 
 *Top-[k]{.upright} sampling*, illustrated in
-FigureÂ [1.3](#fig:ch10-fig03){reference="fig:ch10-fig03"
+Figure [1.3](#fig:ch10-fig03){reference="fig:ch10-fig03"
 reference-type="ref"}, works by sampling tokens from the top *k* most
 probable candidates at each step of the next-word generation process.
 
@@ -206,7 +206,7 @@ probable candidates at each step of the next-word generation process.
 Given an input prompt, the language model produces a probability
 distribution over the entire vocabulary (the candidate words) for the
 next token. Each token in the vocabulary is assigned a probability based
-on the modelâ€™s understanding of the context. The selected top-*k*
+on the model's understanding of the context. The selected top-*k*
 tokens are then renormalized so that the probabilities sum to 1.
 Finally, a token is sampled from the renormalized top-*k* probability
 distribution and is appended to the input prompt. This process is
@@ -214,7 +214,7 @@ repeated for the desired length of the generated text or until a stop
 condition is met.
 
 *Nucleus sampling* (also known as *top-[p]{.upright} sampling*),
-illustrated in FigureÂ [1.4](#fig:ch10-fig04){reference="fig:ch10-fig04"
+illustrated in Figure [1.4](#fig:ch10-fig04){reference="fig:ch10-fig04"
 reference-type="ref"}, is an alternative to top-*k* sampling.
 
 ![Nucleus sampling](../images/ch10-fig04.png){#fig:ch10-fig04}
@@ -227,7 +227,7 @@ most probable tokens from the probability distribution produced by the
 language model, regardless of their probabilities. The value of *k*
 remains fixed throughout the generation process. Nucleus sampling, on
 the other hand, selects tokens based on a probability threshold *p*, as
-shown in FigureÂ [1.4](#fig:ch10-fig04){reference="fig:ch10-fig04"
+shown in Figure [1.4](#fig:ch10-fig04){reference="fig:ch10-fig04"
 reference-type="ref"}. It then accumulates the most probable tokens in
 descending order until their cumulative probability meets or exceeds the
 threshold *p*. In contrast to top-*k* sampling, the size of the
@@ -250,7 +250,7 @@ be desired?
   <https://arxiv.org/abs/1811.12808>.
 
 - The paper that originally proposed the dropout technique: Nitish
-  Srivastavaetal.,â€œDropout:ASimpleWaytoPreventNeuralNet- Â works from
+  Srivastavaetal.,â€œDropout:ASimpleWaytoPreventNeuralNet-  works from
   Overfittingâ€? (2014),
   [*https://jmlr.org/papers/v15/sriva*](https://jmlr.org/papers/v15/srivastava14a.html)
   [*stava14a.html*](https://jmlr.org/papers/v15/srivastava14a.html).

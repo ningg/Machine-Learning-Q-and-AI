@@ -62,8 +62,8 @@ decay has the same effect as *L*~2~ regularization, the two methods are
 often used synonymously, but there may be subtle differences depending
 on the implementation details and optimizer.
 
-Many other techniques have regularizing effects. For brevityâ€™s sake,
-weâ€™ll discuss just two more widely used methods: dropout and early
+Many other techniques have regularizing effects. For brevity's sake,
+we'll discuss just two more widely used methods: dropout and early
 stopping.
 
 Dropout reduces overfitting by randomly setting some of the activations
@@ -72,15 +72,15 @@ network cannot rely on particular neurons to be activated. Instead, it
 learns to use a larger number of neurons and multiple independent
 representations of the same data, which helps to reduce overfitting.
 
-In early stopping, we monitor the modelâ€™s performance on a validation
+In early stopping, we monitor the model's performance on a validation
 set during training and stop the training process when the performance
 on the validation set begins to decline, as illustrated in
-FigureÂ [1.1](#fig:ch06-fig01){reference="fig:ch06-fig01"
+Figure [1.1](#fig:ch06-fig01){reference="fig:ch06-fig01"
 reference-type="ref"}.
 
 ![Early stopping](../images/ch06-fig01.png){#fig:ch06-fig01}
 
-In FigureÂ [1.1](#fig:ch06-fig01){reference="fig:ch06-fig01"
+In Figure [1.1](#fig:ch06-fig01){reference="fig:ch06-fig01"
 reference-type="ref"}, we can see that the validation accuracy increases
 as the training and validation accuracy gap closes. The point where the
 training and validation accuracy is closest is the point with the least
@@ -96,14 +96,14 @@ following paragraphs discuss methods to reduce the model size, including
 pruning, which removes parameters from a model, and knowledge
 distillation, which transfers knowledge to a smaller model.
 
-Besides reducing the number of layers and shrinking the layersâ€™ widths
+Besides reducing the number of layers and shrinking the layers' widths
 as a hyperparameter tuning procedure, another approach to obtaining
-smal- Â ler models is *iterative pruning*, in which we train a large
+smal-  ler models is *iterative pruning*, in which we train a large
 model to achieve good performance on the original dataset. We then
 iteratively remove parameters of the model, retraining it on the dataset
 such that it maintains the same predictive performance as the original
 model. (The lottery ticket hypothesis, discussed in
-ChapterÂ [\[ch04\]](../ch04){reference="ch04" reference-type="ref"},
+Chapter [\[ch04\]](../ch04){reference="ch04" reference-type="ref"},
 uses iterative pruning.)
 
 Another common approach to obtaining smaller models is *knowledge
@@ -113,7 +113,7 @@ model (the *student*). Ideally, the student achieves the same predictive
 accuracy as the teacher, but it does so more efficiently due to the
 smaller size. As a nice side effect, the smaller student may overfit
 less than the larger teacher model.
-FigureÂ [\[fig:ch06-fig02\]](#fig:ch06-fig02){reference="fig:ch06-fig02"
+Figure [\[fig:ch06-fig02\]](#fig:ch06-fig02){reference="fig:ch06-fig02"
 reference-type="ref"} diagrams the original knowledge distillation
 process. Here, the teacher is first trained in a regular supervised
 fashion to classify the examples in the dataset well, using a
@@ -136,7 +136,7 @@ mimic the teacher while being smaller and more efficient.
 
 ### Caveats with Smaller Models [](#caveats-with-smaller-models)
 
-While pruning and knowledge distillation can also enhance a modelâ€™s
+While pruning and knowledge distillation can also enhance a model's
 generalization performance, these techniques are not primary or
 effective ways of reducing overfitting.
 
@@ -147,7 +147,7 @@ phenomena like double descent and grokking also showed that larger,
 overparameterized models have improved generalization performance if
 they are trained beyond the point of overfitting. *Double descent*
 refers to the phenomenon in which models with either a small or an
-extremely large number of para- Â meters have good generalization
+extremely large number of para-  meters have good generalization
 performance, while models with a number of parameters equal to the
 number of training data points have poor generalization performance.
 *Grokking* reveals that as the size of a dataset decreases, the need for
@@ -164,7 +164,7 @@ responsible for the improved generalization performance.
 
 Pruning and knowledge distillation remain excellent ways to improve the
 computational efficiency of a model. However, while they can also
-enhance a modelâ€™s generalization performance, these techniques are not
+enhance a model's generalization performance, these techniques are not
 primary or effective ways of reducing overfitting.
 
 ### Ensemble Methods [](#ensemble-methods)
@@ -178,7 +178,7 @@ weigh in on a decision and then combining their judgments in some way to
 make a final decision. Members in a committee often have different
 backgrounds and experiences. While they tend to agree on basic
 decisions, they can overrule bad decisions by majority rule. This
-doesnâ€™t mean that the majority of experts is always right, but there
+doesn't mean that the majority of experts is always right, but there
 is a good chance that the majority of the committee is more often right,
 on average, than every single member.
 
@@ -211,13 +211,13 @@ performance metric across all *k* iterations to estimate the overall
 performance measure of the model. After evaluation, we can either train
 the model on the entire training dataset or combine the individual
 models as an ensemble, as shown in
-FigureÂ [1.2](#fig:ch06-fig03){reference="fig:ch06-fig03"
+Figure [1.2](#fig:ch06-fig03){reference="fig:ch06-fig03"
 reference-type="ref"}.
 
 ![[k]{.upright}-fold cross-validation for creating model
 ensembles](../images/ch06-fig03.png){#fig:ch06-fig03}
 
-As shown in FigureÂ [1.2](#fig:ch06-fig03){reference="fig:ch06-fig03"
+As shown in Figure [1.2](#fig:ch06-fig03){reference="fig:ch06-fig03"
 reference-type="ref"}, the *k*-fold ensemble approach trains each of the
 *k* models on the respective *k* â€" 1 training folds in each round.
 After evaluating the models on the validation folds, we can combine them
@@ -234,7 +234,7 @@ using a single model.
 ## Other Methods [](#other-methods)
 
 So far, this book has covered some of the most prominent techniques to
-reduce overfitting. ChapterÂ [\[ch05\]](../ch05){reference="ch05"
+reduce overfitting. Chapter [\[ch05\]](../ch05){reference="ch05"
 reference-type="ref"} covered techniques that aim to reduce overfitting
 from a data perspective. Additional techniques for reducing overfitting
 with model modifications include skip-connections (found in residual
@@ -248,7 +248,7 @@ have a regularizing effect that reduces overfitting. Weight
 normalization, which normalizes the model weights instead of layer
 inputs, could also lead to better generalization performance. However,
 this effect is less direct since weight normalization (WeightNorm)
-doesnâ€™t explicitly act as a regularizer like weight decay does.
+doesn't explicitly act as a regularizer like weight decay does.
 
 ## Choosing a Regularization Technique [](#choosing-a-regularization-technique)
 
@@ -265,10 +265,10 @@ selecting these techniques as a hyperparameter optimization problem.
 
 ### Exercises [](#exercises)
 
-6-1. Supposeweâ€™reusingearlystoppingasamechanismtoreduceover-
-Â fittingâ€"inparticular,amodernearly-stoppingvariantthatcreates
+6-1. Supposewe'reusingearlystoppingasamechanismtoreduceover-
+ fittingâ€"inparticular,amodernearly-stoppingvariantthatcreates
 checkpoints of the best model (for instance, the model with the high-
-Â est validation accuracy) during training so that we can load it after
+ est validation accuracy) during training so that we can load it after
 the training has completed. This mechanism can be enabled in most modern
 deep learning frameworks. However, a colleague recommends tuning the
 number of training epochs instead. What are some of the advantages and
@@ -276,7 +276,7 @@ disadvantages of each approach?
 
 6-2. Ensemble models have been established as a reliable and successful
 method for decreasing overfitting and enhancing the reliability of
-predictive modeling efforts. However, thereâ€™s always a trade-off. What
+predictive modeling efforts. However, there's always a trade-off. What
 are some of the drawbacks associated with ensemble techniques?
 
 ## References [](#references)
@@ -306,13 +306,13 @@ are some of the drawbacks associated with ensemble techniques?
   <https://en.wikipedia.org/wiki/Double_descent>.
 
 - The phenomenon of grokking indicates that generalization perfor-
-  Â mance can improve well past the point of overfitting: Alethea Power
+   mance can improve well past the point of overfitting: Alethea Power
   et al., â€œGrokking: Generalization Beyond Overfitting on Small
   Algorithmic Datasetsâ€? (2022), <https://arxiv.org/abs/2201.02177>.
 
 - Recent research shows that the improved training process partly
   explains the reduction of overfitting due to pruning: Tian Jin et al.,
-  â€œPruningâ€™s Effect on Generalization Through the Lens of Training
+  â€œPruning's Effect on Generalization Through the Lens of Training
   and Regularizationâ€? (2022), <https://arxiv.org/abs/2210.13738>.
 
 - Dropout was previously discussed as a regularization technique, but it

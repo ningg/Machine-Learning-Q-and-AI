@@ -18,7 +18,7 @@ putting machine learning and AI models into production. In short, they
 refer to the differences between the distribution of data on which a
 model was trained and the distribution of data it encounters in the real
 world. Often, these changes can lead to significant drops in model
-performance because the modelâ€™s predictions are no longer accurate.
+performance because the model's predictions are no longer accurate.
 
 There are several types of distribution shifts, some of which are more
 problematic than others. The most common are covariate shift, concept
@@ -36,7 +36,7 @@ is the distribution of the targets *y* given the inputs *x*.
 *p*(*x*), changes, but the conditional distribution of the output given
 the input, *p*(*y*\\(\|\\)*x*), remains the same.
 
-FigureÂ [1.1](#fig:ch23-fig01){reference="fig:ch23-fig01"
+Figure [1.1](#fig:ch23-fig01){reference="fig:ch23-fig01"
 reference-type="ref"} illustrates covariate shift where both the feature
 values of the training data and the new data encountered during
 production follow a normal distribution. However, the mean of the new
@@ -50,20 +50,20 @@ spam based on specific features. Now, after we embed the email spam
 filter in an email client, the email messages that customers receive
 have drastically different features. For example, the email messages are
 much longer and are sent from someone in a different time zone. However,
-if the way those features relate to an email being spam or not doesnâ€™t
+if the way those features relate to an email being spam or not doesn't
 change, then we have a covariate shift.
 
 Covariate shift is a very common challenge when deploying machine
 learning models. It means that the data the model receives in a live or
 production environment is different from the data on which it was
-trained.Â How- Â ever, because the relationship between inputs and
+trained. How-  ever, because the relationship between inputs and
 outputs, *p*(*y*\\(\|\\)*x*), remains the same under covariate shift,
 techniques are available to adjust for it.
 
 A common technique to detect covariate shift is *adversarial
 validation*, which is covered in more detail in
-ChapterÂ [\[ch29\]](../ch29){reference="ch29" reference-type="ref"}.
-Once covariate shift is detec- Â ted, a common method to deal with it is
+Chapter [\[ch29\]](../ch29){reference="ch29" reference-type="ref"}.
+Once covariate shift is detec-  ted, a common method to deal with it is
 *importance weighting*, which assigns different weights to the training
 example to emphasize or de-emphasize certain instances during training.
 Essentially, instances that are more likely to appear in the test
@@ -91,7 +91,7 @@ distribution of the labels. This is essentially a form of importance
 weighting. By adjusting the weights in the loss function according to
 the new label distribution, we are incentivizing the model to pay more
 attention to certain classes that have become more common (or less
-common) in the new data. This helps align the modelâ€™s predictions more
+common) in the new data. This helps align the model's predictions more
 closely with the current reality, improving its performance on the new
 data.
 
@@ -106,7 +106,7 @@ the output *y*.
 Using the example of the spam email classifier from the previous
 section, the features of the email messages might remain the same, but
 *how* those features relate to whether an email is spam might change.
-This could be due to a new spamming strategy that wasnâ€™t present in
+This could be due to a new spamming strategy that wasn't present in
 the training data. Concept drift can be much harder to deal with than
 the other distribution shifts discussed so far since it requires
 continuous monitoring and potential model retraining.
@@ -154,7 +154,7 @@ and retraining or adapting the model.
 
 ## Types of Data Distribution Shifts [](#types-of-data-distribution-shifts)
 
-FigureÂ [1.2](#fig:ch23-fig02){reference="fig:ch23-fig02"
+Figure [1.2](#fig:ch23-fig02){reference="fig:ch23-fig02"
 reference-type="ref"} provides a visual summary of different types of
 data shifts in the context of a binary (2-class) classification problem,
 where the black circles refer to examples from one class and the
@@ -189,7 +189,7 @@ might be manageable if the shift is relatively minor or if we have
 access to a sufficient amount of labeled data from the new distribution
 to retrain our model.
 
-In general, itâ€™s crucial to monitor our modelsâ€™ performance and be
+In general, it's crucial to monitor our models' performance and be
 aware of potential shifts in the data distribution so that we can take
 appropriate action if necessary.
 
