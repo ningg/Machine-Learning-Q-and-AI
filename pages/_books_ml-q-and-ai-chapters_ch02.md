@@ -20,7 +20,7 @@ related method for pretraining neural networks, and discusses the
 practical applications of self-supervised learning. Finally, it outlines
 the main categories of self-supervised learning.
 
-## Self-Supervised Learning vs. Transfer Learning [](#self-supervised-learning-vs-transfer-learning) {#self-supervised-learning-vs-transfer-learning}
+## Self-Supervised Learning vs. Transfer Learning [](#self-supervised-learning-vs-transfer-learning) 
 
 Self-supervised learning is related to transfer learning, a technique in
 which a model pretrained on one task is reused as the starting point for
@@ -60,7 +60,7 @@ The main difference between transfer learning and self-supervised
 learning lies in how we obtain the labels during step 1 in
 Figures [1.1](#fig-ch02-fig01)
 and [1.2](#fig-ch02-fig02). In transfer learning, we assume that the labels
-are provided along with the data-  set; they are typically created
+are provided along with the dataset; they are typically created
 by human labelers. In self-supervised learning, the labels can be
 directly derived from the training examples.
 
@@ -134,7 +134,7 @@ Chapters [\[ch14\]](./_books_ml-q-and-ai-chapters_ch14.md)
 and [\[ch17\]](./_books_ml-q-and-ai-chapters_ch17.md). Here,
 we feed the network text fragments, where it has to predict the next
 word in the sequence (as we'll discuss further in
-Chapter [\[ch17\]](../ch17)).
+Chapter [\[ch17\]](./_books_ml-q-and-ai-chapters_ch17.md)).
 
 In *contrastive self-supervised learning*, we train the neural network
 to learn an embedding space where similar inputs are close to each other
@@ -165,11 +165,10 @@ For the cat-elephant pair, we want the network to produce dissimilar
 embeddings. This way, we implicitly force the network to capture the
 image's core content while being somewhat agnostic to small
 differences and noise. For example, the simplest form of a contrastive
-loss is the *L*~2~-norm (Euclidean distance) between the embeddings
-produced by model *M*(\\(\\cdot\\)). Let's say we update the model
-weights to decrease the distance \\(\|\|\\)*M*(cat) ""
-*M*(cat\\(\'\\))\\(\|\|\\)~2~ and increase the distance
-\\(\|\|\\)*M*(*cat*) "" *M*(*elephant*)\\(\|\|\\)~2~.
+loss is the $L_2$-norm (Euclidean distance) between the embeddings
+produced by model $M(\cdot)$. Let's say we update the model
+weights to decrease the distance $||M(cat) - M(cat')||_2$ and increase the distance
+$||M(cat) - M(elephant)||_2$.
 
 Figure [1.6](#fig-ch02-fig06) summarizes the central concept behind contrastive
 learning for the perturbed image scenario. The model is shown twice,
