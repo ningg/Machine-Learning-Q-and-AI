@@ -41,8 +41,8 @@ and 3 (severe and moderate) is the same as the distance between 2 and 1
 arbitrary.](../images/ch24-fig01.png){#fig:ch24-fig01}
 
 In short, we use Poisson regression for count data. We use ordinal
-regression when we know that certain outcomes are â€œhigherâ€? or
-â€œlowerâ€? than others, but we are not sure how much or if it even
+regression when we know that certain outcomes are "higher"? or
+"lower"? than others, but we are not sure how much or if it even
 matters.
 
 ### Exercises [](#exercises)

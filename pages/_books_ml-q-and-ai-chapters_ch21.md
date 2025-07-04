@@ -41,7 +41,7 @@ model-centric workflows.
 While *data-centric AI* is a relatively new term, the idea behind it is
 not. Many people I've spoken with say they used a data-centric
 approach in their projects before the term was coined. In my opinion,
-data-centric AI was created to make â€œcaring about data qualityâ€?
+data-centric AI was created to make "caring about data quality"?
 attractive again, as data collection and curation are often considered
 tedious or thankless. This is analogous to how the term *deep learning*
 made neural networks interesting again in the early 2010s.
@@ -74,8 +74,8 @@ We consider an approach *data centric* if we change only the data (using
 the methods listed here), not the other aspects of the modeling
 pipeline.
 
-In machine learning and AI, we often use the phrase â€œgarbage in, gar-
- bage out,â€? meaning that poor-quality data will result in a poor
+In machine learning and AI, we often use the phrase "garbage in, gar-
+ bage out,"? meaning that poor-quality data will result in a poor
 predictive model. In other words, we cannot expect a well-performing
 model from a low-quality dataset.
 
@@ -135,7 +135,7 @@ approach data centric?
 
 - An example of how adding more training data can benefit model
   performance more than an increase in model size: Yuval Kirstain et
-  al., â€œA Few More Examples May Be Worth Billions of Parametersâ€?
+  al., "A Few More Examples May Be Worth Billions of Parameters"?
   (2021), <https://arxiv.org/abs/2110.04374>.
 
 - Cleanlab is an open source library that includes methods for improving

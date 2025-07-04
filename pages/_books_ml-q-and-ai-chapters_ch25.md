@@ -40,7 +40,7 @@ definition and interpretation of confidence intervals.
 A *confidence interval* is a type of method to estimate an unknown
 population parameter. A *population parameter* is a specific measure of
 a statistical population, for example, a mean (average) value or
-proportion. By â€œspecificâ€? measure, I mean there is a single, exact
+proportion. By "specific"? measure, I mean there is a single, exact
 value for that parameter for the entire population. Even though this
 value may not be known and often needs to be estimated from a sample, it
 is a fixed and definite characteristic of the population. A *statistical
@@ -219,7 +219,7 @@ normal distribution, regardless of the underlying distribution of the
 individual variables. It is difficult to specify what constitutes a
 large-enough test set. However, under stronger assumptions than those of
 the central limit theorem, we can at least estimate the rate of
-convergence to the normal distribution using the Berryâ€"Esseen theorem,
+convergence to the normal distribution using the Berry""Esseen theorem,
 which gives a more quantitative estimate of how quickly the convergence
 in the central limit theorem occurs.
 :::
@@ -362,7 +362,7 @@ is 95 percent confidence intervals. However, 90 percent and 99 percent
 are also common. Are 90 percent confidence intervals smaller or wider
 than 95 percent confidence intervals, and why is this the case?
 
-25-2. In â€œâ€? on page , we created test sets by bootstrapping and
+25-2. In ""? on page , we created test sets by bootstrapping and
 then applied the already trained model to compute the test set accuracy
 on each of these datasets. Can you think of a method or modification to
 obtain these test accuracies more efficiently?
@@ -371,7 +371,7 @@ obtain these test accuracies more efficiently?
 
 - A detailed discussion of the pitfalls of concluding statistical
   significance from nonoverlapping confidence intervals: Martin
-  Krzywinski and Naomi Altman, â€œError Barsâ€? (2013),
+  Krzywinski and Naomi Altman, "Error Bars"? (2013),
   <https://www.nature.com/articles/nmeth.2659>.
 
 - A more detailed explanation of the binomial proportion confidence
@@ -379,31 +379,31 @@ obtain these test accuracies more efficiently?
   <https://en.wikipedia.org/wiki/Binomial_proportion_confidence_interval>.
 
 - For a detailed explanation of normal approximation intervals, see
-  Section 1.7 of my article: â€œModel Evaluation, Model Selection, and
-  Algorithm Selection in Machine Learningâ€? (2018),
+  Section 1.7 of my article: "Model Evaluation, Model Selection, and
+  Algorithm Selection in Machine Learning"? (2018),
   <https://arxiv.org/abs/1811.12808>.
 
 - Additional information on the central limit theorem for inde-
    pendent and identically distributed random variables:
   <https://en.wikipedia.org/wiki/Central_limit_theorem>.
 
-- For more on the Berryâ€"Esseen theorem:
-  [https://en.wikipedia.org/wiki/Berryâ€"Esseen_theorem](https://en.wikipedia.org/wiki/BerryâEsseen_theorem).
+- For more on the Berry""Esseen theorem:
+  [https://en.wikipedia.org/wiki/Berry""Esseen_theorem](https://en.wikipedia.org/wiki/BerryâEsseen_theorem).
 
 - The .632 bootstrap addresses a pessimistic bias of the regular
-  out-of-bag bootstrapping approach: Bradley Efron, â€œEstimating the
-  Error Rate of a Prediction Rule: Improvement on Cross-Validationâ€?
+  out-of-bag bootstrapping approach: Bradley Efron, "Estimating the
+  Error Rate of a Prediction Rule: Improvement on Cross-Validation"?
   (1983), <https://www.jstor.org/stable/2288636>.
 
 - The .632+ bootstrap corrects an optimistic bias introduced in the .632
-  bootstrap: Bradley Efron and Robert Tibshirani, â€œImprovements on
-  Cross-Validation: The .632+ Bootstrap Methodâ€? (1997),
+  bootstrap: Bradley Efron and Robert Tibshirani, "Improvements on
+  Cross-Validation: The .632+ Bootstrap Method"? (1997),
   <https://www.jstor.org/stable/2965703>.
 
 - A deep learning research paper that discusses bootstrapping the test
-  set predictions: Benjamin Sanchez-Lengeling et al., â€œMachine
+  set predictions: Benjamin Sanchez-Lengeling et al., "Machine
   Learning for Scent: Learning Generalizable Perceptual Representations
-  of Small Moleculesâ€? (2019), <https://arxiv.org/abs/1910.10685>.
+  of Small Molecules"? (2019), <https://arxiv.org/abs/1910.10685>.
 
 \
 

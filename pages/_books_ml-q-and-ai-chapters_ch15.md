@@ -29,11 +29,11 @@ at <https://github.com/rasbt/MachineLearning-QandAI-book>.
 
 ## Synonym Replacement [](#synonym-replacement)
 
-In *synonym replacement*, we randomly choose words in a sentenceâ€"often
-nouns, verbs, adjectives, and adverbsâ€"and replace them with synonyms.
-For example, we might begin with the sentence â€œThe cat quickly jumped
-over the lazy dog,â€? and then augment the sentence as follows: â€œThe
-cat rapidly jumped over the idle dog.â€?
+In *synonym replacement*, we randomly choose words in a sentence""often
+nouns, verbs, adjectives, and adverbs""and replace them with synonyms.
+For example, we might begin with the sentence "The cat quickly jumped
+over the lazy dog,"? and then augment the sentence as follows: "The
+cat rapidly jumped over the idle dog."?
 
 Synonym replacement can help the model learn that different words can
 have similar meanings, thereby improving its ability to understand and
@@ -52,8 +52,8 @@ learn. Unlike synonym replacement, which alters the text by substituting
 words with their synonyms, word deletion involves removing certain words
 from the text to create new variants while trying to maintain the
 overall meaning of the sentence. For example, we might begin with the
-sentence â€œThe cat quickly jumped over the lazy dogâ€? and then remove
-the word *quickly*: â€œThe cat jumped over the lazy dog.â€?
+sentence "The cat quickly jumped over the lazy dog"? and then remove
+the word *quickly*: "The cat jumped over the lazy dog."?
 
 By randomly deleting words in the training data, we teach the model to
 make accurate predictions even when some information is missing. This
@@ -64,8 +64,8 @@ relevant to the task at hand.
 
 However, we must be careful not to remove critical words that may
 significantly alter a sentence's meaning. For example, it would be
-suboptimal to remove the word *cat* in the previous sentence: â€œThe
-quickly jumped over the lazy dog.â€? We must also choose the deletion
+suboptimal to remove the word *cat* in the previous sentence: "The
+quickly jumped over the lazy dog."? We must also choose the deletion
 rate carefully to ensure that the text still makes sense after words
 have been removed. Typical deletion rates might range from 10 percent to
 20 percent, but this is a general guideline and could vary significantly
@@ -76,9 +76,9 @@ based on the specific use case.
 In *word position swapping*, also known as *word shuffling* or
 *permutation*, the positions of words in a sentence are swapped or
 rearranged to create new versions of the sentence. If we begin with
-â€œThe cat quickly jumped over the lazy dog,â€? we might swap the
-positions of some words to get the following: â€œQuickly the cat jumped
-the over lazy dog.â€?
+"The cat quickly jumped over the lazy dog,"? we might swap the
+positions of some words to get the following: "Quickly the cat jumped
+the over lazy dog."?
 
 While these sentences may sound grammatically incorrect or strange in
 English, they provide valuable training information for data
@@ -112,12 +112,12 @@ grammatically incorrect or change meaning entirely.
 Sentence shuffling is useful when the order of sentences is not crucial
 to the overall meaning of the text. Still, it may not work well if the
 sentences are logically or chronologically connected. For example,
-consider the following paragraph: â€œI went to the supermarket. Then I
+consider the following paragraph: "I went to the supermarket. Then I
 bought ingredients to make pizza. Afterward, I made some delicious
-pizza.â€? Reshuffling these sentences as follows disrupts the logical
-and temporal progression of the narrative: â€œAfterward, I made some
+pizza."? Reshuffling these sentences as follows disrupts the logical
+and temporal progression of the narrative: "Afterward, I made some
 delicious pizza. Then I bought ingredients to make pizza. I went to the
-supermarket.â€?
+supermarket."?
 
 ## Noise Injection [](#noise-injection)
 
@@ -127,13 +127,13 @@ to the methods described in the previous sections or to character-level
 techniques such as inserting random letters, characters, or typos, as
 shown in the following examples:
 
-Random character insertion â€œThe cat qzuickly jumped over the lazy
-dog.â€? (Inserted a *z* in the word *quickly*.)
+Random character insertion "The cat qzuickly jumped over the lazy
+dog."? (Inserted a *z* in the word *quickly*.)
 
-Random character deletion â€œThe cat quickl jumped over the lazy dog.â€?
+Random character deletion "The cat quickl jumped over the lazy dog."?
 (Deleted *y* from the word *quickly*.)
 
-Typo introduction â€œThe cat qickuly jumped over the lazy dog.â€?
+Typo introduction "The cat qickuly jumped over the lazy dog."?
 (Introduced a typo in *quickly*, changing it to *qickuly*.)
 
 These modifications are beneficial for tasks that involve spell-checking
@@ -151,10 +151,10 @@ sentence but have slight variations in structure, vocabulary, or
 grammar. This generates additional, diverse examples for training
 without altering the overall meaning.
 
-For example, say we translate â€œThe cat quickly jumped over the lazy
-dogâ€? into German. We might get â€œDie Katze sprang schnell Ã¼ber den
-faulen Hund.â€? We could then translate this German sentence back into
-English to get â€œThe cat jumped quickly over the lazy dog.â€?
+For example, say we translate "The cat quickly jumped over the lazy
+dog"? into German. We might get "Die Katze sprang schnell Ã¼ber den
+faulen Hund."? We could then translate this German sentence back into
+English to get "The cat jumped quickly over the lazy dog."?
 
 The degree to which a sentence changes through backtranslation depends
 on the languages used and the specifics of the machine translation
@@ -180,8 +180,8 @@ Modern techniques to generate synthetic data now also include using
 decoder-style LLMs such as GPT (decoder-style LLMs are discussed in more
 detail in Chapter [\[ch17\]](../ch17){reference="ch17"
 reference-type="ref"}). We can use these models to generate new data
-from scratch by using â€œcomplete the sentenceâ€? or â€œgenerate example
-sentencesâ€? prompts, among others. We can also use LLMs as alternatives
+from scratch by using "complete the sentence"? or "generate example
+sentences"? prompts, among others. We can also use LLMs as alternatives
 to back translation, prompting them to rewrite sentences as shown in
 Figure [1.1](#fig:ch15-fig01){reference="fig:ch15-fig01"
 reference-type="ref"}.
@@ -223,8 +223,8 @@ beneficial for a specific task?
 
 ## References [](#references)
 
-- The WordNet thesaurus: George A. Miller, â€œWordNet: A Lexical
-  Database for Englishâ€? (1995),
+- The WordNet thesaurus: George A. Miller, "WordNet: A Lexical
+  Database for English"? (1995),
   <https://dl.acm.org/doi/10.1145/219717.219748>.
 
 \

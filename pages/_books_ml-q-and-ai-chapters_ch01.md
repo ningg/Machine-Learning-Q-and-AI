@@ -81,7 +81,7 @@ For readers interested in a more formal explanation using mathematical
 terminology, an embedding is an injective and structure-preserving map
 between an input space *X* and the embedding space *Y*. This implies
 that similar inputs will be located at points in close proximity within
-the embedding space, which can be seen as the â€œstructure-preservingâ€?
+the embedding space, which can be seen as the "structure-preserving"?
 characteristic of the embedding.
 
 ### Latent Space 
@@ -157,7 +157,7 @@ Geoffrey Hinton.
 
 - The original paper describing the AlexNet architecture and
   implementation: Alex Krizhevsky, Ilya Sutskever, and Geoffrey Hinton,
-  â€œImageNet Classification with Deep Convolutional Neural Networksâ€?
+  "ImageNet Classification with Deep Convolutional Neural Networks"?
   (2012),
   <https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks>.
 

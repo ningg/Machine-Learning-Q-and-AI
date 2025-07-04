@@ -15,7 +15,7 @@ it useful in practice?**
 
 The lottery ticket hypothesis is a concept in neural network training
 that posits that within a randomly initialized neural network, there
-exists a subnetwork (or â€œwinning ticketâ€?) that can, when trained
+exists a subnetwork (or "winning ticket"?) that can, when trained
 separately, achieve the same accuracy on a test set as the full network
 after being trained for the same number of steps. This idea was first
 proposed by Jonathan Frankle and Michael Carbin in 2018.
@@ -48,7 +48,7 @@ reference-type="ref"}, we prune the neural network's weight parameters
 , removing them from the network. We can do this by setting the weights
 to zero to create sparse weight matrices. Here, we can either prune
 individual weights, known as *unstructured* pruning, or prune larger
-â€œchunksâ€? from the network, such as entire convolutional filter
+"chunks"? from the network, such as entire convolutional filter
 channels. This is known as *structured* pruning.
 
 The original lottery hypothesis approach follows a concept known as
@@ -115,26 +115,26 @@ network with ReLU activation functions?
 ## References [](#references)
 
 - The paper proposing the lottery ticket hypothesis: Jonathan Frankle
-  and Michael Carbin, â€œThe Lottery Ticket Hypothesis: Finding Sparse,
-  Trainable Neural Networksâ€? (2018),
+  and Michael Carbin, "The Lottery Ticket Hypothesis: Finding Sparse,
+  Trainable Neural Networks"? (2018),
   <https://arxiv.org/abs/1803.03635>.
 
 - The paper proposing structured pruning for removing larger parts, such
   as entire convolutional filters, from a network: Hao Li et al.,
-  â€œPruning Filters for Efficient ConvNetsâ€? (2016),
+  "Pruning Filters for Efficient ConvNets"? (2016),
   <https://arxiv.org/abs/1608.08710>.
 
 - Follow-up work on the lottery hypothesis, showing that the original
   weight initialization may not work to find winning tickets for
   larger-scale networks, and additional experimentation with the initial
   weights of the pruned networks is required: Jonathan Frankle et al.,
-  â€œLinear Mode Connectivity and the Lottery Ticket Hypothesisâ€?
+  "Linear Mode Connectivity and the Lottery Ticket Hypothesis"?
   (2019), <https://arxiv.org/abs/1912.05671>.
 
 - An improved lottery ticket hypothesis algorithm that finds smaller
   networks that match the performance of a larger network exactly: Vivek
-  Ramanujan et al., â€œWhat's Hidden in a Randomly Weighted Neural
-  Network?â€? (2020), <https://arxiv.org/abs/1911.13299>.
+  Ramanujan et al., "What's Hidden in a Randomly Weighted Neural
+  Network?"? (2020), <https://arxiv.org/abs/1911.13299>.
 
 \
 

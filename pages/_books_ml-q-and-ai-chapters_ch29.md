@@ -61,7 +61,7 @@ between the training and test data that we need to investigate further.
 ![image](../images/ch29-fig01.png){style="width:5.625in"}
 :::
 
-What mitigation techniques should we use if we detect a trainingâ€"test
+What mitigation techniques should we use if we detect a training""test
 set discrepancy using adversarial validation? If we're working with a
 tabular dataset, we can remove features one at a time to see if this
 helps address the issue, as spurious features can sometimes be highly

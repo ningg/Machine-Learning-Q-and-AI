@@ -85,7 +85,7 @@ vectorization, resulting in faster and more efficient computations.
 
 *Loop tiling* (also often referred to as *loop nest optimization*) is an
 advanced optimization technique to enhance data locality by breaking
-down a loop's iteration space into smaller chunks or â€œtiles.â€? This
+down a loop's iteration space into smaller chunks or "tiles."? This
 ensures that once data is loaded into cache, all possible computations
 are performed on it before the cache is cleared.
 
@@ -197,22 +197,22 @@ ideal situation in which to use each?
 
 - The official BLAS website: <https://www.netlib.org/blas/>.
 
-- The paper that proposed loop tiling: Michael Wolfe, â€œMore Iteration
-  Space Tilingâ€? (1989),
+- The paper that proposed loop tiling: Michael Wolfe, "More Iteration
+  Space Tiling"? (1989),
   <https://dl.acm.org/doi/abs/10.1145/76263.76337>.
 
 - RepVGG CNN architecture merging operations in inference mode: Xiaohan
-  Ding et al., â€œRepVGG: Making VGG-style ConvNets Great Againâ€?
+  Ding et al., "RepVGG: Making VGG-style ConvNets Great Again"?
   (2021), <https://arxiv.org/abs/2101.03697>.
 
 - A new method for quantizing the weights in large language mod-  els
-  downto8-bitintegerrepresentations:TimDettmersetal., â€œLLM.int8():
-  8-bit Matrix Multiplication for Transformers at Scaleâ€? (2022),
+  downto8-bitintegerrepresentations:TimDettmersetal., "LLM.int8():
+  8-bit Matrix Multiplication for Transformers at Scale"? (2022),
   <https://arxiv.org/abs/2208.07339>.
 
 - A new method for quantizing the weights in LLMs farther down to 4-bit
-  integers: Elias Frantar et al., â€œGPTQ: Accurate Post-Training
-  Quantization for Generative Pre-trained Transformersâ€? (2022),
+  integers: Elias Frantar et al., "GPTQ: Accurate Post-Training
+  Quantization for Generative Pre-trained Transformers"? (2022),
   <https://arxiv.org/abs/2210.17323>.
 
 \

@@ -34,10 +34,10 @@ Let'sstartwiththeconventionalmethodsforutilizingpretrainedtransformers:
 training another model on feature embeddings, fine-tuning outputlayers,
 and fine-tuning all layers. We'll discuss these in the context of
 classification. (We will revisit prompting later in the section
-â€œIn-Context Learning, Indexing, and Prompt Tuningâ€? on page .)
+"In-Context Learning, Indexing, and Prompt Tuning"? on page .)
 
 In the feature-based approach, we load the pretrained model and keep it
-â€œfrozen,â€? meaning we do not update any parameters of the pretrained
+"frozen,"? meaning we do not update any parameters of the pretrained
 model. Instead, we treat the model as a feature extractor that we apply
 to our new dataset. We then train a downstream model on these
 embeddings.
@@ -131,9 +131,9 @@ Chapter [\[ch03\]](../ch03){reference="ch03" reference-type="ref"}.
 :::
 
 For example, suppose we want to use in-context learning for few-shot
-Germanâ€"English translation using a large-scale pretrained language
+German""English translation using a large-scale pretrained language
 model like GPT-3. To do so, we provide a few examples of
-Germanâ€"English translations to help the model understand the desired
+German""English translations to help the model understand the desired
 task, as follows:
 
 :::: {.language-plaintext .highlighter-rouge}
@@ -175,18 +175,18 @@ aims to optimize the prompt itself to achieve better performance. Prompt
 tuning does not modify the model parameters, but it may involve using a
 smaller labeled dataset to identify the best prompt formulation for the
 specific task. For example, to improve the prompts for the previous
-Germanâ€"English translation task, we might try the following three
+German""English translation task, we might try the following three
 prompting variations:
 
-- â€œTranslate the German sentence â€˜{german_sentence}' into English:
-  {english_translation}â€?
+- "Translate the German sentence "˜{german_sentence}' into English:
+  {english_translation}"?
 
 - ------------------------------------ -----------------------------------
-    â€œGerman: â€˜{german_sentence}'   English: {english_translation}â€?
+    "German: "˜{german_sentence}'   English: {english_translation}"?
     ------------------------------------ -----------------------------------
 
-- â€œFrom German to English: â€˜{german_sentence}' -\>
-  {english_translation}â€?
+- "From German to English: "˜{german_sentence}' -\>
+  {english_translation}"?
 
 Prompttuningisaresource-efficientalternativetoparameterfine-tuning.
 However, its performance is usually not as good as full model
@@ -236,7 +236,7 @@ section, *softprompting* strategies optimize embedded versions of the
 prompts. While in hard prompt tuning we modify the discrete input
 tokens, in soft prompt tuning we utilize trainable parameter tensors
 instead. The idea behind soft prompt tuning is to prepend a trainable
-parameter tensor (the â€œsoft promptâ€?) to the embedded query tokens.
+parameter tensor (the "soft prompt"?) to the embedded query tokens.
 The prepended tensor is then tuned to improve the modeling performance
 on a target data-  set using gradient descent. In Python-like
 pseudocode, soft prompt tuning can be described as
@@ -329,10 +329,10 @@ style="width:95.0%"}
 
 Only the new adapter layers are updated when training the LLM using the
 original adapter method, while the remaining transformer layers remain
-frozen. Since the adapter layers are usually smallâ€"the first fully
+frozen. Since the adapter layers are usually small""the first fully
 connected layer in an adapter block projects its input into a
 low-dimensional representation, while the second layer projects it back
-into the original input dimensionâ€"this adapter method is usually
+into the original input dimension""this adapter method is usually
 considered parameter efficient.
 
 In pseudocode, the original adapter method can be written as follows:
@@ -454,8 +454,8 @@ we can effectively apply LLMsto new tasks while minimizing computational
 costs and resources by utilizing feature-based methods, in-context
 learning, or parameter-efficient fine-tuning techniques.
 
-The three conventional methodsâ€"feature-based approach, fine-tuning I,
-and fine-tuning IIâ€"provide different computational efficiency and
+The three conventional methods""feature-based approach, fine-tuning I,
+and fine-tuning II""provide different computational efficiency and
 performance trade-offs. Parameter-efficient fine-tuning methods like
 soft prompt tuning, prefix tuning, and adapter methods further optimize
 the adaptation process, reducing the number of parameters to be updated.
@@ -479,19 +479,19 @@ model preserves (and does not forget) the original knowledge?
 ## References [](#references)
 
 - The paper introducing the GPT-2 model: Alec Radford et al.,
-  â€œLanguage Models Are Unsupervised Multitask Learnersâ€? (2019),
+  "Language Models Are Unsupervised Multitask Learners"? (2019),
   [*https://*](https://www.semanticscholar.org/paper/Language-Models-are-Unsupervised-Multitask-Learners-Radford-Wu/9405cc0d6169988371b2755e573cc28650d14dfe)
   [*www.semanticscholar.org/paper/Language-Models-are-Unsupervised*](https://www.semanticscholar.org/paper/Language-Models-are-Unsupervised-Multitask-Learners-Radford-Wu/9405cc0d6169988371b2755e573cc28650d14dfe)
   [*-Multitask-Learners-Radford-Wu/9405cc0d6169988371b2755e573*](https://www.semanticscholar.org/paper/Language-Models-are-Unsupervised-Multitask-Learners-Radford-Wu/9405cc0d6169988371b2755e573cc28650d14dfe)
   [*cc28650d14dfe*](https://www.semanticscholar.org/paper/Language-Models-are-Unsupervised-Multitask-Learners-Radford-Wu/9405cc0d6169988371b2755e573cc28650d14dfe).
 
 - The paper introducing the GPT-3 model: Tom B. Brown et al.,
-  â€œLanguage Models Are Few-Shot Learnersâ€? (2020),
+  "Language Models Are Few-Shot Learners"? (2020),
   <https://arxiv.org/abs/2005.14165>.
 
 - The automatic prompt engineering method, which proposes using another
   LLM for automatic prompt generation and evaluation: Yongchao Zhou et
-  al., â€œLarge Language Models Are Human-Level Prompt Engineersâ€?
+  al., "Large Language Models Are Human-Level Prompt Engineers"?
   (2023), <https://arxiv.org/abs/2211.01910>.
 
 - LlamaIndex is an example of an indexing approach that leverages
@@ -501,35 +501,35 @@ model preserves (and does not forget) the original knowledge?
   indexing: <https://github.com/stanfordnlp/dsp>.
 
 - A first instance of soft prompting: Brian Lester, Rami Al-Rfou, and
-  Noah Constant, â€œThe Power of Scale for Parameter-Efficient Prompt
-  Tuningâ€? (2021), <https://arxiv.org/abs/2104.08691>.
+  Noah Constant, "The Power of Scale for Parameter-Efficient Prompt
+  Tuning"? (2021), <https://arxiv.org/abs/2104.08691>.
 
 - The paper that first described prefix tuning: Xiang Lisa Li and Percy
-  Liang, â€œPrefix-Tuning: Optimizing Continuous Prompts for
-  Generationâ€? (2021), <https://arxiv.org/abs/2101.00190>.
+  Liang, "Prefix-Tuning: Optimizing Continuous Prompts for
+  Generation"? (2021), <https://arxiv.org/abs/2101.00190>.
 
 - The paper introducing the original adapter method: Neil Houlsby et
-  al., â€œParameter-Efficient Transfer Learning for NLPâ€? (2019)
+  al., "Parameter-Efficient Transfer Learning for NLP"? (2019)
   <https://arxiv.org/abs/1902.00751>.
 
-- The paper introducing the LoRA method: Edward J. Hu et al., â€œLoRA:
-  Low-Rank Adaptation of Large Language Modelsâ€? (2021),
+- The paper introducing the LoRA method: Edward J. Hu et al., "LoRA:
+  Low-Rank Adaptation of Large Language Models"? (2021),
   <https://arxiv.org/abs/2106.09685>.
 
 - A survey of more than 40 research papers covering parameter- efficient
   fine-tuning methods: Vladislav Lialin, Vijeta Deshpande, and Anna
-  Rumshisky, â€œScaling Down to Scale Up: A Guide to Parameter-Efficient
-  Fine-Tuningâ€? (2023),
+  Rumshisky, "Scaling Down to Scale Up: A Guide to Parameter-Efficient
+  Fine-Tuning"? (2023),
   [*https://arxiv.org/abs/*](https://arxiv.org/abs/2303.15647)
   [*2303.15647*](https://arxiv.org/abs/2303.15647).
 
-- The InstructGPT paper: Long Ouyang et al., â€œTraining Language Models
-  to Follow Instructions with Human Feedbackâ€? (2022),
+- The InstructGPT paper: Long Ouyang et al., "Training Language Models
+  to Follow Instructions with Human Feedback"? (2022),
   <https://arxiv.org/abs/2203.02155>.
 
 - Proximal policy optimization, which is used for reinforcement learning
-  with human feedback: John Schulman et al., â€œProximal Policy
-  Optimization Algorithmsâ€? (2017), <https://arxiv.org/abs/1707.06347>.
+  with human feedback: John Schulman et al., "Proximal Policy
+  Optimization Algorithms"? (2017), <https://arxiv.org/abs/1707.06347>.
 
 \
 

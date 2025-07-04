@@ -45,7 +45,7 @@ concept with a smaller example.
 learning](../images/ch03-fig01.png){#fig:ch03-fig01}
 
 Rather than fitting the model to the training dataset, we can think of
-few-shot learning as â€œlearning to learn.â€? In contrast to supervised
+few-shot learning as "learning to learn."? In contrast to supervised
 learn-  ing, few-shot learning uses not a training dataset but a
 so-called *support set*, from which we sample training tasks that mimic
 the use-case scenario during prediction. With each training task comes a

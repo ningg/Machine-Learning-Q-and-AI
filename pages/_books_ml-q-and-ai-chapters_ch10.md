@@ -76,7 +76,7 @@ architecture and hyperparameter choices. A popular example of this is
 
 Dropout works by randomly setting a fraction of a layer's units to
 zero during training, which helps the model learn more robust and
-generalized representations. This â€œdropping outâ€? is typically
+generalized representations. This "dropping out"? is typically
 applied at each training iteration with a probability *p*, a
 hyperparameter that controls the fraction of units dropped out. Typical
 values for *p* are in the range of 0.2 to 0.8.
@@ -95,7 +95,7 @@ To create reproducible training runs, we must seed the random gen-
  erator before training with dropout (analogous to seeding the random
 generator before initializing the model weights). During inference, we
 need to disable dropout to guarantee deterministic results. Each deep
-learning framework has a specific setting for that purposeâ€"a PyTorch
+learning framework has a specific setting for that purpose""a PyTorch
 example is included in the *supplementary/q10-random-sources* subfolder
 at <https://github.com/rasbt/MachineLearning-QandAI-book>.
 
@@ -158,17 +158,17 @@ For instance, different hardware platforms may have specialized
 optimizations or libraries that can slightly alter the behavior of deep
 learning algorithms. To give one example of how different GPUs can
 produce different modeling results, the following is a quotation from
-the official NVIDIA documentation: â€œAcross different architectures, no
+the official NVIDIA documentation: "Across different architectures, no
 cuDNN routines guarantee bit-wise reproducibility. For example, there is
 no guarantee of bit-wise reproducibility when comparing the same routine
 run on NVIDIA Voltaâ„¢ and NVIDIA Turingâ„¢ \[. . .\] and NVIDIA Ampere
-architecture.â€?
+architecture."?
 
 ## Randomness and Generative AI [](#randomness-and-generative-ai)
 
 Besides the various sources of randomness mentioned earlier, certain
 models may also exhibit random behavior during inference that we can
-think of as â€œrandomness by design.â€? For instance, generative image
+think of as "randomness by design."? For instance, generative image
 and language models may create different results for identical prompts
 to produce a diverse sample of results. For image models, this is often
 so that users canselect the most accurate and aesthetically pleasing
@@ -245,30 +245,30 @@ be desired?
 ## References [](#references)
 
 - For more about different data sampling and model evaluation
-  techniques, see my article: â€œModel Evaluation, Model Selection, and
-  Algorithm Selection in Machine Learningâ€? (2018),
+  techniques, see my article: "Model Evaluation, Model Selection, and
+  Algorithm Selection in Machine Learning"? (2018),
   <https://arxiv.org/abs/1811.12808>.
 
 - The paper that originally proposed the dropout technique: Nitish
-  Srivastavaetal.,â€œDropout:ASimpleWaytoPreventNeuralNet-  works from
-  Overfittingâ€? (2014),
+  Srivastavaetal.,"Dropout:ASimpleWaytoPreventNeuralNet-  works from
+  Overfitting"? (2014),
   [*https://jmlr.org/papers/v15/sriva*](https://jmlr.org/papers/v15/srivastava14a.html)
   [*stava14a.html*](https://jmlr.org/papers/v15/srivastava14a.html).
 
 - A detailed paper on FFT-based convolution: Lu Chi, Borui Jiang, and
-  Yadong Mu, â€œFast Fourier Convolutionâ€? (2020),
+  Yadong Mu, "Fast Fourier Convolution"? (2020),
   <https://dl.acm.org/doi/abs/10.5555/3495724.3496100>.
 
 - Details on Winograd-based convolution: Syed Asad Alam et al.,
-  â€œWinograd Convolution for Deep Neural Networks: Efficient Point
-  Selectionâ€? (2022), <https://arxiv.org/abs/2201.10369>.
+  "Winograd Convolution for Deep Neural Networks: Efficient Point
+  Selection"? (2022), <https://arxiv.org/abs/2201.10369>.
 
 - More information about the deterministic algorithm settings in
   PyTorch:
   <https://pytorch.org/docs/stable/generated/torch.use_deterministic_algorithms.html>.
 
 - For details on the deterministic behavior of NVIDIA graphics cards,
-  see the â€œReproducibilityâ€? section of the official NVIDIA
+  see the "Reproducibility"? section of the official NVIDIA
   documentation:
   <https://docs.nvidia.com/deeplearning/cudnn/developer-guide/index.html#reproducibility>.
 

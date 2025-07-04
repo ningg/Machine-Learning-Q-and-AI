@@ -52,7 +52,7 @@ performance by collecting more data.
 set sizes](../images/ch05-fig01.png){#fig:ch05-fig01}
 
 The gap between training and validation performance indicates the degree
-of overfittingâ€"the more extensive the gap, the more overfitting
+of overfitting""the more extensive the gap, the more overfitting
 occurs. Conversely, the slope indicating an improvement in the
 validation performance suggests the model is underfitting and can
 benefit from more data. Typically, additional data can decrease both
@@ -68,7 +68,7 @@ Data augmentation allows us to create different versions of the original
 input data, which can improve the model's generalization performance.
 Why? Augmented data can help the model improve its ability to
 generalize, since it makes it harder to memorize spurious information
-via training examples or featuresâ€"or, in the case of image data, exact
+via training examples or features""or, in the case of image data, exact
 pixel values for specific pixel locations.
 Figure [1.2](#fig:ch05-fig02){reference="fig:ch05-fig02"
 reference-type="ref"} highlights common image data augmentation
@@ -105,7 +105,7 @@ dataset is unavailable, we can also pretrain the model on the relatively
 broad ImageNet dataset.
 
 A dataset may be extremely small and unsuitable for supervised
-learningâ€"for example, if it contains only a handful of labeled
+learning""for example, if it contains only a handful of labeled
 examples per class. If our classifier needs to operate in a context
 where the collection of additional labeled data is not feasible, we may
 also consider few-shot learning.
@@ -150,17 +150,17 @@ this?
 
 ## References [](#references)
 
-- Apaperondataaugmentationfortabulardata:DerekSnow, â€œDeltaPy: A
-  Framework for Tabular Data Augmentation in Py-  thonâ€? (2020),
+- Apaperondataaugmentationfortabulardata:DerekSnow, "DeltaPy: A
+  Framework for Tabular Data Augmentation in Py-  thon"? (2020),
   <https://github.com/firmai/deltapy>.
 
 - The paper proposing the GReaT method for generating synthetic tabular
   data using an auto-regressive generative large language model: Vadim
-  Borisov et al., â€œLanguage Models Are Realistic Tabular Data
-  Generatorsâ€? (2022), <https://arxiv.org/abs/2210.06280>.
+  Borisov et al., "Language Models Are Realistic Tabular Data
+  Generators"? (2022), <https://arxiv.org/abs/2210.06280>.
 
-- ThepaperproposingtheTabDDPMmethodforgeneratingsynthetictabulardatausingadiffusionmodel:AkimKotelnikovetal.,â€œTabDDPM:
-  Modelling Tabular Data with Diffusion Modelsâ€? (2022),
+- ThepaperproposingtheTabDDPMmethodforgeneratingsynthetictabulardatausingadiffusionmodel:AkimKotelnikovetal.,"TabDDPM:
+  Modelling Tabular Data with Diffusion Models"? (2022),
   <https://arxiv.org/abs/2209.15421>.
 
 - Scikit-learn's user guide offers a section on preprocessing data,
@@ -170,32 +170,32 @@ this?
 
 - A survey on methods for robustly training deep models with noisy
   labels that explores techniques to mitigate the impact of incorrect or
-  misleading target values: Bo Han et al., â€œA Survey of Label-noise
-  Representation Learning: Past, Present and Futureâ€? (2020),
+  misleading target values: Bo Han et al., "A Survey of Label-noise
+  Representation Learning: Past, Present and Future"? (2020),
   <https://arxiv.org/abs/2011.04406>.
 
 - Theoretical and empirical evidence to support the idea that control-
    ling the ratio of batch size to learning rate in stochastic gradient
   descent is crucial for good modeling performance in deep neural
-  networks: Fengxiang He, Tongliang Liu, and Dacheng Tao, â€œControl
+  networks: Fengxiang He, Tongliang Liu, and Dacheng Tao, "Control
   Batch Size and Learning Rate to Generalize Well: Theoretical and
-  Empirical Evidenceâ€? (2019),
+  Empirical Evidence"? (2019),
   <https://dl.acm.org/doi/abs/10.5555/3454287.3454390>.
 
 - Inclusion of adversarial examples, which are input samples designed to
   mislead the model, can improve prediction performance by making the
-  model more robust: Cihang Xie et al., â€œAdversarial Examples Improve
-  Image Recognitionâ€? (2019), <https://arxiv.org/abs/1911.09665>.
+  model more robust: Cihang Xie et al., "Adversarial Examples Improve
+  Image Recognition"? (2019), <https://arxiv.org/abs/1911.09665>.
 
 - Label smoothing is a regularization technique that mitigates the im-
    pact of potentially incorrect labels in the dataset by replacing
   hard 0 and 1 classification targets with softened values: Rafael
-  MÃ¼ller, Simon Kornblith, and Geoffrey Hinton, â€œWhen Does Label
-  Smoothing Help?â€? (2019), <https://arxiv.org/abs/1906.02629>.
+  MÃ¼ller, Simon Kornblith, and Geoffrey Hinton, "When Does Label
+  Smoothing Help?"? (2019), <https://arxiv.org/abs/1906.02629>.
 
 - Mixup, a popular method that trains neural networks on blended data
   pairs to improve generalization and robustness: Hongyi Zhang et al.,
-  â€œMixup: Beyond Empirical Risk Minimizationâ€? (2018),
+  "Mixup: Beyond Empirical Risk Minimization"? (2018),
   <https://arxiv.org/abs/1710.09412>.
 
 \

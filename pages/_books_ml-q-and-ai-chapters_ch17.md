@@ -57,9 +57,9 @@ original embeddings via a skip connection,also known as a *residual* or
 layer to improve the stability of the neural network's training. The
 addition of the original embeddings and the layer normalization steps
 are often summarized as the *Add&Normstep*. Finally, after entering the
-fully connected networkâ€"a small,multilayer perceptron consisting of
+fully connected network""a small,multilayer perceptron consisting of
 two fully connected layers with a nonlinear activation function in
-betweenâ€"the outputs are again added and normalized before they are
+between""the outputs are again added and normalized before they are
 passed to a multi-head self-attention layer of the decoder.
 
 The decoder in
@@ -115,11 +115,11 @@ token. The \[CLS\] token serves as a placeholder token for the model,
 prompting the model to return a *True* or *False* label indicating
 whether the sentences are in the correct order:
 
-- â€œ\[CLS\] Toast is a simple yet delicious food. \[SEP\] It's often
-  served with butter, jam, or honey.â€?
+- "\[CLS\] Toast is a simple yet delicious food. \[SEP\] It's often
+  served with butter, jam, or honey."?
 
-- â€œ\[CLS\] It's often served with butter, jam, or honey. \[SEP\]
-  Toast is a simple yet delicious food.â€?
+- "\[CLS\] It's often served with butter, jam, or honey. \[SEP\]
+  Toast is a simple yet delicious food."?
 
 The masked language and next-sentence pretraining objectives allow BERT
 to learn rich contextual representations of the input texts, which can
@@ -208,9 +208,9 @@ translation and summarization.
 
 ## Terminology [](#terminology)
 
-All of these methodsâ€"encoder-only, decoder-only, and encoder-decoder
-modelsâ€"are sequence-to-sequence models (often abbreviated as
-*seq2seq*). While we refer to BERT-style methods as â€œencoder-only,â€?
+All of these methods""encoder-only, decoder-only, and encoder-decoder
+models""are sequence-to-sequence models (often abbreviated as
+*seq2seq*). While we refer to BERT-style methods as "encoder-only,"?
 the description may be misleading since these methods also *decode* the
 embeddings into output tokens or text during pretraining. In other
 words, both encoder-only and decoder-only architectures perform
@@ -260,39 +260,39 @@ positive or negative sentiment)?
 ## References [](#references)
 
 - The Bahdanau attention mechanism for RNNs: Dzmitry Bahdanau, Kyunghyun
-  Cho, and Yoshua Bengio, â€œNeural Machine Translation by Jointly
-  Learning to Align and Translateâ€? (2014),
+  Cho, and Yoshua Bengio, "Neural Machine Translation by Jointly
+  Learning to Align and Translate"? (2014),
   <https://arxiv.org/abs/1409.0473>.
 
 - The original BERT paper, which popularized encoder-style transformers
   with a masked word and a next-sentence prediction pretraining
-  objective: Jacob Devlin et al., â€œBERT: Pre-training of Deep
-  Bidirectional Transformers for Language Understandingâ€? (2018),
+  objective: Jacob Devlin et al., "BERT: Pre-training of Deep
+  Bidirectional Transformers for Language Understanding"? (2018),
   <https://arxiv.org/abs/1810.04805>.
 
 - RoBERTaimprovesuponBERTbyoptimizingtrainingprocedures,usinglargertrainingdatasets,andremovingthenext-sentencepred-
-   ictiontask:YinhanLiuetal.,â€œRoBERTa:ARobustlyOptimizedBERTPretrainingApproachâ€?(2019),<https://arxiv.org/abs/1907.11692>.
+   ictiontask:YinhanLiuetal.,"RoBERTa:ARobustlyOptimizedBERTPretrainingApproach"?(2019),<https://arxiv.org/abs/1907.11692>.
 
-- The BART encoder-decoder architecture: Mike Lewis et al., â€œBART:
+- The BART encoder-decoder architecture: Mike Lewis et al., "BART:
   Denoising Sequence-to-Sequence Pre-training for Natural Language
-  Generation, Translation, and Comprehensionâ€? (2018),
+  Generation, Translation, and Comprehension"? (2018),
   <https://arxiv.org/abs/1910.13461>.
 
-- The T5 encoder-decoder architecture: Colin Raffel et al., â€œExploring
+- The T5 encoder-decoder architecture: Colin Raffel et al., "Exploring
   the Limits of Transfer Learning with a Unified Text-to-Text
-  Transformerâ€? (2019), <https://arxiv.org/abs/1910.10683>.
+  Transformer"? (2019), <https://arxiv.org/abs/1910.10683>.
 
 - The paper proposing the first GPT architecture: Alec Radford et al.,
-  â€œImproving Language Understanding by Generative Pre-Trainingâ€?
+  "Improving Language Understanding by Generative Pre-Training"?
   (2018),
   <https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf>.
 
-- The GPT-2 model: Alec Radford et al., â€œLanguage Models Are
-  Unsupervised Multitask Learnersâ€? (2019),
+- The GPT-2 model: Alec Radford et al., "Language Models Are
+  Unsupervised Multitask Learners"? (2019),
   <https://www.semanticscholar.org/paper/Language-Models-are-Unsupervised-Multitask-Learners-Radford-Wu/9405cc0d6169988371b2755e573cc28650d14dfe>.
 
-- The GPT-3 model: Tom B. Brown et al., â€œLanguage Models Are Few-Shot
-  Learnersâ€? (2020), <https://arxiv.org/abs/2005.14165>.
+- The GPT-3 model: Tom B. Brown et al., "Language Models Are Few-Shot
+  Learners"? (2020), <https://arxiv.org/abs/2005.14165>.
 
 \
 

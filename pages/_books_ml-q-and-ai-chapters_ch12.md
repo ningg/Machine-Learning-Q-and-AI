@@ -102,8 +102,8 @@ code to show this equivalence with a hands-on example in the
 ## When the Kernel Size Is 1 [](#when-the-kernel-size-is-1)
 
 The second scenario assumes that we reshape the input into an input
-â€œimageâ€? with \\(1\\times1\\) dimensions where the number of â€œcolor
-channelsâ€? equals the number of input features, as depicted in
+"image"? with \\(1\\times1\\) dimensions where the number of "color
+channels"? equals the number of input features, as depicted in
 Figure [1.3](#fig:ch12-fig03){reference="fig:ch12-fig03"
 reference-type="ref"}.
 

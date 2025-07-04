@@ -46,7 +46,7 @@ of each token.
 
 What makes attention mechanisms so unique and useful? For the following
 illustration, suppose we are using an encoder network on a fixed-length
-representation of the input sequence or imageâ€"this can be a fully
+representation of the input sequence or image""this can be a fully
 connected, convolutional, or attention-based encoder.
 
 In a transformer, the encoder uses self-attention mechanisms to compute
@@ -165,32 +165,32 @@ feature selection?
 ## References [](#references)
 
 - An example of an attention mechanism in the context of image rec-
-   ognition: Hugo Larochelle and Geoffrey Hinton, â€œLearning to
-  Combine Foveal Glimpses with a Third-Order Boltzmann Machineâ€?
+   ognition: Hugo Larochelle and Geoffrey Hinton, "Learning to
+  Combine Foveal Glimpses with a Third-Order Boltzmann Machine"?
   (2010), <https://dl.acm.org/doi/10.5555/2997189.2997328>.
 
 - The paper introducing the self-attention mechanism with the original
-  transformer architecture: Ashish Vaswani et al., â€œAttention Is All
-  You Needâ€? (2017), <https://arxiv.org/abs/1706.03762>.
+  transformer architecture: Ashish Vaswani et al., "Attention Is All
+  You Need"? (2017), <https://arxiv.org/abs/1706.03762>.
 
 - Transformers can have trillions of parameters: William Fedus, Barret
-  Zoph, and Noam Shazeer, â€œSwitch Transformers: Scaling to Trillion
-  Parameter Models with Simple and Efficient Sparsityâ€? (2021),
+  Zoph, and Noam Shazeer, "Switch Transformers: Scaling to Trillion
+  Parameter Models with Simple and Efficient Sparsity"? (2021),
   <https://arxiv.org/abs/2101.03961>.
 
 - Linear scaling laws suggest that training loss decreases
   proportionally with an increase in model size: Jared Kaplan et al.,
-  â€œScaling Laws for Neural Language Modelsâ€? (2020),
+  "Scaling Laws for Neural Language Models"? (2020),
   <https://arxiv.org/abs/2001.08361>.
 
 - Research suggests that in transformer-based language models, the
   training tokens should be doubled for every doubling of model size:
-  Jordan Hoffmann et al., â€œTraining Compute-Optimal Large Language
-  Modelsâ€? (2022), <https://arxiv.org/abs/2203.15556>.
+  Jordan Hoffmann et al., "Training Compute-Optimal Large Language
+  Models"? (2022), <https://arxiv.org/abs/2203.15556>.
 
 - Formoreabouttheweightsusedinself-attentionandcross-attention
-  mechanisms, check out my blog post: â€œUnderstanding and Coding the
-  Self-Attention Mechanism of Large Language Models from Scratchâ€? at
+  mechanisms, check out my blog post: "Understanding and Coding the
+  Self-Attention Mechanism of Large Language Models from Scratch"? at
   <https://sebastianraschka.com/blog/2023/self-attention-from-scratch.html>.
 
 \

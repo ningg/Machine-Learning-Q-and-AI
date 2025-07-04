@@ -136,7 +136,7 @@ from a distribution that approximates a standard Gaussian distribution.
 
 Training a VAE involves optimizing the model's parameters to minimize
 a loss function composed of two terms: a reconstruction loss and a
-Kullbackâ€"Leibler-divergence (KL-divergence) regularization term. The
+Kullback""Leibler-divergence (KL-divergence) regularization term. The
 reconstruction loss ensures that the decoded samples closely resemble
 the input images, while the KL-divergence term acts as a surrogate loss
 that encourages the learned latent distribution to be close to a
@@ -202,11 +202,11 @@ development. One of the pioneering models in this area was the
 *non-linear independent components estimation (NICE)* approach. NICE
 begins with a simple probability distribution, often something
 straightforward like a normal distribution. You can think of this as a
-kind of â€œrandom noise,â€? or data with no particular shape or
+kind of "random noise,"? or data with no particular shape or
 structure. NICE then applies a series of transformations to this simple
 distribution. Each transformation is designed to make the datalook more
 like the final target (for instance, the distribution of real-world
-images). These transformations are â€œinvertible,â€? meaning we can
+images). These transformations are "invertible,"? meaning we can
 always reverse them back to the original simple distribution. After
 several successive transformations, the simple distribution has morphed
 into a complex distribution that closely matches the distribution of the
@@ -405,31 +405,31 @@ we use them to generate new images?
 ## References [](#references)
 
 - The original paper proposing variational autoencoders: Diederik P.
-  Kingma and Max Welling, â€œAuto-Encoding Variational Bayesâ€? (2013),
+  Kingma and Max Welling, "Auto-Encoding Variational Bayes"? (2013),
   <https://arxiv.org/abs/1312.6114>.
 
 - The paper introducing generative adversarial networks: Ian J.
-  Goodfellow et al., â€œGenerative Adversarial Networksâ€? (2014),
+  Goodfellow et al., "Generative Adversarial Networks"? (2014),
   <https://arxiv.org/abs/1406.2661>.
 
 - The paper introducing NICE: Laurent Dinh, David Krueger, and Yoshua
-  Bengio, â€œNICE: Non-linear Independent Components Estimationâ€?
+  Bengio, "NICE: Non-linear Independent Components Estimation"?
   (2014), <https://arxiv.org/abs/1410.8516>.
 
 - The paper proposing the autoregressive PixelCNN model: Aaron van den
-  Oord et al., â€œConditional Image Generation with PixelCNN Decodersâ€?
+  Oord et al., "Conditional Image Generation with PixelCNN Decoders"?
   (2016), <https://arxiv.org/abs/1606.05328>.
 
 - The paper introducing the popular Stable Diffusion latent diffusion
-  model: Robin Rombach et al., â€œHigh-Resolution Image Synthesis with
-  Latent Diffusion Modelsâ€? (2021), <https://arxiv.org/abs/2112.10752>.
+  model: Robin Rombach et al., "High-Resolution Image Synthesis with
+  Latent Diffusion Models"? (2021), <https://arxiv.org/abs/2112.10752>.
 
 - The Stable Diffusion code implementation:
   [*https://github.com/Comp*](https://github.com/CompVis/stable-diffusion)
   [*Vis/stable-diffusion*](https://github.com/CompVis/stable-diffusion).
 
 - The paper originally proposing consistency models: Yang Song et al.,
-  â€œConsistency Modelsâ€? (2023), <https://arxiv.org/abs/2303.01469>.
+  "Consistency Models"? (2023), <https://arxiv.org/abs/2303.01469>.
 
 \
 

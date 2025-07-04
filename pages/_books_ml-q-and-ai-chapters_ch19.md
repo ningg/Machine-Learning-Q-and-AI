@@ -32,7 +32,7 @@ The *perplexity metric* is directly related to the loss function used
 for pretraining LLMs and is commonly used to evaluate text generation
 and text completion models. Essentially, it quantifies the average
 uncertainty of the model in predicting the next word in a given
-contextâ€"the lower the perplexity, the better.
+context""the lower the perplexity, the better.
 
 The *bilingual evaluation understudy (BLEU)* score is a widely used
 metric for evaluating the quality of machine-generated translations. It
@@ -77,7 +77,7 @@ Perplexity is defined as 2^*H*(*p*,\ *q*)/*n*^, where *H*(*p*, *q*) is
 the cross entropy between the true distribution of words *p* and the
 predicted distribution of words *q*, and *n* is the sentence length (the
 number of words or tokens) to normalize the score. As cross entropy
-decreases, perplexity decreases as wellâ€"the lower the perplexity, the
+decreases, perplexity decreases as well""the lower the perplexity, the
 better. While we typically compute the cross entropy using a natural
 logarithm, we calculate the cross entropy and perplexity with a base-2
 logarithm for the intuitive relationship to hold. (However, whether we
@@ -92,8 +92,8 @@ sentence *s*, we can compute the perplexity directly as follows:
 
 \\\[Perplexity(s) = 2\^{-\\frac{1}{n} \\log_2 (p(s))}\\\]
 
-where *s* is the sentence or text we want to evaluate, such as â€œThe
-quick brown fox jumps over the lazy dog,â€? *p*(*s*) is the probability
+where *s* is the sentence or text we want to evaluate, such as "The
+quick brown fox jumps over the lazy dog,"? *p*(*s*) is the probability
 scores returned by the model, and *n* is the number of words or tokens.
 For example, if the model returns the probability scores \[0.99, 0.85,
 0.89, 0.99, 0.99, 0.99, 0.99, 0.99\], the perplexity is:
@@ -104,7 +104,7 @@ For example, if the model returns the probability scores \[0.99, 0.85,
 \\,\\times\\, 0.99 \\,\\times\\, 0.99 \\,\\times\\, 0.99) }\\\\
 =\\,&1.043 \\end{aligned}\\\]
 
-If the sentence was â€œThe fast black cat jumps over the lazy dog,â€?
+If the sentence was "The fast black cat jumps over the lazy dog,"?
 with probabilities \[0.99, 0.65, 0.13, 0.05, 0.21, 0.99, 0.99, 0.99\],
 the corresponding perplexity would be 2.419.
 
@@ -168,7 +168,7 @@ suited for detecting issues. In other words, it's best used as a model
 selection tool, not a model evaluation tool.
 
 Atthetimeofwriting,themostpopularalternativestoBLEUare METEOR and COMET
-(see the â€œâ€? section at the end of this chapter for more details).
+(see the ""? section at the end of this chapter for more details).
 
 ### ROUGE Score [](#rouge-score)
 
@@ -194,7 +194,7 @@ practice, ROUGE is often computed for bigrams, that is, 2-grams).
 ![image](../images/ch19-fig02.png){style="width:6.5in"}
 :::
 
-There are other ROUGE variants beyond ROUGE-1 (the F1 scoreâ€"based
+There are other ROUGE variants beyond ROUGE-1 (the F1 score""based
 ROUGE score for 1-grams):
 
 ROUGE-N Measures the overlap of n-grams between the candidate and
@@ -280,11 +280,11 @@ model compares to human performance for accomplishing a goal. As
 mentioned earlier, the best way to evaluate LLMs is to assign human
 raters who judge the results. However, since this is often expensive and
 not easy to scale, we use the aforementioned metrics to estimate model
-performance. To quote from the InstructGPTpaper â€œTraining Language
-Models to Follow Instructions with Human Feedbackâ€?: â€œPublic NLP
+performance. To quote from the InstructGPTpaper "Training Language
+Models to Follow Instructions with Human Feedback"?: "Public NLP
 datasets are not reflective of how our language models are used
-.â€†.â€†. \[They\] are designed to capture tasks that are easy to
-evaluate with automatic metrics.â€?
+."†."†. \[They\] are designed to capture tasks that are easy to
+evaluate with automatic metrics."?
 
 Besides perplexity, ROUGE, BLEU, and BERTScore, several other popular
 evaluation metrics are used to assess the predictive performance of
@@ -295,7 +295,7 @@ LLMs.
 19-1. In step 5 of
 Figure [\[fig:ch19-fig03\]](#fig:ch19-fig03){reference="fig:ch19-fig03"
 reference-type="ref"}, the cosine similarity between the two embeddings
-of â€œcatâ€? is not 1.0, where 1.0 indicates a maximum cosine
+of "cat"? is not 1.0, where 1.0 indicates a maximum cosine
 similarity. Why is that?
 
 19-2. In practice, we might find that the BERTScore is not symmetric.
@@ -306,51 +306,51 @@ this?
 ## References [](#references)
 
 - The paper proposing the original BLEU method: Kishore Papineni et
-  al.,â€œBLEU: A Method for Automatic Evaluation of Machine
-  Translationâ€? (2002), <https://aclanthology.org/P02-1040/>.
+  al.,"BLEU: A Method for Automatic Evaluation of Machine
+  Translation"? (2002), <https://aclanthology.org/P02-1040/>.
 
 - A follow-up study disproving BLEU's high correlation with human
   evaluations: Chris Callison-Burch, Miles Osborne, and Philipp Koehn,
-  â€œRe-Evaluating the Role of BLEU in Machine Translation Researchâ€?
+  "Re-Evaluating the Role of BLEU in Machine Translation Research"?
   (2006), <https://aclanthology.org/E06-1032/>.
 
 - The shortcomings of BLEU, based on 37 studies published over 20 years:
-  Benjamin Marie, â€œ12 Critical Flaws of BLEUâ€? (2022),
+  Benjamin Marie, "12 Critical Flaws of BLEU"? (2022),
   <https://medium.com/@bnjmn_marie/12-critical-flaws-of-bleu-1d790ccbe1b1>.
 
 - The paper proposing the original ROUGE method: Chin-Yew Lin,
-  â€œROUGE:APackageforAutomaticEvaluationofSummariesâ€? (2004),
+  "ROUGE:APackageforAutomaticEvaluationofSummaries"? (2004),
   <https://aclanthology.org/W04-1013/>.
 
 - A survey on the usage of ROUGE in conference papers: Sebastian
-  Gehrmann, Elizabeth Clark, and Thibault Sellam, â€œRepairing the
+  Gehrmann, Elizabeth Clark, and Thibault Sellam, "Repairing the
   Cracked Foundation: A Survey of Obstacles in Evaluation Practices for
-  Generated Textâ€? (2022), <https://arxiv.org/abs/2202.06935>.
+  Generated Text"? (2022), <https://arxiv.org/abs/2202.06935>.
 
 - BERTScore, an evaluation metric based on a large language model:
-  Tianyi Zhang et al., â€œBERTScore: Evaluating Text Generation with
-  BERTâ€? (2019), <https://arxiv.org/abs/1904.09675>.
+  Tianyi Zhang et al., "BERTScore: Evaluating Text Generation with
+  BERT"? (2019), <https://arxiv.org/abs/1904.09675>.
 
 - A comprehensive survey on evaluation metrics for large language
   models: Asli Celikyilmaz, Elizabeth Clark, and Jianfeng Gao,
-  â€œEvaluation of Text Generation: A Surveyâ€? (2021),
+  "Evaluation of Text Generation: A Survey"? (2021),
   <https://arxiv.org/abs/2006.14799>.
 
 - METEOR is a machine translation metric that improves upon BLEU by
   using advanced matching techniques and aiming for better
   correlationwithhumanjudgmentatthesentencelevel:SatanjeevBanerjee and
-  Alon Lavie, â€œMETEOR: An Automatic Metric for MT Evaluation with
-  Improved Correlation with Human Judgmentsâ€? (2005),
+  Alon Lavie, "METEOR: An Automatic Metric for MT Evaluation with
+  Improved Correlation with Human Judgments"? (2005),
   <https://aclanthology.org/W05-0909/>.
 
 - COMET is a neural framework that sets new standards for correlating
   machine translation quality with human judgments, using cross-lingual
   pretrained models and multiple types of evaluation: Ricardo Rei et
-  al., â€œCOMET: A Neural Framework for MT Evaluationâ€? (2020),
+  al., "COMET: A Neural Framework for MT Evaluation"? (2020),
   <https://arxiv.org/abs/2009.09025>.
 
-- The InstructGPT paper: Long Ouyang et al., â€œTraining Language Models
-  to Follow Instructions with Human Feedbackâ€? (2022),
+- The InstructGPT paper: Long Ouyang et al., "Training Language Models
+  to Follow Instructions with Human Feedback"? (2022),
   <https://arxiv.org/abs/2203.02155>.
 
 \

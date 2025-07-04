@@ -15,7 +15,7 @@ previously developed attention mechanisms?**
 
 *Self-attention* enables a neural network to refer to other portions of
 the input while focusing on a particular segment, essentially allowing
-each part the ability to â€œattendâ€? to the whole input. The original
+each part the ability to "attend"? to the whole input. The original
 attention mechanism developed for recurrent neural networks (RNNs) is
 applied between two different sequences: the encoder and the decoder
 embeddings. Since the attention mechanisms used in transformer-based
@@ -152,17 +152,17 @@ applications as well?
 
 - The paper introducing the original self-attention mechanism, also
   known as *scaled dot-product* attention: Ashish Vaswani et al.,
-  â€œAttention Is All You Needâ€? (2017),
+  "Attention Is All You Need"? (2017),
   <https://arxiv.org/abs/1706.03762>.
 
 - The Bahdanau attention mechanism for RNNs: Dzmitry Bahdanau, Kyunghyun
-  Cho, and Yoshua Bengio, â€œNeural Machine Translation by Jointly
-  Learning to Align and Translateâ€? (2014),
+  Cho, and Yoshua Bengio, "Neural Machine Translation by Jointly
+  Learning to Align and Translate"? (2014),
   <https://arxiv.org/abs/1409.0473>.
 
 - For more about the parameterized self-attention mechanism, check out
-  my blog post: â€œUnderstanding and Coding the Self-Attention Mechanism
-  of Large Language Models from Scratchâ€? at
+  my blog post: "Understanding and Coding the Self-Attention Mechanism
+  of Large Language Models from Scratch"? at
   <https://sebastianraschka.com/blog/2023/self-attention-from-scratch.html>.
 
 \

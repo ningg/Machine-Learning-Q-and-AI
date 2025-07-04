@@ -82,7 +82,7 @@ involve three different kernels with three sets of weights:
 w\^{(3)}\_{j} x_j + b\\\]
 
 Since we have three sets of weights
-(*w*^(1)^,*w*^(2)^,and*w*^(3)^for*j*=\[1,â€¦,25\]), we have 3
+(*w*^(1)^,*w*^(2)^,and*w*^(3)^for*j*=\[1,"¦,25\]), we have 3
 \\(\\times\\) 25 + 1 = 76 parameters in this convolutional layer.
 
 We use one kernel for each output channel, where each kernel is unique

@@ -122,7 +122,7 @@ truth class labels. While the smaller student network is trained on the
 same dataset, the training objective is to minimize both (a) the cross
 entropy between the outputs and the class labels and (b) the difference
 between its outputs and the teacher outputs (measured using
-*Kullbackâ€"Leibler* divergence, which quantifies the difference between
+*Kullback""Leibler* divergence, which quantifies the difference between
 two probability distributions by calculating how much one distribution
 diverges from the other in terms of information content).
 
@@ -130,8 +130,8 @@ diverges from the other in terms of information content).
 ![image](../images/ch06-fig02.png){style="width:5.625in"}
 :::
 
-By minimizing the Kullbackâ€"Leibler divergenceâ€"the difference between
-the teacher and student score distributionsâ€"the student learns to
+By minimizing the Kullback""Leibler divergence""the difference between
+the teacher and student score distributions""the student learns to
 mimic the teacher while being smaller and more efficient.
 
 ### Caveats with Smaller Models [](#caveats-with-smaller-models)
@@ -219,7 +219,7 @@ ensembles](../images/ch06-fig03.png){#fig:ch06-fig03}
 
 As shown in Figure [1.2](#fig:ch06-fig03){reference="fig:ch06-fig03"
 reference-type="ref"}, the *k*-fold ensemble approach trains each of the
-*k* models on the respective *k* â€" 1 training folds in each round.
+*k* models on the respective *k* "" 1 training folds in each round.
 After evaluating the models on the validation folds, we can combine them
 into a majority vote classifier or build an ensemble using stacking, a
 technique that combines multiple classification or regression models via
@@ -266,7 +266,7 @@ selecting these techniques as a hyperparameter optimization problem.
 ### Exercises [](#exercises)
 
 6-1. Supposewe'reusingearlystoppingasamechanismtoreduceover-
- fittingâ€"inparticular,amodernearly-stoppingvariantthatcreates
+ fitting""inparticular,amodernearly-stoppingvariantthatcreates
 checkpoints of the best model (for instance, the model with the high-
  est validation accuracy) during training so that we can load it after
 the training has completed. This mechanism can be enabled in most modern
@@ -282,24 +282,24 @@ are some of the drawbacks associated with ensemble techniques?
 ## References [](#references)
 
 - For more on the distinction between *L*~2~ regularization and weight
-  decay: Guodong Zhang et al., â€œThree Mechanisms of Weight Decay
-  Regularizationâ€? (2018), <https://arxiv.org/abs/1810.12281>.
+  decay: Guodong Zhang et al., "Three Mechanisms of Weight Decay
+  Regularization"? (2018), <https://arxiv.org/abs/1810.12281>.
 
 - Research results indicate that pruning and knowledge distillation can
   improve generalization performance, presumably due to smaller model
-  sizes: Geoffrey Hinton, Oriol Vinyals, and Jeff Dean, â€œDistilling
-  the Knowledge in a Neural Networkâ€? (2015),
+  sizes: Geoffrey Hinton, Oriol Vinyals, and Jeff Dean, "Distilling
+  the Knowledge in a Neural Network"? (2015),
   <https://arxiv.org/abs/1503.02531>.
 
 - Classic bias-variance theory suggests that reducing model size can
   reduce overfitting: Jerome H. Friedman, Robert Tibshirani, and Trevor
-  Hastie, â€œModel Selection and Bias-Variance Tradeoff,â€? Chapter 2.9,
+  Hastie, "Model Selection and Bias-Variance Tradeoff,"? Chapter 2.9,
   in *The Elements of Statistical Learning* (Springer, 2009).
 
 - The lottery ticket hypothesis applies knowledge distillation to find
   smaller networks with the same predictive performance as the original
-  one: Jonathan Frankle and Michael Carbin, â€œThe Lottery Ticket
-  Hypothesis: Finding Sparse, Trainable Neural Networksâ€? (2018),
+  one: Jonathan Frankle and Michael Carbin, "The Lottery Ticket
+  Hypothesis: Finding Sparse, Trainable Neural Networks"? (2018),
   <https://arxiv.org/abs/1803.03635>.
 
 - For more on double descent:
@@ -307,24 +307,24 @@ are some of the drawbacks associated with ensemble techniques?
 
 - The phenomenon of grokking indicates that generalization perfor-
    mance can improve well past the point of overfitting: Alethea Power
-  et al., â€œGrokking: Generalization Beyond Overfitting on Small
-  Algorithmic Datasetsâ€? (2022), <https://arxiv.org/abs/2201.02177>.
+  et al., "Grokking: Generalization Beyond Overfitting on Small
+  Algorithmic Datasets"? (2022), <https://arxiv.org/abs/2201.02177>.
 
 - Recent research shows that the improved training process partly
   explains the reduction of overfitting due to pruning: Tian Jin et al.,
-  â€œPruning's Effect on Generalization Through the Lens of Training
-  and Regularizationâ€? (2022), <https://arxiv.org/abs/2210.13738>.
+  "Pruning's Effect on Generalization Through the Lens of Training
+  and Regularization"? (2022), <https://arxiv.org/abs/2210.13738>.
 
 - Dropout was previously discussed as a regularization technique, but it
   can also be considered an ensemble method that approximates a weighted
   geometric mean of multiple networks: Pierre Baldi and Peter J.
-  Sadowski, â€œUnderstanding Dropoutâ€? (2013),
+  Sadowski, "Understanding Dropout"? (2013),
   [*https://proceedings.neurips.cc/paper/2013/hash/71f6278d140af599*](https://proceedings.neurips.cc/paper/2013/hash/71f6278d140af599e06ad9bf1ba03cb0-Abstract.html)
   [*e06ad9bf1ba03cb0-Abstract.html*](https://proceedings.neurips.cc/paper/2013/hash/71f6278d140af599e06ad9bf1ba03cb0-Abstract.html).
 
 - Regularization cocktails need to be tuned on a per-dataset basis:
-  Arlind Kadra et al., â€œWell-Tuned Simple Nets Excel on Tabular
-  Datasetsâ€? (2021), <https://arxiv.org/abs/2106.11189>.
+  Arlind Kadra et al., "Well-Tuned Simple Nets Excel on Tabular
+  Datasets"? (2021), <https://arxiv.org/abs/2106.11189>.
 
 \
 

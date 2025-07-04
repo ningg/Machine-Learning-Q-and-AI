@@ -17,7 +17,7 @@
 
 The distributional hypothesis is a linguistic theory suggesting that
 words occurring in the same contexts tend to have similar meanings,
-according to the original source, â€œDistributional Structureâ€? by
+according to the original source, "Distributional Structure"? by
 Zellig S. Harris. Succinctly, the more similar the meanings of two words
 are, the more often they appear in similar contexts.
 
@@ -38,8 +38,8 @@ style="width:105.0%"}
 It is easy to construct counterexamples using polysemous words, that is,
 words that have multiple meanings that are related but not identical.
 For example, consider the word *bank*. As a noun, it can refer to a
-financial institution, the â€œrising ground bordering a river,â€? the
-â€œsteep incline of a hill,â€? or a â€œprotective cushioning rimâ€?
+financial institution, the "rising ground bordering a river,"? the
+"steep incline of a hill,"? or a "protective cushioning rim"?
 (according to the Merriam-Webster dictionary). It can even be a verb: to
 bank on something means to rely or depend on it. These different
 meanings have different distributional properties and may not always
@@ -64,8 +64,8 @@ from a selected word. While skip-gram is more effective for infrequent
 words, CBOW is usually faster to train.
 
 After training, word embeddings are placed within the vector space so
-that words with common contexts in the corpusâ€"that is, words with
-semantic and syntactic similaritiesâ€"are positioned close to each
+that words with common contexts in the corpus""that is, words with
+semantic and syntactic similarities""are positioned close to each
 other, as illustrated in
 Figure [1.2](#fig:ch14-fig02){reference="fig:ch14-fig02"
 reference-type="ref"}. Conversely, dissimilar words are located farther
@@ -135,33 +135,33 @@ modalities for neural networks.)
 ### References [](#references)
 
 - The original source describing the distributional hypothesis:
-  Zellig S. Harris, â€œDistributional Structureâ€? (1954),
+  Zellig S. Harris, "Distributional Structure"? (1954),
   [*https://doi.org/10.1080/*](https://doi.org/10.1080/00437956.1954.11659520)
   [*00437956.1954.11659520*](https://doi.org/10.1080/00437956.1954.11659520).
 
 - The paper introducing the Word2vec model: Tomas Mikolov et al.,
-  â€œEfficient Estimation of Word Representations in Vector Spaceâ€?
+  "Efficient Estimation of Word Representations in Vector Space"?
   (2013), <https://arxiv.org/abs/1301.3781>.
 
-- The paper introducing the BERT model: Jacob Devlin et al., â€œBERT:
+- The paper introducing the BERT model: Jacob Devlin et al., "BERT:
   Pre-training of Deep Bidirectional Transformers for Language
-  Understandingâ€? (2018), <https://arxiv.org/abs/1810.04805>.
+  Understanding"? (2018), <https://arxiv.org/abs/1810.04805>.
 
 - The paper introducing the GPT model: Alec Radford and Karthik
-  Narasimhan, â€œImproving Language Understanding by Generative
-  Pre-Trainingâ€? (2018),
+  Narasimhan, "Improving Language Understanding by Generative
+  Pre-Training"? (2018),
   [*https://www.semanticscholar.org/paper/Improving*](https://www.semanticscholar.org/paper/Improving-Language-Understanding-by-Generative-Radford-Narasimhan/cd18800a0fe0b668a1cc19f2ec95b5003d0a5035)
   [*-Language-Understanding-by-Generative-Radford-Narasimhan/cd18800a0*](https://www.semanticscholar.org/paper/Improving-Language-Understanding-by-Generative-Radford-Narasimhan/cd18800a0fe0b668a1cc19f2ec95b5003d0a5035)
   [*fe0b668a1cc19f2ec95b5003d0a5035*](https://www.semanticscholar.org/paper/Improving-Language-Understanding-by-Generative-Radford-Narasimhan/cd18800a0fe0b668a1cc19f2ec95b5003d0a5035).
 
 - BERT produces embeddings in which similar words (or tokens) are close
-  in the embedding space: Nelson F. Liu et al., â€œLinguistic Knowledge
-  and Transferability of Contextual Representationsâ€? (2019),
+  in the embedding space: Nelson F. Liu et al., "Linguistic Knowledge
+  and Transferability of Contextual Representations"? (2019),
   <https://arxiv.org/abs/1903.08855>.
 
 - The paper showing that GPT produces high-quality contextualized word
   embeddings that capture semantic similarity: Fabio Petroni et al.,
-  â€œLanguage Models as Knowledge Bases?â€? (2019),
+  "Language Models as Knowledge Bases?"? (2019),
   <https://arxiv.org/abs/1909.01066>.
 
 \

@@ -140,7 +140,7 @@ data, and 20 percent test data.
 
 The first step after training the model on the training set is to define
 a *nonconformity measure*, a function that assigns a numeric score to
-each instance in the calibration set based on how â€œunusualâ€? it is.
+each instance in the calibration set based on how "unusual"? it is.
 This could be based on the distance to the classifier's decision
 boundary or, more commonly, 1 minus the predicted probability of a class
 label. The higher the score is, the more unusual the instance is.

@@ -181,7 +181,7 @@ relationship from the training data may no longer hold. The model has to
 cope with both new input patterns and new rules for making predictions
 based on those patterns.
 
-However, the â€œseverityâ€? of a shift can vary widely depending on the
+However, the "severity"? of a shift can vary widely depending on the
 real-world context. For example, even a covariate shift can be extremely
 problematic if the shift is severe or if the model cannot adapt to the
 new input distribution. On the other hand, a joint distribution shift
@@ -204,8 +204,8 @@ especially when we do not have access to labels for the new data?
 ## References [](#references)
 
 - Recommendations and pointers to advanced mitigation techniques for
-  avoiding domain shift: Abolfazl Farahani et al., â€œA Brief Review of
-  Domain Adaptationâ€? (2020), <https://arxiv.org/abs/2010.03978>.
+  avoiding domain shift: Abolfazl Farahani et al., "A Brief Review of
+  Domain Adaptation"? (2020), <https://arxiv.org/abs/2010.03978>.
 
 \
 

@@ -14,32 +14,32 @@
 
 ## What People Are Saying
 
-> â€œSebastian has a gift for distilling complex, AI-related topics into
+> "Sebastian has a gift for distilling complex, AI-related topics into
 > practical takeaways that can be understood by anyone. His new book,
 > Machine Learning Q and AI, is another great resource for AI
-> practitioners of any level.â€? â€"Cameron R. Wolfe, Writer of Deep
+> practitioners of any level."? ""Cameron R. Wolfe, Writer of Deep
 > (Learning) Focus
 
-> â€œSebastian uniquely combines academic depth, engineering agility,
+> "Sebastian uniquely combines academic depth, engineering agility,
 > and the ability to demystify complex ideas. He can go deep into any
 > theoretical topics, experiment to validate new ideas, then explain
 > them all to you in simple words. If you're starting your journey
-> into machine learning, Sebastian is your guide.â€? â€"Chip Huyen,
+> into machine learning, Sebastian is your guide."? ""Chip Huyen,
 > Author of Designing Machine Learning Systems
 
-> â€œOne could hardly ask for a better guide than Sebastian, who is,
+> "One could hardly ask for a better guide than Sebastian, who is,
 > without exaggeration, the best machine learning educator currently in
 > the field. On each page, Sebastian not only imparts his extensive
 > knowledge but also shares the passion and curiosity that mark true
-> expertise.â€? â€"Chris Albon, Director of Machine Learning, The
+> expertise."? ""Chris Albon, Director of Machine Learning, The
 > Wikimedia Foundation
 
-> â€œSebastian Raschka's new book, Machine Learning Q and AI, is a
+> "Sebastian Raschka's new book, Machine Learning Q and AI, is a
 > one-stop shop for overviews of crucial AI topics beyond the core
-> covered in most introductory coursesâ€¦If you have already stepped
+> covered in most introductory courses"¦If you have already stepped
 > into the world of AI via deep neural networks, then this book will
-> give you what you need to locate and understand the next level.â€?
-> â€"Ronald T. Kneusel, author of How AI Works
+> give you what you need to locate and understand the next level."?
+> ""Ronald T. Kneusel, author of How AI Works
 
  
 

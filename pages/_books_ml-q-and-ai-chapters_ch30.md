@@ -38,7 +38,7 @@ storage might be insufficient, or the data may be hard to access.
 
 Similar to the techniques for reducing overfitting discussed in
 Chapter [\[ch05\]](../ch05){reference="ch05" reference-type="ref"}, it
-can be helpful to â€œbootstrapâ€? the data by generating modified
+can be helpful to "bootstrap"? the data by generating modified
 (augmented) or artificial (synthetic) training examples to boost the
 performance of the predictive model. Of course, improving the quality of
 data can also lead to the improved predictive performance of a model, as
@@ -128,7 +128,7 @@ Chapter [\[ch03\]](../ch03){reference="ch03" reference-type="ref"}.
 
 Meta-learning involves developing methods that determine how machine
 learning algorithms can best learn from data. We can therefore think of
-meta-learning as â€œlearning to learn.â€? The machine learning community
+meta-learning as "learning to learn."? The machine learning community
 has developed several approaches for meta-learning. Within the machine
 learning community, the term *meta-learning* doesn't just represent
 multiple subcategories and approaches; it is also occasionally employed
@@ -352,7 +352,7 @@ technique](../images/ch30-fig11.png){#fig:ch30-fig11}
 Note that the dark boxes in
 Figure [1.10](#fig:ch30-fig11){reference="fig:ch30-fig11"
 reference-type="ref"} are not terminal nodes but arc back to the second
-box, â€œEvaluate model performanceâ€?; additional arrows were omitted to
+box, "Evaluate model performance"?; additional arrows were omitted to
 avoid visual clutter.
 
 ### Exercises [](#exercises)
@@ -385,28 +385,28 @@ obtain confidence scores using deep neural networks for active learning?
   [*\_decision_tree*](https://en.wikipedia.org/wiki/Incremental_decision_tree).
 
 - Models trained with multi-task learning often outperform models
-  trained on a single task: Rich Caruana, â€œMultitask Learningâ€?
+  trained on a single task: Rich Caruana, "Multitask Learning"?
   (1997), <https://doi.org/10.1023%2FA%3A1007379606734>.
 
 - A single transformer-based module that can simultaneously process
-  image and text data: Chen Sun et al., â€œVideoBERT: A Joint Model for
-  Video and Language Representation Learningâ€? (2019),
+  image and text data: Chen Sun et al., "VideoBERT: A Joint Model for
+  Video and Language Representation Learning"? (2019),
   <https://arxiv.org/abs/1904.01766>.
 
 - The aforementioned research suggesting the key to the success of
   multimodal learning is the improved quality of the latent space
-  representation: Yu Huang et al., â€œWhat Makes Multi-Modal Learning
-  Better Than Single (Provably)â€? (2021),
+  representation: Yu Huang et al., "What Makes Multi-Modal Learning
+  Better Than Single (Provably)"? (2021),
   <https://arxiv.org/abs/2106.04538>.
 
-- For more information on active learning: Zhen et al., â€œA Comparative
-  Survey of Deep Active Learningâ€? (2022),
+- For more information on active learning: Zhen et al., "A Comparative
+  Survey of Deep Active Learning"? (2022),
   <https://arxiv.org/abs/2203.13450>.
 
 - For a more detailed discussion on how out-of-distribution data can
   lead to overconfidence in deep neural networks: Anh Nguyen, Jason
-  Yosinski, and Jeff Clune, â€œDeep Neural Networks Are Easily Fooled:
-  High Confidence Predictions for Unrecognizable Imagesâ€? (2014),
+  Yosinski, and Jeff Clune, "Deep Neural Networks Are Easily Fooled:
+  High Confidence Predictions for Unrecognizable Images"? (2014),
   <https://arxiv.org/abs/1412.1897>.
 
 \

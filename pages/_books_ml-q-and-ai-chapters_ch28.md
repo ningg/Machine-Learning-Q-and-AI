@@ -48,7 +48,7 @@ similar to the model we obtain by training on the whole training set. In
 this case, we can still leverage the advantage of *k*-fold
 cross-validation: evaluating the performance for the entire training set
 via the held-out validation fold in each round. (Here, we obtain the
-training set by concatenating all *k* â€" 1 training folds in a given
+training set by concatenating all *k* "" 1 training folds in a given
 iteration.) However, a disadvantage of a large *k* is that it is more
 challenging to analyze how the machine learning algorithm with the
 particular choice of hyperparameter setting behaves on different
@@ -62,7 +62,7 @@ is especially problematic if we work with relatively large models that
 are expensive to train, such as contemporary deep neural networks.
 
 A common choice for *k* is typically 5 or 10, for practical and
-historical reasons. A study by Ron Kohavi (see â€œâ€? at the end of this
+historical reasons. A study by Ron Kohavi (see ""? at the end of this
 chapter) found that *k* = 10 offers a good bias and variance trade-off
 for classical machine learning algorithms, such as decision trees and
 naive Bayes classifiers, on a handful of small datasets.
@@ -114,8 +114,8 @@ hyperparameter configuration and training pipeline is to different
 training datasets, then choosing a smaller number for *k* makes more
 sense.
 
-Since most practical scenarios consist of two stepsâ€"tuning
-hyperparameters and evaluating the performance of a modelâ€"we can also
+Since most practical scenarios consist of two steps""tuning
+hyperparameters and evaluating the performance of a model""we can also
 consider a two-step procedure. For instance, we can use a smaller *k*
 during hyperparameter tuning. This will help speed up the hyperparameter
 search and probe the hyperparameter configurations for robustness (in
@@ -147,13 +147,13 @@ cases?
 ## References [](#references)
 
 - For a longer and more detailed explanation of why and how to use
-  *k*-fold cross-validation, see my article: â€œModel Evaluation, Model
-  Selection, and Algorithm Selection in Machine Learningâ€? (2018),
+  *k*-fold cross-validation, see my article: "Model Evaluation, Model
+  Selection, and Algorithm Selection in Machine Learning"? (2018),
   <https://arxiv.org/abs/1811.12808>.
 
 - The paper that popularized the recommendation of choosing *k* = 5 and
-  *k* = 10: Ron Kohavi, â€œA Study of Cross-Validation and Bootstrap for
-  Accuracy Estimation and Model Selectionâ€? (1995),
+  *k* = 10: Ron Kohavi, "A Study of Cross-Validation and Bootstrap for
+  Accuracy Estimation and Model Selection"? (1995),
   <https://dl.acm.org/doi/10.5555/1643031.1643047>.
 
 \

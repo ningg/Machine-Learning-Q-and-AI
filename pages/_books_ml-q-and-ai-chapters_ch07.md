@@ -52,7 +52,7 @@ model.
 
 Model parallelism is perhaps the most intuitive form of parallelization
 across devices. For example, for a simple neural network that consists
-of only two layersâ€"a hidden layer and an output layerâ€"we can keep
+of only two layers""a hidden layer and an output layer""we can keep
 one layer on one GPU and the other layer on another GPU. Of course, this
 can scale to an arbitrary number of layers and GPUs.
 
@@ -60,7 +60,7 @@ This is a good strategy for dealing with limited GPU memory where the
 complete network does not fit into one GPU. However, there are more
 efficient ways of using multiple GPUs, such as tensor parallelism,
 because the chain-like structure (layer 1 on GPU 1 \\(\\rightarrow\\)
-layer 2 on GPU 2 \\(\\rightarrow\\) .â€†.â€†.) in model parallelism
+layer 2 on GPU 2 \\(\\rightarrow\\) ."†."†.) in model parallelism
 introduces a bottleneck. In other words, a major disadvantage of model
 parallelism is that the GPUs have to wait for each other. They cannot
 efficiently work in parallel, as they depend on one other's outputs.
@@ -221,7 +221,7 @@ data parallelism on the CPU. Is this a good idea?
 ## References [](#references)
 
 - The original paper on the Adam optimizer: Diederik P. Kingma and Jimmy
-  Ba, â€œAdam: A Method for Stochastic Optimizationâ€? (2014),
+  Ba, "Adam: A Method for Stochastic Optimization"? (2014),
   <https://arxiv.org/abs/1412.6980>.
 
 - FormoreonDeepSpeedandColossal-AIformulti-GPUtraining:
@@ -230,25 +230,25 @@ data parallelism on the CPU. Is this a good idea?
 
 - Pipeline parallelism tutorials and research by the DeepSpeed team:
   <https://www.deepspeed.ai/tutorials/pipeline> and Yanping Huang et
-  al., â€œGPipe: Efficient Training of Giant Neural Networks Using
-  Pipeline Parallelismâ€? (2018), <https://arxiv.org/abs/1811.06965>.
+  al., "GPipe: Efficient Training of Giant Neural Networks Using
+  Pipeline Parallelism"? (2018), <https://arxiv.org/abs/1811.06965>.
 
 - The paper proposing sequence parallelism for transformer-based
-  language models: Shenggui Li et al., â€œSequence Parallelism: Long
-  Sequence Training from \[a\] System\[s\] Perspectiveâ€? (2022),
+  language models: Shenggui Li et al., "Sequence Parallelism: Long
+  Sequence Training from \[a\] System\[s\] Perspective"? (2022),
   <https://arxiv.org/abs/2105.13120>.
 
 - The scaled-dot product attention mechanism was proposed with the
-  original transformer architecture: Ashish Vaswani et al., â€œAttention
-  Is All You Needâ€? (2017), <https://arxiv.org/abs/1706.03762>.
+  original transformer architecture: Ashish Vaswani et al., "Attention
+  Is All You Need"? (2017), <https://arxiv.org/abs/1706.03762>.
 
 - A survey covering alternatives to the original self-attention
-  mechanism that scale linearly: Yi Tay et al., â€œEfficient
-  Transformers: A Surveyâ€? (2020), <https://arxiv.org/abs/2009.06732>.
+  mechanism that scale linearly: Yi Tay et al., "Efficient
+  Transformers: A Survey"? (2020), <https://arxiv.org/abs/2009.06732>.
 
 - A survey covering additional techniques to improve the training
-  efficiency of transformers: Bohan Zhuang et al., â€œA Survey on
-  Efficient Training of Transformersâ€? (2023),
+  efficiency of transformers: Bohan Zhuang et al., "A Survey on
+  Efficient Training of Transformers"? (2023),
   <https://arxiv.org/abs/2302.01107>.
 
 - Modern multi-GPU strategies typically combine data parallelism and

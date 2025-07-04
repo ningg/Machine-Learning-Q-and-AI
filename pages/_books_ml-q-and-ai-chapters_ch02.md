@@ -66,10 +66,10 @@ directly derived from the training examples.
 
 A self-supervised learning task could be a missing-word prediction in a
 natural language processing context. For example, given the sentence
-â€œIt is beautiful and sunny outside,â€? we can mask out the word
-*sunny*, feed the network the input â€œIt is beautiful and \[MASK\]
-outside,â€? and have the network predict the missing word in the
-â€œ\[MASK\]â€? location. Similarly, we could remove image patches in a
+"It is beautiful and sunny outside,"? we can mask out the word
+*sunny*, feed the network the input "It is beautiful and \[MASK\]
+outside,"? and have the network predict the missing word in the
+"\[MASK\]"? location. Similarly, we could remove image patches in a
 computer vision context and have the neural network fill in the blanks.
 These are just two examples of self-supervised learning tasks; many more
 methods and paradigms for this type of learning exist.
@@ -164,9 +164,9 @@ image's core content while being somewhat agnostic to small
 differences and noise. For example, the simplest form of a contrastive
 loss is the *L*~2~-norm (Euclidean distance) between the embeddings
 produced by model *M*(\\(\\cdot\\)). Let's say we update the model
-weights to decrease the distance \\(\|\|\\)*M*(cat) â€"
+weights to decrease the distance \\(\|\|\\)*M*(cat) ""
 *M*(cat\\(\'\\))\\(\|\|\\)~2~ and increase the distance
-\\(\|\|\\)*M*(*cat*) â€" *M*(*elephant*)\\(\|\|\\)~2~.
+\\(\|\|\\)*M*(*cat*) "" *M*(*elephant*)\\(\|\|\\)~2~.
 
 Figure [1.6](#fig:ch02-fig06){reference="fig:ch02-fig06"
 reference-type="ref"} summarizes the central concept behind contrastive
@@ -202,25 +202,25 @@ as rows and columns? If so, how could we approach this?
   <https://en.wikipedia.org/wiki/ImageNet>.
 
 - An example of a contrastive self-supervised learning method: Ting Chen
-  et al., â€œA Simple Framework for Contrastive Learning of Visual
-  Representationsâ€? (2020), <https://arxiv.org/abs/2002.05709>.
+  et al., "A Simple Framework for Contrastive Learning of Visual
+  Representations"? (2020), <https://arxiv.org/abs/2002.05709>.
 
 - An example of a dimension-contrastive method: Adrien Bardes, Jean
-  Ponce, and Yann LeCun, â€œVICRegL: Self-Supervised Learning of Local
-  Visual Featuresâ€? (2022), <https://arxiv.org/abs/2210.01571>.
+  Ponce, and Yann LeCun, "VICRegL: Self-Supervised Learning of Local
+  Visual Features"? (2022), <https://arxiv.org/abs/2210.01571>.
 
 - If you plan to employ self-supervised learning in practice: Randall
-  Balestriero et al., â€œA Cookbook of Self-Supervised Learningâ€?
+  Balestriero et al., "A Cookbook of Self-Supervised Learning"?
   (2023), <https://arxiv.org/abs/2304.12210>.
 
 - A paper proposing a method of transfer learning and self-supervised
   learning for relatively small multilayer perceptrons on tabular
-  datasets: Dara Bahri et al., â€œSCARF: Self-Supervised Contrastive
-  Learning Using Random Feature Corruptionâ€? (2021),
+  datasets: Dara Bahri et al., "SCARF: Self-Supervised Contrastive
+  Learning Using Random Feature Corruption"? (2021),
   <https://arxiv.org/abs/2106.15147>.
 
 - A second paper proposing such a method: Roman Levin et al.,
-  â€œTransfer Learning with Deep Tabular Modelsâ€? (2022),
+  "Transfer Learning with Deep Tabular Models"? (2022),
   [*https://arxiv.org/abs/*](https://arxiv.org/abs/2206.15306)
   [*2206.15306*](https://arxiv.org/abs/2206.15306).
 

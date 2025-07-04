@@ -174,8 +174,8 @@ labeled images for training, and regular supervised learning.
 
 An example of ViTs surpassing the predictive performance of CNNs, given
 enough data, can be observed from initial research on the ViT
-architecture, as shown in the paper â€œAn Image Is Worth 16x16 Words:
-Transformers for Image Recognition at Scale.â€? This study compared
+architecture, as shown in the paper "An Image Is Worth 16x16 Words:
+Transformers for Image Recognition at Scale."? This study compared
 ResNet, a type of convolutional network, with the original ViT design
 using different dataset sizes for pretraining. The findings also showed
 that the ViT model excelled over the convolutional approach only after
@@ -260,31 +260,31 @@ typically lead to a higher or lower prediction accuracy?
 ## References [](#references)
 
 - The paper proposing the original vision transformer model: Alexey
-  Dosovitskiy et al., â€œAn Image Is Worth 16x16 Words: Transformers for
-  Image Recognition at Scaleâ€? (2020),
+  Dosovitskiy et al., "An Image Is Worth 16x16 Words: Transformers for
+  Image Recognition at Scale"? (2020),
   <https://arxiv.org/abs/2010.11929>.
 
 - A workaround for adding positional information in ViTs is to use
   relative positional embeddings: Peter Shaw, Jakob Uszkoreit, and
-  Ashish Vaswani, â€œSelf-Attention with Relative Position
-  Representationsâ€? (2018), <https://arxiv.org/abs/1803.02155>.
+  Ashish Vaswani, "Self-Attention with Relative Position
+  Representations"? (2018), <https://arxiv.org/abs/1803.02155>.
 
 - Residual connections in ViTs strongly propagate features from lower to
   higher layers, in contrast to the more hierarchical structure of CNNs:
-  Maithra Raghu et al., â€œDo Vision Transformers See Like Convolutional
-  Neural Networks?â€? (2021), <https://arxiv.org/abs/2108.08810>.
+  Maithra Raghu et al., "Do Vision Transformers See Like Convolutional
+  Neural Networks?"? (2021), <https://arxiv.org/abs/2108.08810>.
 
-- AdetailedresearcharticlecoveringtheEfficientNetV2CNNarchitecture:MingxingTanandQuocV.Le,â€œEfficientNetV2:
+- AdetailedresearcharticlecoveringtheEfficientNetV2CNNarchitecture:MingxingTanandQuocV.Le,"EfficientNetV2:
   SmallerMo-
-   delsandFasterTrainingâ€?(2021),<https://arxiv.org/abs/2104.00298>.
+   delsandFasterTraining"?(2021),<https://arxiv.org/abs/2104.00298>.
 
 - A ViT architecture that also incorporates convolutional layers:
-  StÃ©phane d'Ascoli et al., â€œConViT: Improving Vision Transform-
-   ers with Soft Convolutional Inductive Biasesâ€? (2021),
+  StÃ©phane d'Ascoli et al., "ConViT: Improving Vision Transform-
+   ers with Soft Convolutional Inductive Biases"? (2021),
   <https://arxiv.org/abs/2103.10697>.
 
 - Another example of a ViT using convolutional layers: Haiping Wu
-  et al., â€œCvT: Introducing Convolutions to Vision Transformersâ€?
+  et al., "CvT: Introducing Convolutions to Vision Transformers"?
   (2021), <https://arxiv.org/abs/2103.15808>.
 
 \
