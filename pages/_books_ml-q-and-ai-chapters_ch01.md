@@ -52,7 +52,7 @@ example, the last layers of a convolutional neural network may yield
 embedding vectors, as illustrated in
 Figure [1.1](#fig:ch01-fig01) .
 
-<a id="fig:ch01-fig01"></a>
+<a na'me="fig:ch01-fig01"></a>
 
 ![An input embedding (left) and an embedding from a neural network
 (right)](../images/ch01-fig01.png)
@@ -72,7 +72,7 @@ representations for visualization purposes and clustering analysis, as
 illustrated in Figure [1.2](#fig:ch01-fig02){reference="fig:ch01-fig02"
 reference-type="ref"}.
 
-<a id="fig:ch01-fig02"></a>
+<a name="fig:ch01-fig02"></a>
 ![Mapping words (left) and images (right) to a two-dimensional feature
 space](../images/ch01-fig02.png){#fig:ch01-fig02}
 
@@ -102,7 +102,7 @@ images, as shown in
 Figure [1.3](#fig:ch01-fig03){reference="fig:ch01-fig03"
 reference-type="ref"}.
 
-<a id="fig:ch01-fig03"></a>
+<a name="fig:ch01-fig03"></a>
 ![An autoencoder reconstructing the input
 image](../images/ch01-fig03.png){#fig:ch01-fig03}
 
@@ -142,7 +142,7 @@ illustrated in
 Figure [\[fig:ch01-fig04\]](#fig:ch01-fig04){reference="fig:ch01-fig04"
 reference-type="ref"}.
 
-<a id="fig:ch01-fig04"></a>
+<a name="fig:ch01-fig04"></a>
 ![image](../images/ch01-fig04.png) []{#fig:ch01-fig04
 label="fig:ch01-fig04"}
 
