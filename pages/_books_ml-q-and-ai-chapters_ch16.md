@@ -8,7 +8,7 @@
 
 # Chapter 16: Self-Attention [](#chapter-16-self-attention)
 
-[]{#ch16 label="ch16"}
+
 
 **Where does self-attention get its name, and how is it different from
 previously developed attention mechanisms?**

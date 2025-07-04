@@ -8,7 +8,7 @@
 
 # Chapter 17: Encoder- and Decoder-Style Transformers [](#chapter-17-encoder--and-decoder-style-transformers)
 
-[]{#ch17 label="ch17"}
+
 
 **What are the differences between encoder- and decoder-based language
 transformers?**

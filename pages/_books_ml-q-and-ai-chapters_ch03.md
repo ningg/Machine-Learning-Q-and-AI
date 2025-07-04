@@ -8,7 +8,7 @@
 
 # Chapter 3: Few-Shot Learning [](#chapter-3-few-shot-learning)
 
-[]{#ch03 label="ch03"}
+
 
 **What is few-shot learning? How does it differ from the conventional
 training procedure for supervised learning?**

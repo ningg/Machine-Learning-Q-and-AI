@@ -8,7 +8,7 @@
 
 # Chapter 9: Generative AI Models [](#chapter-9-generative-ai-models)
 
-[]{#ch09 label="ch09"}
+
 
 **What are the popular categories of deep generative models in deep
 learning (also called *generative AI*), and what are their respective

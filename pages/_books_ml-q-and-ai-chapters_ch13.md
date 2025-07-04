@@ -8,7 +8,7 @@
 
 # Chapter 13: Large Training Sets for Vision Transformers [](#chapter-13-large-training-sets-for-vision-transformers)
 
-[]{#ch13 label="ch13"}
+
 
 **Why do vision transformers (ViTs) generally require larger training
 sets than convolutional neural networks (CNNs)?**

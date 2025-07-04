@@ -8,7 +8,7 @@
 
 # Chapter 4: The Lottery Ticket Hypothesis [](#chapter-4-the-lottery-ticket-hypothesis)
 
-[]{#ch04 label="ch04"}
+
 
 **What is the lottery ticket hypothesis, and, if it holds true, how is
 it useful in practice?**

@@ -8,7 +8,7 @@
 
 # Chapter 10: Sources of Randomness [](#chapter-10-sources-of-randomness)
 
-[]{#ch10 label="ch10"}
+
 
 **What are the common sources of randomness when training deep neural
 networks that can cause non-reproducible behavior during training and

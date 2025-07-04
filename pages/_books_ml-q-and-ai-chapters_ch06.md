@@ -8,7 +8,7 @@
 
 # Chapter 6: Reducing Overfitting with Model Modifications [](#chapter-6-reducing-overfitting-with-model-modifications)
 
-[]{#ch06 label="ch06"}
+
 
 **Suppose we train a neural network classifier in a supervised fashion
 and already employ various dataset-related techniques to mitigate

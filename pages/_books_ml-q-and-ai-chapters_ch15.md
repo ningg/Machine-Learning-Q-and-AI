@@ -8,7 +8,7 @@
 
 # Chapter 15: Data Augmentation for Text [](#chapter-15-data-augmentation-for-text)
 
-[]{#ch15 label="ch15"}
+
 
 **How is data augmentation useful, and what are the most common
 augmentation techniques for text data?**

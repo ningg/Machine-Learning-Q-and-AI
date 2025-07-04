@@ -8,7 +8,7 @@
 
 # Chapter 2: Self-Supervised Learning [](#chapter-2-self-supervised-learning)
 
-[]{#ch02 label="ch02"}
+
 
 **What is self-supervised learning, when is it useful, and what are the
 main approaches to implementing it?**

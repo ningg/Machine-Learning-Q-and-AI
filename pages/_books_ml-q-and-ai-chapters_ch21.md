@@ -8,7 +8,7 @@
 
 # Chapter 21: Data-Centric AI [](#chapter-21-data-centric-ai)
 
-[]{#ch21 label="ch21"}
+
 
 **What is data-centric AI, how does it compare to the conventional
 modeling paradigm, and how do we decide whether it's the right fit for

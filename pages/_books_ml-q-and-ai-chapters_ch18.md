@@ -8,7 +8,7 @@
 
 # Chapter 18: Using and Fine-Tuning Pretrained Transformers [](#chapter-18-using-and-fine-tuning-pretrained-transformers)
 
-[]{#ch18 label="ch18"}
+
 
 **What are the different ways to use and fine-tune pretrained large
 language models?**

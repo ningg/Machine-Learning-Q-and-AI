@@ -10,7 +10,7 @@
 
 ## Chapter 11: Calculating the Number of Parameters [](#chapter-11-calculating-the-number-of-parameters)
 
-[]{#ch11 label="ch11"}
+
 
 **How do we compute the number of para-  meters in a convolutional
 neural network, and why is this information useful?**

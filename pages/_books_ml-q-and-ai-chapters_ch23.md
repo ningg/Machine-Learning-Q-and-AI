@@ -8,7 +8,7 @@
 
 # Chapter 23: Data Distribution Shifts [](#chapter-23-data-distribution-shifts)
 
-[]{#ch23 label="ch23"}
+
 
 **What are the main types of data distribution shifts we may encounter
 after model deployment?**

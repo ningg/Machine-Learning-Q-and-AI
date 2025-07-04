@@ -8,7 +8,7 @@
 
 # Chapter 27: Proper Metrics [](#chapter-27-proper-metrics)
 
-[]{#ch27 label="ch27"}
+
 
 **What are the three properties of a distance function that make it a
 *proper* metric?**

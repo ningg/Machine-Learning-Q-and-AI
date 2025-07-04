@@ -8,7 +8,7 @@
 
 # Chapter 28: The k in k-Fold Cross-Validation [](#chapter-28-the-k-in-k-fold-cross-validation)
 
-[]{#ch28 label="ch28"}
+
 
 **k-fold cross-validation is a common choice for evaluating machine
 learning classifiers because it lets us use all training data to

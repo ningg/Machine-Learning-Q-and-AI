@@ -8,7 +8,7 @@
 
 # Chapter 12: Fully Connected and Convolutional Layers [](#chapter-12-fully-connected-and-convolutional-layers)
 
-[]{#ch12 label="ch12"}
+
 
 **Under which circumstances can we replace fully connected layers with
 convolutional layers to perform the same computation?**

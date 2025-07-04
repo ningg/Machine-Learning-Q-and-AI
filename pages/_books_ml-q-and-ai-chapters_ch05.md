@@ -8,7 +8,7 @@
 
 # Chapter 5: Reducing Overfitting with Data [](#chapter-5-reducing-overfitting-with-data)
 
-[]{#ch05 label="ch05"}
+
 
 **Suppose we train a neural network classifier in a supervised fashion
 and notice that it suffers from overfitting. What are some of the common

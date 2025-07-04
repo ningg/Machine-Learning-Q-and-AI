@@ -8,7 +8,7 @@
 
 # Chapter 29: Training and Test Set Discordance [](#chapter-29-training-and-test-set-discordance)
 
-[]{#ch29 label="ch29"}
+
 
 **Suppose we train a model that performs much better on the test dataset
 than on the training dataset. Since a similar model configuration

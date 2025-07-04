@@ -8,7 +8,7 @@
 
 # Chapter 30: Limited Labeled Data [](#chapter-30-limited-labeled-data)
 
-[]{#ch30 label="ch30"}
+
 
 **Suppose we plot a learning curve (as shown in
 Figure [\[fig:ch05-fig01\]](#fig:ch05-fig01){reference="fig:ch05-fig01"

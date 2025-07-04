@@ -8,7 +8,7 @@
 
 # Chapter 26: Confidence Intervals vs. Conformal Predictions [](#chapter-26-confidence-intervals-vs-conformal-predictions) {#chapter-26-confidence-intervals-vs-conformal-predictions}
 
-[]{#ch26 label="ch26"}
+
 
 **What are the differences between confidence intervals and conformal
 predictions, and when do we use one over the other?**

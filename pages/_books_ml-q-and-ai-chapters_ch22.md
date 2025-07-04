@@ -8,7 +8,7 @@
 
 # Chapter 22: Speeding Up Inference [](#chapter-22-speeding-up-inference)
 
-[]{#ch22 label="ch22"}
+
 
 **What are techniques to speed up model inference through optimization
 without changing the model architecture or sacrificing accuracy?**

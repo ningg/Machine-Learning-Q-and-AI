@@ -10,7 +10,7 @@
 
 ## Chapter 14: The Distributional Hypothesis [](#chapter-14-the-distributional-hypothesis)
 
-[]{#ch14 label="ch14"}
+
 
 **What is the distributional hypothesis in natural language processing
 (NLP)? Where is it used, and how far does it hold true?**

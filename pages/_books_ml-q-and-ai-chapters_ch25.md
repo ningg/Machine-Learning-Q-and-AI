@@ -8,7 +8,7 @@
 
 # Chapter 25: Confidence Intervals [](#chapter-25-confidence-intervals)
 
-[]{#ch25 label="ch25"}
+
 
 **What are the different ways to construct confidence intervals for
 machine learning classifiers?**

@@ -8,7 +8,7 @@
 ## Chapter 1: Embeddings, Latent Space, and Representations 
 [](#chapter-1-embeddings-latent-space-and-representations)
 
-[]{#ch01 label="ch01"}
+
 
 **In deep learning, we often use the terms *embedding vectors*,
 *representations*, and *latent space*. What do these concepts have in

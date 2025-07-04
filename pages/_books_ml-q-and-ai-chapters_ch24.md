@@ -10,7 +10,7 @@
 
 ## Chapter 24: Poisson and Ordinal Regression [](#chapter-24-poisson-and-ordinal-regression)
 
-[]{#ch24 label="ch24"}
+
 
 **When is it preferable to use Poisson regression over ordinal
 regression, and vice versa?**

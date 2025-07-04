@@ -10,7 +10,7 @@
 
 ## Stateless and Stateful Training [](#stateless-and-stateful-training)
 
-[]{#ch20 label="ch20"}
+
 
 **What is the difference between stateless and stateful training
 workflows in the context of production and deployment systems?**

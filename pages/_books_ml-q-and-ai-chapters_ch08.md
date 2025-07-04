@@ -8,7 +8,7 @@
 
 # Chapter 8: The Success of Transformers [](#chapter-8-the-success-of-transformers)
 
-[]{#ch08 label="ch08"}
+
 
 **What are the main factors that have contributed to the success of
 transformers?**

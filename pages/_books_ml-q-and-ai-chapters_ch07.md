@@ -8,7 +8,7 @@
 
 # Chapter 7: Multi-GPU Training Paradigms [](#chapter-7-multi-gpu-training-paradigms)
 
-[]{#ch07 label="ch07"}
+
 
 **What are the different multi-GPU training paradigms, and what are
 their respective advantages and disadvantages?**
