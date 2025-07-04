@@ -52,7 +52,7 @@ example, the last layers of a convolutional neural network may yield
 embedding vectors, as illustrated in
 Figure [1.1](#fig:ch01-fig01) .
 
-<a na'me="fig:ch01-fig01"></a>
+<a name="fig:ch01-fig01"></a>
 
 ![An input embedding (left) and an embedding from a neural network
 (right)](../images/ch01-fig01.png)
@@ -61,16 +61,13 @@ To be technically correct, all intermediate layer outputs of a neural
 network could yield embedding vectors. Depending on the training
 objective, the output layer may also produce useful embedding vectors.
 For the sake of simplicity, the convolutional neural network in
-Figure [1.1](#fig:ch01-fig01){reference="fig:ch01-fig01"
-reference-type="ref"} associates the second-to-last layer with
-embeddings.
+Figure [1.1](#fig:ch01-fig01)
 
 Embeddings can have higher or lower numbers of dimensions than the
 original input. For instance, using embeddings methods for extreme
 expression, we can encode data into two-dimensional dense and continuous
 representations for visualization purposes and clustering analysis, as
-illustrated in Figure [1.2](#fig:ch01-fig02){reference="fig:ch01-fig02"
-reference-type="ref"}.
+illustrated in Figure [1.2](#fig:ch01-fig02).
 
 <a name="fig:ch01-fig02"></a>
 ![Mapping words (left) and images (right) to a two-dimensional feature
