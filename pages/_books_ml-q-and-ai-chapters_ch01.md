@@ -50,12 +50,12 @@ utilizing the learned weight matrix of an embedding layer or module.
 We can also use embedding methods for dense data such as images. For
 example, the last layers of a convolutional neural network may yield
 embedding vectors, as illustrated in
-Figure [1.1](#fig:ch01-fig01){reference="fig:ch01-fig01"
-reference-type="ref"}.
+Figure [1.1](#fig:ch01-fig01) .
 
 <a id="fig:ch01-fig01"></a>
+
 ![An input embedding (left) and an embedding from a neural network
-(right)](../images/ch01-fig01.png){#fig:ch01-fig01}
+(right)](../images/ch01-fig01.png)
 
 To be technically correct, all intermediate layer outputs of a neural
 network could yield embedding vectors. Depending on the training
