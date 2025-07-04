@@ -38,8 +38,8 @@ can be grouped into three broad categories: (1) adding regularization,
 ### Regularization [](#regularization)
 
 We can interpret regularization as a penalty against complexity. Classic
-regularization techniques for neural networks include *L*~2~
-regularization and the related weight decay method. We implement *L*~2~
+regularization techniques for neural networks include $L_2$
+regularization and the related weight decay method. We implement $L_2$
 regularization by adding a penalty term to the loss function that is
 minimized during training. This added term represents the size of the
 weights, such as the squared sum of the weights. The following formula
@@ -56,9 +56,9 @@ During backpropagation, the optimizer minimizes the modified loss, now
 including the additional penalty term, which leads to smaller model
 weights and can improve generalization to unseen data.
 
-Weight decay is similar to *L*~2~ regularization but is applied to the
+Weight decay is similar to $L_2$ regularization but is applied to the
 optimizer directly rather than modifying the loss function. Since weight
-decay has the same effect as *L*~2~ regularization, the two methods are
+decay has the same effect as $L_2$ regularization, the two methods are
 often used synonymously, but there may be subtle differences depending
 on the implementation details and optimizer.
 
@@ -75,13 +75,13 @@ representations of the same data, which helps to reduce overfitting.
 In early stopping, we monitor the model's performance on a validation
 set during training and stop the training process when the performance
 on the validation set begins to decline, as illustrated in
-Figure [1.1](#fig-ch06-fig01){reference="fig-ch06-fig01"
-reference-type="ref"}.
+Figure [1.1](#fig-ch06-fig01).
 
-![Early stopping](../images/ch06-fig01.png){#fig-ch06-fig01}
+<a name="fig-ch06-fig01"></a>
 
-In Figure [1.1](#fig-ch06-fig01){reference="fig-ch06-fig01"
-reference-type="ref"}, we can see that the validation accuracy increases
+![Early stopping](../images/ch06-fig01.png)
+
+In Figure [1.1](#fig-ch06-fig01), we can see that the validation accuracy increases
 as the training and validation accuracy gap closes. The point where the
 training and validation accuracy is closest is the point with the least
 amount of overfitting, which is usually a good point for early stopping.
@@ -103,7 +103,7 @@ model to achieve good performance on the original dataset. We then
 iteratively remove parameters of the model, retraining it on the dataset
 such that it maintains the same predictive performance as the original
 model. (The lottery ticket hypothesis, discussed in
-Chapter [\[ch04\]](../ch04){reference="ch04" reference-type="ref"},
+Chapter [\[ch04\]](./_books_ml-q-and-ai-chapters_ch04.md),
 uses iterative pruning.)
 
 Another common approach to obtaining smaller models is *knowledge
@@ -113,8 +113,8 @@ model (the *student*). Ideally, the student achieves the same predictive
 accuracy as the teacher, but it does so more efficiently due to the
 smaller size. As a nice side effect, the smaller student may overfit
 less than the larger teacher model.
-Figure [\[fig-ch06-fig02\]](#fig-ch06-fig02){reference="fig-ch06-fig02"
-reference-type="ref"} diagrams the original knowledge distillation
+
+Figure [1.2](#fig-ch06-fig02) diagrams the original knowledge distillation
 process. Here, the teacher is first trained in a regular supervised
 fashion to classify the examples in the dataset well, using a
 conventional cross-entropy loss between the predicted scores and ground
@@ -122,16 +122,16 @@ truth class labels. While the smaller student network is trained on the
 same dataset, the training objective is to minimize both (a) the cross
 entropy between the outputs and the class labels and (b) the difference
 between its outputs and the teacher outputs (measured using
-*Kullback""Leibler* divergence, which quantifies the difference between
+*Kullback-Leibler* divergence, which quantifies the difference between
 two probability distributions by calculating how much one distribution
 diverges from the other in terms of information content).
 
-::: figurewide
-![image](../images/ch06-fig02.png){style="width:5.625in"}
-:::
+<a name="fig-ch06-fig02"></a>
 
-By minimizing the Kullback""Leibler divergence""the difference between
-the teacher and student score distributions""the student learns to
+![image](../images/ch06-fig02.png)
+
+By minimizing the Kullback-Leibler divergence--the difference between
+the teacher and student score distributions--the student learns to
 mimic the teacher while being smaller and more efficient.
 
 ### Caveats with Smaller Models [](#caveats-with-smaller-models)
@@ -211,14 +211,14 @@ performance metric across all *k* iterations to estimate the overall
 performance measure of the model. After evaluation, we can either train
 the model on the entire training dataset or combine the individual
 models as an ensemble, as shown in
-Figure [1.2](#fig-ch06-fig03){reference="fig-ch06-fig03"
-reference-type="ref"}.
+Figure [1.2](#fig-ch06-fig03).
+
+<a name="fig-ch06-fig03"></a>
 
 ![[k]{.upright}-fold cross-validation for creating model
-ensembles](../images/ch06-fig03.png){#fig-ch06-fig03}
+ensembles](../images/ch06-fig03.png)
 
-As shown in Figure [1.2](#fig-ch06-fig03){reference="fig-ch06-fig03"
-reference-type="ref"}, the *k*-fold ensemble approach trains each of the
+As shown in Figure [1.2](#fig-ch06-fig03), the *k*-fold ensemble approach trains each of the
 *k* models on the respective *k* "" 1 training folds in each round.
 After evaluating the models on the validation folds, we can combine them
 into a majority vote classifier or build an ensemble using stacking, a
@@ -234,8 +234,7 @@ using a single model.
 ## Other Methods [](#other-methods)
 
 So far, this book has covered some of the most prominent techniques to
-reduce overfitting. Chapter [\[ch05\]](../ch05){reference="ch05"
-reference-type="ref"} covered techniques that aim to reduce overfitting
+reduce overfitting. Chapter [\[ch05\]](./_books_ml-q-and-ai-chapters_ch05.md) covered techniques that aim to reduce overfitting
 from a data perspective. Additional techniques for reducing overfitting
 with model modifications include skip-connections (found in residual
 networks, for example), look-ahead optimizers, stochastic weight
@@ -266,7 +265,7 @@ selecting these techniques as a hyperparameter optimization problem.
 ### Exercises [](#exercises)
 
 6-1. Supposewe'reusingearlystoppingasamechanismtoreduceover-
- fitting""inparticular,amodernearly-stoppingvariantthatcreates
+ fitting--inparticular,amodernearly-stoppingvariantthatcreates
 checkpoints of the best model (for instance, the model with the high-
  est validation accuracy) during training so that we can load it after
 the training has completed. This mechanism can be enabled in most modern
@@ -281,7 +280,7 @@ are some of the drawbacks associated with ensemble techniques?
 
 ## References [](#references)
 
-- For more on the distinction between *L*~2~ regularization and weight
+- For more on the distinction between $L_2$ regularization and weight
   decay: Guodong Zhang et al., "Three Mechanisms of Weight Decay
   Regularization"? (2018), <https://arxiv.org/abs/1810.12281>.
 

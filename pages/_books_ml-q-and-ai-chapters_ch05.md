@@ -43,16 +43,16 @@ given model would benefit from more data. To construct a learning curve,
 we train the model to different training set sizes (10 percent, 20
 percent, and so on) and evaluate the trained model on the same
 fixed-size validation or test set. As shown in
-Figure [1.1](#fig-ch05-fig01){reference="fig-ch05-fig01"
-reference-type="ref"}, the validation accuracy increases as the training
+Figure [1.1](#fig-ch05-fig01), the validation accuracy increases as the training
 set sizes increase. This indicates that we can improve the model's
 performance by collecting more data.
 
+<a name="fig-ch05-fig01"></a>
 ![The learning curve plot of a model fit to different training\
-set sizes](../images/ch05-fig01.png){#fig-ch05-fig01}
+set sizes](../images/ch05-fig01.png)
 
 The gap between training and validation performance indicates the degree
-of overfitting""the more extensive the gap, the more overfitting
+of overfitting--the more extensive the gap, the more overfitting
 occurs. Conversely, the slope indicating an improvement in the
 validation performance suggests the model is underfitting and can
 benefit from more data. Typically, additional data can decrease both
@@ -68,19 +68,20 @@ Data augmentation allows us to create different versions of the original
 input data, which can improve the model's generalization performance.
 Why? Augmented data can help the model improve its ability to
 generalize, since it makes it harder to memorize spurious information
-via training examples or features""or, in the case of image data, exact
+via training examples or features--or, in the case of image data, exact
 pixel values for specific pixel locations.
-Figure [1.2](#fig-ch05-fig02){reference="fig-ch05-fig02"
-reference-type="ref"} highlights common image data augmentation
+
+Figure [1.2](#fig-ch05-fig02) highlights common image data augmentation
 techniques, including increasing brightness, flipping, and cropping.
 
+<a name="fig-ch05-fig02"></a>
+
 ![A selection of different image data augmentation
-techniques](../images/ch05-fig02.png){#fig-ch05-fig02}
+techniques](../images/ch05-fig02.png)
 
 Data augmentation is usually standard for image data (see
-Figure [1.2](#fig-ch05-fig02){reference="fig-ch05-fig02"
-reference-type="ref"}) and text data (discussed further in
-Chapter [\[ch15\]](../ch15){reference="ch15" reference-type="ref"}),
+Figure [1.2](#fig-ch05-fig02)) and text data (discussed further in
+Chapter [\[ch15\]](./_books_ml-q-and-ai-chapters_ch15.md),
 but data augmentation methods for tabular data also exist.
 
 Instead of collecting more data or augmenting existing data, it is also
@@ -90,8 +91,7 @@ datasets.
 
 ### Pretraining [](#pretraining)
 
-As discussed in Chapter [\[ch02\]](../ch02){reference="ch02"
-reference-type="ref"}, self-supervised learning lets us leverage large,
+As discussed in Chapter [\[ch02\]](./_books_ml-q-and-ai-chapters_ch02.md), self-supervised learning lets us leverage large,
 unlabeled datasets to pretrain neural networks. This can also help
 reduce overfitting on the smaller target datasets.
 
@@ -105,7 +105,7 @@ dataset is unavailable, we can also pretrain the model on the relatively
 broad ImageNet dataset.
 
 A dataset may be extremely small and unsuitable for supervised
-learning""for example, if it contains only a handful of labeled
+learning--for example, if it contains only a handful of labeled
 examples per class. If our classifier needs to operate in a context
 where the collection of additional labeled data is not feasible, we may
 also consider few-shot learning.

@@ -108,7 +108,7 @@ There are two main categories of self-supervised learning:
 self-prediction and contrastive self-supervised learning. In
 *self-prediction*, illustrated in
 Figure [1.3](#fig-ch02-fig03), we typically change or hide parts of the input
-and train the mo-  del to reconstruct the original inputs, such as by
+and train the model to reconstruct the original inputs, such as by
 using a perturbation mask that obfuscates certain pixels in an image.
 
 <a name="fig-ch02-fig03"></a>
@@ -179,7 +179,7 @@ perturbed version of the sample.
 
 <a name="fig-ch02-fig06"></a>
 
-![Contrastive learning](../images/ch02-fig06.png){#fig-ch02-fig06}
+![Contrastive learning](../images/ch02-fig06.png)
 
 This example outlines the main idea behind contrastive learning, but
 many subvariants exist. Broadly, we can categorize these into *sample*
