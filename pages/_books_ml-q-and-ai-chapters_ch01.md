@@ -70,8 +70,8 @@ representations for visualization purposes and clustering analysis, as
 illustrated in Figure [1.2](#fig-ch01-fig02).
 
 <a name="fig-ch01-fig02"></a>
-![Mapping words (left) and images (right) to a two-dimensional feature
-space](../images/ch01-fig02.png){#fig-ch01-fig02}
+
+![fig-ch01-fig02 Mapping words (left) and images (right) to a two-dimensional feature space](../images/ch01-fig02.png)
 
 A fundamental property of embeddings is that they encode *distance* or
 *similarity*. This means that embeddings capture the semantics of the
@@ -96,16 +96,14 @@ any feature space that contains features, often compressed versions of
 the original input features. These latent space features can be learned
 by a neural network, such as an autoencoder that reconstructs input
 images, as shown in
-Figure [1.3](#fig-ch01-fig03){reference="fig-ch01-fig03"
-reference-type="ref"}.
+Figure [1.3](#fig-ch01-fig03).
 
 <a name="fig-ch01-fig03"></a>
-![An autoencoder reconstructing the input
-image](../images/ch01-fig03.png){#fig-ch01-fig03}
+
+![fig-ch01-fig03 An autoencoder reconstructing the input image](../images/ch01-fig03.png)
 
 The bottleneck in
-Figure [1.3](#fig-ch01-fig03){reference="fig-ch01-fig03"
-reference-type="ref"} represents a small, intermediate neural network
+Figure [1.3](#fig-ch01-fig03) represents a small, intermediate neural network
 layer that encodes or maps the input image into a lower-dimensional
 representation. We can think of the target space of this mapping as a
 latent space. The training objective of the autoencoder is to
@@ -136,12 +134,11 @@ analysis or processing.
 convolutional layers followed by three fully connected (FC) layers,
 similar to AlexNet (<https://en.wikipedia.org/wiki/AlexNet>), as
 illustrated in
-Figure [\[fig-ch01-fig04\]](#fig-ch01-fig04){reference="fig-ch01-fig04"
-reference-type="ref"}.
+Figure [\[fig-ch01-fig04\]](#fig-ch01-fig04).
 
 <a name="fig-ch01-fig04"></a>
-![image](../images/ch01-fig04.png) []{#fig-ch01-fig04
-label="fig-ch01-fig04"}
+
+![fig-ch01-fig04](../images/ch01-fig04.png)
 
 We can think of these fully connected layers as two hidden layers and an
 output layer in a multilayer perceptron. Which of the neural network
