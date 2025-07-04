@@ -91,7 +91,7 @@ matrix multiplication across GPUs.
 We can implement tensor parallelism using basic principles of linear
 algebra; we can split a matrix multiplication across two GPUs in a row-
 or column-wise fashion, as illustrated in
-Figure [\[fig:ch07-fig01\]](#fig:ch07-fig01){reference="fig:ch07-fig01"
+Figure [\[fig-ch07-fig01\]](#fig-ch07-fig01){reference="fig-ch07-fig01"
 reference-type="ref"} for two GPUs. (This concept can be extended to an
 arbitrary number of GPUs.)
 
@@ -109,11 +109,11 @@ matrices are split or sharded. For instance, tensor parallelism requires
 frequent synchronization of the model parameters across devices, which
 can slow down the overall training process.
 
-Figure [1.1](#fig:ch07-fig02){reference="fig:ch07-fig02"
+Figure [1.1](#fig-ch07-fig02){reference="fig-ch07-fig02"
 reference-type="ref"} compares model, data, and tensor parallelism.
 
 ![A comparison of model, data, and tensor
-parallelism](../images/ch07-fig02.png){#fig:ch07-fig02
+parallelism](../images/ch07-fig02.png){#fig-ch07-fig02
 style="width:98.0%"}
 
 In model parallelism, we put different layers onto different GPUs to
@@ -163,13 +163,13 @@ linearly.
 However, these efficient self-attention mechanisms are less popular, and
 most people still prefer the original scaled-dot product attention
 mechanism as of this writing. Sequence parallelism, illustrated in
-Figure [1.2](#fig:ch07-fig03){reference="fig:ch07-fig03"
+Figure [1.2](#fig-ch07-fig03){reference="fig-ch07-fig03"
 reference-type="ref"}, splits the input sequence into smaller chunks to
 be distributed across GPUs, which aims to reduce computation memory
 constraints of self-attention mechanisms.
 
 ![Sequence parallelism divides long inputs\
-among GPUs.](../images/ch07-fig03.png){#fig:ch07-fig03}
+among GPUs.](../images/ch07-fig03.png){#fig-ch07-fig03}
 
 How does sequence parallelism relate to the multi-GPU techniques
 discussed earlier? Sequence parallelism deals specifically with

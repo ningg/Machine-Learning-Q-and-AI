@@ -75,12 +75,12 @@ representations of the same data, which helps to reduce overfitting.
 In early stopping, we monitor the model's performance on a validation
 set during training and stop the training process when the performance
 on the validation set begins to decline, as illustrated in
-Figure [1.1](#fig:ch06-fig01){reference="fig:ch06-fig01"
+Figure [1.1](#fig-ch06-fig01){reference="fig-ch06-fig01"
 reference-type="ref"}.
 
-![Early stopping](../images/ch06-fig01.png){#fig:ch06-fig01}
+![Early stopping](../images/ch06-fig01.png){#fig-ch06-fig01}
 
-In Figure [1.1](#fig:ch06-fig01){reference="fig:ch06-fig01"
+In Figure [1.1](#fig-ch06-fig01){reference="fig-ch06-fig01"
 reference-type="ref"}, we can see that the validation accuracy increases
 as the training and validation accuracy gap closes. The point where the
 training and validation accuracy is closest is the point with the least
@@ -113,7 +113,7 @@ model (the *student*). Ideally, the student achieves the same predictive
 accuracy as the teacher, but it does so more efficiently due to the
 smaller size. As a nice side effect, the smaller student may overfit
 less than the larger teacher model.
-Figure [\[fig:ch06-fig02\]](#fig:ch06-fig02){reference="fig:ch06-fig02"
+Figure [\[fig-ch06-fig02\]](#fig-ch06-fig02){reference="fig-ch06-fig02"
 reference-type="ref"} diagrams the original knowledge distillation
 process. Here, the teacher is first trained in a regular supervised
 fashion to classify the examples in the dataset well, using a
@@ -211,13 +211,13 @@ performance metric across all *k* iterations to estimate the overall
 performance measure of the model. After evaluation, we can either train
 the model on the entire training dataset or combine the individual
 models as an ensemble, as shown in
-Figure [1.2](#fig:ch06-fig03){reference="fig:ch06-fig03"
+Figure [1.2](#fig-ch06-fig03){reference="fig-ch06-fig03"
 reference-type="ref"}.
 
 ![[k]{.upright}-fold cross-validation for creating model
-ensembles](../images/ch06-fig03.png){#fig:ch06-fig03}
+ensembles](../images/ch06-fig03.png){#fig-ch06-fig03}
 
-As shown in Figure [1.2](#fig:ch06-fig03){reference="fig:ch06-fig03"
+As shown in Figure [1.2](#fig-ch06-fig03){reference="fig-ch06-fig03"
 reference-type="ref"}, the *k*-fold ensemble approach trains each of the
 *k* models on the respective *k* "" 1 training folds in each round.
 After evaluating the models on the validation folds, we can combine them

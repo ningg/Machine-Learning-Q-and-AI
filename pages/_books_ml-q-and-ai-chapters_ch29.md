@@ -43,7 +43,7 @@ general approach to check for discrepancies between training and test
 sets is adversarial validation.
 
 *Adversarial validation*, illustrated in
-Figure [\[fig:ch29-fig01\]](#fig:ch29-fig01){reference="fig:ch29-fig01"
+Figure [\[fig-ch29-fig01\]](#fig-ch29-fig01){reference="fig-ch29-fig01"
 reference-type="ref"}, is a technique to identify the degree of
 similarity between the training and test data. We first merge the
 training and test sets into a single dataset, and then we create a

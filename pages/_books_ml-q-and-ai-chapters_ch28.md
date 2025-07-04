@@ -22,11 +22,11 @@ that is, how well it performs on new data. In *k*-fold cross-validation,
 we use the training data for model selection and evaluation by
 partitioning it into *k* validation rounds and folds. If we have *k*
 folds, we have *k* iterations, leading to *k* different models, as
-illustrated in Figure [1.1](#fig:ch28-fig01){reference="fig:ch28-fig01"
+illustrated in Figure [1.1](#fig-ch28-fig01){reference="fig-ch28-fig01"
 reference-type="ref"}.
 
 ![An example of [k]{.upright}-fold cross-validation for model evaluation
-where [k]{.upright} = 5](../images/ch28-fig01.png){#fig:ch28-fig01}
+where [k]{.upright} = 5](../images/ch28-fig01.png){#fig-ch28-fig01}
 
 Using *k*-fold cross-validation, we usually evaluate the performance of
 a particular hyperparameter configuration by computing the average
@@ -70,17 +70,17 @@ naive Bayes classifiers, on a handful of small datasets.
 For example, in 10-fold cross-validation, we use 9/10 (90 percent) of
 the data for training in each round, whereas in 5-fold cross-validation,
 we use only 4/5 (80 percent) of the data, as shown in
-Figure [1.2](#fig:ch28-fig02){reference="fig:ch28-fig02"
+Figure [1.2](#fig-ch28-fig02){reference="fig-ch28-fig02"
 reference-type="ref"}.
 
 ![A comparison of 5-fold and 10-fold
-cross-validation](../images/ch28-fig02.png){#fig:ch28-fig02}
+cross-validation](../images/ch28-fig02.png){#fig-ch28-fig02}
 
 However, this does not mean large training sets are bad, since they can
 reduce the pessimistic bias of the performance estimate (mostly a good
 thing) if we assume that the model training can benefit from more
 training data. (See
-Figure [\[fig:ch05-fig01\]](#fig:ch05-fig01){reference="fig:ch05-fig01"
+Figure [\[fig-ch05-fig01\]](#fig-ch05-fig01){reference="fig-ch05-fig01"
 reference-type="ref"} on page  for an example of a learning curve.)
 
 In practice, both a very small and a very large *k* may increase

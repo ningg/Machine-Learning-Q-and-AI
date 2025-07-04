@@ -183,16 +183,16 @@ reference-type="ref"}). We can use these models to generate new data
 from scratch by using "complete the sentence"? or "generate example
 sentences"? prompts, among others. We can also use LLMs as alternatives
 to back translation, prompting them to rewrite sentences as shown in
-Figure [1.1](#fig:ch15-fig01){reference="fig:ch15-fig01"
+Figure [1.1](#fig-ch15-fig01){reference="fig-ch15-fig01"
 reference-type="ref"}.
 
-<figure id="fig:ch15-fig01">
+<figure id="fig-ch15-fig01">
 
 <figcaption>Using an LLM to rewrite a sentence</figcaption>
 </figure>
 
 Note that an LLM, as shown in
-Figure [1.1](#fig:ch15-fig01){reference="fig:ch15-fig01"
+Figure [1.1](#fig-ch15-fig01){reference="fig-ch15-fig01"
 reference-type="ref"}, runs in a nondeterministic mode by default, which
 means we can prompt it multiple times to obtain a variety of rewritten
 sentences.

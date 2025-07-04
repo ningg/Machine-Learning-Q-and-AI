@@ -36,14 +36,14 @@ is the distribution of the targets *y* given the inputs *x*.
 *p*(*x*), changes, but the conditional distribution of the output given
 the input, *p*(*y*\\(\|\\)*x*), remains the same.
 
-Figure [1.1](#fig:ch23-fig01){reference="fig:ch23-fig01"
+Figure [1.1](#fig-ch23-fig01){reference="fig-ch23-fig01"
 reference-type="ref"} illustrates covariate shift where both the feature
 values of the training data and the new data encountered during
 production follow a normal distribution. However, the mean of the new
 data has changed from the training data.
 
 ![Training data and new data distributions differ under covariate
-shift.](../images/ch23-fig01.png){#fig:ch23-fig01 style="width:70.0%"}
+shift.](../images/ch23-fig01.png){#fig-ch23-fig01 style="width:70.0%"}
 
 For example, suppose we trained a model to predict whether an email is
 spam based on specific features. Now, after we embed the email spam
@@ -154,14 +154,14 @@ and retraining or adapting the model.
 
 ## Types of Data Distribution Shifts [](#types-of-data-distribution-shifts)
 
-Figure [1.2](#fig:ch23-fig02){reference="fig:ch23-fig02"
+Figure [1.2](#fig-ch23-fig02){reference="fig-ch23-fig02"
 reference-type="ref"} provides a visual summary of different types of
 data shifts in the context of a binary (2-class) classification problem,
 where the black circles refer to examples from one class and the
 diamonds refer to examples from another class.
 
 ![Different types of data shifts in a binary\
-classification context](../images/ch23-fig02.png){#fig:ch23-fig02}
+classification context](../images/ch23-fig02.png){#fig-ch23-fig02}
 
 As noted in the previous sections, some types of distribution shift are
 more problematic than others. The least problematic among them is

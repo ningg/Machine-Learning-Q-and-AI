@@ -111,13 +111,13 @@ are designed to contain the true outcome with a certain probability.
 For classifiers, a prediction region for a given input is a set of
 labels such that the set contains the true label with a given confidence
 (typically 95 percent), as illustrated in
-Figure [1.1](#fig:ch26-fig01){reference="fig:ch26-fig01"
+Figure [1.1](#fig-ch26-fig01){reference="fig-ch26-fig01"
 reference-type="ref"}.
 
 ![Prediction regions for a classification
-task](../images/ch26-fig01.png){#fig:ch26-fig01}
+task](../images/ch26-fig01.png){#fig-ch26-fig01}
 
-As depicted in Figure [1.1](#fig:ch26-fig01){reference="fig:ch26-fig01"
+As depicted in Figure [1.1](#fig-ch26-fig01){reference="fig-ch26-fig01"
 reference-type="ref"}, the ImageNet dataset consists of a subset of bird
 species. Some bird species in ImageNet belong to one of the follow-
  ing classes: *hawk*, *duck*, *eagle*, or *goose*. ImageNet also

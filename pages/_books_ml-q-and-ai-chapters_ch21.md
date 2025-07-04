@@ -30,7 +30,7 @@ architectures or loss functions). Here, we consider existing benchmark
 datasets to compare the new method to previous approaches and determine
 whether it is an improvement over the status quo.
 
-Figure [\[fig:ch21-fig01\]](#fig:ch21-fig01){reference="fig:ch21-fig01"
+Figure [\[fig-ch21-fig01\]](#fig-ch21-fig01){reference="fig-ch21-fig01"
 reference-type="ref"} summarizes the difference between data-centric and
 model-centric workflows.
 

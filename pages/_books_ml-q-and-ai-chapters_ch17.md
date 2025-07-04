@@ -33,14 +33,14 @@ Chapter [\[ch16\]](../ch16){reference="ch16" reference-type="ref"} was
 developed for English-to-French and English-to-German language
 translation. It utilized both an encoder and a decoder, as illustrated
 in
-Figure [\[fig:ch17-fig01\]](#fig:ch17-fig01){reference="fig:ch17-fig01"
+Figure [\[fig-ch17-fig01\]](#fig-ch17-fig01){reference="fig-ch17-fig01"
 reference-type="ref"}.
 
 ::: figurewide
 ![image](../images/ch17-fig01.png){style="width:5.625in"}
 :::
 
-InFigure [\[fig:ch17-fig01\]](#fig:ch17-fig01){reference="fig:ch17-fig01"
+InFigure [\[fig-ch17-fig01\]](#fig-ch17-fig01){reference="fig-ch17-fig01"
 reference-type="ref"},the input text (that is, the sentences of the text
 to betranslated) is first tokenized into individual word tokens, which
 are then encoded via an embedding layer before they enter the encoder
@@ -49,7 +49,7 @@ reference-type="ref"} for more on embeddings). After a positional
 encoding vector is added to each embedded word,the embeddings go through
 a multi-head self-attention layer. This layer is followed by an addition
 step, indicated by a plus sign (+) in
-Figure [\[fig:ch17-fig01\]](#fig:ch17-fig01){reference="fig:ch17-fig01"
+Figure [\[fig-ch17-fig01\]](#fig-ch17-fig01){reference="fig-ch17-fig01"
 reference-type="ref"}, which performs a layer normalization and adds the
 original embeddings via a skip connection,also known as a *residual* or
 *shortcut* connection. Following this is a LayerNormblock, short for
@@ -63,7 +63,7 @@ between""the outputs are again added and normalized before they are
 passed to a multi-head self-attention layer of the decoder.
 
 The decoder in
-Figure [\[fig:ch17-fig01\]](#fig:ch17-fig01){reference="fig:ch17-fig01"
+Figure [\[fig-ch17-fig01\]](#fig-ch17-fig01){reference="fig-ch17-fig01"
 reference-type="ref"} has a similar overall structure to the encoder.
 The key difference is that the inputs and outputs are different: the
 encoder receives the input text to be translated, while the decoder
@@ -72,7 +72,7 @@ generates the translated text.
 ### Encoders [](#encoders)
 
 The encoder part in the original transformer, as illustrated in
-Figure [\[fig:ch17-fig01\]](#fig:ch17-fig01){reference="fig:ch17-fig01"
+Figure [\[fig-ch17-fig01\]](#fig-ch17-fig01){reference="fig-ch17-fig01"
 reference-type="ref"}, is responsible for understanding and extracting
 the relevant information from the input text. It then outputs a
 continuous representation (embedding) of the input text, which is passed
@@ -89,21 +89,21 @@ As noted in Chapter [\[ch14\]](../ch14){reference="ch14"
 reference-type="ref"}, BERT is an encoder-only architecture based on the
 transformer's encoder module. The BERT model is pretrained on a large
 text corpus using masked language modeling and next-sentence prediction
-tasks. Figure [1.1](#fig:ch17-fig02){reference="fig:ch17-fig02"
+tasks. Figure [1.1](#fig-ch17-fig02){reference="fig-ch17-fig02"
 reference-type="ref"} illustrates the masked language modeling
 pretraining objective used in BERT-style transformers.
 
 ![BERT randomly masks 15 percent of the input tokens during
-pretraining.](../images/ch17-fig02.png){#fig:ch17-fig02}
+pretraining.](../images/ch17-fig02.png){#fig-ch17-fig02}
 
-As Figure [1.1](#fig:ch17-fig02){reference="fig:ch17-fig02"
+As Figure [1.1](#fig-ch17-fig02){reference="fig-ch17-fig02"
 reference-type="ref"} demonstrates, the main idea behind masked language
 modeling is to mask (or replace) random word tokens in the input
 sequence and then train the model to predict the original masked tokens
 based on the surrounding context.
 
 Inadditiontothemaskedlanguagemodelingpretrainingtaskillustrated in
-Figure [1.1](#fig:ch17-fig02){reference="fig:ch17-fig02"
+Figure [1.1](#fig-ch17-fig02){reference="fig-ch17-fig02"
 reference-type="ref"}, the next-sentence prediction task asks the model
 to predict whether the original document's sentence order of two
 randomly shuffled sentences is correct. For example, say that two
@@ -140,13 +140,13 @@ tasks than BERT.
 ### Decoders [](#decoders)
 
 Coming back to the original transformer architecture outlined in
-Figure [\[fig:ch17-fig01\]](#fig:ch17-fig01){reference="fig:ch17-fig01"
+Figure [\[fig-ch17-fig01\]](#fig-ch17-fig01){reference="fig-ch17-fig01"
 reference-type="ref"}, the multi-head self-attention mechanism in the
 decoder is similar to the one in the encoder, but it is masked to
 prevent the model from attending to future positions, ensuring that the
 predictions for position *i* can depend only on the known outputs at
 positions less than *i*. As illustrated in
-Figure [\[fig:ch17-fig03\]](#fig:ch17-fig03){reference="fig:ch17-fig03"
+Figure [\[fig-ch17-fig03\]](#fig-ch17-fig03){reference="fig-ch17-fig03"
 reference-type="ref"}, the decoder generates the output word by word.
 
 ::: figurewide
@@ -154,7 +154,7 @@ reference-type="ref"}, the decoder generates the output word by word.
 :::
 
 This masking (shown explicitly in
-Figure [\[fig:ch17-fig03\]](#fig:ch17-fig03){reference="fig:ch17-fig03"
+Figure [\[fig-ch17-fig03\]](#fig-ch17-fig03){reference="fig-ch17-fig03"
 reference-type="ref"}, although it occurs internally in the decoder's
 multi-head self-attention mechanism) is essential to maintaining the
 transformer model's autoregressive property during training and
@@ -233,12 +233,12 @@ translation and summarization), and decoder-only models are used for
 other types of generative tasks, including Q&A. Since the first
 transformer architecture emerged, hundreds of encoder-only,
 decoder-only, and encoder-decoder hybrids have been developed, as
-diagrammed in Figure [1.2](#fig:ch17-fig04){reference="fig:ch17-fig04"
+diagrammed in Figure [1.2](#fig-ch17-fig04){reference="fig-ch17-fig04"
 reference-type="ref"}.
 
 ![Some of the most popular large language transformers organized by\
 architecture type and
-developer](../images/ch17-fig04.png){#fig:ch17-fig04
+developer](../images/ch17-fig04.png){#fig-ch17-fig04
 style="width:99.0%"}
 
 While encoder-only models have gradually become less popular,

@@ -43,13 +43,13 @@ given model would benefit from more data. To construct a learning curve,
 we train the model to different training set sizes (10 percent, 20
 percent, and so on) and evaluate the trained model on the same
 fixed-size validation or test set. As shown in
-Figure [1.1](#fig:ch05-fig01){reference="fig:ch05-fig01"
+Figure [1.1](#fig-ch05-fig01){reference="fig-ch05-fig01"
 reference-type="ref"}, the validation accuracy increases as the training
 set sizes increase. This indicates that we can improve the model's
 performance by collecting more data.
 
 ![The learning curve plot of a model fit to different training\
-set sizes](../images/ch05-fig01.png){#fig:ch05-fig01}
+set sizes](../images/ch05-fig01.png){#fig-ch05-fig01}
 
 The gap between training and validation performance indicates the degree
 of overfitting""the more extensive the gap, the more overfitting
@@ -70,15 +70,15 @@ Why? Augmented data can help the model improve its ability to
 generalize, since it makes it harder to memorize spurious information
 via training examples or features""or, in the case of image data, exact
 pixel values for specific pixel locations.
-Figure [1.2](#fig:ch05-fig02){reference="fig:ch05-fig02"
+Figure [1.2](#fig-ch05-fig02){reference="fig-ch05-fig02"
 reference-type="ref"} highlights common image data augmentation
 techniques, including increasing brightness, flipping, and cropping.
 
 ![A selection of different image data augmentation
-techniques](../images/ch05-fig02.png){#fig:ch05-fig02}
+techniques](../images/ch05-fig02.png){#fig-ch05-fig02}
 
 Data augmentation is usually standard for image data (see
-Figure [1.2](#fig:ch05-fig02){reference="fig:ch05-fig02"
+Figure [1.2](#fig-ch05-fig02){reference="fig-ch05-fig02"
 reference-type="ref"}) and text data (discussed further in
 Chapter [\[ch15\]](../ch15){reference="ch15" reference-type="ref"}),
 but data augmentation methods for tabular data also exist.

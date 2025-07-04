@@ -27,13 +27,13 @@ run the model on a batch of samples rather than on a single sample at a
 time. This is sometimes also referred to as *batched inference* and
 assumes that we are receiving multiple input samples or user inputs
 simultaneously or within a short time window, as illustrated in
-Figure [1.1](#fig:ch22-fig01){reference="fig:ch22-fig01"
+Figure [1.1](#fig-ch22-fig01){reference="fig-ch22-fig01"
 reference-type="ref"}.
 
 ![Sequential inference and batched
-inference](../images/ch22-fig01.png){#fig:ch22-fig01}
+inference](../images/ch22-fig01.png){#fig-ch22-fig01}
 
-Figure [1.1](#fig:ch22-fig01){reference="fig:ch22-fig01"
+Figure [1.1](#fig-ch22-fig01){reference="fig-ch22-fig01"
 reference-type="ref"} shows sequential inference processing one item at
 a time, which creates a bottleneck if there are several samples waiting
 to be classified. In batched inference, the model processes all four
@@ -66,12 +66,12 @@ doing this would be to use a `for`{.language-plaintext
 by one. However, this can be quite slow, especially for large arrays.
 With vectorization, you can perform the dot product operation on the
 entire array at once, as shown in
-Figure [1.2](#fig:ch22-fig02){reference="fig:ch22-fig02"
+Figure [1.2](#fig-ch22-fig02){reference="fig-ch22-fig02"
 reference-type="ref"}.
 
 ![A classic loop versus a vectorized dot\
 product computation in
-Python](../images/ch22-fig02.png){#fig:ch22-fig02}
+Python](../images/ch22-fig02.png){#fig-ch22-fig02}
 
 In the context of linear algebra or deep learning frameworks like
 TensorFlow and PyTorch, vectorization is typically done automatically.
@@ -89,7 +89,7 @@ down a loop's iteration space into smaller chunks or "tiles."? This
 ensures that once data is loaded into cache, all possible computations
 are performed on it before the cache is cleared.
 
-Figure [1.3](#fig:ch22-fig03){reference="fig:ch22-fig03"
+Figure [1.3](#fig-ch22-fig03){reference="fig-ch22-fig03"
 reference-type="ref"} illustrates the concept of loop tiling for
 accessing elements in a two-dimensional array. In a regular
 `for`{.language-plaintext .highlighter-rouge} loop, we iterate over
@@ -97,7 +97,7 @@ columns and rows one element at a time, whereas in loop tiling, we
 subdivide the array into smaller tiles.
 
 ![Loop tiling in a two-dimensional
-array](../images/ch22-fig03.png){#fig:ch22-fig03}
+array](../images/ch22-fig03.png){#fig-ch22-fig03}
 
 Note that in languages such as Python, we don't usually perform loop
 tiling, because Python and many other high-level languages do not allow
@@ -110,12 +110,12 @@ arrays.
 
 *Operator fusion*, sometimes called *loop fusion*, is an optimization
 technique that combines multiple loops into a single loop. This is
-illustrated in Figure [1.4](#fig:ch22-fig04){reference="fig:ch22-fig04"
+illustrated in Figure [1.4](#fig-ch22-fig04){reference="fig-ch22-fig04"
 reference-type="ref"}, where two separate loops to calculate the sum and
 the product of an array of numbers are fused into a single loop.
 
 ![Fusing two loops (left) into one
-(right)](../images/ch22-fig04.png){#fig:ch22-fig04}
+(right)](../images/ch22-fig04.png){#fig-ch22-fig04}
 
 Operator fusion can improve the performance of a model by reducing the
 overhead of loop control, decreasing memory access times by improving

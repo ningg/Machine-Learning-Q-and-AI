@@ -25,16 +25,16 @@ initial model on the original training set and then retrain it as new
 data arrives. Hence, stateless training is also commonly referred to as
 stateless *retraining*.
 
-As Figure [1.1](#fig:ch20-fig01){reference="fig:ch20-fig01"
+As Figure [1.1](#fig-ch20-fig01){reference="fig-ch20-fig01"
 reference-type="ref"} shows, we can think of stateless retraining as a
 sliding window approach in which we retrain the initial model on
 different parts of the data from a given data stream.
 
 ![Stateless training replaces the model\
-periodically.](../images/ch20-fig01.png){#fig:ch20-fig01}
+periodically.](../images/ch20-fig01.png){#fig-ch20-fig01}
 
 For example, to update the initial model in
-Figure [1.1](#fig:ch20-fig01){reference="fig:ch20-fig01"
+Figure [1.1](#fig-ch20-fig01){reference="fig-ch20-fig01"
 reference-type="ref"} (Model 1) to a newer model (Model 2), we train the
 model on 30 percent of the initial data and 70 percent of the most
 recent data at a given point in time.
@@ -56,14 +56,14 @@ In stateful training, we train the model on an initial batch of data and
 then update it periodically (as opposed to retraining it) when new data
 arrives.
 
-AsillustratedinFigure [1.2](#fig:ch20-fig02){reference="fig:ch20-fig02"
+AsillustratedinFigure [1.2](#fig-ch20-fig02){reference="fig-ch20-fig02"
 reference-type="ref"},we do not retrain the initial model (Model1.0)
 from scratch; instead, we update or fine-tune it as new data arrives.
 This approach is particularly attractive for models compatible with
 transfer learning or self-supervised learning.
 
 ![Stateful training updates models
-periodically.](../images/ch20-fig02.png){#fig:ch20-fig02}
+periodically.](../images/ch20-fig02.png){#fig-ch20-fig02}
 
 The stateful approach mimics a transfer or self-supervised learning
 workflow where we adopt a pretrained model for fine-tuning. However,

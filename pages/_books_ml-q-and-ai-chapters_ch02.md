@@ -35,11 +35,12 @@ bird species of interest. (Often, we just have to change the
 class-specific output layer, but we can otherwise adopt the pretrained
 network as is.)
 
-Figure [1.1](#fig:ch02-fig01){reference="fig:ch02-fig01"
-reference-type="ref"} illustrates the process of transfer learning.
+Figure [1.1](#fig-ch02-fig01) illustrates the process of transfer learning.
+
+<a name="fig-ch02-fig01"></a>
 
 ![Pretraining with conventional transfer
-learning](../images/ch02-fig01.png){#fig:ch02-fig01}
+learning](../images/ch02-fig01.png)
 
 Self-supervised learning is an alternative approach to transfer learning
 in which the model is pretrained not on labeled data but on *unlabeled*
@@ -47,19 +48,18 @@ data. We consider an unlabeled dataset for which we do not have label
 information, and then we find a way to obtain labels from the
 dataset's structure to formulate a prediction task for the neural
 network, as illustrated in
-Figure [1.2](#fig:ch02-fig02){reference="fig:ch02-fig02"
-reference-type="ref"}. These self-supervised training tasks are also
+Figure [1.2](#fig-ch02-fig02). These self-supervised training tasks are also
 called *pretext tasks*.
 
+<a name="fig-ch02-fig02"></a>
+
 ![Pretraining with self-supervised
-learning](../images/ch02-fig02.png){#fig:ch02-fig02}
+learning](../images/ch02-fig02.png)
 
 The main difference between transfer learning and self-supervised
 learning lies in how we obtain the labels during step 1 in
-Figures [1.1](#fig:ch02-fig01){reference="fig:ch02-fig01"
-reference-type="ref"}
-and [1.2](#fig:ch02-fig02){reference="fig:ch02-fig02"
-reference-type="ref"}. In transfer learning, we assume that the labels
+Figures [1.1](#fig-ch02-fig01)
+and [1.2](#fig-ch02-fig02). In transfer learning, we assume that the labels
 are provided along with the data-  set; they are typically created
 by human labelers. In self-supervised learning, the labels can be
 directly derived from the training examples.
@@ -107,32 +107,34 @@ learning and are incompatible with self-supervised learning.
 There are two main categories of self-supervised learning:
 self-prediction and contrastive self-supervised learning. In
 *self-prediction*, illustrated in
-Figure [1.3](#fig:ch02-fig03){reference="fig:ch02-fig03"
-reference-type="ref"}, we typically change or hide parts of the input
+Figure [1.3](#fig-ch02-fig03), we typically change or hide parts of the input
 and train the mo-  del to reconstruct the original inputs, such as by
 using a perturbation mask that obfuscates certain pixels in an image.
 
+<a name="fig-ch02-fig03"></a>
+
 ![Self-prediction after applying a\
-perturbation mask](../images/ch02-fig03.png){#fig:ch02-fig03}
+perturbation mask](../images/ch02-fig03.png)
 
 A classic example is a denoising autoencoder that learns to remove noise
 from an input image. Alternatively, consider a masked autoencoder that
 reconstructs the missing parts of an image, as shown in
-Figure [1.4](#fig:ch02-fig04){reference="fig:ch02-fig04"
-reference-type="ref"}.
+Figure [1.4](#fig-ch02-fig04).
+
+<a name="fig-ch02-fig04"></a>
 
 ![A masked autoencoder reconstructing a masked
-image](../images/ch02-fig04.png){#fig:ch02-fig04}
+image](../images/ch02-fig04.png)
 
 Missing (masked) input self-prediction methods are also commonly used in
 natural language processing contexts. Many generative LLMs, such as GPT,
 are trained on a next-word prediction pretext task (GPT will be
 discussed at greater length in
-Chapters [\[ch14\]](../ch14){reference="ch14" reference-type="ref"}
-and [\[ch17\]](../ch17){reference="ch17" reference-type="ref"}). Here,
+Chapters [\[ch14\]](./_books_ml-q-and-ai-chapters_ch14.md)
+and [\[ch17\]](./_books_ml-q-and-ai-chapters_ch17.md). Here,
 we feed the network text fragments, where it has to predict the next
 word in the sequence (as we'll discuss further in
-Chapter [\[ch17\]](../ch17){reference="ch17" reference-type="ref"}).
+Chapter [\[ch17\]](../ch17)).
 
 In *contrastive self-supervised learning*, we train the neural network
 to learn an embedding space where similar inputs are close to each other
@@ -147,11 +149,12 @@ draw a random image of a cat (the network does not know the label,
 because we assume that the dataset is unlabeled). We then augment,
 corrupt, or perturb this cat image, such as by adding a random noise
 layer and cropping it differently, as shown in
-Figure [1.5](#fig:ch02-fig05){reference="fig:ch02-fig05"
-reference-type="ref"}.
+Figure [1.5](#fig-ch02-fig05).
+
+<a name="fig-ch02-fig05"></a>
 
 ![Image pairs encountered in contrastive
-learning](../images/ch02-fig05.png){#fig:ch02-fig05}
+learning](../images/ch02-fig05.png)
 
 The perturbed cat image in this figure still shows the same cat, so we
 want the network to produce a similar embedding vector. We also consider
@@ -168,21 +171,21 @@ weights to decrease the distance \\(\|\|\\)*M*(cat) ""
 *M*(cat\\(\'\\))\\(\|\|\\)~2~ and increase the distance
 \\(\|\|\\)*M*(*cat*) "" *M*(*elephant*)\\(\|\|\\)~2~.
 
-Figure [1.6](#fig:ch02-fig06){reference="fig:ch02-fig06"
-reference-type="ref"} summarizes the central concept behind contrastive
+Figure [1.6](#fig-ch02-fig06) summarizes the central concept behind contrastive
 learning for the perturbed image scenario. The model is shown twice,
 which is known as a *siamese network* setup. Essentially, the same model
 is utilized in two instances: first, to generate the embedding for the
 original training example, and second, to produce the embedding for the
 perturbed version of the sample.
 
-![Contrastive learning](../images/ch02-fig06.png){#fig:ch02-fig06}
+<a name="fig-ch02-fig06"></a>
+
+![Contrastive learning](../images/ch02-fig06.png){#fig-ch02-fig06}
 
 This example outlines the main idea behind contrastive learning, but
 many subvariants exist. Broadly, we can categorize these into *sample*
 contrastive and *dimension* contrastive methods. The elephant-cat
-example in Figure [1.6](#fig:ch02-fig06){reference="fig:ch02-fig06"
-reference-type="ref"} illustrates a sample contrastive method, where we
+example in Figure [1.6](#fig-ch02-fig06) illustrates a sample contrastive method, where we
 focus on learning embeddings to minimize and maximize distances between
 training pairs. In *dimension*-contrastive approaches, on the other
 hand, we focus on making only certain variables in the embedding

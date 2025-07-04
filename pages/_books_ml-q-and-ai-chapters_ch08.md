@@ -61,15 +61,15 @@ comparing each input element to all others. The attention weights
 obtained by this approach are dynamic and input dependent. In contrast,
 the weights of a convolutional or fully connected layer are fixed after
 training, as illustrated in
-Figure [1.1](#fig:ch08-fig01){reference="fig:ch08-fig01"
+Figure [1.1](#fig-ch08-fig01){reference="fig-ch08-fig01"
 reference-type="ref"}.
 
 ![The conceptual difference between model weights in fully connected\
 layers (top) and attention scores
-(bottom)](../images/ch08-fig01.png){#fig:ch08-fig01}
+(bottom)](../images/ch08-fig01.png){#fig-ch08-fig01}
 
 As the top part of
-Figure [1.1](#fig:ch08-fig01){reference="fig:ch08-fig01"
+Figure [1.1](#fig-ch08-fig01){reference="fig-ch08-fig01"
 reference-type="ref"} shows, once trained, the weights of fully
 connected layers remain fixed regardless of the input. In contrast, as
 shown at the bottom, self-attention weights change depending on the
@@ -139,16 +139,16 @@ self-attention mechanism used in most transformer architectures involves
 computing the weighted sum between a pair of input elements.
 Furthermore, these pair-wise token comparisons can be computed
 independently, as illustrated in
-Figure [1.2](#fig:ch08-fig02){reference="fig:ch08-fig02"
+Figure [1.2](#fig-ch08-fig02){reference="fig-ch08-fig02"
 reference-type="ref"}, making the self-attention mechanism relatively
 easy to parallelize across different GPU cores.
 
 ![A simplified self-attention mechanism without\
-weight parameters](../images/ch08-fig02.png){#fig:ch08-fig02}
+weight parameters](../images/ch08-fig02.png){#fig-ch08-fig02}
 
 In addition, the individual weight matrices used in the self-attention
 mechanism (not shown in
-Figure [1.2](#fig:ch08-fig02){reference="fig:ch08-fig02"
+Figure [1.2](#fig-ch08-fig02){reference="fig-ch08-fig02"
 reference-type="ref"}) can be distributed across different machines for
 distributed and parallel computing.
 

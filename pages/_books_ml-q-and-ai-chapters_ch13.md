@@ -87,13 +87,13 @@ output does not change with an input shift, while *translation
 equivariance* implies that the output shifts with the input in a
 corresponding manner. In other words, if we shift the input object to
 the right, the results will correspondingly shift to the right, as
-illustrated in Figure [1.1](#fig:ch13-fig01){reference="fig:ch13-fig01"
+illustrated in Figure [1.1](#fig-ch13-fig01){reference="fig-ch13-fig01"
 reference-type="ref"}.
 
 ![Equivariance under different image
-translations](../images/ch13-fig01.png){#fig:ch13-fig01}
+translations](../images/ch13-fig01.png){#fig-ch13-fig01}
 
-As Figure [1.1](#fig:ch13-fig01){reference="fig:ch13-fig01"
+As Figure [1.1](#fig-ch13-fig01){reference="fig-ch13-fig01"
 reference-type="ref"} shows, under translation invariance, we get the
 same output pattern regardless of the order in which we apply the
 operations: transformation followed by translation or translation
@@ -102,7 +102,7 @@ followed by transformation.
 As mentioned earlier, CNNs achieve translation equivariance through a
 combination of their local connectivity, weight sharing, and
 hierarchical processing properties.
-Figure [1.2](#fig:ch13-fig02){reference="fig:ch13-fig02"
+Figure [1.2](#fig-ch13-fig02){reference="fig-ch13-fig02"
 reference-type="ref"} depicts a convolutional operation to illustrate
 the local connectivity and weight-sharing priors. This figure
 demonstrates the concept of translation equivariance in CNNs, in which a
@@ -110,9 +110,9 @@ convolutional filter captures the input signal (the two dark blocks)
 irrespective of where it is located in the input.
 
 ![Convolutional filters and translation
-equivariance](../images/ch13-fig02.png){#fig:ch13-fig02}
+equivariance](../images/ch13-fig02.png){#fig-ch13-fig02}
 
-Figure [1.2](#fig:ch13-fig02){reference="fig:ch13-fig02"
+Figure [1.2](#fig-ch13-fig02){reference="fig-ch13-fig02"
 reference-type="ref"} shows a \\(3 \\times 3\\) input image that
 consists of two nonzero pixel values in the upper-left corner (top
 portion of the figure) or upper-right corner (bottom portion of the
@@ -128,11 +128,11 @@ this point, picture a multilayer perceptron with one hidden layer. Each
 pixel in the input image is connected with each value in the resulting
 output. If we shift the input by one or more pixels, a different set of
 weights will be activated, as illustrated in
-Figure [1.3](#fig:ch13-fig03){reference="fig:ch13-fig03"
+Figure [1.3](#fig-ch13-fig03){reference="fig-ch13-fig03"
 reference-type="ref"}.
 
 ![Location-specific weights in fully\
-connected layers](../images/ch13-fig03.png){#fig:ch13-fig03}
+connected layers](../images/ch13-fig03.png){#fig-ch13-fig03}
 
 Like fully connected networks, ViT architecture (and transformer
 architecture in general) lacks the inductive bias for spatial invariance
@@ -188,11 +188,11 @@ transformers *patchify* the input image to process each input patch
 individually. Here, each patch can attend to all other patches so that
 the model learns relationships between far-apart patches in the input
 image, as illustrated in
-Figure [1.4](#fig:ch13-fig04){reference="fig:ch13-fig04"
+Figure [1.4](#fig-ch13-fig04){reference="fig-ch13-fig04"
 reference-type="ref"}.
 
 ![How a vision transformer operates on image
-patches](../images/ch13-fig04.png){#fig:ch13-fig04}
+patches](../images/ch13-fig04.png){#fig-ch13-fig04}
 
 The patchify inductive bias allows ViTs to scale to larger image sizes
 without increasing the number of parameters in the model, which can be
@@ -247,7 +247,7 @@ generative modeling contexts.
 ### Exercises [](#exercises)
 
 13-1. Consider the patchification of the input images shown in
-Figure [1.4](#fig:ch13-fig04){reference="fig:ch13-fig04"
+Figure [1.4](#fig-ch13-fig04){reference="fig-ch13-fig04"
 reference-type="ref"}. The size of the resulting patches controls a
 computational and predictive performance trade-off. The optimal patch
 size depends on the application and desired trade-off between

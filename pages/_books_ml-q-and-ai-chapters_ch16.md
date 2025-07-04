@@ -40,14 +40,14 @@ lost, especially if the sentence was long.
 
 Tounderstandthedifferencebetweenregularattentionandself-
 attention,let'sbeginwiththeillustrationoftheBahdanauattention
-mechanisminFigure [1.1](#fig:ch16-fig01){reference="fig:ch16-fig01"
+mechanisminFigure [1.1](#fig-ch16-fig01){reference="fig-ch16-fig01"
 reference-type="ref"}.
 
 ![The Bahdanau mechanism uses a\
 separate RNN to compute attention
-weights.](../images/ch16-fig01.png){#fig:ch16-fig01}
+weights.](../images/ch16-fig01.png){#fig-ch16-fig01}
 
-In Figure [1.1](#fig:ch16-fig01){reference="fig:ch16-fig01"
+In Figure [1.1](#fig-ch16-fig01){reference="fig-ch16-fig01"
 reference-type="ref"}, the \\(\\alpha\\) values represent the attention
 weights for the second sequence element and each other element in the
 sequence from 1 to *T*. Furthermore, this original attention mechanism
@@ -70,21 +70,21 @@ The motivation behind this complicated encoder-decoder design is that we
 cannot translate sentences word by word. This would result in
 grammatically incorrect outputs, as illustrated by the RNN architecture
 (a) in
-Figure [\[fig:ch16-fig02\]](#fig:ch16-fig02){reference="fig:ch16-fig02"
+Figure [\[fig-ch16-fig02\]](#fig-ch16-fig02){reference="fig-ch16-fig02"
 reference-type="ref"}.
 
 ::: figurewide
 ![image](../images/ch16-fig02.png){style="width:5.625in"}
 :::
 
-Figure [\[fig:ch16-fig02\]](#fig:ch16-fig02){reference="fig:ch16-fig02"
+Figure [\[fig-ch16-fig02\]](#fig-ch16-fig02){reference="fig-ch16-fig02"
 reference-type="ref"} shows two different sequence-to-sequence RNN
 designs for sentence translation.
-Figure [\[fig:ch16-fig02\]](#fig:ch16-fig02){reference="fig:ch16-fig02"
+Figure [\[fig-ch16-fig02\]](#fig-ch16-fig02){reference="fig-ch16-fig02"
 reference-type="ref"}(a) represents a regular sequence-to-sequence RNN
 that may be used to translate a sentence from German to English word by
 word.
-Figure [\[fig:ch16-fig02\]](#fig:ch16-fig02){reference="fig:ch16-fig02"
+Figure [\[fig-ch16-fig02\]](#fig-ch16-fig02){reference="fig-ch16-fig02"
 reference-type="ref"}(b) depicts an encoder-decoder RNN that first reads
 the whole sentence before translating it.
 
@@ -92,7 +92,7 @@ RNN architecture (a) is best suited for time series tasks in which we
 want to make one prediction at a time, such as predicting a given stock
 price day by day. For tasks like language translation, we typically opt
 for an encoder-decoder RNN, as in architecture (b) in
-Figure [\[fig:ch16-fig02\]](#fig:ch16-fig02){reference="fig:ch16-fig02"
+Figure [\[fig-ch16-fig02\]](#fig-ch16-fig02){reference="fig-ch16-fig02"
 reference-type="ref"}. Here, the RNN encodes the input sentence, stores
 it in an intermediate hidden representation, and generates the output
 sentence. However, this creates a bottleneck where the RNN has to
@@ -122,15 +122,15 @@ self-attention mechanism.
 In self-attention, the attention mechanism is applied between all
 elements in the same sequence (as opposed to involving two sequences),
 as depicted in the simplified attention mechanism in
-Figure [1.2](#fig:ch16-fig03){reference="fig:ch16-fig03"
+Figure [1.2](#fig-ch16-fig03){reference="fig-ch16-fig03"
 reference-type="ref"}. Similar to the attention mechanism for RNNs, the
 context vector is an attention-weighted sum over the input sequence
 elements.
 
 ![A simple self-attention mechanism without weight
-matrices](../images/ch16-fig03.png){#fig:ch16-fig03}
+matrices](../images/ch16-fig03.png){#fig-ch16-fig03}
 
-While Figure [1.2](#fig:ch16-fig03){reference="fig:ch16-fig03"
+While Figure [1.2](#fig-ch16-fig03){reference="fig-ch16-fig03"
 reference-type="ref"} doesn't include weight matrices, the
 self-attention mechanism used in transformers typically involves
 multiple weight matrices to compute the attention weights.

@@ -132,10 +132,10 @@ This is commonly done for n-grams rather than individual words, but for
 simplicity, we will stick to words or 1-grams. (In practice, BLEU is
 often computed for 4-grams.)
 
-Figure [\[fig:ch19-fig01\]](#fig:ch19-fig01){reference="fig:ch19-fig01"
+Figure [\[fig-ch19-fig01\]](#fig-ch19-fig01){reference="fig-ch19-fig01"
 reference-type="ref"} demonstrates the BLEU score calculation, using the
 example of calculating the 1-gram BLEU score. The individual steps in
-Figure [\[fig:ch19-fig01\]](#fig:ch19-fig01){reference="fig:ch19-fig01"
+Figure [\[fig-ch19-fig01\]](#fig-ch19-fig01){reference="fig-ch19-fig01"
 reference-type="ref"} illustrate how we compute the 1-gram BLEU score
 based on its individual components, the weighted precision times a
 brevity penalty. You can also find a code implementation of this
@@ -186,7 +186,7 @@ Modern implementations compute ROUGE as an F1 score that is the harmonic
 mean of recall (how many words in the reference occur in the candidate
 text) and precision (how many words in the candidate text occur in the
 reference text). For example,
-Figure [\[fig:ch19-fig02\]](#fig:ch19-fig02){reference="fig:ch19-fig02"
+Figure [\[fig-ch19-fig02\]](#fig-ch19-fig02){reference="fig-ch19-fig02"
 reference-type="ref"} shows a 1-gram ROUGE score computation (though in
 practice, ROUGE is often computed for bigrams, that is, 2-grams).
 
@@ -253,7 +253,7 @@ The steps to compute BERTScore are as follows:
 6.  Compute the final BERTScore by taking the average similarity scores
     of all tokens in the candidate text.
 
-Figure [\[fig:ch19-fig03\]](#fig:ch19-fig03){reference="fig:ch19-fig03"
+Figure [\[fig-ch19-fig03\]](#fig-ch19-fig03){reference="fig-ch19-fig03"
 reference-type="ref"} further illustrates these six steps. You can also
 find a computational example in the *subfolder/q15-text-augment*
 subfolder at <https://github.com/rasbt/MachineLearning-QandAI-book>.
@@ -293,7 +293,7 @@ LLMs.
 ### Exercises [](#exercises)
 
 19-1. In step 5 of
-Figure [\[fig:ch19-fig03\]](#fig:ch19-fig03){reference="fig:ch19-fig03"
+Figure [\[fig-ch19-fig03\]](#fig-ch19-fig03){reference="fig-ch19-fig03"
 reference-type="ref"}, the cosine similarity between the two embeddings
 of "cat"? is not 1.0, where 1.0 indicates a maximum cosine
 similarity. Why is that?

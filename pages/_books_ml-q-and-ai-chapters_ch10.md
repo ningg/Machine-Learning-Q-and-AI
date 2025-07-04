@@ -33,13 +33,13 @@ default. This means that the final model will be different every time we
 start the training. The reason these trained models will differ when we
 start with different random weights is the nonconvex nature of the loss,
 as illustrated in
-Figure [1.1](#fig:ch10-fig01){reference="fig:ch10-fig01"
+Figure [1.1](#fig-ch10-fig01){reference="fig-ch10-fig01"
 reference-type="ref"}. As the figure shows, the loss will converge to
 different local minima depending on where the initial starting weights
 are located.
 
 ![Different starting weights can lead to\
-different final weights.](../images/ch10-fig01.png){#fig:ch10-fig01}
+different final weights.](../images/ch10-fig01.png){#fig-ch10-fig01}
 
 In practice, it is therefore recommended to run the training (if the
 computational resources permit) at least a handful of times; unlucky
@@ -82,14 +82,14 @@ hyperparameter that controls the fraction of units dropped out. Typical
 values for *p* are in the range of 0.2 to 0.8.
 
 To illustrate this concept,
-Figure [1.2](#fig:ch10-fig02){reference="fig:ch10-fig02"
+Figure [1.2](#fig-ch10-fig02){reference="fig-ch10-fig02"
 reference-type="ref"} shows a small neural network where dropout
 randomly drops a subset of the hidden layer nodes in each forward pass
 during training.
 
 ![In dropout, hidden nodes are intermittently and randomly disabled\
 during each forward pass in
-training.](../images/ch10-fig02.png){#fig:ch10-fig02}
+training.](../images/ch10-fig02.png){#fig-ch10-fig02}
 
 To create reproducible training runs, we must seed the random gen-
  erator before training with dropout (analogous to seeding the random
@@ -197,11 +197,11 @@ see Chapter [\[ch17\]](../ch17){reference="ch17" reference-type="ref"}
 for more detail on autoregressive LLMs.)
 
 *Top-[k]{.upright} sampling*, illustrated in
-Figure [1.3](#fig:ch10-fig03){reference="fig:ch10-fig03"
+Figure [1.3](#fig-ch10-fig03){reference="fig-ch10-fig03"
 reference-type="ref"}, works by sampling tokens from the top *k* most
 probable candidates at each step of the next-word generation process.
 
-![Top-[k]{.upright} sampling](../images/ch10-fig03.png){#fig:ch10-fig03}
+![Top-[k]{.upright} sampling](../images/ch10-fig03.png){#fig-ch10-fig03}
 
 Given an input prompt, the language model produces a probability
 distribution over the entire vocabulary (the candidate words) for the
@@ -214,10 +214,10 @@ repeated for the desired length of the generated text or until a stop
 condition is met.
 
 *Nucleus sampling* (also known as *top-[p]{.upright} sampling*),
-illustrated in Figure [1.4](#fig:ch10-fig04){reference="fig:ch10-fig04"
+illustrated in Figure [1.4](#fig-ch10-fig04){reference="fig-ch10-fig04"
 reference-type="ref"}, is an alternative to top-*k* sampling.
 
-![Nucleus sampling](../images/ch10-fig04.png){#fig:ch10-fig04}
+![Nucleus sampling](../images/ch10-fig04.png){#fig-ch10-fig04}
 
 Similar to top-*k* sampling, the goal of nucleus sampling is to balance
 diversity and coherence in the output. However, nucleus and top-*k*
@@ -227,7 +227,7 @@ most probable tokens from the probability distribution produced by the
 language model, regardless of their probabilities. The value of *k*
 remains fixed throughout the generation process. Nucleus sampling, on
 the other hand, selects tokens based on a probability threshold *p*, as
-shown in Figure [1.4](#fig:ch10-fig04){reference="fig:ch10-fig04"
+shown in Figure [1.4](#fig-ch10-fig04){reference="fig-ch10-fig04"
 reference-type="ref"}. It then accumulates the most probable tokens in
 descending order until their cumulative probability meets or exceeds the
 threshold *p*. In contrast to top-*k* sampling, the size of the

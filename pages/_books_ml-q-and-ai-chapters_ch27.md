@@ -29,11 +29,11 @@ meet the criteria for proper metrics.
 
 To illustrate the criteria of a proper metric, consider two vectors or
 points **v** and **w** and their distance *d*(**v**, **w**), as shown in
-Figure [1.1](#fig:ch27-fig01){reference="fig:ch27-fig01"
+Figure [1.1](#fig-ch27-fig01){reference="fig-ch27-fig01"
 reference-type="ref"}.
 
 ![The Euclidean distance between two 2D
-vectors](../images/ch27-fig01.png){#fig:ch27-fig01}
+vectors](../images/ch27-fig01.png){#fig-ch27-fig01}
 
 The criteria of a proper metric are the following:
 
@@ -51,13 +51,13 @@ The criteria of a proper metric are the following:
 To better understand the triangle inequality, think of the points as
 vertices of a triangle. If we consider any triangle, the sum of two of
 the sides is always larger than the third side, as illustrated in
-Figure [1.2](#fig:ch27-fig02){reference="fig:ch27-fig02"
+Figure [1.2](#fig-ch27-fig02){reference="fig-ch27-fig02"
 reference-type="ref"}.
 
-![Triangle inequality](../images/ch27-fig02.png){#fig:ch27-fig02}
+![Triangle inequality](../images/ch27-fig02.png){#fig-ch27-fig02}
 
 Considerwhatwouldhappenifthetriangleinequalitydepictedin
-Figure [1.2](#fig:ch27-fig02){reference="fig:ch27-fig02"
+Figure [1.2](#fig-ch27-fig02){reference="fig-ch27-fig02"
 reference-type="ref"} weren't true. If the sum of the lengths of sides
 AB and BC was shorter than AC, then sides AB and BC would not meet to
 form a triangle; instead, they would fall short of each other. Thus, the
