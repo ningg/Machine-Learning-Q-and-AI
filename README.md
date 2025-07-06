@@ -15,52 +15,52 @@
 
 当前工程中，维护的 大模型技术 30 讲，目录如下：
 
-- [Introduction](./docs/introduction/_books_ml-q-and-ai-chapters_introduction.md)
+- [Introduction](./docs/introduction/_books_ml-q-and-ai-introduction.md)
 
 ### Part I: Neural Networks and Deep Learning
 
-- [Chapter 1: Embeddings, Latent Space, and Representations](./docs/chapters_ch01/_books_ml-q-and-ai-chapters_ch01.md)
-- [Chapter 2: Self-Supervised Learning](./docs/chapters_ch02/_books_ml-q-and-ai-chapters_ch02.md)
-- [Chapter 3: Few-Shot Learning](./docs/chapters_ch03/_books_ml-q-and-ai-chapters_ch03.md)
-- [Chapter 4: The Lottery Ticket  Hypothesis](./docs/chapters_ch04/_books_ml-q-and-ai-chapters_ch04.md)
-- [Chapter 5: Reducing Overfitting with Data](./docs/chapters_ch05/_books_ml-q-and-ai-chapters_ch05.md)
-- [Chapter 6: Reducing Overfitting with Model Modifications](./docs/chapters_ch06/_books_ml-q-and-ai-chapters_ch06.md)
-- [Chapter 7: Multi-GPU Training Paradigms](./docs/chapters_ch07/_books_ml-q-and-ai-chapters_ch07.md)
-- [Chapter 8: The Success of Transformers](./docs/chapters_ch08/_books_ml-q-and-ai-chapters_ch08.md)
-- [Chapter 9: Generative AI Models](./docs/chapters_ch09/_books_ml-q-and-ai-chapters_ch09.md)
-- [Chapter 10: Sources of Randomness](./docs/chapters_ch10/_books_ml-q-and-ai-chapters_ch10.md)
+- [Chapter 1: Embeddings, Latent Space, and Representations](./docs/ch01/_books_ml-q-and-ai-ch01.md)
+- [Chapter 2: Self-Supervised Learning](./docs/ch02/_books_ml-q-and-ai-ch02.md)
+- [Chapter 3: Few-Shot Learning](./docs/ch03/_books_ml-q-and-ai-ch03.md)
+- [Chapter 4: The Lottery Ticket  Hypothesis](./docs/ch04/_books_ml-q-and-ai-ch04.md)
+- [Chapter 5: Reducing Overfitting with Data](./docs/ch05/_books_ml-q-and-ai-ch05.md)
+- [Chapter 6: Reducing Overfitting with Model Modifications](./docs/ch06/_books_ml-q-and-ai-ch06.md)
+- [Chapter 7: Multi-GPU Training Paradigms](./docs/ch07/_books_ml-q-and-ai-ch07.md)
+- [Chapter 8: The Success of Transformers](./docs/ch08/_books_ml-q-and-ai-ch08.md)
+- [Chapter 9: Generative AI Models](./docs/ch09/_books_ml-q-and-ai-ch09.md)
+- [Chapter 10: Sources of Randomness](./docs/ch10/_books_ml-q-and-ai-ch10.md)
 
 ### Part II: Computer Vision
 
-- [Chapter 11: Calculating the Number of Parameters](./docs/chapters_ch11/_books_ml-q-and-ai-chapters_ch11.md)
-- [Chapter 12: Fully Connected and Convolutional Layers](./docs/chapters_ch12/_books_ml-q-and-ai-chapters_ch12.md)
-- [Chapter 13: Large Training Sets for Vision Transformers](./docs/chapters_ch13/_books_ml-q-and-ai-chapters_ch13.md)
+- [Chapter 11: Calculating the Number of Parameters](./docs/ch11/_books_ml-q-and-ai-ch11.md)
+- [Chapter 12: Fully Connected and Convolutional Layers](./docs/ch12/_books_ml-q-and-ai-ch12.md)
+- [Chapter 13: Large Training Sets for Vision Transformers](./docs/ch13/_books_ml-q-and-ai-ch13.md)
 
 ### Part III: Natural Language Processing
 
-- [Chapter 14: The Distributional Hypothesis](./docs/chapters_ch14/_books_ml-q-and-ai-chapters_ch14.md)
-- [Chapter 15: Data Augmentation for Text](./docs/chapters_ch15/_books_ml-q-and-ai-chapters_ch15.md)
-- [Chapter 16: Self-Attention](./docs/chapters_ch16/_books_ml-q-and-ai-chapters_ch16.md)
-- [Chapter 17: Encoder- and Decoder-Style Transformers](./docs/chapters_ch17/_books_ml-q-and-ai-chapters_ch17.md)
-- [Chapter 18: Using and Fine-Tuning Pretrained Transformers](./docs/chapters_ch18/_books_ml-q-and-ai-chapters_ch18.md)
-- [Chapter 19: Evaluating Generative Large Language Models](./docs/chapters_ch19/_books_ml-q-and-ai-chapters_ch19.md)
+- [Chapter 14: The Distributional Hypothesis](./docs/ch14/_books_ml-q-and-ai-ch14.md)
+- [Chapter 15: Data Augmentation for Text](./docs/ch15/_books_ml-q-and-ai-ch15.md)
+- [Chapter 16: Self-Attention](./docs/ch16/_books_ml-q-and-ai-ch16.md)
+- [Chapter 17: Encoder- and Decoder-Style Transformers](./docs/ch17/_books_ml-q-and-ai-ch17.md)
+- [Chapter 18: Using and Fine-Tuning Pretrained Transformers](./docs/ch18/_books_ml-q-and-ai-ch18.md)
+- [Chapter 19: Evaluating Generative Large Language Models](./docs/ch19/_books_ml-q-and-ai-ch19.md)
 
 ### Part IV: Production and Deployment
 
-- [Chapter 20: Stateless and Stateful Training](./docs/chapters_ch20/_books_ml-q-and-ai-chapters_ch20.md)
-- [Chapter 21: Data-Centric AI](./docs/chapters_ch21/_books_ml-q-and-ai-chapters_ch21.md)
-- [Chapter 22: Speeding Up Inference](./docs/chapters_ch22/_books_ml-q-and-ai-chapters_ch22.md)
-- [Chapter 23: Data Distribution Shifts](./docs/chapters_ch23/_books_ml-q-and-ai-chapters_ch23.md)
+- [Chapter 20: Stateless and Stateful Training](./docs/ch20/_books_ml-q-and-ai-ch20.md)
+- [Chapter 21: Data-Centric AI](./docs/ch21/_books_ml-q-and-ai-ch21.md)
+- [Chapter 22: Speeding Up Inference](./docs/ch22/_books_ml-q-and-ai-ch22.md)
+- [Chapter 23: Data Distribution Shifts](./docs/ch23/_books_ml-q-and-ai-ch23.md)
 
 ### Part V: Predictive Performance and Model Evaluation
 
-- [Chapter 24: Poisson and Ordinal Regression](./docs/chapters_ch24/_books_ml-q-and-ai-chapters_ch24.md)
-- [Chapter 25: Confidence Intervals](./docs/chapters_ch25/_books_ml-q-and-ai-chapters_ch25.md)
-- [Chapter 26: Confidence Intervals vs. Conformal Predictions](./docs/chapters_ch26/_books_ml-q-and-ai-chapters_ch26.md)
-- [Chapter 27: Proper Metrics](./docs/chapters_ch27/_books_ml-q-and-ai-chapters_ch27.md)
-- [Chapter 28: The k in k-Fold Cross-Validation](./docs/chapters_ch28/_books_ml-q-and-ai-chapters_ch28.md)
-- [Chapter 29: Training and Test Set Discordance](./docs/chapters_ch29/_books_ml-q-and-ai-chapters_ch29.md)
-- [Chapter 30: Limited Labeled Data](./docs/chapters_ch30/_books_ml-q-and-ai-chapters_ch30.md)
+- [Chapter 24: Poisson and Ordinal Regression](./docs/ch24/_books_ml-q-and-ai-ch24.md)
+- [Chapter 25: Confidence Intervals](./docs/ch25/_books_ml-q-and-ai-ch25.md)
+- [Chapter 26: Confidence Intervals vs. Conformal Predictions](./docs/ch26/_books_ml-q-and-ai-ch26.md)
+- [Chapter 27: Proper Metrics](./docs/ch27/_books_ml-q-and-ai-ch27.md)
+- [Chapter 28: The k in k-Fold Cross-Validation](./docs/ch28/_books_ml-q-and-ai-ch28.md)
+- [Chapter 29: Training and Test Set Discordance](./docs/ch29/_books_ml-q-and-ai-ch29.md)
+- [Chapter 30: Limited Labeled Data](./docs/ch30/_books_ml-q-and-ai-ch30.md)
 
 
 
