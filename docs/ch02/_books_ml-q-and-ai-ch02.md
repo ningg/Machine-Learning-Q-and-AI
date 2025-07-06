@@ -37,7 +37,7 @@ network as is.)
 
 Figure [1.1](#fig-ch02-fig01) illustrates the process of transfer learning.
 
-<a name="fig-ch02-fig01"></a>
+<a id="fig-ch02-fig01"></a>
 
 ![Pretraining with conventional transfer
 learning](../images/ch02-fig01.png)
