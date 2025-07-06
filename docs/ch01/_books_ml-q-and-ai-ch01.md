@@ -2,10 +2,9 @@
 
 
 
-# Part 1: Neural Networks and Deep Learning 
-[](#part-1-neural-networks-and-deep-learning)
 
-## Chapter 1: Embeddings, Latent Space, and Representations 
+
+# Chapter 1: Embeddings, Latent Space, and Representations 
 [](#chapter-1-embeddings-latent-space-and-representations)
 
 
@@ -28,7 +27,7 @@ The following sections explore the relationship between embeddings,
 latent vectors, and representations and how each functions to encode
 information in machine learning contexts.
 
-### Embeddings 
+## Embeddings 
 [](#embeddings)
 
 Embedding vectors, or *embeddings* for short, encode relatively
@@ -83,7 +82,7 @@ that similar inputs will be located at points in close proximity within
 the embedding space, which can be seen as the "structure-preserving"?
 characteristic of the embedding.
 
-### Latent Space 
+## Latent Space 
 [](#latent-space)
 
 *Latent space* is typically used synonymously with *embedding space*,
@@ -113,7 +112,7 @@ similar inputs (for example, pictures of cats) close to each other in
 the latent space, thus creating useful embedding vectors where similar
 inputs are close in the embedding (latent) space.
 
-### Representation 
+## Representation 
 [](#representation)
 
 A *representation* is an encoded, typically intermediate form of an
@@ -126,7 +125,7 @@ The key idea is that the representation captures some essential features
 or characteristics of the original data to make it useful for further
 analysis or processing.
 
-### Exercises 
+## Exercises 
 [](#exercises)
 
 1-1. Suppose we're training a convolutional network with five
@@ -148,7 +147,7 @@ Geoffrey Hinton.
 
 1-2. Name some types of input representations that are not embeddings.
 
-### References 
+## References 
 [](#references)
 
 - The original paper describing the AlexNet architecture and
