@@ -26,6 +26,8 @@ often overlooked in traditional and introductory textbooks and classes.
 I hope you'll find this book a valuable resource for obtaining new
 insights and discovering new techniques you can implement in your work.
 
+> Tips: 本书会突出`核心概念`，并且，会给出`示例`，辅助理解。
+
 ## Who Is This Book For? [](#who-is-this-book-for)
 
 Navigating the world of AI and machine learning literature can often
@@ -35,12 +37,16 @@ book illustrates and discusses important developments in these fields
 while staying approachable and not requiring an advanced math or coding
 background.
 
+> Tips: 本书，并不要求读者有高等数学知识、也无需编码背景。简单来说，普通的高中毕业，也可以流畅阅读。
+
 This book is for people with some experience with machine learning who
 want to learn new concepts and techniques. It's ideal for those who
 have taken a beginner course in machine learning or deep learning or
 have read an equivalent introductory book on the topic. (Throughout this
 book, I will use *machine learning* as an umbrella term for machine
 learning, deep learning, and AI.)
+
+> 本书中，会使用 *机器学习* 作为`统称`，包括机器学习、深度学习、AI。
 
 ## What Will You Get Out of This Book? [](#what-will-you-get-out-of-this-book)
 
@@ -61,6 +67,9 @@ models (LLMs) and vision transformers. Even experienced machine learning
 researchers and practitioners will encounter something new to add to
 their arsenal of techniques.
 
+
+> Tips: 本书，会介绍`AI 领域`的**典型概念**、知识，但不是数学或编码书籍。阅读时，无需证明或编码、突出易读性。
+
 While this book will expose you to new concepts and ideas, it's not a
 math or coding book. You won't need to solve any proofs or run any
 code while reading. In other words, this book is a perfect travel
@@ -74,11 +83,15 @@ the freedom to jump between topics as you wish. When a concept from one
 chapter is explained in more detail in another, I've included chapter
 references you can follow to fill in gaps in your understanding.
 
-However, there's a strategic sequence to the chapters. For example,\
+> 本书每个章节，都是独立的，你可以跳过一些章节，直接阅读你感兴趣的章节。
+
+However, there's a strategic sequence to the chapters. For example,
 the early chapter on embeddings sets the stage for later discussions on
 self-supervised learning and few-shot learning. For the easiest reading
 experience and the most comprehensive grasp of the content, my
 recommendation is to approach the book from start to finish.
+
+> 然而，本书的章节，是有`顺序`的，建议从前往后阅读；因为，把`最通用的概念`，放在了**最前章节**。
 
 Each chapter is accompanied by optional exercises for readers who want
 to test their understanding, with an answer key located at the end of
@@ -88,6 +101,11 @@ information in that chapter's "References" section.
 
 The book is structured into five main parts centered on the most
 important topics in machine learning and AI today.
+
+> 整体内容，分为 5 个部分，都是`AI 领域`的`最重要的主题`。
+
+
+> Tips: 下面**第一部分**，是`神经网络`和`深度学习`的`通用概念`，包含 嵌入、自监督学习、少样本学习、彩票假设、过拟合、多 GPU 训练范式等。
 
 **Part I: Neural Networks and Deep Learning** covers questions about
 deep neural networks and deep learning that are not specific to a
@@ -114,8 +132,7 @@ technique tailored for small training datasets.
 
 Chapter [\[ch04\]](./ch04/_books_ml-q-and-ai-ch04.md): The
 Lottery Ticket Hypothesis\
-Explores the idea that ran-\
- domlyinitializedneuralnetworkscontainsmaller,efficient subnetworks.
+Explores the idea that randomly initialized neural networks contain smaller, efficient subnetworks.
 
 Chapter [\[ch05\]](./ch05/_books_ml-q-and-ai-ch05.md):
 Reducing Overfitting with Data\
@@ -153,6 +170,8 @@ neural networks that may lead to inconsistent and non-reproducible
 results during both training and inference. While randomness can be
 accidental, it can also be intentionally introduced by design.
 
+> Tips: 下面**第二部分**，是`计算机视觉`的`典型概念`，包含 卷积神经网络、视觉变换器。
+
 **Part II: Computer Vision** focuses on topics mainly related to deep
 learning but specific to computer vision, many of which cover
 convolutional neural networks and vision transformers.
@@ -174,6 +193,8 @@ Chapter [\[ch13\]](./ch13/_books_ml-q-and-ai-ch13.md):
 Large Training Sets for Vision Transformers\
 Probes the rationale behind vision transformers requiring more extensive
 training sets compared to conventional convolutional neural networks.
+
+> Tips: 下面**第三部分**，文本相关，是`自然语言处理`的`典型概念`，包含 分布式假设、数据增强、自注意力、编码器-解码器式变换器、使用和微调预训练变换器、评估生成式大语言模型等。
 
 **Part III: Natural Language Processing** covers topics around working
 with text, many of which are related to transformer architectures and
@@ -200,8 +221,7 @@ mechanism in modern large language models.
 
 Chapter [\[ch17\]](./ch17/_books_ml-q-and-ai-ch17.md):
 Encoder- and Decoder-Style Transformers\
-Describes\
-the nuances of encoder and decoder transformer architectures and
+Describes the nuances of encoder and decoder transformer architectures and
 explains which type of architecture is most useful for each language
 processing task.
 
@@ -212,9 +232,10 @@ models and discusses their strengths and weaknesses.
 
 Chapter [\[ch19\]](./ch19/_books_ml-q-and-ai-ch19.md):
 Evaluating Generative Large Language Models\
-Lists pro-\
- minent evaluation metrics for language models like Perplexity, BLEU,
+Lists prominent evaluation metrics for language models like Perplexity, BLEU,
 ROUGE, and BERTScore.
+
+> Tips: 下面**第四部分**，是`生产`和`部署`的`典型概念`，包含 无状态和有状态训练、数据分布偏移等。
 
 **Part IV: Production and Deployment** covers questions pertaining to
 practical scenarios, such as increasing inference speeds and various
@@ -244,8 +265,9 @@ may face discrepancies between training data and real-world data
 distributions, known as data distribution shifts. These shifts can
 deteriorate model performance. This chapter categorizes and elaborates
 on common shifts like covariate shift, concept drift, label shift, and
-do-\
- main shift.
+domain shift.
+
+> Tips: 下面**第五部分**，是`预测性能`和`模型评估`的`典型概念`，包含 泊松回归、置信区间、置信区间与一致性预测、交叉验证、训练和测试集不一致、有限标签数据等。
 
 **Part V: Predictive Performance and Model Evaluation** dives deeper
 into various aspects of squeezing out predictive performance, such as

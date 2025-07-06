@@ -33,7 +33,7 @@ information in machine learning contexts.
 Embedding vectors, or *embeddings* for short, encode relatively
 high-dimensional data into relatively low-dimensional vectors.
 
-> Tips: 嵌入向量，是输入数据的一种表示，其中相似的项彼此接近，通常，将高维数据，转换为低维数据，就是嵌入向量。
+> Tips: 嵌入向量，简称 `嵌入`，是输入数据的一种表示形式，相似的输入、对应的嵌入向量`彼此接近`；通常，将高维数据，转换为低维嵌入向量。
 
 We can apply embedding methods to create a continuous dense (non-sparse)
 vector from a (sparse) `one-hot` encoding. 
