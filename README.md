@@ -15,12 +15,14 @@
 
 
 <div align="center">
-  <p><a href="https://ningg.top/Machine-Learning-Q-and-AI/">📚 《大模型技术30讲》</a></p>
+  <p>在线阅读：<a href="https://ningg.top/Machine-Learning-Q-and-AI/">📚 《大模型技术30讲》</a></p>
   <p><em>深入理解 LLM 核心原理，直击要点</em></p>
 </div>
 
 
 当前工程中，维护的 大模型技术 30 讲，目录如下：
+
+- **Introduction**
 
    - [Introduction](./docs/introduction/_books_ml-q-and-ai-introduction.md)
 
