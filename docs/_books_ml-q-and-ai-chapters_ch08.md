@@ -66,7 +66,7 @@ reference-type="ref"}.
 
 ![The conceptual difference between model weights in fully connected\
 layers (top) and attention scores
-(bottom)](../images/ch08-fig01.png){#fig-ch08-fig01}
+(bottom)](./images/ch08-fig01.png){#fig-ch08-fig01}
 
 As the top part of
 Figure [1.1](#fig-ch08-fig01){reference="fig-ch08-fig01"
@@ -144,7 +144,7 @@ reference-type="ref"}, making the self-attention mechanism relatively
 easy to parallelize across different GPU cores.
 
 ![A simplified self-attention mechanism without\
-weight parameters](../images/ch08-fig02.png){#fig-ch08-fig02}
+weight parameters](./images/ch08-fig02.png){#fig-ch08-fig02}
 
 In addition, the individual weight matrices used in the self-attention
 mechanism (not shown in

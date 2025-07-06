@@ -115,7 +115,7 @@ Figure [1.1](#fig-ch26-fig01){reference="fig-ch26-fig01"
 reference-type="ref"}.
 
 ![Prediction regions for a classification
-task](../images/ch26-fig01.png){#fig-ch26-fig01}
+task](./images/ch26-fig01.png){#fig-ch26-fig01}
 
 As depicted in Figure [1.1](#fig-ch26-fig01){reference="fig-ch26-fig01"
 reference-type="ref"}, the ImageNet dataset consists of a subset of bird

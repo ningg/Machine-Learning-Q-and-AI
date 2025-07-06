@@ -67,7 +67,7 @@ Figure [\[fig-ch25-fig01\]](#fig-ch25-fig01){reference="fig-ch25-fig01"
 reference-type="ref"}.
 
 ::: figurewide
-![image](../images/ch25-fig01.png){style="width:5.625in"}
+![image](./images/ch25-fig01.png){style="width:5.625in"}
 :::
 
 More concretely, if we were to draw 100 different representative test
@@ -88,7 +88,7 @@ Figure [1.1](#fig-ch25-fig02){reference="fig-ch25-fig02"
 reference-type="ref"}.
 
 ![Two common plotting variants to illustrate confidence
-intervals](../images/ch25-fig02.png){#fig-ch25-fig02}
+intervals](./images/ch25-fig02.png){#fig-ch25-fig02}
 
 This visualization is functionally useful in a number of ways. For
 instance, when confidence intervals for two model performances do *not*
@@ -235,7 +235,7 @@ Figure [\[fig-ch25-fig04\]](#fig-ch25-fig04){reference="fig-ch25-fig04"
 reference-type="ref"}.
 
 ::: figurewide
-![image](../images/ch25-fig04.png){style="width:5.625in"}
+![image](./images/ch25-fig04.png){style="width:5.625in"}
 :::
 
 Suppose we constructed *k* training and test sets. We can now take each
@@ -248,7 +248,7 @@ reference-type="ref"}.
 
 ![The distribution of test accuracies from 1,000 bootstrap\
 samples, including a 95 percent confidence
-interval](../images/ch25-fig05.png){#fig-ch25-fig05}
+interval](./images/ch25-fig05.png){#fig-ch25-fig05}
 
 Unlike the normal approximation interval method, we can consider this
 out-of-bag bootstrap approach to be more agnostic to the specific
@@ -278,7 +278,7 @@ reference-type="ref"}. After obtaining the test set performance
 estimates, we can then apply the percentile method described in the
 previous section.
 
-![Bootstrapping the test set](../images/ch25-fig06.png){#fig-ch25-fig06}
+![Bootstrapping the test set](./images/ch25-fig06.png){#fig-ch25-fig06}
 
 Contrary to the prior bootstrap technique, this method uses a trained
 model and simply resamples the test set (instead of the training sets).

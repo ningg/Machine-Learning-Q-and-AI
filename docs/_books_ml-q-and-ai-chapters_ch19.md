@@ -143,7 +143,7 @@ calculation in the *supplementary/q15-text* *-augment* subfolder at
 <https://github.com/rasbt/MachineLearning-QandAI-book>.
 
 ::: figurewide
-![image](../images/ch19-fig01.png){style="width:5.625in"}
+![image](./images/ch19-fig01.png){style="width:5.625in"}
 :::
 
 BLEU has several shortcomings, mostly owing to the fact that it measures
@@ -191,7 +191,7 @@ reference-type="ref"} shows a 1-gram ROUGE score computation (though in
 practice, ROUGE is often computed for bigrams, that is, 2-grams).
 
 ::: figurewide
-![image](../images/ch19-fig02.png){style="width:6.5in"}
+![image](./images/ch19-fig02.png){style="width:6.5in"}
 :::
 
 There are other ROUGE variants beyond ROUGE-1 (the F1 score""based
@@ -259,7 +259,7 @@ find a computational example in the *subfolder/q15-text-augment*
 subfolder at <https://github.com/rasbt/MachineLearning-QandAI-book>.
 
 ::: figurewide
-![image](../images/ch19-fig03.png){style="width:5.625in"}
+![image](./images/ch19-fig03.png){style="width:5.625in"}
 :::
 
 BERTScore can be used for translations and summaries, and it captures

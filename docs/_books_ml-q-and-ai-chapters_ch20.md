@@ -31,7 +31,7 @@ sliding window approach in which we retrain the initial model on
 different parts of the data from a given data stream.
 
 ![Stateless training replaces the model\
-periodically.](../images/ch20-fig01.png){#fig-ch20-fig01}
+periodically.](./images/ch20-fig01.png){#fig-ch20-fig01}
 
 For example, to update the initial model in
 Figure [1.1](#fig-ch20-fig01){reference="fig-ch20-fig01"
@@ -63,7 +63,7 @@ This approach is particularly attractive for models compatible with
 transfer learning or self-supervised learning.
 
 ![Stateful training updates models
-periodically.](../images/ch20-fig02.png){#fig-ch20-fig02}
+periodically.](./images/ch20-fig02.png){#fig-ch20-fig02}
 
 The stateful approach mimics a transfer or self-supervised learning
 workflow where we adopt a pretrained model for fine-tuning. However,

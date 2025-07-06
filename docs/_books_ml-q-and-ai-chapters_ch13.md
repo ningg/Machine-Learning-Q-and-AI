@@ -91,7 +91,7 @@ illustrated in Figure [1.1](#fig-ch13-fig01){reference="fig-ch13-fig01"
 reference-type="ref"}.
 
 ![Equivariance under different image
-translations](../images/ch13-fig01.png){#fig-ch13-fig01}
+translations](./images/ch13-fig01.png){#fig-ch13-fig01}
 
 As Figure [1.1](#fig-ch13-fig01){reference="fig-ch13-fig01"
 reference-type="ref"} shows, under translation invariance, we get the
@@ -110,7 +110,7 @@ convolutional filter captures the input signal (the two dark blocks)
 irrespective of where it is located in the input.
 
 ![Convolutional filters and translation
-equivariance](../images/ch13-fig02.png){#fig-ch13-fig02}
+equivariance](./images/ch13-fig02.png){#fig-ch13-fig02}
 
 Figure [1.2](#fig-ch13-fig02){reference="fig-ch13-fig02"
 reference-type="ref"} shows a \\(3 \\times 3\\) input image that
@@ -132,7 +132,7 @@ Figure [1.3](#fig-ch13-fig03){reference="fig-ch13-fig03"
 reference-type="ref"}.
 
 ![Location-specific weights in fully\
-connected layers](../images/ch13-fig03.png){#fig-ch13-fig03}
+connected layers](./images/ch13-fig03.png){#fig-ch13-fig03}
 
 Like fully connected networks, ViT architecture (and transformer
 architecture in general) lacks the inductive bias for spatial invariance
@@ -192,7 +192,7 @@ Figure [1.4](#fig-ch13-fig04){reference="fig-ch13-fig04"
 reference-type="ref"}.
 
 ![How a vision transformer operates on image
-patches](../images/ch13-fig04.png){#fig-ch13-fig04}
+patches](./images/ch13-fig04.png){#fig-ch13-fig04}
 
 The patchify inductive bias allows ViTs to scale to larger image sizes
 without increasing the number of parameters in the model, which can be

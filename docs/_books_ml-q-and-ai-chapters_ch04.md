@@ -33,7 +33,7 @@ ticket hypothesis in four steps, which we'll discuss one by one to
 help clarify the concept.
 
 ![The lottery hypothesis training
-procedure](../images/ch04-fig01.png){#fig-ch04-fig01}
+procedure](./images/ch04-fig01.png){#fig-ch04-fig01}
 
 In Figure [1.1](#fig-ch04-fig01){reference="fig-ch04-fig01"
 reference-type="ref"}, we start with a large neural network that we

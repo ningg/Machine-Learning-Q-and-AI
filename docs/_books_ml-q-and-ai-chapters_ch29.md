@@ -58,7 +58,7 @@ well in predicting the *Is test?* label, it suggests a discrepancy
 between the training and test data that we need to investigate further.
 
 ::: figurewide
-![image](../images/ch29-fig01.png){style="width:5.625in"}
+![image](./images/ch29-fig01.png){style="width:5.625in"}
 :::
 
 What mitigation techniques should we use if we detect a training""test

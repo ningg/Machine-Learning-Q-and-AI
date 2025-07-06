@@ -39,7 +39,7 @@ different local minima depending on where the initial starting weights
 are located.
 
 ![Different starting weights can lead to\
-different final weights.](../images/ch10-fig01.png){#fig-ch10-fig01}
+different final weights.](./images/ch10-fig01.png){#fig-ch10-fig01}
 
 In practice, it is therefore recommended to run the training (if the
 computational resources permit) at least a handful of times; unlucky
@@ -89,7 +89,7 @@ during training.
 
 ![In dropout, hidden nodes are intermittently and randomly disabled\
 during each forward pass in
-training.](../images/ch10-fig02.png){#fig-ch10-fig02}
+training.](./images/ch10-fig02.png){#fig-ch10-fig02}
 
 To create reproducible training runs, we must seed the random gen-
  erator before training with dropout (analogous to seeding the random
@@ -201,7 +201,7 @@ Figure [1.3](#fig-ch10-fig03){reference="fig-ch10-fig03"
 reference-type="ref"}, works by sampling tokens from the top *k* most
 probable candidates at each step of the next-word generation process.
 
-![Top-[k]{.upright} sampling](../images/ch10-fig03.png){#fig-ch10-fig03}
+![Top-[k]{.upright} sampling](./images/ch10-fig03.png){#fig-ch10-fig03}
 
 Given an input prompt, the language model produces a probability
 distribution over the entire vocabulary (the candidate words) for the
@@ -217,7 +217,7 @@ condition is met.
 illustrated in Figure [1.4](#fig-ch10-fig04){reference="fig-ch10-fig04"
 reference-type="ref"}, is an alternative to top-*k* sampling.
 
-![Nucleus sampling](../images/ch10-fig04.png){#fig-ch10-fig04}
+![Nucleus sampling](./images/ch10-fig04.png){#fig-ch10-fig04}
 
 Similar to top-*k* sampling, the goal of nucleus sampling is to balance
 diversity and coherence in the output. However, nucleus and top-*k*

@@ -37,12 +37,12 @@ N-*way* K-*shot*, where *N* stands for the number of classes and *K*
 stands for the number of examples per class. The most common values are
 *K* = 1 or *K* = 5. For instance, in a 5-way 1-shot problem, there are
 five classes with only one example each.
-Figure [1.1](#fig-ch03-fig01){reference="fig-ch03-fig01"
-reference-type="ref"} depicts a 3-way 1-shot setting to illustrate the
+Figure [1.1](#fig-ch03-fig01) depicts a 3-way 1-shot setting to illustrate the
 concept with a smaller example.
 
-![Training tasks in few-shot
-learning](../images/ch03-fig01.png){#fig-ch03-fig01}
+<a name="fig-ch03-fig01"></a>
+
+![Training tasks in few-shot learning](./images/ch03-fig01.png)
 
 Rather than fitting the model to the training dataset, we can think of
 few-shot learning as "learning to learn."? In contrast to supervised
@@ -59,14 +59,13 @@ training is also often called the *base set*. Again, the task is to
 classify the query images. Test tasks are similar to training tasks,
 except that none of the classes during testing overlap with those
 encountered during training, as illustrated in
-Figure [1.2](#fig-ch03-fig02){reference="fig-ch03-fig02"
-reference-type="ref"}.
+Figure [1.2](#fig-ch03-fig02).
 
-![Classes seen during training and
-testing](../images/ch03-fig02.png){#fig-ch03-fig02}
+<a name="fig-ch03-fig02"></a>
 
-As Figure [1.2](#fig-ch03-fig02){reference="fig-ch03-fig02"
-reference-type="ref"} shows, the support and query sets contain
+![Classes seen during training and testing](./images/ch03-fig02.png)
+
+As Figure [1.2](#fig-ch03-fig02) shows, the support and query sets contain
 different images from the same class during training. The same is true
 during testing. However, notice that the classes in the support and
 query sets differ from the support and query sets encountered during
@@ -78,15 +77,17 @@ parameters such that it can *adapt* well to a new task. On a high level,
 one few-shot learning strategy is to learn a model that produces
 embeddings where we can find the target class via a nearest-neighbor
 search among the images in the support set.
-Figure [1.3](#fig-ch03-fig03){reference="fig-ch03-fig03"
-reference-type="ref"} illustrates this approach.
+Figure [1.3](#fig-ch03-fig03) illustrates this approach.
 
-![Learning embeddings that are suitable for\
-classification](../images/ch03-fig03.png){#fig-ch03-fig03}
+<a name="fig-ch03-fig03"></a>
+
+![Learning embeddings that are suitable for classification](./images/ch03-fig03.png)
 
 The model learns how to produce good embeddings from the support set to
 classify the query image based on finding the most similar embedding
-vector. \### Exercises
+vector. \
+
+### Exercises
 
 3-1. MNIST (<https://en.wikipedia.org/wiki/MNIST_database>) is a classic
 and popular machine learning dataset consisting of 50,000 handwritten

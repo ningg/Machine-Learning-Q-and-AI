@@ -35,7 +35,7 @@ reference-type="ref"} summarizes the difference between data-centric and
 model-centric workflows.
 
 ::: figurewide
-![image](../images/ch21-fig01.png){style="width:5.625in"}
+![image](./images/ch21-fig01.png){style="width:5.625in"}
 :::
 
 While *data-centric AI* is a relatively new term, the idea behind it is

@@ -91,6 +91,8 @@
 
 ### 附录B. GitHub 上锚点
 
+<details><summary>点击展开</summary>
+
 在 GitHub 的 Markdown（.md）文件中，**可以使用锚点（Anchor）来实现文档内部的跳转**。锚点通常用于目录（Table of Contents）跳转到文档的某个标题位置。
 
 #### 如何设置锚点？
@@ -185,8 +187,11 @@ Markdown 不支持为图片设置原生锚点，但你可以用 HTML 的 `<a nam
 - **图片本身不能生成锚点，不能自动跳转到图片。**
 - 不推荐用 HTML 锚点，兼容性不好。
 
+</details>
 
 ### 附录C. 数学公式
+
+<details><summary>点击展开</summary>
 
 #### 公式标识
 
@@ -271,4 +276,19 @@ x_{ij}^{10}
 **总结：**
 - 上标用 `^`，下标用 `_`
 - 多字符时用 `{}` 包裹
+
+</details>
+
+
+
+### 附录D. 在线文件模板、
+
+<details><summary>点击展开</summary>
+
+参考： [happy-llm](https://github.com/datawhalechina/happy-llm/tree/main)
+
+
+</details>
+
+
 

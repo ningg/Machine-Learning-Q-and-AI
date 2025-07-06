@@ -43,7 +43,7 @@ production follow a normal distribution. However, the mean of the new
 data has changed from the training data.
 
 ![Training data and new data distributions differ under covariate
-shift.](../images/ch23-fig01.png){#fig-ch23-fig01 style="width:70.0%"}
+shift.](./images/ch23-fig01.png){#fig-ch23-fig01 style="width:70.0%"}
 
 For example, suppose we trained a model to predict whether an email is
 spam based on specific features. Now, after we embed the email spam
@@ -161,7 +161,7 @@ where the black circles refer to examples from one class and the
 diamonds refer to examples from another class.
 
 ![Different types of data shifts in a binary\
-classification context](../images/ch23-fig02.png){#fig-ch23-fig02}
+classification context](./images/ch23-fig02.png){#fig-ch23-fig02}
 
 As noted in the previous sections, some types of distribution shift are
 more problematic than others. The least problematic among them is

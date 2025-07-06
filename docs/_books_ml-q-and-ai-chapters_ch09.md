@@ -82,7 +82,7 @@ continuous ones.
 
 ![A four-layer deep Boltzmann machine\
 with three stacks of hidden
-nodes](../images/ch09-fig01.png){#fig-ch09-fig01}
+nodes](./images/ch09-fig01.png){#fig-ch09-fig01}
 
 Suppose we are interested in generating images. A DBM can learn the
 joint probability distribution over the pixel values in a simple image
@@ -132,7 +132,7 @@ an auto-  encoder, where *x*\\(\'\\) represents the reconstructed input
 *x*. In a standard variational autoencoder, the latent vector is sampled
 from a distribution that approximates a standard Gaussian distribution.
 
-![An autoencoder](../images/ch09-fig02.png){#fig-ch09-fig02}
+![An autoencoder](./images/ch09-fig02.png){#fig-ch09-fig02}
 
 Training a VAE involves optimizing the model's parameters to minimize
 a loss function composed of two terms: a reconstruction loss and a
@@ -170,7 +170,7 @@ Figure [1.3](#fig-ch09-fig03){reference="fig-ch09-fig03"
 reference-type="ref"}.
 
 ![A generative adversarial
-network](../images/ch09-fig03.png){#fig-ch09-fig03}
+network](./images/ch09-fig03.png){#fig-ch09-fig03}
 
 The generator in a GAN somewhat resembles the decoder of a VAE in terms
 of its functionality. During inference, both GAN generators and VAE
@@ -219,7 +219,7 @@ reference-type="ref"} illustrates the concept of a flow-based model,
 which maps the complex input distribution to a simpler distribution and
 back.
 
-![A flow-based model](../images/ch09-fig04.png){#fig-ch09-fig04}
+![A flow-based model](./images/ch09-fig04.png){#fig-ch09-fig04}
 
 At first glance, the illustration is very similar to the VAE
 illustration in
@@ -282,7 +282,7 @@ reference-type="ref"} illustrates this process, where pixels *i*~1~, . .
 be generated.
 
 ![Autoregressive\
-pixel generation](../images/ch09-fig05.png){#fig-ch09-fig05}
+pixel generation](./images/ch09-fig05.png){#fig-ch09-fig05}
 
 The advantage of autoregressive models is that the next-pixel (or word)
 prediction is relatively straightforward and interpretable. In addition,
@@ -324,7 +324,7 @@ Gaussian noise from an input image *x*. During inference, the reverse
 diffusion process is used to generate a new image *x*, starting with the
 noise tensor *z~n~* sampled from a Gaussian distribution.
 
-![The diffusion process](../images/ch09-fig06.png){#fig-ch09-fig06}
+![The diffusion process](./images/ch09-fig06.png){#fig-ch09-fig06}
 
 While both diffusion models and flow-based models are generative models
 aiming to learn complex data distributions, they approach the problem
@@ -356,7 +356,7 @@ illustrated in Figure [1.7](#fig-ch09-fig07){reference="fig-ch09-fig07"
 reference-type="ref"}.
 
 ![Trajectories of a consistency model for image\
-denoising](../images/ch09-fig07.png){#fig-ch09-fig07}
+denoising](./images/ch09-fig07.png){#fig-ch09-fig07}
 
 As Figure [1.7](#fig-ch09-fig07){reference="fig-ch09-fig07"
 reference-type="ref"} demonstrates, we can think of consistency models

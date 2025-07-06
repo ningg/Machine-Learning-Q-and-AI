@@ -55,7 +55,7 @@ Figure [1.1](#fig-ch01-fig01) .
 <a name="fig-ch01-fig01"></a>
 
 ![An input embedding (left) and an embedding from a neural network
-(right)](../images/ch01-fig01.png)
+(right)](./images/ch01-fig01.png)
 
 To be technically correct, all intermediate layer outputs of a neural
 network could yield embedding vectors. Depending on the training
@@ -71,7 +71,7 @@ illustrated in Figure [1.2](#fig-ch01-fig02).
 
 <a name="fig-ch01-fig02"></a>
 
-![fig-ch01-fig02 Mapping words (left) and images (right) to a two-dimensional feature space](../images/ch01-fig02.png)
+![fig-ch01-fig02 Mapping words (left) and images (right) to a two-dimensional feature space](./images/ch01-fig02.png)
 
 A fundamental property of embeddings is that they encode *distance* or
 *similarity*. This means that embeddings capture the semantics of the
@@ -100,7 +100,7 @@ Figure [1.3](#fig-ch01-fig03).
 
 <a name="fig-ch01-fig03"></a>
 
-![fig-ch01-fig03 An autoencoder reconstructing the input image](../images/ch01-fig03.png)
+![fig-ch01-fig03 An autoencoder reconstructing the input image](./images/ch01-fig03.png)
 
 The bottleneck in
 Figure [1.3](#fig-ch01-fig03) represents a small, intermediate neural network
@@ -138,7 +138,7 @@ Figure [\[fig-ch01-fig04\]](#fig-ch01-fig04).
 
 <a name="fig-ch01-fig04"></a>
 
-![fig-ch01-fig04](../images/ch01-fig04.png)
+![fig-ch01-fig04](./images/ch01-fig04.png)
 
 We can think of these fully connected layers as two hidden layers and an
 output layer in a multilayer perceptron. Which of the neural network

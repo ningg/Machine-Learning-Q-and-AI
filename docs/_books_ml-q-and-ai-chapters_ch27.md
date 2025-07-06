@@ -33,7 +33,7 @@ Figure [1.1](#fig-ch27-fig01){reference="fig-ch27-fig01"
 reference-type="ref"}.
 
 ![The Euclidean distance between two 2D
-vectors](../images/ch27-fig01.png){#fig-ch27-fig01}
+vectors](./images/ch27-fig01.png){#fig-ch27-fig01}
 
 The criteria of a proper metric are the following:
 
@@ -54,7 +54,7 @@ the sides is always larger than the third side, as illustrated in
 Figure [1.2](#fig-ch27-fig02){reference="fig-ch27-fig02"
 reference-type="ref"}.
 
-![Triangle inequality](../images/ch27-fig02.png){#fig-ch27-fig02}
+![Triangle inequality](./images/ch27-fig02.png){#fig-ch27-fig02}
 
 Considerwhatwouldhappenifthetriangleinequalitydepictedin
 Figure [1.2](#fig-ch27-fig02){reference="fig-ch27-fig02"

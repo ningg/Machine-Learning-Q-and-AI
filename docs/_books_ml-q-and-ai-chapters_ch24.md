@@ -38,7 +38,7 @@ and 3 (severe and moderate) is the same as the distance between 2 and 1
 (mild and none).
 
 ![The distance between ordinal categories is
-arbitrary.](../images/ch24-fig01.png){#fig-ch24-fig01}
+arbitrary.](./images/ch24-fig01.png){#fig-ch24-fig01}
 
 In short, we use Poisson regression for count data. We use ordinal
 regression when we know that certain outcomes are "higher"? or

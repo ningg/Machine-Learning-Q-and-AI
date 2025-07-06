@@ -54,7 +54,7 @@ Figure [1.1](#fig-ch30-fig01){reference="fig-ch30-fig01"
 reference-type="ref"}.
 
 ![The process of transfer
-learning](../images/ch30-fig01.png){#fig-ch30-fig01}
+learning](./images/ch30-fig01.png){#fig-ch30-fig01}
 
 Transfer learning is usually done in the context of deep learning, where
 model weights can be updated. This is in contrast to tree-based methods,
@@ -80,7 +80,7 @@ illustrated in Figure [1.2](#fig-ch30-fig02){reference="fig-ch30-fig02"
 reference-type="ref"}.
 
 ![Inpainting for self-supervised
-learning](../images/ch30-fig02.png){#fig-ch30-fig02}
+learning](./images/ch30-fig02.png){#fig-ch30-fig02}
 
 For more detail on self-supervised learning, see
 Chapter [\[ch02\]](../ch02){reference="ch02" reference-type="ref"}.
@@ -96,7 +96,7 @@ scheme for suggesting unlabeled data points for labeling to maximize the
 machine learning model's performance.
 
 ![In active learning, a model queries an\
-oracle for labels.](../images/ch30-fig03.png){#fig-ch30-fig03}
+oracle for labels.](./images/ch30-fig03.png){#fig-ch30-fig03}
 
 The term *active learning* refers to the fact that the model actively
 selects data for labeling. For example, the simplest form of active
@@ -151,7 +151,7 @@ itself. For example, these can include the number of features and
 statistics of the different features (kurtosis, range, mean, and so on).
 
 ![The meta-learning process involving the extraction of
-metadata](../images/ch30-fig05.png){#fig-ch30-fig05}
+metadata](./images/ch30-fig05.png){#fig-ch30-fig05}
 
 The extracted meta-features provide information for selecting a machine
 learning algorithm for the dataset at hand. Using this approach, we can
@@ -172,7 +172,7 @@ a subset of the unlabeled dataset.
 
 ![Weakly supervised learning uses external labeling functions to\
 train machine learning
-models.](../images/ch30-fig06.png){#fig-ch30-fig06}
+models.](./images/ch30-fig06.png){#fig-ch30-fig06}
 
 Let'sreturntotheexampleofemailspamclassificationfromChapter [\[ch23\]](../ch23){reference="ch23"
 reference-type="ref"} to illustrate a rule-based approach for data
@@ -201,7 +201,7 @@ density of neighboring labeled data points, as illustrated in
 Figure [1.7](#fig-ch30-fig07){reference="fig-ch30-fig07"
 reference-type="ref"}.
 
-![Semi-supervised learning](../images/ch30-fig07.png){#fig-ch30-fig07}
+![Semi-supervised learning](./images/ch30-fig07.png){#fig-ch30-fig07}
 
 While we can apply weak supervision to an entirely unlabeled dataset,
 semi-supervised learning requires at least a portion of the data to be
@@ -250,7 +250,7 @@ reference-type="ref"} illustrates the difference between these two
 methods.
 
 ::: figurewide
-![image](../images/ch30-fig08.png){style="width:5.625in"}
+![image](./images/ch30-fig08.png){style="width:5.625in"}
 :::
 
 In *hard* parameter sharing, as shown in
@@ -280,7 +280,7 @@ Chapter [\[ch01\]](../ch01){reference="ch01" reference-type="ref"} for
 more on embedding vectors.)
 
 ![Multimodal learning with a matching
-loss](../images/ch30-fig09.png){#fig-ch30-fig09}
+loss](./images/ch30-fig09.png){#fig-ch30-fig09}
 
 Figure [1.8](#fig-ch30-fig09){reference="fig-ch30-fig09"
 reference-type="ref"} shows image and text encoders as separate
@@ -302,7 +302,7 @@ Figure [1.9](#fig-ch30-fig10){reference="fig-ch30-fig10"
 reference-type="ref"} illustrates.
 
 ![Multimodal learning for optimizing a supervised\
-learning objective](../images/ch30-fig10.png){#fig-ch30-fig10}
+learning objective](./images/ch30-fig10.png){#fig-ch30-fig10}
 
 Figure [1.9](#fig-ch30-fig10){reference="fig-ch30-fig10"
 reference-type="ref"} shows data being collected from two different
@@ -347,7 +347,7 @@ reference-type="ref"} as a guide to choosing the best method for your
 particular project.
 
 ![Recommendations for choosing a supervised learning\
-technique](../images/ch30-fig11.png){#fig-ch30-fig11}
+technique](./images/ch30-fig11.png){#fig-ch30-fig11}
 
 Note that the dark boxes in
 Figure [1.10](#fig-ch30-fig11){reference="fig-ch30-fig11"

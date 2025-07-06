@@ -45,7 +45,7 @@ reference-type="ref"}.
 
 ![The Bahdanau mechanism uses a\
 separate RNN to compute attention
-weights.](../images/ch16-fig01.png){#fig-ch16-fig01}
+weights.](./images/ch16-fig01.png){#fig-ch16-fig01}
 
 In Figure [1.1](#fig-ch16-fig01){reference="fig-ch16-fig01"
 reference-type="ref"}, the \\(\\alpha\\) values represent the attention
@@ -74,7 +74,7 @@ Figure [\[fig-ch16-fig02\]](#fig-ch16-fig02){reference="fig-ch16-fig02"
 reference-type="ref"}.
 
 ::: figurewide
-![image](../images/ch16-fig02.png){style="width:5.625in"}
+![image](./images/ch16-fig02.png){style="width:5.625in"}
 :::
 
 Figure [\[fig-ch16-fig02\]](#fig-ch16-fig02){reference="fig-ch16-fig02"
@@ -128,7 +128,7 @@ context vector is an attention-weighted sum over the input sequence
 elements.
 
 ![A simple self-attention mechanism without weight
-matrices](../images/ch16-fig03.png){#fig-ch16-fig03}
+matrices](./images/ch16-fig03.png){#fig-ch16-fig03}
 
 While Figure [1.2](#fig-ch16-fig03){reference="fig-ch16-fig03"
 reference-type="ref"} doesn't include weight matrices, the

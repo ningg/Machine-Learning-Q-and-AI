@@ -64,7 +64,7 @@ model, trained on a general text corpus, is fine-tuned to perform tasks
 like German-to-English translation.
 
 ![The general fine-tuning workflow of large language
-models](../images/ch18-fig01.png){#fig-ch18-fig01}
+models](./images/ch18-fig01.png){#fig-ch18-fig01}
 
 The conventional methods for fine-tuning pretrained LLMs include
 updating only the output layers, a method we'll refer to as
@@ -92,7 +92,7 @@ reference-type="ref"} summarizes the three approaches described in this
 section so far.
 
 ::: figurewide
-![image](../images/ch18-fig02.png){style="width:5.625in"}
+![image](./images/ch18-fig02.png){style="width:5.625in"}
 :::
 
 In addition to the conceptual summary of the three fine-tuning methods
@@ -113,7 +113,7 @@ Figure [1.2](#fig-ch18-fig03){reference="fig-ch18-fig03"
 reference-type="ref"}.
 
 ![Prompting an LLM for in-context
-learning](../images/ch18-fig03.png){#fig-ch18-fig03 style="width:98.0%"}
+learning](./images/ch18-fig03.png){#fig-ch18-fig03 style="width:98.0%"}
 
 As Figure [1.2](#fig-ch18-fig03){reference="fig-ch18-fig03"
 reference-type="ref"} shows, in-context learning aims to provide context
@@ -205,7 +205,7 @@ Figure [1.3](#fig-ch18-fig04){reference="fig-ch18-fig04"
 reference-type="ref"}.
 
 ![LLM indexing to retrieve information from external
-documents](../images/ch18-fig04.png){#fig-ch18-fig04}
+documents](./images/ch18-fig04.png){#fig-ch18-fig04}
 
 In the context of LLMs,we can think of indexing as a workaround based on
 in-context learning that allows us to turn LLMs into information
@@ -229,7 +229,7 @@ reference-type="ref"}.
 
 ![The main categories of parameter-efficient\
 fine-tuning techniques, with popular
-examples](../images/ch18-fig05.png){#fig-ch18-fig05}
+examples](./images/ch18-fig05.png){#fig-ch18-fig05}
 
 In contrast to the hard prompting approach discussed in the previous
 section, *softprompting* strategies optimize embedded versions of the
@@ -309,7 +309,7 @@ reference-type="ref"} further illustrates the difference between a
 regular transformer block and a prefix tuning transformer block.
 
 ![A regular transformer compared with prefix
-tuning](../images/ch18-fig06.png){#fig-ch18-fig06 style="width:95.0%"}
+tuning](./images/ch18-fig06.png){#fig-ch18-fig06 style="width:95.0%"}
 
 Both soft prompt tuning and prefix tuning are considered parameter
 efficient since they require training only the prepended parameter
@@ -324,7 +324,7 @@ Figure [1.6](#fig-ch18-fig07){reference="fig-ch18-fig07"
 reference-type="ref"}.
 
 ![Comparison of a regular transformer block (left) and a transformer
-block with adapter layers](../images/ch18-fig07.png){#fig-ch18-fig07
+block with adapter layers](./images/ch18-fig07.png){#fig-ch18-fig07
 style="width:95.0%"}
 
 Only the new adapter layers are updated when training the LLM using the

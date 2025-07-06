@@ -40,7 +40,7 @@ Figure [1.1](#fig-ch02-fig01) illustrates the process of transfer learning.
 <a name="fig-ch02-fig01"></a>
 
 ![Pretraining with conventional transfer
-learning](../images/ch02-fig01.png)
+learning](./images/ch02-fig01.png)
 
 Self-supervised learning is an alternative approach to transfer learning
 in which the model is pretrained not on labeled data but on *unlabeled*
@@ -54,7 +54,7 @@ called *pretext tasks*.
 <a name="fig-ch02-fig02"></a>
 
 ![Pretraining with self-supervised
-learning](../images/ch02-fig02.png)
+learning](./images/ch02-fig02.png)
 
 The main difference between transfer learning and self-supervised
 learning lies in how we obtain the labels during step 1 in
@@ -114,7 +114,7 @@ using a perturbation mask that obfuscates certain pixels in an image.
 <a name="fig-ch02-fig03"></a>
 
 ![Self-prediction after applying a\
-perturbation mask](../images/ch02-fig03.png)
+perturbation mask](./images/ch02-fig03.png)
 
 A classic example is a denoising autoencoder that learns to remove noise
 from an input image. Alternatively, consider a masked autoencoder that
@@ -124,7 +124,7 @@ Figure [1.4](#fig-ch02-fig04).
 <a name="fig-ch02-fig04"></a>
 
 ![A masked autoencoder reconstructing a masked
-image](../images/ch02-fig04.png)
+image](./images/ch02-fig04.png)
 
 Missing (masked) input self-prediction methods are also commonly used in
 natural language processing contexts. Many generative LLMs, such as GPT,
@@ -154,7 +154,7 @@ Figure [1.5](#fig-ch02-fig05).
 <a name="fig-ch02-fig05"></a>
 
 ![Image pairs encountered in contrastive
-learning](../images/ch02-fig05.png)
+learning](./images/ch02-fig05.png)
 
 The perturbed cat image in this figure still shows the same cat, so we
 want the network to produce a similar embedding vector. We also consider
@@ -179,7 +179,7 @@ perturbed version of the sample.
 
 <a name="fig-ch02-fig06"></a>
 
-![Contrastive learning](../images/ch02-fig06.png)
+![Contrastive learning](./images/ch02-fig06.png)
 
 This example outlines the main idea behind contrastive learning, but
 many subvariants exist. Broadly, we can categorize these into *sample*

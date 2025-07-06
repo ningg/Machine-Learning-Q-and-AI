@@ -22,7 +22,7 @@ def is_valid_page(url):
     parsed = urlparse(url)
     return "ml-q" in parsed.path
 
-def save_image(img_url, save_dir="images"):
+def save_image(img_url, save_dir="docs/images"):
     try:
         os.makedirs(save_dir, exist_ok=True)
         filename = urlparse(img_url).path.split('/')[-1]
@@ -45,7 +45,7 @@ def html_to_markdown(html, page_dir="pages", img_dir="images"):
     md = pypandoc.convert_text(html, 'md', format='html')
     return md
 
-def fetch_and_save(url, visited, queue, save_dir="pages", img_dir="images"):
+def fetch_and_save(url, visited, queue, save_dir="docs", img_dir="docs/images"):
     print(f"Fetching: {url}")
     try:
         response = requests.get(url, headers=HEADERS)

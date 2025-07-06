@@ -31,7 +31,7 @@ Figure [1.1](#fig-ch22-fig01){reference="fig-ch22-fig01"
 reference-type="ref"}.
 
 ![Sequential inference and batched
-inference](../images/ch22-fig01.png){#fig-ch22-fig01}
+inference](./images/ch22-fig01.png){#fig-ch22-fig01}
 
 Figure [1.1](#fig-ch22-fig01){reference="fig-ch22-fig01"
 reference-type="ref"} shows sequential inference processing one item at
@@ -71,7 +71,7 @@ reference-type="ref"}.
 
 ![A classic loop versus a vectorized dot\
 product computation in
-Python](../images/ch22-fig02.png){#fig-ch22-fig02}
+Python](./images/ch22-fig02.png){#fig-ch22-fig02}
 
 In the context of linear algebra or deep learning frameworks like
 TensorFlow and PyTorch, vectorization is typically done automatically.
@@ -97,7 +97,7 @@ columns and rows one element at a time, whereas in loop tiling, we
 subdivide the array into smaller tiles.
 
 ![Loop tiling in a two-dimensional
-array](../images/ch22-fig03.png){#fig-ch22-fig03}
+array](./images/ch22-fig03.png){#fig-ch22-fig03}
 
 Note that in languages such as Python, we don't usually perform loop
 tiling, because Python and many other high-level languages do not allow
@@ -115,7 +115,7 @@ reference-type="ref"}, where two separate loops to calculate the sum and
 the product of an array of numbers are fused into a single loop.
 
 ![Fusing two loops (left) into one
-(right)](../images/ch22-fig04.png){#fig-ch22-fig04}
+(right)](./images/ch22-fig04.png){#fig-ch22-fig04}
 
 Operator fusion can improve the performance of a model by reducing the
 overhead of loop control, decreasing memory access times by improving

@@ -36,7 +36,7 @@ Figure [\[fig-ch11-fig01\]](#fig-ch11-fig01){reference="fig-ch11-fig01"
 reference-type="ref"}.
 
 ::: figurewide
-![image](../images/ch11-fig01.png){style="width:5.625in"}
+![image](./images/ch11-fig01.png){style="width:5.625in"}
 :::
 
 What is the number of trainable parameters in this convolutional
@@ -57,7 +57,7 @@ reference-type="ref"}.
 
 ![A convolutional layer with one input\
 channel and one output
-channel](../images/ch11-fig02.png){#fig-ch11-fig02}
+channel](./images/ch11-fig02.png){#fig-ch11-fig02}
 
 In this case, we have 26 parameters, since we have 5 \\(\\times\\) 5 =
 25 weights via the kernel plus the bias unit. The computation to
@@ -71,7 +71,7 @@ reference-type="ref"}.
 
 ![A convolutional layer with three\
 input channels and one output
-channel](../images/ch11-fig03.png){#fig-ch11-fig03}
+channel](./images/ch11-fig03.png){#fig-ch11-fig03}
 
 In that case, we compute the output value by performing the
 aforementioned operation, \\(\\sum_j\\) *w~j~ x~j~*, for each input
@@ -95,7 +95,7 @@ parameters, the 5 kernels required for the five output channels will
 have 5 \\(\\times\\) 76 = 380 parameters.
 
 ![A convolutional layer with three input channels\
-and five output channels](../images/ch11-fig04.png){#fig-ch11-fig04}
+and five output channels](./images/ch11-fig04.png){#fig-ch11-fig04}
 
 Returning to the neural network architecture illustrated in
 Figure [\[fig-ch11-fig01\]](#fig-ch11-fig01){reference="fig-ch11-fig01"
@@ -128,7 +128,7 @@ reference-type="ref"},wehave5\\(\\times\\)3=15weightsandthreebiasunits,thatis,
 
 ![A fully connected layer\
 with five inputs and three
-outputs](../images/ch11-fig05.png){#fig-ch11-fig05}
+outputs](./images/ch11-fig05.png){#fig-ch11-fig05}
 
 Returning once more to the neural network architecture illustrated in
 Figure [\[fig-ch11-fig01\]](#fig-ch11-fig01){reference="fig-ch11-fig01"

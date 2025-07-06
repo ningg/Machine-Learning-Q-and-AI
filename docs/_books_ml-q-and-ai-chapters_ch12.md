@@ -29,7 +29,7 @@ reference-type="ref"}.
 
 ![Four inputs and\
 two outputs connected via\
-eight weight parameters](../images/ch12-fig01.png){#fig-ch12-fig01}
+eight weight parameters](./images/ch12-fig01.png){#fig-ch12-fig01}
 
 The fully connected layer in this figure consists of eight weights and
 two bias units. We can compute the output nodes via the following dot
@@ -63,7 +63,7 @@ reference-type="ref"}.
 
 ![A convolutional layer with a 2Ã---2 kernel\
 that equals the input size and two output
-channels](../images/ch12-fig02.png){#fig-ch12-fig02}
+channels](./images/ch12-fig02.png){#fig-ch12-fig02}
 
 If the convolutional kernel dimensions equal the input size, as depicted
 in Figure [1.2](#fig-ch12-fig02){reference="fig-ch12-fig02"
@@ -109,7 +109,7 @@ reference-type="ref"}.
 
 ![The number of output nodes equals the number\
 of channels if the kernel size is equal to the input
-size.](../images/ch12-fig03.png){#fig-ch12-fig03}
+size.](./images/ch12-fig03.png){#fig-ch12-fig03}
 
 Each kernel consists of a stack of weights equal to the number of input
 channels. For instance, for the first output layer, the weights are

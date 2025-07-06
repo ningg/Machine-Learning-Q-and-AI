@@ -49,7 +49,7 @@ performance by collecting more data.
 
 <a name="fig-ch05-fig01"></a>
 ![The learning curve plot of a model fit to different training\
-set sizes](../images/ch05-fig01.png)
+set sizes](./images/ch05-fig01.png)
 
 The gap between training and validation performance indicates the degree
 of overfitting--the more extensive the gap, the more overfitting
@@ -77,7 +77,7 @@ techniques, including increasing brightness, flipping, and cropping.
 <a name="fig-ch05-fig02"></a>
 
 ![A selection of different image data augmentation
-techniques](../images/ch05-fig02.png)
+techniques](./images/ch05-fig02.png)
 
 Data augmentation is usually standard for image data (see
 Figure [1.2](#fig-ch05-fig02)) and text data (discussed further in

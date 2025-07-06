@@ -37,7 +37,7 @@ Figure [\[fig-ch17-fig01\]](#fig-ch17-fig01){reference="fig-ch17-fig01"
 reference-type="ref"}.
 
 ::: figurewide
-![image](../images/ch17-fig01.png){style="width:5.625in"}
+![image](./images/ch17-fig01.png){style="width:5.625in"}
 :::
 
 InFigure [\[fig-ch17-fig01\]](#fig-ch17-fig01){reference="fig-ch17-fig01"
@@ -94,7 +94,7 @@ reference-type="ref"} illustrates the masked language modeling
 pretraining objective used in BERT-style transformers.
 
 ![BERT randomly masks 15 percent of the input tokens during
-pretraining.](../images/ch17-fig02.png){#fig-ch17-fig02}
+pretraining.](./images/ch17-fig02.png){#fig-ch17-fig02}
 
 As Figure [1.1](#fig-ch17-fig02){reference="fig-ch17-fig02"
 reference-type="ref"} demonstrates, the main idea behind masked language
@@ -150,7 +150,7 @@ Figure [\[fig-ch17-fig03\]](#fig-ch17-fig03){reference="fig-ch17-fig03"
 reference-type="ref"}, the decoder generates the output word by word.
 
 ::: figurewide
-![image](../images/ch17-fig03.png){style="width:5.625in"}
+![image](./images/ch17-fig03.png){style="width:5.625in"}
 :::
 
 This masking (shown explicitly in
@@ -238,7 +238,7 @@ reference-type="ref"}.
 
 ![Some of the most popular large language transformers organized by\
 architecture type and
-developer](../images/ch17-fig04.png){#fig-ch17-fig04
+developer](./images/ch17-fig04.png){#fig-ch17-fig04
 style="width:99.0%"}
 
 While encoder-only models have gradually become less popular,

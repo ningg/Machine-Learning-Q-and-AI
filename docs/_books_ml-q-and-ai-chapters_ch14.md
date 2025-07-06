@@ -32,7 +32,7 @@ such as *sandwiches* would render the sentence clearly wrong, and
 replacing *cats* with the unrelated word *driving* would also make the
 sentence grammatically incorrect.
 
-![Commonanduncommonwordsinagivencontext](../images/ch14-fig01.png){#fig-ch14-fig01
+![Commonanduncommonwordsinagivencontext](./images/ch14-fig01.png){#fig-ch14-fig01
 style="width:105.0%"}
 
 It is easy to construct counterexamples using polysemous words, that is,
@@ -72,7 +72,7 @@ reference-type="ref"}. Conversely, dissimilar words are located farther
 apart in the embedding space.
 
 ![Word2vec embeddings in a two-dimensional\
-vector space](../images/ch14-fig02.png){#fig-ch14-fig02
+vector space](./images/ch14-fig02.png){#fig-ch14-fig02
 style="width:105.0%"}
 
 BERT is an LLM based on the transformer architecture (see
@@ -88,7 +88,7 @@ pretrained model produces embeddings in which similar words (or tokens)
 are close in the embedding space.
 
 ![BERT's pretraining task involves predicting\
-randomly masked words.](../images/ch14-fig03.png){#fig-ch14-fig03}
+randomly masked words.](./images/ch14-fig03.png){#fig-ch14-fig03}
 
 GPT, which like BERT is also an LLM based on the transformer
 architecture, functions as a decoder. Decoder-style models like GPT
@@ -100,7 +100,7 @@ emphasizes predicting what follows rather than encoding the entire
 sequence simultaneously.
 
 ![GPT is pretrained by predicting the\
-next word.](../images/ch14-fig04.png){#fig-ch14-fig04}
+next word.](./images/ch14-fig04.png){#fig-ch14-fig04}
 
 Where BERT is a bidirectional language model that considers the whole
 input sequence, GPT only strictly parses previous sequence elements.
