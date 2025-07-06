@@ -1,6 +1,6 @@
 import os
 
-pages_dir = 'pages'
+pages_dir = 'docs'
 
 for filename in os.listdir(pages_dir):
     if not filename.endswith('.md'):
