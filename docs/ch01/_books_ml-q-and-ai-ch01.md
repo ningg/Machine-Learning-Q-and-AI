@@ -27,7 +27,7 @@ The following sections explore the relationship between embeddings,
 latent vectors, and representations and how each functions to encode
 information in machine learning contexts.
 
-## Embeddings嵌入
+## Embeddings
 [](#embeddings)
 
 Embedding vectors, or *embeddings* for short, encode relatively

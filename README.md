@@ -8,19 +8,42 @@
 但是，也存在问题：《大模型技术30讲》印刷质量真的偏差，而且大部分`术语`，都翻译为中文了，不利于中英对比，特别是 AI 领域基本都是英文的，需要我们熟悉`英文术语`。
 
 
-因此，准备找到 [原始文档：Machine Learning Q and AI](https://sebastianraschka.com/books/ml-q-and-ai/)，并且，编程将其转存至 github.
+因此，找到 [原始文档：Machine Learning Q and AI](https://sebastianraschka.com/books/ml-q-and-ai/)，反复消化原始信息。
+
+然后，将原始信息，转录为 md 格式，并且，存储在 github 上。
 
 
-## 2.在线阅读
+## 2.项目介绍
+
+本项目是系统性学习大模型技术要点的教程，基于原始的 *《30 Essential Questions and Answers on Machine Learning and AI》* ，进行中文批注，增强可读性。
+
+
+### 你将收获什么？
+
+1. 系统性学习：大模型技术要点的教程
+2. 熟悉核心的术语（英文 + 中文）
+3. 共同维护，中文批注，增强可读性，贡献给开源社区
+
+### 迭代计划
+
+1. 首板：中文标注
+2. 导出 pdf 文件
+3. 同步到多个开源社区
+
+
+
+## 3.在线阅读
 
 
 <div align="center">
-  <p>在线阅读：<a href="https://ningg.top/Machine-Learning-Q-and-AI/">📚 《大模型技术30讲》</a></p>
+  <p>在线阅读：<a href="https://ningg.top/Machine-Learning-Q-and-AI/">《大模型技术30讲》</a></p>
   <p><em>深入理解 LLM 核心原理，直击要点</em></p>
 </div>
 
 
 当前工程中，维护的 大模型技术 30 讲，目录如下：
+
+<details><summary>点击展开</summary>
 
 - **Introduction**
 
@@ -71,9 +94,16 @@
    - [Chapter 29: Training and Test Set Discordance](./docs/ch29/_books_ml-q-and-ai-ch29.md)
    - [Chapter 30: Limited Labeled Data](./docs/ch30/_books_ml-q-and-ai-ch30.md)
 
+</details>
 
 
+## 4.如何贡献
 
+我们欢迎任何形式的贡献！
+
+- 🐛 报告 Bug - 发现问题请提交 [Issue](https://github.com/ningg/Machine-Learning-Q-and-AI/issues)
+- 💡 功能建议 - 有好想法就告诉我们
+- 📝 内容完善 - 帮助改进教程内容
 
 
 
