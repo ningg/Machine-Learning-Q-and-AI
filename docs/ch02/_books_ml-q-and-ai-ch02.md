@@ -51,7 +51,7 @@ network, as illustrated in
 Figure [1.2](#fig-ch02-fig02). These self-supervised training tasks are also
 called *pretext tasks*.
 
-<a name="fig-ch02-fig02"></a>
+<a id="fig-ch02-fig02"></a>
 
 ![Pretraining with self-supervised
 learning](../images/ch02-fig02.png)
@@ -111,7 +111,7 @@ Figure [1.3](#fig-ch02-fig03), we typically change or hide parts of the input
 and train the model to reconstruct the original inputs, such as by
 using a perturbation mask that obfuscates certain pixels in an image.
 
-<a name="fig-ch02-fig03"></a>
+<a id="fig-ch02-fig03"></a>
 
 ![Self-prediction after applying a\
 perturbation mask](../images/ch02-fig03.png)
@@ -121,7 +121,7 @@ from an input image. Alternatively, consider a masked autoencoder that
 reconstructs the missing parts of an image, as shown in
 Figure [1.4](#fig-ch02-fig04).
 
-<a name="fig-ch02-fig04"></a>
+<a id="fig-ch02-fig04"></a>
 
 ![A masked autoencoder reconstructing a masked
 image](../images/ch02-fig04.png)
@@ -151,7 +151,7 @@ corrupt, or perturb this cat image, such as by adding a random noise
 layer and cropping it differently, as shown in
 Figure [1.5](#fig-ch02-fig05).
 
-<a name="fig-ch02-fig05"></a>
+<a id="fig-ch02-fig05"></a>
 
 ![Image pairs encountered in contrastive
 learning](../images/ch02-fig05.png)
@@ -177,7 +177,7 @@ is utilized in two instances: first, to generate the embedding for the
 original training example, and second, to produce the embedding for the
 perturbed version of the sample.
 
-<a name="fig-ch02-fig06"></a>
+<a id="fig-ch02-fig06"></a>
 
 ![Contrastive learning](../images/ch02-fig06.png)
 

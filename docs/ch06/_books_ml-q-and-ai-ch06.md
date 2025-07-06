@@ -77,7 +77,7 @@ set during training and stop the training process when the performance
 on the validation set begins to decline, as illustrated in
 Figure [1.1](#fig-ch06-fig01).
 
-<a name="fig-ch06-fig01"></a>
+<a id="fig-ch06-fig01"></a>
 
 ![Early stopping](../images/ch06-fig01.png)
 
@@ -126,7 +126,7 @@ between its outputs and the teacher outputs (measured using
 two probability distributions by calculating how much one distribution
 diverges from the other in terms of information content).
 
-<a name="fig-ch06-fig02"></a>
+<a id="fig-ch06-fig02"></a>
 
 ![image](../images/ch06-fig02.png)
 
@@ -213,7 +213,7 @@ the model on the entire training dataset or combine the individual
 models as an ensemble, as shown in
 Figure [1.2](#fig-ch06-fig03).
 
-<a name="fig-ch06-fig03"></a>
+<a id="fig-ch06-fig03"></a>
 
 ![[k]{.upright}-fold cross-validation for creating model
 ensembles](../images/ch06-fig03.png)

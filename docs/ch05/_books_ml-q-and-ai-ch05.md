@@ -47,7 +47,7 @@ Figure [1.1](#fig-ch05-fig01), the validation accuracy increases as the trainin
 set sizes increase. This indicates that we can improve the model's
 performance by collecting more data.
 
-<a name="fig-ch05-fig01"></a>
+<a id="fig-ch05-fig01"></a>
 ![The learning curve plot of a model fit to different training\
 set sizes](../images/ch05-fig01.png)
 
@@ -74,7 +74,7 @@ pixel values for specific pixel locations.
 Figure [1.2](#fig-ch05-fig02) highlights common image data augmentation
 techniques, including increasing brightness, flipping, and cropping.
 
-<a name="fig-ch05-fig02"></a>
+<a id="fig-ch05-fig02"></a>
 
 ![A selection of different image data augmentation
 techniques](../images/ch05-fig02.png)

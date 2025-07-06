@@ -40,7 +40,7 @@ five classes with only one example each.
 Figure [1.1](#fig-ch03-fig01) depicts a 3-way 1-shot setting to illustrate the
 concept with a smaller example.
 
-<a name="fig-ch03-fig01"></a>
+<a id="fig-ch03-fig01"></a>
 
 ![Training tasks in few-shot learning](../images/ch03-fig01.png)
 
@@ -61,7 +61,7 @@ except that none of the classes during testing overlap with those
 encountered during training, as illustrated in
 Figure [1.2](#fig-ch03-fig02).
 
-<a name="fig-ch03-fig02"></a>
+<a id="fig-ch03-fig02"></a>
 
 ![Classes seen during training and testing](../images/ch03-fig02.png)
 
@@ -79,7 +79,7 @@ embeddings where we can find the target class via a nearest-neighbor
 search among the images in the support set.
 Figure [1.3](#fig-ch03-fig03) illustrates this approach.
 
-<a name="fig-ch03-fig03"></a>
+<a id="fig-ch03-fig03"></a>
 
 ![Learning embeddings that are suitable for classification](../images/ch03-fig03.png)
 
