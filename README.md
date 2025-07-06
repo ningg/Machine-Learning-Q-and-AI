@@ -112,6 +112,8 @@
 
 ### 附录A. 将网页内容，转录为 md，任务拆解
 
+<details><summary>点击展开</summary>
+
 几个方面：
 
 1. 范围：目录 和 目录对应的每一篇文章
@@ -126,6 +128,8 @@
 * remove_header.py
 * remove_print_book.py
 * remove_after_separator.py   
+
+</details>
 
 
 ### 附录B. GitHub 上锚点
