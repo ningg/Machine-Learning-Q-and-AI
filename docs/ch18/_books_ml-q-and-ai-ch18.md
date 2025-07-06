@@ -531,7 +531,6 @@ model preserves (and does not forget) the original knowledge?
   with human feedback: John Schulman et al., "Proximal Policy
   Optimization Algorithms"? (2017), <https://arxiv.org/abs/1707.06347>.
 
-\
 
 ------------------------------------------------------------------------
 

@@ -130,7 +130,6 @@ network with ReLU activation functions?
   Ramanujan et al., "What's Hidden in a Randomly Weighted Neural
   Network?"? (2020), <https://arxiv.org/abs/1911.13299>.
 
-\
 
 ------------------------------------------------------------------------
 

@@ -175,7 +175,6 @@ layer (we typically do not want to add BatchNorm layers to the output
 layer). How many additional parameters do these three BatchNorm layers
 add to the model?
 
-\
 
 ------------------------------------------------------------------------
 

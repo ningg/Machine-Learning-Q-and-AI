@@ -287,7 +287,6 @@ typically lead to a higher or lower prediction accuracy?
   et al., "CvT: Introducing Convolutions to Vision Transformers"?
   (2021), <https://arxiv.org/abs/2103.15808>.
 
-\
 
 ------------------------------------------------------------------------
 

@@ -207,7 +207,6 @@ especially when we do not have access to labels for the new data?
   avoiding domain shift: Abolfazl Farahani et al., "A Brief Review of
   Domain Adaptation"? (2020), <https://arxiv.org/abs/2010.03978>.
 
-\
 
 ------------------------------------------------------------------------
 

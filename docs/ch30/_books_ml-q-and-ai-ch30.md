@@ -409,7 +409,6 @@ obtain confidence scores using deep neural networks for active learning?
   High Confidence Predictions for Unrecognizable Images"? (2014),
   <https://arxiv.org/abs/1412.1897>.
 
-\
 
 ------------------------------------------------------------------------
 

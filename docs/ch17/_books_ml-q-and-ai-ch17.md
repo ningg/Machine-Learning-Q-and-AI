@@ -294,7 +294,6 @@ positive or negative sentiment)?
 - The GPT-3 model: Tom B. Brown et al., "Language Models Are Few-Shot
   Learners"? (2020), <https://arxiv.org/abs/2005.14165>.
 
-\
 
 ------------------------------------------------------------------------
 

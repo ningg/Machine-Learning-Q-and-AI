@@ -212,7 +212,6 @@ the RMSE instead. Is this argument correct?
 27-2. Based on your answer to the previous question, would you say that
 the MAE is better or is worse than the RMSE?
 
-\
 
 ------------------------------------------------------------------------
 

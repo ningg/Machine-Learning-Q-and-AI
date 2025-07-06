@@ -325,7 +325,6 @@ are some of the drawbacks associated with ensemble techniques?
   Arlind Kadra et al., "Well-Tuned Simple Nets Excel on Tabular
   Datasets"? (2021), <https://arxiv.org/abs/2106.11189>.
 
-\
 
 ------------------------------------------------------------------------
 

@@ -272,7 +272,6 @@ be desired?
   documentation:
   <https://docs.nvidia.com/deeplearning/cudnn/developer-guide/index.html#reproducibility>.
 
-\
 
 ------------------------------------------------------------------------
 

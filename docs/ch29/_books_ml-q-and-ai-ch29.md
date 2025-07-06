@@ -83,7 +83,6 @@ adversarial validation often results in an imbalanced prediction problem
 (with a majority of examples labeled as *Is test?* being false instead
 of true). Is this an issue, and if so, how can we mitigate that?
 
-\
 
 ------------------------------------------------------------------------
 

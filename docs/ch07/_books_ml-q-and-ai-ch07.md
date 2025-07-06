@@ -256,7 +256,6 @@ data parallelism on the CPU. Is this a good idea?
   described in this tutorial on the zero redundancy optimizer:
   <https://www.deepspeed.ai/tutorials/zero/>.
 
-\
 
 ------------------------------------------------------------------------
 

@@ -431,7 +431,6 @@ we use them to generate new images?
 - The paper originally proposing consistency models: Yang Song et al.,
   "Consistency Models"? (2023), <https://arxiv.org/abs/2303.01469>.
 
-\
 
 ------------------------------------------------------------------------
 

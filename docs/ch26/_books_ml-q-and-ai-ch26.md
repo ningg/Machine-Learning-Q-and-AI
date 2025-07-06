@@ -294,7 +294,6 @@ conformal prediction and confidence intervals for regression too?
   Conformal Prediction page:
   <https://github.com/valeman/awesome-conformal-prediction>.
 
-\
 
 ------------------------------------------------------------------------
 

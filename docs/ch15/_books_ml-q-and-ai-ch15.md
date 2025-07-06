@@ -227,7 +227,6 @@ beneficial for a specific task?
   Database for English"? (1995),
   <https://dl.acm.org/doi/10.1145/219717.219748>.
 
-\
 
 ------------------------------------------------------------------------
 

@@ -198,7 +198,6 @@ this?
   "Mixup: Beyond Empirical Risk Minimization"? (2018),
   <https://arxiv.org/abs/1710.09412>.
 
-\
 
 ------------------------------------------------------------------------
 

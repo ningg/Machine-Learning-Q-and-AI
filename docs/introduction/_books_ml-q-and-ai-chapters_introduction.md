@@ -312,7 +312,6 @@ after reading to solidify and expand your knowledge.
 
 Without further ado, let's dive in.
 
-\
 
 ------------------------------------------------------------------------
 

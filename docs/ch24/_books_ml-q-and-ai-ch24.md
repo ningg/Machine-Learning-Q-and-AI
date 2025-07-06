@@ -56,7 +56,6 @@ watched based on their order of preference. Ignoring the fact that this
 dataset is a tad too small for machine learning, which approach would be
 best suited for this kind of data?
 
-\
 
 ------------------------------------------------------------------------
 

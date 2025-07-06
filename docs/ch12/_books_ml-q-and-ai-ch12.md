@@ -150,7 +150,6 @@ in this chapter?
 12-2. Does padding affect the equivalence between fully connected layers
 and convolutional layers?
 
-\
 
 ------------------------------------------------------------------------
 

@@ -97,7 +97,6 @@ don't update the model immediately as new feedback arrives. However,
 we are planning to release a new or updated model at least once per
 month. Should we use stateless or stateful retraining for this model?
 
-\
 
 ------------------------------------------------------------------------
 
