@@ -1,11 +1,5 @@
 
 
-
-
-
-
-
-
 # Chapter 4: The Lottery Ticket Hypothesis [](#chapter-4-the-lottery-ticket-hypothesis)
 
 
@@ -96,7 +90,7 @@ not possible to identify them without training their larger neural
 network counterparts, they can be used for more efficient inference
 after training.
 
-### Exercises [](#exercises)
+## Exercises [](#exercises)
 
 4-1. Suppose we're trying out the lottery ticket hypothesis approach
 and find that the performance of the subnetwork is not very good

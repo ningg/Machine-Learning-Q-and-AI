@@ -191,7 +191,7 @@ hand, we focus on making only certain variables in the embedding
 representations of similar training pairs appear close to each other
 while maximizing the distance of others.
 
-### Exercises [](#exercises)
+## Exercises [](#exercises)
 
 2-1. How could we apply self-supervised learning to video data?
 

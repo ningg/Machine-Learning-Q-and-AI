@@ -85,9 +85,9 @@ Figure [1.3](#fig-ch03-fig03) illustrates this approach.
 
 The model learns how to produce good embeddings from the support set to
 classify the query image based on finding the most similar embedding
-vector. \
+vector. 
 
-### Exercises
+## Exercises
 
 3-1. MNIST (<https://en.wikipedia.org/wiki/MNIST_database>) is a classic
 and popular machine learning dataset consisting of 50,000 handwritten
@@ -97,7 +97,7 @@ partition the MNIST dataset for a one-shot classification context?
 3-2. What are some real-world applications or use cases for few-shot
 learning?
 
-\
+
 
 ------------------------------------------------------------------------
 
