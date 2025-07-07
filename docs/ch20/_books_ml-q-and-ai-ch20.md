@@ -6,10 +6,7 @@
 
 
 
-# Chapter 20: Production And Deployment
-[](#chapter-20-production-and-deployment)
-
-## Stateless and Stateful Training
+# Chapter 20: Stateless and Stateful Training
 [](#stateless-and-stateful-training)
 
 
@@ -23,7 +20,7 @@ training a production model.
 > Tips: **无状态训练** `stateless` 和 **有状态训练** `stateful`，是两种不同的训练方式；训练生产模型时，需要考虑用哪种方式。
 
 
-### Stateless (Re)training
+## Stateless (Re)training
 [](#stateless-retraining)
 
 In stateless training, the more conventional approach, we first train an
@@ -62,7 +59,7 @@ For example, standard implementations of tree-based models, such as
 random forests and gradient boosting (XGBoost, CatBoost, and LightGBM),
 fall into this category.
 
-### Stateful Training
+## Stateful Training
 [](#stateful-training)
 
 In stateful training, we train the model on an initial batch of data and
@@ -97,7 +94,7 @@ store data for retraining; instead, we can use it to update the model as
 soon as it arrives. This is particularly attractive when data storage is
 a concern due to privacy or resource limitations.
 
-### Exercises
+## Exercises
 [](#exercises)
 
 20-1. Suppose we train a classifier for stock trading recommendations
