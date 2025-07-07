@@ -47,11 +47,11 @@
 
 - **Introduction**
 
-   - [Introduction](./docs/introduction/_books_ml-q-and-ai-introduction.md)
+   - [Introduction](./docs/introduction/_books_ml-q-and-ai-chapters_introduction.md)  ✅
 
 - **Part I: Neural Networks and Deep Learning**
 
-   - [Chapter 1: Embeddings, Latent Space, and Representations](./docs/ch01/_books_ml-q-and-ai-ch01.md)
+   - [Chapter 1: Embeddings, Latent Space, and Representations](./docs/ch01/_books_ml-q-and-ai-ch01.md) ✅
    - [Chapter 2: Self-Supervised Learning](./docs/ch02/_books_ml-q-and-ai-ch02.md)
    - [Chapter 3: Few-Shot Learning](./docs/ch03/_books_ml-q-and-ai-ch03.md)
    - [Chapter 4: The Lottery Ticket  Hypothesis](./docs/ch04/_books_ml-q-and-ai-ch04.md)
@@ -64,7 +64,7 @@
 
 - **Part II: Computer Vision**
 
-   - [Chapter 11: Calculating the Number of Parameters](./docs/ch11/_books_ml-q-and-ai-ch11.md)
+   - [Chapter 11: Calculating the Number of Parameters](./docs/ch11/_books_ml-q-and-ai-ch11.md) ✅
    - [Chapter 12: Fully Connected and Convolutional Layers](./docs/ch12/_books_ml-q-and-ai-ch12.md)
    - [Chapter 13: Large Training Sets for Vision Transformers](./docs/ch13/_books_ml-q-and-ai-ch13.md)
 
@@ -105,7 +105,7 @@
 - 💡 功能建议 - 有好想法就告诉我们
 - 📝 内容完善 - 帮助改进教程内容
 
-
+> Note: 后续资料会附上贡献者名单.
 
 
 ## 附录
