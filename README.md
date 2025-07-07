@@ -54,9 +54,9 @@
    - [Chapter 1: Embeddings, Latent Space, and Representations](./docs/ch01/_books_ml-q-and-ai-ch01.md) ✅
    - [Chapter 2: Self-Supervised Learning](./docs/ch02/_books_ml-q-and-ai-ch02.md)
    - [Chapter 3: Few-Shot Learning](./docs/ch03/_books_ml-q-and-ai-ch03.md)
-   - [Chapter 4: The Lottery Ticket  Hypothesis](./docs/ch04/_books_ml-q-and-ai-ch04.md)
-   - [Chapter 5: Reducing Overfitting with Data](./docs/ch05/_books_ml-q-and-ai-ch05.md)
-   - [Chapter 6: Reducing Overfitting with Model Modifications](./docs/ch06/_books_ml-q-and-ai-ch06.md)
+   - [Chapter 4: The Lottery Ticket  Hypothesis](./docs/ch04/_books_ml-q-and-ai-ch04.md) ✅
+   - [Chapter 5: Reducing Overfitting with Data](./docs/ch05/_books_ml-q-and-ai-ch05.md) ✅
+   - [Chapter 6: Reducing Overfitting with Model Modifications](./docs/ch06/_books_ml-q-and-ai-ch06.md) ✅
    - [Chapter 7: Multi-GPU Training Paradigms](./docs/ch07/_books_ml-q-and-ai-ch07.md)
    - [Chapter 8: The Success of Transformers](./docs/ch08/_books_ml-q-and-ai-ch08.md)
    - [Chapter 9: Generative AI Models](./docs/ch09/_books_ml-q-and-ai-ch09.md)

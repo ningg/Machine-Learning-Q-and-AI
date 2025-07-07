@@ -26,16 +26,18 @@ as possible.
 
 The most successful techniques for reducing overfitting revolve around
 collecting more high-quality labeled data. However, if collecting more
-labeled data is not feasible, we can augment the existing data or
-leverage unlabeled data for pretraining.
+labeled data is not feasible, we can `augment` the existing data or
+leverage unlabeled data for `pretraining`.
+
+> Tips: **减少**`过拟合`，最有效的技术是收集更多`高质量的标签数据`；此外，还可以使用`数据增强`和`预训练`等技术。
 
 ## Common Methods
 [](#common-methods)
 
 This chapter summarizes the most prominent examples of dataset-related
 techniques that have stood the test of time, grouping them into the
-following categories: collecting more data, data augmentation, and
-pretraining.
+following categories: `collecting more data`, `data augmentation`, and
+`pretraining`.
 
 ### Collecting More Data
 [](#collecting-more-data)
@@ -51,47 +53,53 @@ set sizes increase. This indicates that we can improve the model's
 performance by collecting more data.
 
 <a id="fig-ch05-fig01"></a>
-![The learning curve plot of a model fit to different training\
-set sizes](../images/ch05-fig01.png)
+
+![The learning curve plot of a model fit to different training\set sizes](../images/ch05-fig01.png)
 
 The gap between training and validation performance indicates the degree
 of overfitting--the more extensive the gap, the more overfitting
 occurs. Conversely, the slope indicating an improvement in the
-validation performance suggests the model is underfitting and can
-benefit from more data. Typically, additional data can decrease both
-underfitting and overfitting.
+validation performance suggests the model is `underfitting` and can
+benefit from more data. Typically, **additional data** can decrease both
+`underfitting` and `overfitting`.
 
 ### Data Augmentation
 [](#data-augmentation)
 
-Data augmentation refers to generating new data records or features
+`Data augmentation` refers to generating new data records or features
 based on existing data. It allows for the expansion of a dataset without
 additional data collection.
 
-Data augmentation allows us to create different versions of the original
+> Tips: **数据增强** `data augmentation`，是一种常用的技术，用于增加数据集的大小和多样性。它通过`生成新的数据`，来扩展数据集，而不需要额外的数据收集。
+
+`Data augmentation` allows us to create different versions of the original
 input data, which can improve the model's generalization performance.
 Why? Augmented data can help the model improve its ability to
 generalize, since it makes it harder to memorize spurious information
 via training examples or features--or, in the case of image data, exact
 pixel values for specific pixel locations.
 
+> Tips: 数据增强 `data augmentation`，可以**提高模型的泛化性能**。为什么？因为增强后的数据，使模型忽略`虚假信息`，典型场景：在`图像数据`中，会弱化`特定像素`的`像素值`。
+
 Figure [1.2](#fig-ch05-fig02) highlights common image data augmentation
-techniques, including increasing brightness, flipping, and cropping.
+techniques, including `increasing brightness`, `flipping`, and `cropping`.
 
 <a id="fig-ch05-fig02"></a>
 
-![A selection of different image data augmentation
-techniques](../images/ch05-fig02.png)
+![A selection of different image data augmentation techniques](../images/ch05-fig02.png)
 
 Data augmentation is usually standard for image data (see
 Figure [1.2](#fig-ch05-fig02)) and text data (discussed further in
 Chapter [\[ch15\]](./ch15/_books_ml-q-and-ai-ch15.md),
 but data augmentation methods for tabular data also exist.
 
+
 Instead of collecting more data or augmenting existing data, it is also
-possible to generate new, synthetic data. While more common for image
+possible to generate new, `synthetic data`. While more common for image
 data and text, generating synthetic data is also possible for tabular
 datasets.
+
+> Tips:数据增强 `data augmentation`，是图像数据和文本数据的标准技术。 除了`数据增强`，还可以`生成合成数据`。
 
 ### Pretraining
 [](#pretraining)
@@ -100,8 +108,8 @@ As discussed in Chapter [\[ch02\]](./ch02/_books_ml-q-and-ai-ch02.md), self-sup
 unlabeled datasets to pretrain neural networks. This can also help
 reduce overfitting on the smaller target datasets.
 
-As an alternative to self-supervised learning, traditional transfer
-learning on large labeled datasets is also an option. Transfer learning
+As an alternative to `self-supervised learning`, `traditional transfer learning` 
+on large labeled datasets is also an option. Transfer learning
 is most effective if the labeled dataset is closely related to the
 target domain. For instance, if we train a model to classify bird
 species, we can pretrain a network on a large, general animal
@@ -113,7 +121,7 @@ A dataset may be extremely small and unsuitable for supervised
 learning--for example, if it contains only a handful of labeled
 examples per class. If our classifier needs to operate in a context
 where the collection of additional labeled data is not feasible, we may
-also consider few-shot learning.
+also consider `few-shot learning`.
 
 ## Other Methods
 [](#other-methods)
@@ -132,11 +140,23 @@ Other common techniques include:
 
 - Data augmentation techniques such as Mixup, Cutout, and CutMix
 
+> Tips: 减弱`过度拟合`，还可以使用下述技术：
+> 
+> - `特征工程`和`归一化`：改进特征选择和标准化数据
+> - `对抗样本`和`标签或特征噪声`：添加对抗样本或噪声来增强模型的鲁棒性
+> - `标签平滑`：软化标签，避免模型对训练标签过于自信
+> - `更小的批量大小`：使用较小的batch size来增加训练的随机性
+> - `数据增强`技术，如`Mixup`、`Cutout`和`CutMix`
+>     - `Mixup`：混合不同样本的数据
+>     - `Cutout`：随机遮挡图像的部分区域
+>     - `CutMix`：将一张图像的一部分替换为另一张图像的对应部分
+
+
 The next chapter covers additional techniques to reduce overfitting from
 a model perspective, and it concludes by discussing which regularization
 techniques we should consider in practice.
 
-### Exercises
+## Exercises
 [](#exercises)
 
 5-1. Suppose we train an XGBoost model to classify images based on

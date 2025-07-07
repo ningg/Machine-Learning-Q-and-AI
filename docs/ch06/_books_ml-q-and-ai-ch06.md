@@ -17,12 +17,14 @@ overfitting. How can we change the model or make modifications to the
 training loop to further reduce the effect of overfitting?**
 
 The most successful approaches against overfitting include
-regularization techniques like dropout and weight decay. As a rule of
+`regularization` techniques like `dropout` and `weight decay`. As a rule of
 thumb, models with a larger number of parameters require more training
 data to generalize well. Hence, decreasing the model size and capacity
 can sometimes also help reduce overfitting. Lastly, building ensemble
 models is among the most effective ways to combat overfitting, but it
 comes with increased computational expense.
+
+> Tips: 减少`过拟合`，最有效的技术是`正则化`，包括`dropout`和`权重衰减`；此外，还可以`减小模型大小`和`构建集成模型`。
 
 This chapter outlines the key ideas and techniques for several
 categories of reducing overfitting with model modifications and then
@@ -34,8 +36,8 @@ discussed in the previous chapter.
 [](#common-methods)
 
 The various model- and training-related techniques to reduce overfitting
-can be grouped into three broad categories: (1) adding regularization,
-(2) choosing smaller models, and (3) building ensemble models.
+can be grouped into three broad categories: (1) adding `regularization`,
+(2) choosing `smaller models`, and (3) building `ensemble models`.
 
 ### Regularization
 [](#regularization)
@@ -48,37 +50,40 @@ minimized during training. This added term represents the size of the
 weights, such as the squared sum of the weights. The following formula
 shows an $L_2$ regularized loss
 
-$$
-\[RegularizedLoss=Loss+\\frac{\\lambda}{n} \\sum_j w\_{j}\^{2}\]
-$$
+$$RegularizedLoss=Loss+\frac{\lambda}{n} \sum_j w_{j}^{2}$$
 
-where $\\lambda$ is a hyperparameter that controls the
-regularization strength.
+where $\lambda$ is a `hyperparameter` that controls the
+`regularization strength`.
+
 
 During backpropagation, the optimizer minimizes the modified loss, now
 including the additional penalty term, which leads to smaller model
 weights and can improve generalization to unseen data.
 
-Weight decay is similar to $L_2$ regularization but is applied to the
+> Tips: 正则化 `regularization`，通过`添加惩罚项`，来减少模型的`权重`。
+
+
+`Weight decay` is similar to $L_2$ regularization but is applied to the
 optimizer directly rather than modifying the loss function. Since weight
 decay has the same effect as $L_2$ regularization, the two methods are
 often used synonymously, but there may be subtle differences depending
 on the implementation details and optimizer.
 
 Many other techniques have regularizing effects. For brevity's sake,
-we'll discuss just two more widely used methods: dropout and early
-stopping.
+we'll discuss just two more widely used methods: `dropout` and `early stopping`.
 
-Dropout reduces overfitting by randomly setting some of the activations
+`Dropout` reduces overfitting by randomly setting some of the activations
 of the hidden units to zero during training. Consequently, the neural
 network cannot rely on particular neurons to be activated. Instead, it
 learns to use a larger number of neurons and multiple independent
 representations of the same data, which helps to reduce overfitting.
 
-In early stopping, we monitor the model's performance on a validation
+In `early stopping`, we monitor the model's performance on a validation
 set during training and stop the training process when the performance
 on the validation set begins to decline, as illustrated in
 Figure [1.1](#fig-ch06-fig01).
+
+> Tips: 早停 `early stopping`，通过`监控模型在验证集上的性能`，来停止训练过程。
 
 <a id="fig-ch06-fig01"></a>
 
@@ -97,12 +102,13 @@ reduce overfitting. The intuition behind this theory is that, as a
 general rule of thumb, the smaller the number of model parameters, the
 smaller its capacity to memorize or overfit to noise in the data. The
 following paragraphs discuss methods to reduce the model size, including
-pruning, which removes parameters from a model, and knowledge
-distillation, which transfers knowledge to a smaller model.
+`pruning`, which removes parameters from a model, and `knowledge distillation`, which transfers knowledge to a smaller model.
+
+> Tips: 减小模型大小，包括`剪枝`和`知识蒸馏`。
 
 Besides reducing the number of layers and shrinking the layers' widths
 as a hyperparameter tuning procedure, another approach to obtaining
-smal-  ler models is *iterative pruning*, in which we train a large
+smaller models is `iterative pruning`, in which we train a large
 model to achieve good performance on the original dataset. We then
 iteratively remove parameters of the model, retraining it on the dataset
 such that it maintains the same predictive performance as the original
@@ -110,8 +116,10 @@ model. (The lottery ticket hypothesis, discussed in
 Chapter [\[ch04\]](./ch04/_books_ml-q-and-ai-ch04.md),
 uses iterative pruning.)
 
-Another common approach to obtaining smaller models is *knowledge
-distillation*. The general idea behind this approach is to transfer
+> Tips: 前置减少模型的参数，包括层数和宽度。后置的`迭代剪枝`，也是常用方法。
+
+Another common approach to obtaining smaller models is **knowledge distillation**. 
+The general idea behind this approach is to transfer
 knowledge from a large, more complex model (the *teacher*) to a smaller
 model (the *student*). Ideally, the student achieves the same predictive
 accuracy as the teacher, but it does so more efficiently due to the
@@ -119,14 +127,16 @@ smaller size. As a nice side effect, the smaller student may overfit
 less than the larger teacher model.
 
 Figure [1.2](#fig-ch06-fig02) diagrams the original knowledge distillation
-process. Here, the teacher is first trained in a regular supervised
+process. Here, the `teacher` is first trained in a regular supervised
 fashion to classify the examples in the dataset well, using a
 conventional cross-entropy loss between the predicted scores and ground
-truth class labels. While the smaller student network is trained on the
-same dataset, the training objective is to minimize both (a) the cross
-entropy between the outputs and the class labels and (b) the difference
-between its outputs and the teacher outputs (measured using
-*Kullback-Leibler* divergence, which quantifies the difference between
+truth class labels. While the smaller `student` network is trained on the
+same dataset, the training objective is to minimize both 
+
+(a) the cross entropy between the outputs and the class labels and
+
+(b) the difference between its outputs and the teacher outputs (measured 
+using *Kullback-Leibler* divergence, which quantifies the difference between
 two probability distributions by calculating how much one distribution
 diverges from the other in terms of information content).
 
@@ -138,6 +148,8 @@ By minimizing the Kullback-Leibler divergence--the difference between
 the teacher and student score distributions--the student learns to
 mimic the teacher while being smaller and more efficient.
 
+> Tips: 知识蒸馏 `knowledge distillation`，通过`将知识从大模型`，`蒸馏`到`小模型`，来提高小模型的性能。
+
 ### Caveats with Smaller Models
 [](#caveats-with-smaller-models)
 
@@ -145,19 +157,23 @@ While pruning and knowledge distillation can also enhance a model's
 generalization performance, these techniques are not primary or
 effective ways of reducing overfitting.
 
+> Tips: `剪枝`和`知识蒸馏`，`可以`提高模型的泛化性能，但`不是`减少过拟合的`主要`方法。
+
 Early research results indicate that pruning and knowledge distillation
 can improve the generalization performance, presumably due to smaller
 model sizes. However, counterintuitively, recent research studying
 phenomena like double descent and grokking also showed that larger,
 overparameterized models have improved generalization performance if
-they are trained beyond the point of overfitting. *Double descent*
+they are trained beyond the point of overfitting. `Double descent`
 refers to the phenomenon in which models with either a small or an
-extremely large number of para-  meters have good generalization
+extremely large number of parameters have good generalization
 performance, while models with a number of parameters equal to the
 number of training data points have poor generalization performance.
 *Grokking* reveals that as the size of a dataset decreases, the need for
 optimization increases, and generalization performance can improve well
 past the point of overfitting.
+
+> Tips: `双降` `double descent`，是一种现象，模型参数的数量，在最佳量级之前和之后，都模型泛化效果，都会变差。但是，`涌现/顿悟` `grokking` 现象，展示出当模型参数数量超大时，泛化性能又会变好。 ??? FIXME
 
 How can we reconcile the observation that pruned models can exhibit
 better generalization performance with contradictory observations from
@@ -167,10 +183,13 @@ overfitting due to pruning. Pruning involves more extended training
 periods and a replay of learning rate schedules that may be partly
 responsible for the improved generalization performance.
 
+
 Pruning and knowledge distillation remain excellent ways to improve the
 computational efficiency of a model. However, while they can also
 enhance a model's generalization performance, these techniques are not
 primary or effective ways of reducing overfitting.
+
+> Tips: 剪枝和知识蒸馏，可以提高模型的泛化性能，但不是减少过拟合的主要方法。
 
 ### Ensemble Methods
 [](#ensemble-methods)
@@ -221,8 +240,7 @@ Figure [1.2](#fig-ch06-fig03).
 
 <a id="fig-ch06-fig03"></a>
 
-![[k]{.upright}-fold cross-validation for creating model
-ensembles](../images/ch06-fig03.png)
+![[k]{.upright}-fold cross-validation for creating model ensembles](../images/ch06-fig03.png)
 
 As shown in Figure [1.2](#fig-ch06-fig03), the *k*-fold ensemble approach trains each of the
 *k* models on the respective *k* "" 1 training folds in each round.
@@ -270,7 +288,7 @@ In practice, we can and should use multiple methods at once to reduce
 overfitting for an additive effect. To achieve the best results, treat
 selecting these techniques as a hyperparameter optimization problem.
 
-### Exercises
+## Exercises
 [](#exercises)
 
 6-1. Supposewe'reusingearlystoppingasamechanismtoreduceover-
