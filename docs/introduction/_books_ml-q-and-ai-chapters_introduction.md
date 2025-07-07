@@ -118,56 +118,56 @@ learning and techniques for reducing overfitting, which is a common
 problem when using machine learning models for real-world problems where
 data is limited.
 
-Chapter [\[ch01\]](../ch01/_books_ml-q-and-ai-ch01.md):
+Chapter [\[ch01\]](./ch01/_books_ml-q-and-ai-ch01.md):
 Embeddings, Latent Space, and Representations\
 Delves into the distinctions and similarities between embedding vectors,
 latent vectors, and representations. Elucidates how these concepts help
 encode information in the context of machine learning.
 
-Chapter [\[ch02\]](../ch02/_books_ml-q-and-ai-ch02.md):
+Chapter [\[ch02\]](./ch02/_books_ml-q-and-ai-ch02.md):
 Self-Supervised Learning\
 Focuses on self-supervised learning, a method that allows neural
 networks to utilize large, unlabeled datasets in a supervised manner.
 
-Chapter [\[ch03\]](../ch03/_books_ml-q-and-ai-ch03.md):
+Chapter [\[ch03\]](./ch03/_books_ml-q-and-ai-ch03.md):
 Few-Shot Learning\
 Introduces few-shot learning, a specialized supervised learning
 technique tailored for small training datasets.
 
-Chapter [\[ch04\]](../ch04/_books_ml-q-and-ai-ch04.md): The
+Chapter [\[ch04\]](./ch04/_books_ml-q-and-ai-ch04.md): The
 Lottery Ticket Hypothesis\
 Explores the idea that randomly initialized neural networks contain smaller, efficient subnetworks.
 
-Chapter [\[ch05\]](../ch05/_books_ml-q-and-ai-ch05.md):
+Chapter [\[ch05\]](./ch05/_books_ml-q-and-ai-ch05.md):
 Reducing Overfitting with Data\
 Addresses the challenge of overfitting in machine learning, discussing
 strategies centered on data augmentation and the use of unlabeled data
 to reduce overfitting.
 
-Chapter [\[ch06\]](../ch06/_books_ml-q-and-ai-ch06.md):
+Chapter [\[ch06\]](./ch06/_books_ml-q-and-ai-ch06.md):
 Reducing Overfitting with Model Modifications\
 Extends the conversation on overfitting, focusing on model-related
 solutions like regularization, opting for simpler models, and ensemble
 techniques.
 
-Chapter [\[ch07\]](../ch07/_books_ml-q-and-ai-ch07.md):
+Chapter [\[ch07\]](./ch07/_books_ml-q-and-ai-ch07.md):
 Multi-GPU Training Paradigms\
 Explains various training paradigms for multi-GPU setups to accelerate
 model training, including data and model parallelism.
 
-Chapter [\[ch08\]](../ch08/_books_ml-q-and-ai-ch08.md): The
+Chapter [\[ch08\]](./ch08/_books_ml-q-and-ai-ch08.md): The
 Success of Transformers\
 Explores the popular transformer architecture, highlighting features
 like attention mechanisms, parallelization ease, and high parameter
 counts.
 
-Chapter [\[ch09\]](../ch09/_books_ml-q-and-ai-ch09.md):
+Chapter [\[ch09\]](./ch09/_books_ml-q-and-ai-ch09.md):
 Generative AI Models\
 Provides a comprehensive overview of deep generative models, which are
 used to produce various media forms, including images, text, and audio.
 Discusses the strengths and weaknesses of each model type.
 
-Chapter [\[ch10\]](../ch10/_books_ml-q-and-ai-ch10.md):
+Chapter [\[ch10\]](./ch10/_books_ml-q-and-ai-ch10.md):
 Sources of Randomness\
 Addresses the various sources of randomness in the training of deep
 neural networks that may lead to inconsistent and non-reproducible
@@ -180,20 +180,20 @@ accidental, it can also be intentionally introduced by design.
 learning but specific to computer vision, many of which cover
 convolutional neural networks and vision transformers.
 
-Chapter [\[ch11\]](../ch11/_books_ml-q-and-ai-ch11.md):
+Chapter [\[ch11\]](./ch11/_books_ml-q-and-ai-ch11.md):
 Calculating the Number of Parameters\
 Explains the\
 procedure for determining the parameters in a convolutional neural
 network, which is useful for gauging a model's storage and memory\
 requirements.
 
-Chapter [\[ch12\]](../ch12/_books_ml-q-and-ai-ch12.md):
+Chapter [\[ch12\]](./ch12/_books_ml-q-and-ai-ch12.md):
 Fully Connected and Convolutional Layers\
 Illustrates the circumstances in which convolutional layers can
 seamlessly replace fully connected layers, which can be useful for
 hardware optimization or simplifying implementations.
 
-Chapter [\[ch13\]](../ch13/_books_ml-q-and-ai-ch13.md):
+Chapter [\[ch13\]](./ch13/_books_ml-q-and-ai-ch13.md):
 Large Training Sets for Vision Transformers\
 Probes the rationale behind vision transformers requiring more extensive
 training sets compared to conventional convolutional neural networks.
@@ -204,37 +204,37 @@ training sets compared to conventional convolutional neural networks.
 with text, many of which are related to transformer architectures and
 self-attention.
 
-Chapter [\[ch14\]](../ch14/_books_ml-q-and-ai-ch14.md): The
+Chapter [\[ch14\]](./ch14/_books_ml-q-and-ai-ch14.md): The
 Distributional Hypothesis\
 Delves into the distributional hypothesis, a linguistic theory
 suggesting that words appearing in the same contexts tend to possess
 similar meanings, which has useful implications for training machine
 learning models.
 
-Chapter [\[ch15\]](../ch15/_books_ml-q-and-ai-ch15.md):
+Chapter [\[ch15\]](./ch15/_books_ml-q-and-ai-ch15.md):
 Data Augmentation for Text\
 Highlights the significance of data augmentation for text, a technique
 used to artificially increase dataset sizes, which can help with
 improving model performance.
 
-Chapter [\[ch16\]](../ch16/_books_ml-q-and-ai-ch16.md):
+Chapter [\[ch16\]](./ch16/_books_ml-q-and-ai-ch16.md):
 Self-Attention\
 Introduces self-attention, a mechanism allowing each segment of a neural
 network's input to refer to other parts. Self-attention is a key
 mechanism in modern large language models.
 
-Chapter [\[ch17\]](../ch17/_books_ml-q-and-ai-ch17.md):
+Chapter [\[ch17\]](./ch17/_books_ml-q-and-ai-ch17.md):
 Encoder- and Decoder-Style Transformers\
 Describes the nuances of encoder and decoder transformer architectures and
 explains which type of architecture is most useful for each language
 processing task.
 
-Chapter [\[ch18\]](../ch18/_books_ml-q-and-ai-ch18.md):
+Chapter [\[ch18\]](./ch18/_books_ml-q-and-ai-ch18.md):
 Using and Fine-Tuning Pretrained Transformers\
 Explains different methods for fine-tuning pretrained large language
 models and discusses their strengths and weaknesses.
 
-Chapter [\[ch19\]](../ch19/_books_ml-q-and-ai-ch19.md):
+Chapter [\[ch19\]](./ch19/_books_ml-q-and-ai-ch19.md):
 Evaluating Generative Large Language Models\
 Lists prominent evaluation metrics for language models like Perplexity, BLEU,
 ROUGE, and BERTScore.
@@ -245,24 +245,24 @@ ROUGE, and BERTScore.
 practical scenarios, such as increasing inference speeds and various
 types of distribution shifts.
 
-Chapter [\[ch20\]](../ch20/_books_ml-q-and-ai-ch20.md):
+Chapter [\[ch20\]](./ch20/_books_ml-q-and-ai-ch20.md):
 Stateless and Stateful Training\
 Distinguishes between stateless and stateful training methodologies used
 in deploying models.
 
-Chapter [\[ch21\]](../ch21/_books_ml-q-and-ai-ch21.md):
+Chapter [\[ch21\]](./ch21/_books_ml-q-and-ai-ch21.md):
 Data-Centric AI\
 Explores data-centric AI, which priori-\
  tizes refining datasets to enhance model performance. This approach
 contrasts with the conventional model-centric approach, which emphasizes
 improving model architectures or methods.
 
-Chapter [\[ch22\]](../ch22/_books_ml-q-and-ai-ch22.md):
+Chapter [\[ch22\]](./ch22/_books_ml-q-and-ai-ch22.md):
 Speeding Up Inference\
 Introduces techniques to enhance the speed of model inference without
 tweaking the model's architecture or compromising accuracy.
 
-Chapter [\[ch23\]](../ch23/_books_ml-q-and-ai-ch23.md):
+Chapter [\[ch23\]](./ch23/_books_ml-q-and-ai-ch23.md):
 Data Distribution Shifts\
 Post-deployment, AI models\
 may face discrepancies between training data and real-world data
@@ -278,7 +278,7 @@ into various aspects of squeezing out predictive performance, such as
 changing the loss function, setting up *k*-fold cross-validation, and
 dealing with limited labeled data.
 
-Chapter [\[ch24\]](../ch24/_books_ml-q-and-ai-ch24.md):
+Chapter [\[ch24\]](./ch24/_books_ml-q-and-ai-ch24.md):
 Poisson and Ordinal Regression\
 Highlights the differences between Poisson and ordinal regression.
 Poisson regression is suitable for count data that follows a Poisson
@@ -286,7 +286,7 @@ distribution, like the number of colds contracted on an airplane. In
 contrast, ordinal regression caters to ordered categorical data without
 assuming equidistant categories, such as disease severity.
 
-Chapter [\[ch25\]](../ch25/_books_ml-q-and-ai-ch25.md):
+Chapter [\[ch25\]](./ch25/_books_ml-q-and-ai-ch25.md):
 Confidence Intervals\
 Delves into methods for constructing confidence intervals for machine
 learning classifiers. Reviews the purpose of confidence intervals,
@@ -294,25 +294,25 @@ discusses how they estimate unknown population parameters, and
 introduces techniques such as normal approximation intervals,
 bootstrapping, and retraining with various random seeds.
 
-Chapter [\[ch26\]](../ch26/_books_ml-q-and-ai-ch26.md):
+Chapter [\[ch26\]](./ch26/_books_ml-q-and-ai-ch26.md):
 Confidence Intervals vs. Conformal Predictions\
 Discusses the distinction between confidence intervals and conformal
 predictions and describes the latter as a tool for creating prediction
 intervals that cover actual outcomes with specific probability.
 
-Chapter [\[ch27\]](../ch27/_books_ml-q-and-ai-ch27.md):
+Chapter [\[ch27\]](./ch27/_books_ml-q-and-ai-ch27.md):
 Proper Metrics\
 Focuses on the essential properties of a proper metric in mathematics
 and computer science. Examines whether commonly used loss functions in
 machine learning, such as mean squared error and cross-entropy loss,
 satisfy these properties.
 
-Chapter [\[ch28\]](../ch28/_books_ml-q-and-ai-ch28.md): The
+Chapter [\[ch28\]](./ch28/_books_ml-q-and-ai-ch28.md): The
 *k* in *k*-Fold Cross-Validation\
 Explores the role of the *k* in *k*-fold cross-validation and provides
 insight into the advantages and disadvantages of selecting a large *k*.
 
-Chapter [\[ch29\]](../ch29/_books_ml-q-and-ai-ch29.md):
+Chapter [\[ch29\]](./ch29/_books_ml-q-and-ai-ch29.md):
 Training and Test Set Discordance\
 Addresses the scenario where a model performs better on a test dataset
 than the training dataset. Offers strategies to discover and address
@@ -320,7 +320,7 @@ discrepancies\
  between training and test datasets, introducing the concept of
 adversarial validation.
 
-Chapter [\[ch30\]](../ch30/_books_ml-q-and-ai-ch30.md):
+Chapter [\[ch30\]](./ch30/_books_ml-q-and-ai-ch30.md):
 Limited Labeled Data\
 Introduces various techniques to enhance model performance in situations
 where data is limited. Covers data labeling, bootstrapping, and
