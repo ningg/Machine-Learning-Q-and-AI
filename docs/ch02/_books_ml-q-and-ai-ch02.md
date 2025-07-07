@@ -20,6 +20,10 @@ related method for pretraining neural networks, and discusses the
 practical applications of self-supervised learning. Finally, it outlines
 the main categories of self-supervised learning.
 
+> Tips: 自监督学习，是一种预训练方法，让神经网络利用`无标签`的大数据集，进行`监督学习`。
+
+
+
 ## Self-Supervised Learning vs. Transfer Learning [](#self-supervised-learning-vs-transfer-learning) 
 
 Self-supervised learning is related to transfer learning, a technique in
@@ -39,8 +43,7 @@ Figure [1.1](#fig-ch02-fig01) illustrates the process of transfer learning.
 
 <a id="fig-ch02-fig01"></a>
 
-![Pretraining with conventional transfer
-learning](../images/ch02-fig01.png)
+![Pretraining with conventional transfer learning](../images/ch02-fig01.png)
 
 Self-supervised learning is an alternative approach to transfer learning
 in which the model is pretrained not on labeled data but on *unlabeled*
@@ -53,8 +56,7 @@ called *pretext tasks*.
 
 <a id="fig-ch02-fig02"></a>
 
-![Pretraining with self-supervised
-learning](../images/ch02-fig02.png)
+![Pretraining with self-supervised learning](../images/ch02-fig02.png)
 
 The main difference between transfer learning and self-supervised
 learning lies in how we obtain the labels during step 1 in
@@ -113,8 +115,7 @@ using a perturbation mask that obfuscates certain pixels in an image.
 
 <a id="fig-ch02-fig03"></a>
 
-![Self-prediction after applying a\
-perturbation mask](../images/ch02-fig03.png)
+![Self-prediction after applying a perturbation mask](../images/ch02-fig03.png)
 
 A classic example is a denoising autoencoder that learns to remove noise
 from an input image. Alternatively, consider a masked autoencoder that
@@ -123,8 +124,7 @@ Figure [1.4](#fig-ch02-fig04).
 
 <a id="fig-ch02-fig04"></a>
 
-![A masked autoencoder reconstructing a masked
-image](../images/ch02-fig04.png)
+![A masked autoencoder reconstructing a masked image](../images/ch02-fig04.png)
 
 Missing (masked) input self-prediction methods are also commonly used in
 natural language processing contexts. Many generative LLMs, such as GPT,
@@ -153,8 +153,7 @@ Figure [1.5](#fig-ch02-fig05).
 
 <a id="fig-ch02-fig05"></a>
 
-![Image pairs encountered in contrastive
-learning](../images/ch02-fig05.png)
+![Image pairs encountered in contrastive learning](../images/ch02-fig05.png)
 
 The perturbed cat image in this figure still shows the same cat, so we
 want the network to produce a similar embedding vector. We also consider
