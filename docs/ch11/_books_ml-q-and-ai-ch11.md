@@ -6,9 +6,11 @@
 
 
 
-# Part 2: Computer Vision [](#part-2-computer-vision)
+# Part 2: Computer Vision
+[](#part-2-computer-vision)
 
-## Chapter 11: Calculating the Number of Parameters [](#chapter-11-calculating-the-number-of-parameters)
+## Chapter 11: Calculating the Number of Parameters
+[](#chapter-11-calculating-the-number-of-parameters)
 
 
 
@@ -20,7 +22,8 @@ size, which affects storage and memory requirements. The following
 sections will explain how to compute the convolutional and fully
 connected layer parameter counts.
 
-### How to Find Parameter Counts [](#how-to-find-parameter-counts)
+### How to Find Parameter Counts
+[](#how-to-find-parameter-counts)
 
 Suppose we are working with a convolutional network that has two con-
  volutional layers with kernel size 5 and kernel size 3, respectively.
@@ -45,7 +48,8 @@ number of parameters for each layer and then summing up these counts to
 obtain the total number of parameters. Each layer's number of
 trainable parameters consists of weights and bias units.
 
-#### Convolutional Layers [](#convolutional-layers)
+#### Convolutional Layers
+[](#convolutional-layers)
 
 In a convolutional layer, the number of weights depends on the
 kernel's width and height and the number of input and output channels.
@@ -114,7 +118,8 @@ this architecture.
 Next, let's see how we can compute the number of parameters of fully
 connected layers.
 
-#### Fully Connected Layers [](#fully-connected-layers)
+#### Fully Connected Layers
+[](#fully-connected-layers)
 
 Counting the number of parameters in a fully connected layer is
 relatively straightforward. A fully connected node connects each input
@@ -146,7 +151,8 @@ number of parameters programmatically in the
 *supplementary/q11-conv-size* subfolder at
 <https://github.com/rasbt/MachineLearning-QandAI-book>.
 
-### Practical Applications [](#practical-applications)
+### Practical Applications
+[](#practical-applications)
 
 Why do we care about the number of parameters at all? First, we can use
 this number to estimate a model's complexity. As a rule of thumb, the
@@ -161,7 +167,8 @@ carrying out matrix multiplications and storing gradients, model size
 gives us a ballpark sense of whether training the model on a given
 hardware setup is feasible.
 
-### Exercises [](#exercises)
+### Exercises
+[](#exercises)
 
 11-1. Suppose we want to optimize the neural network using a plain
 stochastic gradient descent (SGD) optimizer or the popular Adam

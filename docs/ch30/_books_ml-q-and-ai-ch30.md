@@ -6,7 +6,8 @@
 
 
 
-# Chapter 30: Limited Labeled Data [](#chapter-30-limited-labeled-data)
+# Chapter 30: Limited Labeled Data
+[](#chapter-30-limited-labeled-data)
 
 
 
@@ -21,12 +22,14 @@ In lieu of collecting more data, there are several methods related to
 regular supervised learning that we can use to improve model performance
 in limited labeled data regimes.
 
-## Improving Model Performance with Limited Labeled Data [](#improving-model-performance-with-limited-labeled-data)
+## Improving Model Performance with Limited Labeled Data
+[](#improving-model-performance-with-limited-labeled-data)
 
 The following sections explore various machine learning paradigms that
 help in scenarios where training data is limited.
 
-### Labeling More Data [](#labeling-more-data)
+### Labeling More Data
+[](#labeling-more-data)
 
 Collecting additional training examples is often the best way to improve
 the performance of a model (a learning curve is a good diagnostic for
@@ -34,7 +37,8 @@ this). However, this is often not feasible in practice, because
 acquiring high-quality data can be costly, computational resources and
 storage might be insufficient, or the data may be hard to access.
 
-### Bootstrapping the Data [](#bootstrapping-the-data)
+### Bootstrapping the Data
+[](#bootstrapping-the-data)
 
 Similar to the techniques for reducing overfitting discussed in
 Chapter [\[ch05\]](../ch05){reference="ch05" reference-type="ref"}, it
@@ -45,7 +49,8 @@ data can also lead to the improved predictive performance of a model, as
 discussed in Chapter [\[ch21\]](../ch21){reference="ch21"
 reference-type="ref"}.
 
-### Transfer Learning [](#transfer-learning)
+### Transfer Learning
+[](#transfer-learning)
 
 Transferlearningdescribestrainingamodelonageneraldataset(forexample,
 ImageNet) and then fine-tuning the pretrained target dataset (for
@@ -61,7 +66,8 @@ model weights can be updated. This is in contrast to tree-based methods,
 since most decision tree algorithms are nonparametric models that do not
 support iterative training or parameter updates.
 
-### Self-Supervised Learning [](#self-supervised-learning)
+### Self-Supervised Learning
+[](#self-supervised-learning)
 
 Similar to transfer learning, in self-supervised learning, the model is
 pretrained on a different task before being fine-tuned to a target task
@@ -85,7 +91,8 @@ learning](../images/ch30-fig02.png){#fig-ch30-fig02}
 For more detail on self-supervised learning, see
 Chapter [\[ch02\]](../ch02){reference="ch02" reference-type="ref"}.
 
-### Active Learning [](#active-learning)
+### Active Learning
+[](#active-learning)
 
 In active learning, illustrated in
 Figure [1.3](#fig-ch30-fig03){reference="fig-ch30-fig03"
@@ -103,7 +110,8 @@ selects data for labeling. For example, the simplest form of active
 learning selects data points with high prediction uncertainty for
 labeling by a human annotator (also referred to as an *oracle*).
 
-### Few-Shot Learning [](#few-shot-learning)
+### Few-Shot Learning
+[](#few-shot-learning)
 
 In a few-shot learning scenario, we often deal with extremely small
 datasets that include only a handful of examples per class. In research
@@ -124,7 +132,8 @@ reference-type="ref"}.
 For more detail on few-shot learning, see
 Chapter [\[ch03\]](../ch03){reference="ch03" reference-type="ref"}.
 
-### Meta-Learning [](#meta-learning)
+### Meta-Learning
+[](#meta-learning)
 
 Meta-learning involves developing methods that determine how machine
 learning algorithms can best learn from data. We can therefore think of
@@ -158,7 +167,8 @@ learning algorithm for the dataset at hand. Using this approach, we can
 narrow down the algorithm and hyperparameter search spaces, which helps
 reduce overfitting when the dataset is small.
 
-### Weakly Supervised Learning [](#weakly-supervised-learning)
+### Weakly Supervised Learning
+[](#weakly-supervised-learning)
 
 Weakly supervised learning, illustrated in
 Figure [1.6](#fig-ch30-fig06){reference="fig-ch30-fig06"
@@ -187,7 +197,8 @@ There is a subcategory of weakly supervised learning referred to as
 PU-learning. In *PU-learning*, which is short for *positive-unlabeled
 learning*, we label and learn only from positive examples.
 
-### Semi-Supervised Learning [](#semi-supervised-learning)
+### Semi-Supervised Learning
+[](#semi-supervised-learning)
 
 Semi-supervised learning is closely related to weakly supervised
 learning: it also involves creating labels for unlabeled instances in
@@ -213,7 +224,8 @@ Thanks to their close relationship, semi-supervised learning is
 sometimes referred to as a subcategory of weakly supervised learning,
 and vice versa.
 
-### Self-Training [](#self-training)
+### Self-Training
+[](#self-training)
 
 Self-training falls somewhere between semi-supervised learning and
 weakly supervised learning. For this technique, we train a model to
@@ -228,7 +240,8 @@ to semi-supervised learning.
 An example of self-training is knowledge distillation, discussed in
 Chapter [\[ch06\]](../ch06){reference="ch06" reference-type="ref"}.
 
-### Multi-Task Learning [](#multi-task-learning)
+### Multi-Task Learning
+[](#multi-task-learning)
 
 Multi-task learning trains neural networks on multiple, ideally related
 tasks. For example, if we are training a classifier to detect spam
@@ -262,7 +275,8 @@ networks for each task, but regularization techniques such as distance
 minimization between parameter layers are applied to encourage
 similarity among the networks.
 
-### Multimodal Learning [](#multimodal-learning)
+### Multimodal Learning
+[](#multimodal-learning)
 
 While multi-task learning involves training a model with multiple tasks
 and loss functions, multimodal learning focuses on incorporating
@@ -317,7 +331,8 @@ more information. Moreover, recent research suggests that the key to the
 sucess of multimodal learning is the improved quality of the latent
 space representation.
 
-### Inductive Biases [](#inductive-biases)
+### Inductive Biases
+[](#inductive-biases)
 
 Choosing models with stronger inductive biases can help lower data
 requirements by making assumptions about the structure of the data. For
@@ -325,7 +340,8 @@ example, due to their inductive biases, convolutional networks require
 less data than vision transformers, as discussed in
 Chapter [\[ch13\]](../ch13){reference="ch13" reference-type="ref"}.
 
-## Recommendations [](#recommendations)
+## Recommendations
+[](#recommendations)
 
 Of all these techniques for reducing data requirements, how should we
 decide which ones to use in a given situation?
@@ -355,7 +371,8 @@ reference-type="ref"} are not terminal nodes but arc back to the second
 box, "Evaluate model performance"?; additional arrows were omitted to
 avoid visual clutter.
 
-### Exercises [](#exercises)
+### Exercises
+[](#exercises)
 
 30-1. Suppose we are given the task of constructing a machine learning
 model that utilizes images to detect manufacturing defects on the outer
@@ -376,7 +393,8 @@ networks exhibit overconfidence on out-of-distribution data, rendering
 their use in active learning ineffective. What are some other methods to
 obtain confidence scores using deep neural networks for active learning?
 
-## References [](#references)
+## References
+[](#references)
 
 - While decision trees for incremental learning are not commonly
   implemented, algorithms for training decision trees in an itera-

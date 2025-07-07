@@ -6,7 +6,8 @@
 
 
 
-# Chapter 7: Multi-GPU Training Paradigms [](#chapter-7-multi-gpu-training-paradigms)
+# Chapter 7: Multi-GPU Training Paradigms
+[](#chapter-7-multi-gpu-training-paradigms)
 
 
 
@@ -34,13 +35,15 @@ devices, such as tensor processing units (TPUs) or other accelerators,
 depending on the specific architecture and requirements of the system.
 :::
 
-## The Training Paradigms [](#the-training-paradigms)
+## The Training Paradigms
+[](#the-training-paradigms)
 
 The following sections discuss the model parallelism, data parallelism,
 tensor parallelism, and sequence parallelism multi-GPU training
 paradigms.
 
-### Model Parallelism [](#model-parallelism)
+### Model Parallelism
+[](#model-parallelism)
 
 *Model parallelism*, or *inter-op parallelism*, is a technique in which
 different sections of a large model are placed on different GPUs and are
@@ -65,7 +68,8 @@ introduces a bottleneck. In other words, a major disadvantage of model
 parallelism is that the GPUs have to wait for each other. They cannot
 efficiently work in parallel, as they depend on one other's outputs.
 
-### Data Parallelism [](#data-parallelism)
+### Data Parallelism
+[](#data-parallelism)
 
 *Data parallelism* has been the default mode for multi-GPU training for
 several years. Here, we divide a minibatch into smaller microbatches.
@@ -80,7 +84,8 @@ minibatch, that is, a microbatch. However, a caveat is that each GPU
 requires a full copy of the model. This is obviously not feasible if we
 have large models that don't fit into the GPU's VRAM.
 
-### Tensor Parallelism [](#tensor-parallelism)
+### Tensor Parallelism
+[](#tensor-parallelism)
 
 *Tensor parallelism*, or *intra-op parallelism*, is a more efficient
 form of model parallelism. Here, the weight and activation matrices are
@@ -123,7 +128,8 @@ gradients for the weight update afterward. In tensor parallelism, we
 split matrices (inputs and weights) across different GPUs for parallel
 processing when models are too large to fit into GPU memory.
 
-### Pipeline Parallelism [](#pipeline-parallelism)
+### Pipeline Parallelism
+[](#pipeline-parallelism)
 
 In *pipeline parallelism*, activations are passed during the forward
 pass, as in model parallelism. The twist is that the gradients of the
@@ -150,7 +156,8 @@ For modern architectures that are too large to fit into GPU memory, it
 is more common nowadays to use a blend of data parallelism and tensor
 parallelism techniques instead of pipeline parallelism.
 
-### Sequence Parallelism [](#sequence-parallelism)
+### Sequence Parallelism
+[](#sequence-parallelism)
 
 *Sequence parallelism* aims to address computational bottlenecks when
 working with long sequences using transformer-based LLMs. More
@@ -190,7 +197,8 @@ for multi-GPU training of transformers is that breaking up the input
 sequence into smaller subsequences can decrease the model's accuracy
 (mainly when the model is applied to longer sequences).
 
-## Recommendations [](#recommendations)
+## Recommendations
+[](#recommendations)
 
 Practical recommendations depend on the context. If we train small
 models that fit onto a single GPU, then data parallelism strategies may
@@ -207,7 +215,8 @@ sequential dependency as in model parallelism.
 Modern multi-GPU strategies also typically combine data parallelism and
 tensor parallelism.
 
-### Exercises [](#exercises)
+### Exercises
+[](#exercises)
 
 7-1. Suppose we are implementing our own version of tensor parallelism,
 which works great when we train our model with a standard stochastic
@@ -218,7 +227,8 @@ What problem might explain this issue?
 7-2. Suppose we don't have access to a GPU and are considering using
 data parallelism on the CPU. Is this a good idea?
 
-## References [](#references)
+## References
+[](#references)
 
 - The original paper on the Adam optimizer: Diederik P. Kingma and Jimmy
   Ba, "Adam: A Method for Stochastic Optimization"? (2014),

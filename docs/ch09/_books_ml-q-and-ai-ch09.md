@@ -6,7 +6,8 @@
 
 
 
-# Chapter 9: Generative AI Models [](#chapter-9-generative-ai-models)
+# Chapter 9: Generative AI Models
+[](#chapter-9-generative-ai-models)
 
 
 
@@ -21,7 +22,8 @@ domain-specific data, such as organic molecules and protein structures.
 This chapter will first define generative modeling and then outline each
 type of generative model and discuss its strengths and weaknesses.
 
-## Generative vs. Discriminative Modeling [](#generative-vs-discriminative-modeling) {#generative-vs-discriminative-modeling}
+## Generative vs. Discriminative Modeling
+[](#generative-vs-discriminative-modeling) {#generative-vs-discriminative-modeling}
 
 In traditional machine learning, there are two primary approaches to
 modeling the relationship between input data (*x*) and output labels
@@ -48,7 +50,8 @@ distribution, a generative model like naive Bayes captures the
 underlying data generation process, which enables it to generate new
 samples from the distribution if needed.
 
-## Types of Deep Generative Models [](#types-of-deep-generative-models)
+## Types of Deep Generative Models
+[](#types-of-deep-generative-models)
 
 When we speak of *deep* generative models or deep generative AI, we
 often loosen this definition to include all types of models capable of
@@ -56,7 +59,8 @@ producing realistic-looking data (typically text, images, videos, and
 sound). The remainder of this chapter briefly discusses the different
 types of deep generative models used to generate such data.
 
-### Energy-Based Models [](#energy-based-models)
+### Energy-Based Models
+[](#energy-based-models)
 
 *Energy-based models (EBMs)* are a class of generative models that learn
 an energy function, which assigns a scalar value (energy) to each data
@@ -101,7 +105,8 @@ lower expressivity compared to the newer models described in the
 following sections, which generally results in lower-quality generated
 samples.
 
-### Variational Autoencoders [](#variational-autoencoders)
+### Variational Autoencoders
+[](#variational-autoencoders)
 
 *Variational autoencoders (VAEs)* are built upon the principles of
 variational inference and autoencoder architectures. *Variational
@@ -151,7 +156,8 @@ of separate terms, as well as their often low expressiveness. The latter
 can result in blurrier images compared to other models, such as
 generative adversarial networks.
 
-### Generative Adversarial Networks [](#generative-adversarial-networks)
+### Generative Adversarial Networks
+[](#generative-adversarial-networks)
 
 *Generative adversarial networks (GANs)* are models consisting of
 interacting subnetworks designed to generate new data samples that are
@@ -188,7 +194,8 @@ the generator is able to fool the discriminator successfully with a
 small set of samples, which are representative of only a small subset of
 the original training data.
 
-### Flow-Based Models [](#flow-based-models)
+### Flow-Based Models
+[](#flow-based-models)
 
 The core concept of *flow-based models*, also known as *normalizing
 flows*, is inspired by long-standing methods in statistics. The primary
@@ -239,7 +246,8 @@ generating image data is usually lower than GANs. Flow-based models also
 often require more memory and computational resources than GANs or VAEs
 since they must store and compute inverses of transformations.
 
-### Autoregressive Models [](#autoregressive-models)
+### Autoregressive Models
+[](#autoregressive-models)
 
 *Autoregressive models* are designed to predict the next value based on
 current (and past) values. LLMs for text generation, like ChatGPT
@@ -302,7 +310,8 @@ previously generated outputs.
 In terms of overall image quality, autoregressive models are therefore
 usually worse than GANs but are easier to train.
 
-### Diffusion Models [](#diffusion-models)
+### Diffusion Models
+[](#diffusion-models)
 
 As discussed in the previous section, flow-based models transform a
 simple distribution (such as a standard normal distribution) into a
@@ -339,7 +348,8 @@ diffusion models, however, is that they are slower to sample from since
 they require running a series of sequential steps, similar to flow-based
 models and autoregressive models.
 
-### Consistency Models [](#consistency-models)
+### Consistency Models
+[](#consistency-models)
 
 *Consistency models* train a neural network to
 map a noisy image to a clean one. The network is trained on a
@@ -374,7 +384,8 @@ However, while consistency models allow for faster inference, they are
 still expensive to train because they require a large dataset of pairs
 of noisy and clean images.
 
-## Recommendations [](#recommendations)
+## Recommendations
+[](#recommendations)
 
 Deep Boltzmann machines are interesting from a historical perspective
 since they were one of the pioneering models to effectively demonstrate
@@ -394,7 +405,8 @@ that must be run in order, similar to autoregressive models. This can
 make diffusion models less practical for some applications requiring
 fast sampling.
 
-### Exercises [](#exercises)
+### Exercises
+[](#exercises)
 
 9-1. How would we evaluate the quality of the images generated by a
 generative AI model?
@@ -402,7 +414,8 @@ generative AI model?
 9-2. Given this chapter's description of consistency models, how would
 we use them to generate new images?
 
-## References [](#references)
+## References
+[](#references)
 
 - The original paper proposing variational autoencoders: Diederik P.
   Kingma and Max Welling, "Auto-Encoding Variational Bayes"? (2013),

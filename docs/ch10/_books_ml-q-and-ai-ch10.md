@@ -6,7 +6,8 @@
 
 
 
-# Chapter 10: Sources of Randomness [](#chapter-10-sources-of-randomness)
+# Chapter 10: Sources of Randomness
+[](#chapter-10-sources-of-randomness)
 
 
 
@@ -25,7 +26,8 @@ Optional hands-on examples for most of these categories are provided in
 the *supplementary/q10-random-sources* subfolder at
 <https://github.com/rasbt/MachineLearning-QandAI-book>.
 
-## Model Weight Initialization [](#model-weight-initialization)
+## Model Weight Initialization
+[](#model-weight-initialization)
 
 All common deep neural network frameworks, including TensorFlow and
 PyTorch, randomly initialize the weights and bias units at each layer by
@@ -53,7 +55,8 @@ random values. Nonetheless, the neural network will consistently
 initialize with the same small random weights, enabling accurate
 reproduction of results.
 
-## Dataset Sampling and Shuffling [](#dataset-sampling-and-shuffling)
+## Dataset Sampling and Shuffling
+[](#dataset-sampling-and-shuffling)
 
 When we train and evaluate machine learning models, we usually start by
 dividing a dataset into training and test sets. This requires random
@@ -68,7 +71,8 @@ use a fixed random seed, we get a different model each time we partition
 the dataset or tune or evaluate the model using *k*-fold
 cross-validation since the training partitions will differ.
 
-## Nondeterministic Algorithms [](#nondeterministic-algorithms)
+## Nondeterministic Algorithms
+[](#nondeterministic-algorithms)
 
 We may include random components and algorithms depending on the
 architecture and hyperparameter choices. A popular example of this is
@@ -99,7 +103,8 @@ learning framework has a specific setting for that purpose""a PyTorch
 example is included in the *supplementary/q10-random-sources* subfolder
 at <https://github.com/rasbt/MachineLearning-QandAI-book>.
 
-## Different Runtime Algorithms [](#different-runtime-algorithms)
+## Different Runtime Algorithms
+[](#different-runtime-algorithms)
 
 The most intuitive or simplest implementation of an algorithm or method
 is not always the best one to use in practice. For example, when
@@ -144,7 +149,8 @@ While these approximations yield similar results, subtle numerical
 differences can accumulate during training and cause the training to
 converge to slightly different local minima.
 
-## Hardware and Drivers [](#hardware-and-drivers)
+## Hardware and Drivers
+[](#hardware-and-drivers)
 
 Training deep neural networks on different hardware can also produce
 different results due to small numeric differences, even when the same
@@ -164,7 +170,8 @@ no guarantee of bit-wise reproducibility when comparing the same routine
 run on NVIDIA Voltaâ„¢ and NVIDIA Turingâ„¢ \[. . .\] and NVIDIA Ampere
 architecture."?
 
-## Randomness and Generative AI [](#randomness-and-generative-ai)
+## Randomness and Generative AI
+[](#randomness-and-generative-ai)
 
 Besides the various sources of randomness mentioned earlier, certain
 models may also exhibit random behavior during inference that we can
@@ -233,7 +240,8 @@ descending order until their cumulative probability meets or exceeds the
 threshold *p*. In contrast to top-*k* sampling, the size of the
 candidate set (nucleus) can vary at each step.
 
-### Exercises [](#exercises)
+### Exercises
+[](#exercises)
 
 10-1. Suppose we train a neural network with top-*k* or nucleus sampling
 where *k* and *p* are hyperparameter choices. Can we make the model
@@ -242,7 +250,8 @@ behave deterministically during inference without changing the code?
 10-2. In what scenarios might random dropout behavior during inference
 be desired?
 
-## References [](#references)
+## References
+[](#references)
 
 - For more about different data sampling and model evaluation
   techniques, see my article: "Model Evaluation, Model Selection, and

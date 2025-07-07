@@ -6,7 +6,8 @@
 
 
 
-# Chapter 12: Fully Connected and Convolutional Layers [](#chapter-12-fully-connected-and-convolutional-layers)
+# Chapter 12: Fully Connected and Convolutional Layers
+[](#chapter-12-fully-connected-and-convolutional-layers)
 
 
 
@@ -49,7 +50,8 @@ The following two sections illustrate scenarios in which convolutional
 layers can be defined to produce exactly the same computation as the
 fully connected layer described.
 
-## When the Kernel and Input Sizes Are Equal [](#when-the-kernel-and-input-sizes-are-equal)
+## When the Kernel and Input Sizes Are Equal
+[](#when-the-kernel-and-input-sizes-are-equal)
 
 Let's start with the first scenario, where the size of the
 convolutional filter is equal to the size of the receptive field. Recall
@@ -99,7 +101,8 @@ code to show this equivalence with a hands-on example in the
 .highlighter-rouge} subfolder at
 <https://github.com/rasbt/MachineLearning-QandAI-book>.
 
-## When the Kernel Size Is 1 [](#when-the-kernel-size-is-1)
+## When the Kernel Size Is 1
+[](#when-the-kernel-size-is-1)
 
 The second scenario assumes that we reshape the input into an input
 "image"? with \\(1\\times1\\) dimensions where the number of "color
@@ -127,7 +130,8 @@ the illustrations in Chapter [\[ch11\]](../ch11){reference="ch11"
 reference-type="ref"}, which describe how to compute the parameters in a
 convolutional layer.
 
-## Recommendations [](#recommendations)
+## Recommendations
+[](#recommendations)
 
 The fact that fully connected layers can be implemented as equivalent
 convolutional layers does not have immediate performance or other
@@ -142,7 +146,8 @@ of these layers. It also lets us implement convolutional neural networks
 without any use of fully connected layers, if desired, to simplify code
 implementations.
 
-### Exercises [](#exercises)
+### Exercises
+[](#exercises)
 
 12-1. How would increasing the stride affect the equivalence discussed
 in this chapter?

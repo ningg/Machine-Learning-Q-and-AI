@@ -6,7 +6,8 @@
 
 
 
-# Chapter 22: Speeding Up Inference [](#chapter-22-speeding-up-inference)
+# Chapter 22: Speeding Up Inference
+[](#chapter-22-speeding-up-inference)
 
 
 
@@ -20,7 +21,8 @@ include parallelization, vectorization, loop tiling, operator fusion,
 and quantization, which are discussed in detail in the following
 sections.
 
-## Parallelization [](#parallelization)
+## Parallelization
+[](#parallelization)
 
 One common way to achieve better parallelization during inference is to
 run the model on a batch of samples rather than on a single sample at a
@@ -39,7 +41,8 @@ a time, which creates a bottleneck if there are several samples waiting
 to be classified. In batched inference, the model processes all four
 samples at the same time.
 
-## Vectorization [](#vectorization)
+## Vectorization
+[](#vectorization)
 
 *Vectorization* refers to performing operations on entire data
 structures, such as arrays (tensors) or matrices, in a single step
@@ -81,7 +84,8 @@ are inherently vectorized. This means that when you perform functions
 using these frameworks, you automatically leverage the power of
 vectorization, resulting in faster and more efficient computations.
 
-## Loop Tiling [](#loop-tiling)
+## Loop Tiling
+[](#loop-tiling)
 
 *Loop tiling* (also often referred to as *loop nest optimization*) is an
 advanced optimization technique to enhance data locality by breaking
@@ -106,7 +110,8 @@ do. These kinds of optimizations are often handled by underlying
 libraries like NumPy and PyTorch when performing operations on large
 arrays.
 
-## Operator Fusion [](#operator-fusion)
+## Operator Fusion
+[](#operator-fusion)
 
 *Operator fusion*, sometimes called *loop fusion*, is an optimization
 technique that combines multiple loops into a single loop. This is
@@ -142,7 +147,8 @@ RepVGG architecture, for example, each branch during training consists
 of a series of convolutions. Once training is complete, the model is
 reparameterized into a single sequence of convolutions.
 
-## Quantization [](#quantization)
+## Quantization
+[](#quantization)
 
 *Quantization* reduces the computational and storage requirements of
 machine learning models, particularly deep neural networks. This
@@ -181,7 +187,8 @@ However, these techniques affect the model architecture, resulting in
 smaller models, so they are out of scope for this chapter's question.
 :::
 
-### Exercises [](#exercises)
+### Exercises
+[](#exercises)
 
 22-1. Chapter [\[ch07\]](../ch07){reference="ch07"
 reference-type="ref"} covered several multi-GPU training paradigms to
@@ -193,7 +200,8 @@ efficient or most practical option. Why is that?
 operations that involve accessing array elements. What would be the
 ideal situation in which to use each?
 
-## References [](#references)
+## References
+[](#references)
 
 - The official BLAS website: <https://www.netlib.org/blas/>.
 

@@ -1,6 +1,7 @@
 
 
-# Chapter 4: The Lottery Ticket Hypothesis [](#chapter-4-the-lottery-ticket-hypothesis)
+# Chapter 4: The Lottery Ticket Hypothesis
+[](#chapter-4-the-lottery-ticket-hypothesis)
 
 
 
@@ -19,7 +20,8 @@ over *weight pruning*, one of the key techniques to create smaller
 subnetworks as part of the lottery hypothesis methodology. Lastly, it
 discusses the practical implications and limitations of the hypothesis.
 
-## The Lottery Ticket Training Procedure [](#the-lottery-ticket-training-procedure)
+## The Lottery Ticket Training Procedure
+[](#the-lottery-ticket-training-procedure)
 
 Figure [1.1](#fig-ch04-fig01){reference="fig-ch04-fig01"
 reference-type="ref"} illustrates the training procedure for the lottery
@@ -67,7 +69,8 @@ bonus, the pruned (sparse) network, referred to as the *winning ticket*,
 even demonstrated improved generalization performance compared to the
 original (large and dense) network.
 
-## Practical Implications and Limitations [](#practical-implications-and-limitations)
+## Practical Implications and Limitations
+[](#practical-implications-and-limitations)
 
 If it's possible to identify smaller subnetworks that have the same
 predictive performance as their up-to-10-times-larger counterparts, this
@@ -90,7 +93,8 @@ not possible to identify them without training their larger neural
 network counterparts, they can be used for more efficient inference
 after training.
 
-## Exercises [](#exercises)
+## Exercises
+[](#exercises)
 
 4-1. Suppose we're trying out the lottery ticket hypothesis approach
 and find that the performance of the subnetwork is not very good
@@ -106,7 +110,8 @@ returns *x*, but if the input is negative or 0, the function returns 0.
 How is the lottery ticket hypothesis related to training a neural
 network with ReLU activation functions?
 
-## References [](#references)
+## References
+[](#references)
 
 - The paper proposing the lottery ticket hypothesis: Jonathan Frankle
   and Michael Carbin, "The Lottery Ticket Hypothesis: Finding Sparse,

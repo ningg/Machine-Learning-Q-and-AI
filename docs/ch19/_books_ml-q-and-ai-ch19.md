@@ -6,7 +6,8 @@
 
 
 
-# Chapter 19: Evaluating Generative Large Language Models [](#chapter-19-evaluating-generative-large-language-models)
+# Chapter 19: Evaluating Generative Large Language Models
+[](#chapter-19-evaluating-generative-large-language-models)
 
 
 
@@ -26,7 +27,8 @@ performance metrics for evaluating LLMs, and then it dives deeper into
 popular metrics like BLEU, ROUGE, and BERTScore and provides simple
 hands-on examples for illustration purposes.
 
-## Evaluation Metrics for LLMs [](#evaluation-metrics-for-llms)
+## Evaluation Metrics for LLMs
+[](#evaluation-metrics-for-llms)
 
 The *perplexity metric* is directly related to the loss function used
 for pretraining LLMs and is commonly used to evaluate text generation
@@ -67,7 +69,8 @@ while ROUGE is a recall-like score to evaluate summarized texts.
 The following sections discuss the mechanics of these metrics in more
 detail.
 
-### Perplexity [](#perplexity)
+### Perplexity
+[](#perplexity)
 
 Perplexity is closely related to the cross entropy directly minimized
 during training, which is why we refer to perplexity as an *intrinsic
@@ -112,7 +115,8 @@ You can find a code implementation and example of this calculation in
 the *supplementary/q19-evaluation-llms* subfolder at
 <https://github.com/rasbt/MachineLearning-QandAI-book>.
 
-### BLEU Score [](#bleu-score)
+### BLEU Score
+[](#bleu-score)
 
 BLEU is the most popular and most widely used metric for evaluating
 translated texts. It's used in almost all LLMs capable of translation,
@@ -170,7 +174,8 @@ selection tool, not a model evaluation tool.
 Atthetimeofwriting,themostpopularalternativestoBLEUare METEOR and COMET
 (see the ""? section at the end of this chapter for more details).
 
-### ROUGE Score [](#rouge-score)
+### ROUGE Score
+[](#rouge-score)
 
 While BLEU is commonly used for translation tasks, ROUGE is a popular
 metric for scoring text summaries.
@@ -220,7 +225,8 @@ study, *all* papers introducing new summarization models at
 computational linguistics conferences in 2021 used it, and 69 percent of
 those papers used *only* ROUGE.
 
-### BERTScore [](#bertscore)
+### BERTScore
+[](#bertscore)
 
 Another more recently developed extrinsic metric is BERTScore.
 
@@ -272,7 +278,8 @@ While BERTScore provides a useful automatic evaluation metric, it's
 not perfect and should be used alongside other evaluation techniques,
 including human judgment.
 
-## Surrogate Metrics [](#surrogate-metrics)
+## Surrogate Metrics
+[](#surrogate-metrics)
 
 All metrics covered in this chapter are surrogates or proxies to
 evaluate how useful the model is in terms of measuring how well the
@@ -290,7 +297,8 @@ Besides perplexity, ROUGE, BLEU, and BERTScore, several other popular
 evaluation metrics are used to assess the predictive performance of
 LLMs.
 
-### Exercises [](#exercises)
+### Exercises
+[](#exercises)
 
 19-1. In step 5 of
 Figure [\[fig-ch19-fig03\]](#fig-ch19-fig03){reference="fig-ch19-fig03"
@@ -303,7 +311,8 @@ This means that switching the candidate and reference sentences could
 result in different BERTScores for specific texts. How could we address
 this?
 
-## References [](#references)
+## References
+[](#references)
 
 - The paper proposing the original BLEU method: Kishore Papineni et
   al.,"BLEU: A Method for Automatic Evaluation of Machine

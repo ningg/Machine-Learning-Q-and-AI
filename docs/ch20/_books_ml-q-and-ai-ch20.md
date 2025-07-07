@@ -6,9 +6,11 @@
 
 
 
-# Chapter 20: Production And Deployment [](#chapter-20-production-and-deployment)
+# Chapter 20: Production And Deployment
+[](#chapter-20-production-and-deployment)
 
-## Stateless and Stateful Training [](#stateless-and-stateful-training)
+## Stateless and Stateful Training
+[](#stateless-and-stateful-training)
 
 
 
@@ -18,7 +20,8 @@ workflows in the context of production and deployment systems?**
 Stateless training and stateful training refer to different ways of
 training a production model.
 
-### Stateless (Re)training [](#stateless-retraining)
+### Stateless (Re)training
+[](#stateless-retraining)
 
 In stateless training, the more conventional approach, we first train an
 initial model on the original training set and then retrain it as new
@@ -50,7 +53,8 @@ For example, standard implementations of tree-based models, such as
 random forests and gradient boosting (XGBoost, CatBoost, and LightGBM),
 fall into this category.
 
-### Stateful Training [](#stateful-training)
+### Stateful Training
+[](#stateful-training)
 
 In stateful training, we train the model on an initial batch of data and
 then update it periodically (as opposed to retraining it) when new data
@@ -80,7 +84,8 @@ store data for retraining; instead, we can use it to update the model as
 soon as it arrives. This is particularly attractive when data storage is
 a concern due to privacy or resource limitations.
 
-### Exercises [](#exercises)
+### Exercises
+[](#exercises)
 
 20-1. Suppose we train a classifier for stock trading recommendations
 using a random forest model, including the moving average of the stock

@@ -6,7 +6,8 @@
 
 
 
-# Chapter 17: Encoder- and Decoder-Style Transformers [](#chapter-17-encoder--and-decoder-style-transformers)
+# Chapter 17: Encoder- and Decoder-Style Transformers
+[](#chapter-17-encoder--and-decoder-style-transformers)
 
 
 
@@ -26,7 +27,8 @@ like BERT and RoBERTa utilize only the encoder to understand context and
 how the GPT architectures emphasize decoder-only mechanisms for text
 generation.
 
-## The Original Transformer [](#the-original-transformer)
+## The Original Transformer
+[](#the-original-transformer)
 
 The original transformer architecture introduced in
 Chapter [\[ch16\]](../ch16){reference="ch16" reference-type="ref"} was
@@ -69,7 +71,8 @@ The key difference is that the inputs and outputs are different: the
 encoder receives the input text to be translated, while the decoder
 generates the translated text.
 
-### Encoders [](#encoders)
+### Encoders
+[](#encoders)
 
 The encoder part in the original transformer, as illustrated in
 Figure [\[fig-ch17-fig01\]](#fig-ch17-fig01){reference="fig-ch17-fig01"
@@ -137,7 +140,8 @@ next-sentence prediction task. These changes have resulted in RoBERTa
 achieving better performance on various natural language understanding
 tasks than BERT.
 
-### Decoders [](#decoders)
+### Decoders
+[](#decoders)
 
 Coming back to the original transformer architecture outlined in
 Figure [\[fig-ch17-fig01\]](#fig-ch17-fig01){reference="fig-ch17-fig01"
@@ -187,7 +191,8 @@ perform new tasks without updating the model parameters via in-context
 learning, which we'll discuss in more detail in
 Chapter [\[ch18\]](../ch18){reference="ch18" reference-type="ref"}.
 
-## Encoder-Decoder Hybrids [](#encoder-decoder-hybrids)
+## Encoder-Decoder Hybrids
+[](#encoder-decoder-hybrids)
 
 Next to the traditional encoder and decoder architectures, there have
 been advancements in the development of new encoder-decoder models that
@@ -206,7 +211,8 @@ to capture the relationships between the elements in both sequences.
 Some common use cases for encoder-decoder models include text
 translation and summarization.
 
-## Terminology [](#terminology)
+## Terminology
+[](#terminology)
 
 All of these methods""encoder-only, decoder-only, and encoder-decoder
 models""are sequence-to-sequence models (often abbreviated as
@@ -224,7 +230,8 @@ tokens. Encoder-only models do not generate coherent output sequences in
 this manner. Instead, they focus on understanding the input text and
 producing task-specific outputs, such as labels or token predictions.
 
-## Contemporary Transformer Models [](#contemporary-transformer-models)
+## Contemporary Transformer Models
+[](#contemporary-transformer-models)
 
 In brief, encoder-style models are popular for learning embeddings used
 in classification tasks, encoder-decoder models are used in generative
@@ -247,7 +254,8 @@ breakthroughs in text generation via GPT-3, ChatGPT, and GPT-4. However,
 encoder-only models are still very useful for training predictive models
 based on text embeddings as opposed to generating texts.
 
-### Exercises [](#exercises)
+### Exercises
+[](#exercises)
 
 17-1. As discussed in this chapter, BERT-style encoder models are
 pretrained using masked language modeling and next-sentence prediction
@@ -257,7 +265,8 @@ positive or negative sentiment)?
 
 17-2. Can we fine-tune a decoder-only model like GPT for classification?
 
-## References [](#references)
+## References
+[](#references)
 
 - The Bahdanau attention mechanism for RNNs: Dzmitry Bahdanau, Kyunghyun
   Cho, and Yoshua Bengio, "Neural Machine Translation by Jointly

@@ -6,7 +6,8 @@
 
 
 
-# Chapter 25: Confidence Intervals [](#chapter-25-confidence-intervals)
+# Chapter 25: Confidence Intervals
+[](#chapter-25-confidence-intervals)
 
 
 
@@ -35,7 +36,8 @@ intervals:
 Before reviewing these in greater depth, let's briefly review the
 definition and interpretation of confidence intervals.
 
-## Defining Confidence Intervals [](#defining-confidence-intervals)
+## Defining Confidence Intervals
+[](#defining-confidence-intervals)
 
 A *confidence interval* is a type of method to estimate an unknown
 population parameter. A *population parameter* is a specific measure of
@@ -126,12 +128,14 @@ The \\(\\pm\\) notation is often preferred if the confidence interval is
 the estimated parameter. Alternatively, the lower and upper confidence
 intervals can be written explicitly.
 
-## The Methods [](#the-methods)
+## The Methods
+[](#the-methods)
 
 The following sections describe the four most common methods of
 constructing confidence intervals.
 
-### Method 1: Normal Approximation Intervals [](#method-1-normal-approximation-intervals)
+### Method 1: Normal Approximation Intervals
+[](#method-1-normal-approximation-intervals)
 
 The normal approximation interval involves generating the confidence
 interval from a single train-test split. It is often considered the
@@ -195,7 +199,8 @@ an issue if the performance is highly dependent on the specific split
 used, which may be the case if the dataset is small or if there is a
 high degree of variability in the data.
 
-### Method 2: Bootstrapping Training Sets [](#method-2-bootstrapping-training-sets)
+### Method 2: Bootstrapping Training Sets
+[](#method-2-bootstrapping-training-sets)
 
 Confidence intervals serve as a tool for approximating unknown
 parameters. However, when we are restricted to just one estimate, such
@@ -268,7 +273,8 @@ the central limit theorem discussed earlier. There are also more
 advanced out-of-bag bootstrap methods, such as the .632 and .632+
 estimates, which are reweighting the accuracy estimates.
 
-### Method 3: Bootstrapping Test Set Predictions [](#method-3-bootstrapping-test-set-predictions)
+### Method 3: Bootstrapping Test Set Predictions
+[](#method-3-bootstrapping-test-set-predictions)
 
 An alternative approach to bootstrapping training sets is to bootstrap
 test sets.The idea is to train the model on the existing training set as
@@ -288,7 +294,8 @@ splits. However, a disadvantage of this approach is that it doesn't
 assess the model's variability toward small changes in the training
 data.
 
-### Method 4: Retraining Models with Different Random Seeds [](#method-4-retraining-models-with-different-random-seeds)
+### Method 4: Retraining Models with Different Random Seeds
+[](#method-4-retraining-models-with-different-random-seeds)
 
 In deep learning, models are commonly retrained using various random
 seeds since some random weight initializations may lead to much better
@@ -342,7 +349,8 @@ approximation approach (method 1) and bootstrapping the test set
 side, the outcomes derived from disparate random seeds provide us with a
 robust understanding of the model's stability.
 
-## Recommendations [](#recommendations)
+## Recommendations
+[](#recommendations)
 
 Each possible method for constructing confidence intervals has its
 unique advantages and disadvantages. The normal approximation interval
@@ -355,7 +363,8 @@ sizes. Lastly, constructing confidence intervals from different random
 seeds is expensive but can give us additional insights into the
 model's stability.
 
-### Exercises [](#exercises)
+### Exercises
+[](#exercises)
 
 25-1. As mentioned earlier, the most common choice of confidence level
 is 95 percent confidence intervals. However, 90 percent and 99 percent
@@ -367,7 +376,8 @@ then applied the already trained model to compute the test set accuracy
 on each of these datasets. Can you think of a method or modification to
 obtain these test accuracies more efficiently?
 
-## References [](#references)
+## References
+[](#references)
 
 - A detailed discussion of the pitfalls of concluding statistical
   significance from nonoverlapping confidence intervals: Martin

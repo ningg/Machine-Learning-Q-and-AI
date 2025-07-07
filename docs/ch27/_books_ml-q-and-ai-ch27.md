@@ -6,7 +6,8 @@
 
 
 
-# Chapter 27: Proper Metrics [](#chapter-27-proper-metrics)
+# Chapter 27: Proper Metrics
+[](#chapter-27-proper-metrics)
 
 
 
@@ -25,7 +26,8 @@ This chapter analyzes two commonly utilized loss functions, the mean
 squared error and the cross-entropy loss, to demonstrate whether they
 meet the criteria for proper metrics.
 
-## The Criteria [](#the-criteria)
+## The Criteria
+[](#the-criteria)
 
 To illustrate the criteria of a proper metric, consider two vectors or
 points **v** and **w** and their distance *d*(**v**, **w**), as shown in
@@ -64,7 +66,8 @@ form a triangle; instead, they would fall short of each other. Thus, the
 fact that they meet and form a triangle demonstrates the triangle
 inequality.
 
-## The Mean Squared Error [](#the-mean-squared-error)
+## The Mean Squared Error
+[](#the-mean-squared-error)
 
 The *mean squared error (MSE)* loss computes the squared Euclidean
 distance between a target variable *y* and a predicted target value
@@ -139,7 +142,8 @@ distance metrics are equivalent to the root-squared error when
 considering two scalar values.
 :::
 
-## The Cross-Entropy Loss [](#the-cross-entropy-loss)
+## The Cross-Entropy Loss
+[](#the-cross-entropy-loss)
 
 *Cross entropy* is used to measure the distance between two probability
 distributions. In machine learning contexts, we use the discrete

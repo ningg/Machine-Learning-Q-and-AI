@@ -6,9 +6,11 @@
 
 
 
-# Part 4: Predictive Performance and Model Evaluation [](#part-4-predictive-performance-and-model-evaluation)
+# Part 4: Predictive Performance and Model Evaluation
+[](#part-4-predictive-performance-and-model-evaluation)
 
-## Chapter 24: Poisson and Ordinal Regression [](#chapter-24-poisson-and-ordinal-regression)
+## Chapter 24: Poisson and Ordinal Regression
+[](#chapter-24-poisson-and-ordinal-regression)
 
 
 
@@ -45,7 +47,8 @@ regression when we know that certain outcomes are "higher"? or
 "lower"? than others, but we are not sure how much or if it even
 matters.
 
-### Exercises [](#exercises)
+### Exercises
+[](#exercises)
 
 24-1. Suppose we want to predict the number of goals a soccer player
 will score in a particular season. Should we solve this problem using

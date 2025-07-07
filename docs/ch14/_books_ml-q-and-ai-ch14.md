@@ -6,9 +6,11 @@
 
 
 
-# Part 3: Natural Language Processing [](#part-3-natural-language-processing)
+# Part 3: Natural Language Processing
+[](#part-3-natural-language-processing)
 
-## Chapter 14: The Distributional Hypothesis [](#chapter-14-the-distributional-hypothesis)
+## Chapter 14: The Distributional Hypothesis
+[](#chapter-14-the-distributional-hypothesis)
 
 
 
@@ -51,7 +53,8 @@ reference-type="ref"}) such as Word2vec, as well as many large language
 transformer models, rely on this idea. This includes the masked language
 model in BERT and the next-word pretraining task used in GPT.
 
-### Word2vec, BERT, and GPT [](#word2vec-bert-and-gpt)
+### Word2vec, BERT, and GPT
+[](#word2vec-bert-and-gpt)
 
 The Word2vec approach uses a simple,two-layer neuralnetwork to encode
 words into embedding vectors such that the embedding vectors of similar
@@ -109,7 +112,8 @@ whereas GPT is more suited for text generation tasks. Similar to BERT,
 GPT produces high-quality contextualized word embeddings that capture
 semantic similarity.
 
-### Does the Hypothesis Hold? [](#does-the-hypothesis-hold)
+### Does the Hypothesis Hold?
+[](#does-the-hypothesis-hold)
 
 For large datasets, the distributional hypothesis more or less holds
 true, making it quite useful for understanding and modeling language
@@ -122,7 +126,8 @@ In conclusion, while there are counterexamples in which the
 distributional hypothesis does not hold, it is a very useful concept
 that forms the cornerstone of modern language transformer models.
 
-### Exercises [](#exercises)
+### Exercises
+[](#exercises)
 
 14-1. Does the distributional hypothesis hold true in the case of
 homophones, or words that sound the same but have different meanings,
@@ -132,7 +137,8 @@ such as *there* and *their*?
 distributional hypothesis applies? (Hint: think of other input
 modalities for neural networks.)
 
-### References [](#references)
+### References
+[](#references)
 
 - The original source describing the distributional hypothesis:
   Zellig S. Harris, "Distributional Structure"? (1954),

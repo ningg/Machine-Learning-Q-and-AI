@@ -6,7 +6,8 @@
 
 
 
-# Chapter 8: The Success of Transformers [](#chapter-8-the-success-of-transformers)
+# Chapter 8: The Success of Transformers
+[](#chapter-8-the-success-of-transformers)
 
 
 
@@ -21,7 +22,8 @@ transformers can be attributed to several key factors, including their
 attention mechanisms, ability to be parallelized easily, unsupervised
 pretraining, and high parameter counts.
 
-## The Attention Mechanism [](#the-attention-mechanism)
+## The Attention Mechanism
+[](#the-attention-mechanism)
 
 The self-attention mechanism found in transformers is one of the key
 design components that make transformer-based LLMs so successful.
@@ -82,7 +84,8 @@ contextual understanding of each word or image token, allowing for more
 nuanced interpretations, which is one of the aspects that can make
 transformers work so well.
 
-## Pretraining via Self-Supervised Learning [](#pretraining-via-self-supervised-learning)
+## Pretraining via Self-Supervised Learning
+[](#pretraining-via-self-supervised-learning)
 
 Pretraining transformers via self-supervised learning on large,
 unlabeled datasets is another key factor in the success of transformers.
@@ -98,7 +101,8 @@ is still an active area of research. (Refer to
 Chapter [\[ch02\]](../ch02){reference="ch02" reference-type="ref"} for
 a more detailed discussion of self-supervised learning.)
 
-## Large Numbers of Parameters [](#large-numbers-of-parameters)
+## Large Numbers of Parameters
+[](#large-numbers-of-parameters)
 
 One noteworthy characteristic of transformers is their large model
 sizes. For example, the popular 2020 GPT-3 model consists of 175 billion
@@ -127,7 +131,8 @@ large model sizes and large datasets. This combination has been critical
 in enabling the success of transformers in a wide range of natural
 language processing tasks.
 
-## Easy Parallelization [](#easy-parallelization)
+## Easy Parallelization
+[](#easy-parallelization)
 
 Traininglargemodelsonlargedatasetsrequiresvastcomputational resources,
 and it's key that the computations can be parallelized to utilize
@@ -152,7 +157,8 @@ Figure [1.2](#fig-ch08-fig02){reference="fig-ch08-fig02"
 reference-type="ref"}) can be distributed across different machines for
 distributed and parallel computing.
 
-### Exercises [](#exercises)
+### Exercises
+[](#exercises)
 
 8-1. As discussed in this chapter, self-attention is easily
 parallelizable, yet transformers are considered computationally
@@ -162,7 +168,8 @@ expensive due to self-attention. How can we explain this contradiction?
 various input elements, can we consider self-attention to be a form of
 feature selection?
 
-## References [](#references)
+## References
+[](#references)
 
 - An example of an attention mechanism in the context of image rec-
    ognition: Hugo Larochelle and Geoffrey Hinton, "Learning to

@@ -6,7 +6,8 @@
 
 
 
-# Chapter 18: Using and Fine-Tuning Pretrained Transformers [](#chapter-18-using-and-fine-tuning-pretrained-transformers)
+# Chapter 18: Using and Fine-Tuning Pretrained Transformers
+[](#chapter-18-using-and-fine-tuning-pretrained-transformers)
 
 
 
@@ -28,7 +29,8 @@ parameters to achieve the desired outcomes.
 
 Thefollowingsectionsdiscussthesetypesofapproachesingreaterdepth.
 
-## Using Transformers for Classification Tasks [](#using-transformers-for-classification-tasks)
+## Using Transformers for Classification Tasks
+[](#using-transformers-for-classification-tasks)
 
 Let'sstartwiththeconventionalmethodsforutilizingpretrainedtransformers:
 training another model on feature embeddings, fine-tuning outputlayers,
@@ -104,7 +106,8 @@ updating more layers and parameters than fine-tuning I, backpropagation
 is costlier for fine-tuning II. For similar reasons, fine-tuning II is
 costlier than a simpler feature-based approach.
 
-## In-Context Learning, Indexing, and Prompt Tuning [](#in-context-learning-indexing-and-prompt-tuning)
+## In-Context Learning, Indexing, and Prompt Tuning
+[](#in-context-learning-indexing-and-prompt-tuning)
 
 LLMs like GPT-2 and GPT-3 popularized the concept of *in-context
 learning*, often called *zero-shot* or *few-shot learning* in this
@@ -218,7 +221,8 @@ computes the vector similarity between the embedded query and each
 vector stored in the database. Finally, the indexing module retrieves
 the top *k* most similar embeddings to synthesize the response.
 
-## Parameter-Efficient Fine-Tuning [](#parameter-efficient-fine-tuning)
+## Parameter-Efficient Fine-Tuning
+[](#parameter-efficient-fine-tuning)
 
 In recent years, many methods have been developed to adapt pretrained
 transformers more efficiently for new target tasks. These methods are
@@ -408,7 +412,8 @@ across several task-specific benchmarks. Often, LoRA performs even
 better than models fine-tuned using the fine-tuning II method described
 earlier.
 
-## Reinforcement Learning with Human Feedback [](#reinforcement-learning-with-human-feedback)
+## Reinforcement Learning with Human Feedback
+[](#reinforcement-learning-with-human-feedback)
 
 The previous section focused on ways to make fine-tuning more efficient.
 Switching gears, how can we improve the modeling performance of LLMs via
@@ -445,7 +450,8 @@ RLHF uses a reward model instead of training the pretrained model on the
 human feedback directly because involving humans in the learning process
 would create a bottleneck since we cannot obtain feedback in realtime.
 
-## Adapting Pretrained Language Models [](#adapting-pretrained-language-models)
+## Adapting Pretrained Language Models
+[](#adapting-pretrained-language-models)
 
 While fine-tuning all layers of a pretrained LLM remains the gold
 standard for adaption to new target tasks, several efficient
@@ -468,7 +474,8 @@ adapting these models to a wide array of tasks and domains. As research
 in this area progresses, we can expect further improvements and
 innovations in using pretrained language models.
 
-### Exercises [](#exercises)
+### Exercises
+[](#exercises)
 
 18-1. When does it make more sense to use in-context learning rather
 than fine-tuning, and vice versa?
@@ -476,7 +483,8 @@ than fine-tuning, and vice versa?
 18-2. In prefix tuning, adapters, and LoRA, how can we ensure that the
 model preserves (and does not forget) the original knowledge?
 
-## References [](#references)
+## References
+[](#references)
 
 - The paper introducing the GPT-2 model: Alec Radford et al.,
   "Language Models Are Unsupervised Multitask Learners"? (2019),

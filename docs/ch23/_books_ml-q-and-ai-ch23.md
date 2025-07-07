@@ -6,7 +6,8 @@
 
 
 
-# Chapter 23: Data Distribution Shifts [](#chapter-23-data-distribution-shifts)
+# Chapter 23: Data Distribution Shifts
+[](#chapter-23-data-distribution-shifts)
 
 
 
@@ -25,7 +26,8 @@ problematic than others. The most common are covariate shift, concept
 drift, label shift, and domain shift; all discussed in more detail in
 the following sections.
 
-## Covariate Shift [](#covariate-shift)
+## Covariate Shift
+[](#covariate-shift)
 
 Suppose *p*(*x*) describes the distribution of the input data (for
 instance, the features), *p*(*y*) refers to the distribution of the
@@ -72,7 +74,8 @@ to occur are given less weight. This approach allows the model to focus
 more on the instances representative of the test data during training,
 making it more robust to covariate shift.
 
-## Label Shift [](#label-shift)
+## Label Shift
+[](#label-shift)
 
 *Label shift*, sometimes referred to as *prior probability shift*,
 occurs when the class label distribution *p*(*y*) changes, but the
@@ -95,7 +98,8 @@ common) in the new data. This helps align the model's predictions more
 closely with the current reality, improving its performance on the new
 data.
 
-## Concept Drift [](#concept-drift)
+## Concept Drift
+[](#concept-drift)
 
 *Concept drift* refers to the change in the mapping between the input
 features and the target variable. In other words, concept drift is
@@ -111,7 +115,8 @@ the training data. Concept drift can be much harder to deal with than
 the other distribution shifts discussed so far since it requires
 continuous monitoring and potential model retraining.
 
-## Domain Shift [](#domain-shift)
+## Domain Shift
+[](#domain-shift)
 
 The terms *domain shift* and *concept drift* are used somewhat
 inconsistently across the literature and are sometimes taken to be
@@ -152,7 +157,8 @@ detect domain shifts early. Once they are detected, mitigation
 strategies include collecting more labeled data from the target domain
 and retraining or adapting the model.
 
-## Types of Data Distribution Shifts [](#types-of-data-distribution-shifts)
+## Types of Data Distribution Shifts
+[](#types-of-data-distribution-shifts)
 
 Figure [1.2](#fig-ch23-fig02){reference="fig-ch23-fig02"
 reference-type="ref"} provides a visual summary of different types of
@@ -193,7 +199,8 @@ In general, it's crucial to monitor our models' performance and be
 aware of potential shifts in the data distribution so that we can take
 appropriate action if necessary.
 
-### Exercises [](#exercises)
+### Exercises
+[](#exercises)
 
 23-1. What is the big issue with importance weighting as a technique to
 mitigate covariate shift?
@@ -201,7 +208,8 @@ mitigate covariate shift?
 23-2. How can we detect these types of shifts in real-world scenarios,
 especially when we do not have access to labels for the new data?
 
-## References [](#references)
+## References
+[](#references)
 
 - Recommendations and pointers to advanced mitigation techniques for
   avoiding domain shift: Abolfazl Farahani et al., "A Brief Review of

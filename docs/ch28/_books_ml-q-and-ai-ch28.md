@@ -6,7 +6,8 @@
 
 
 
-# Chapter 28: The k in k-Fold Cross-Validation [](#chapter-28-the-k-in-k-fold-cross-validation)
+# Chapter 28: The k in k-Fold Cross-Validation
+[](#chapter-28-the-k-in-k-fold-cross-validation)
 
 
 
@@ -40,7 +41,8 @@ values and their computational demands, especially in deep learning
 contexts. We then discuss the core purposes of *k* and how to choose an
 appropriate value based on specific modeling needs.
 
-## Trade-offs in Selecting Values for k [](#trade-offs-in-selecting-values-for-k)
+## Trade-offs in Selecting Values for k
+[](#trade-offs-in-selecting-values-for-k)
 
 If *k* is too large, the training sets are too similar between the
 different rounds of cross-validation. The *k* models are thus very
@@ -98,7 +100,8 @@ the validation scores may be more sensitive to the particularities of
 the small validation sets, leading to higher variance in the overall
 cross-validation score.
 
-## Determining Appropriate Values for k [](#determining-appropriate-values-for-k)
+## Determining Appropriate Values for k
+[](#determining-appropriate-values-for-k)
 
 When deciding upon an appropriate value of *k*, we are often guided by
 computational performance and conventions. However, it's worthwhile to
@@ -128,7 +131,8 @@ introduces biases, and it is usually better to use a separate test set
 for model evaluation. Also, nested cross-validation may be preferred as
 an alternative to *k*-fold cross-validation.
 
-### Exercises [](#exercises)
+### Exercises
+[](#exercises)
 
 28-1. Suppose we want to provide a model with as much training data as
 possible. We consider using *leave-one-out cross-validation (LOOCV)*, a
@@ -144,7 +148,8 @@ of only one example, the accuracy is always either 0 (0 percent) or 1
 use cases of *k*-fold cross-validation. Can you think of other use
 cases?
 
-## References [](#references)
+## References
+[](#references)
 
 - For a longer and more detailed explanation of why and how to use
   *k*-fold cross-validation, see my article: "Model Evaluation, Model

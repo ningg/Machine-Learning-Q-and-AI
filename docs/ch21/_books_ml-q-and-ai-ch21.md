@@ -6,7 +6,8 @@
 
 
 
-# Chapter 21: Data-Centric AI [](#chapter-21-data-centric-ai)
+# Chapter 21: Data-Centric AI
+[](#chapter-21-data-centric-ai)
 
 
 
@@ -20,7 +21,8 @@ predictive performance of a model. The following sections define what
 data-centric AI means in more detail and compare it to conventional
 model-centric approaches.
 
-## Data-Centric vs. Model-Centric AI [](#data-centric-vs-model-centric-ai) {#data-centric-vs-model-centric-ai}
+## Data-Centric vs. Model-Centric AI
+[](#data-centric-vs-model-centric-ai) {#data-centric-vs-model-centric-ai}
 
 In the context of data-centric AI, we can think of the conventional
 workflow, which is often part of academic publishing, as model-centric
@@ -92,7 +94,8 @@ The main advantage of data-centric AI is that it puts the data first so
 that if we invest resources to create a higher-quality dataset, all
 modeling approaches will benefit from it downstream.
 
-## Recommendations [](#recommendations)
+## Recommendations
+[](#recommendations)
 
 Taking a data-centric approach is often a good idea in an applied
 project where we want to improve the predictive performance to solve a
@@ -115,7 +118,8 @@ model-centric modes makes a lot of sense. Investing in data quality
 early on will benefit all models. Once a good dataset is available, we
 can begin to focus on model tuning to improve performance.
 
-### Exercises [](#exercises)
+### Exercises
+[](#exercises)
 
 21-1. A recent trend is the increased use of predictive analytics in
 healthcare. For example, suppose a healthcare provider develops an AI
@@ -131,7 +135,8 @@ overfitting and improve classification accuracy, we experiment with data
 augmentation techniques such as image rotation and cropping. Is this
 approach data centric?
 
-## References [](#references)
+## References
+[](#references)
 
 - An example of how adding more training data can benefit model
   performance more than an increase in model size: Yuval Kirstain et

@@ -6,7 +6,8 @@
 
 
 
-# Chapter 26: Confidence Intervals vs. Conformal Predictions [](#chapter-26-confidence-intervals-vs-conformal-predictions) {#chapter-26-confidence-intervals-vs-conformal-predictions}
+# Chapter 26: Confidence Intervals vs. Conformal Predictions
+[](#chapter-26-confidence-intervals-vs-conformal-predictions) {#chapter-26-confidence-intervals-vs-conformal-predictions}
 
 
 
@@ -35,7 +36,8 @@ differs from confidence intervals, and then it explains how conformal
 predictions are, loosely speaking, a method for constructing prediction
 intervals.
 
-## Confidence Intervals and Prediction Intervals [](#confidence-intervals-and-prediction-intervals)
+## Confidence Intervals and Prediction Intervals
+[](#confidence-intervals-and-prediction-intervals)
 
 Whereas a confidence interval focuses on parameters that characterize a
 population as a whole, a *prediction interval* provides a range of
@@ -57,7 +59,8 @@ refers to the performance on all possible prediction scenarios). In
 contrast, a prediction interval estimates the range of output values for
 a single given input example.
 
-## Prediction Intervals and Conformal Predictions [](#prediction-intervals-and-conformal-predictions)
+## Prediction Intervals and Conformal Predictions
+[](#prediction-intervals-and-conformal-predictions)
 
 Both conformal predictions and prediction intervals are statistical
 techniques that estimate uncertainty for individual model predictions,
@@ -74,7 +77,8 @@ predictions often require more computational resources than traditional
 methods for constructing prediction intervals, which involve resampling
 or permutation techniques.
 
-## Prediction Regions, Intervals, and Sets [](#prediction-regions-intervals-and-sets)
+## Prediction Regions, Intervals, and Sets
+[](#prediction-regions-intervals-and-sets)
 
 In the context of conformal prediction, the terms *prediction interval*,
 *prediction set*, and *prediction region* are used to denote the
@@ -96,7 +100,8 @@ model might predict that an image depicts either a cat, dog, or bird.
 prediction interval or a prediction set. It describes the set of outputs
 considered plausible by the model.
 
-## Computing Conformal Predictions [](#computing-conformal-predictions)
+## Computing Conformal Predictions
+[](#computing-conformal-predictions)
 
 Now that we've introduced the difference between confidence intervals
 and prediction regions and learned how conformal prediction methods are
@@ -160,7 +165,8 @@ your classifier) for a given instance, we check whether its
 nonconformity score is below the threshold. If it is, then we include it
 in the prediction set for that instance.
 
-## A Conformal Prediction Example [](#a-conformal-prediction-example)
+## A Conformal Prediction Example
+[](#a-conformal-prediction-example)
 
 Let's illustrate this process of making conformal predictions with an
 example using a simple conformal prediction method known as the *score
@@ -219,7 +225,8 @@ A hands-on code example implementing the score method can be found in
 the *supplementary/q26_conformal-prediction* subfolder at
 <https://github.com/rasbt/MachineLearning-QandAI-book>.
 
-## The Benefits of Conformal Predictions [](#the-benefits-of-conformal-predictions)
+## The Benefits of Conformal Predictions
+[](#the-benefits-of-conformal-predictions)
 
 In contrast to using class-membership probabilities returned from
 classifiers, the major benefits of conformal prediction are its
@@ -251,7 +258,8 @@ underlying assumptions of a specific classifier hold, that
 classifier's own probability estimates might offer tighter and more
 informative intervals.
 
-## Recommendations [](#recommendations)
+## Recommendations
+[](#recommendations)
 
 A confidence interval tells us about our level of uncertainty about the
 model's properties, such as the prediction accuracy of a classifier. A
@@ -268,7 +276,8 @@ predictions. For instance, it can help identify cases where the model is
 unsure and may need additional data, human oversight, or a different
 approach.
 
-### Exercises [](#exercises)
+### Exercises
+[](#exercises)
 
 26-1. Prediction set sizes can vary between instances. For example, we
 may encounter a prediction set size of 1 for a given instance and for
@@ -279,7 +288,8 @@ reference-type="ref"} and [\[ch26\]](../ch26){reference="ch26"
 reference-type="ref"} focused on classification methods. Could we use
 conformal prediction and confidence intervals for regression too?
 
-## References [](#references)
+## References
+[](#references)
 
 - MAPIE is a popular library for conformal predictions in Python:
   <https://mapie.readthedocs.io/>.

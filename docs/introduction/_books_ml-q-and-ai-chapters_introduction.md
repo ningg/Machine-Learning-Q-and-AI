@@ -6,7 +6,8 @@
 
 
 
-# Introduction [](#introduction)
+# Introduction
+[](#introduction)
 
 Thanks to rapid advancements in deep learning, we have seen a
 significant expansion of machine learning and AI in recent years.
@@ -28,7 +29,8 @@ insights and discovering new techniques you can implement in your work.
 
 > Tips: 本书会突出`核心概念`，并且，会给出`示例`，辅助理解。
 
-## Who Is This Book For? [](#who-is-this-book-for)
+## Who Is This Book For?
+[](#who-is-this-book-for)
 
 Navigating the world of AI and machine learning literature can often
 feel like walking a tightrope, with most books positioned at either end:
@@ -48,7 +50,8 @@ learning, deep learning, and AI.)
 
 > 本书中，会使用 *机器学习* 作为`统称`，包括机器学习、深度学习、AI。
 
-## What Will You Get Out of This Book? [](#what-will-you-get-out-of-this-book)
+## What Will You Get Out of This Book?
+[](#what-will-you-get-out-of-this-book)
 
 This book adopts a unique Q&A style, where each brief chapter is
 structured around a central question related to fundamental concepts in
@@ -76,7 +79,8 @@ code while reading. In other words, this book is a perfect travel
 companion or something you can read on your favorite reading chair with
 your morning coffee or tea.
 
-## How to Read This Book [](#how-to-read-this-book)
+## How to Read This Book
+[](#how-to-read-this-book)
 
 Each chapter of this book is designed to be self-contained, offering you
 the freedom to jump between topics as you wish. When a concept from one
@@ -323,7 +327,8 @@ where data is limited. Covers data labeling, bootstrapping, and
 paradigms such as transfer learning, active learning, and multimodal
 learning.
 
-## Online Resources [](#online-resources)
+## Online Resources
+[](#online-resources)
 
 I've provided optional supplementary materials on GitHub with code
 examples for certain chapters to enhance your learning experience (see

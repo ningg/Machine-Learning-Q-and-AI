@@ -6,7 +6,8 @@
 
 
 
-# Chapter 29: Training and Test Set Discordance [](#chapter-29-training-and-test-set-discordance)
+# Chapter 29: Training and Test Set Discordance
+[](#chapter-29-training-and-test-set-discordance)
 
 
 
@@ -73,7 +74,8 @@ not so trivial (such as with image and text data), we can also
 investigate whether removing individual training instances that are
 different from the test set can address the discrepancy issue.
 
-### Exercises [](#exercises)
+### Exercises
+[](#exercises)
 
 29-1. What is a good performance baseline for the adversarial prediction
 task?

@@ -6,7 +6,8 @@
 
 
 
-# Chapter 13: Large Training Sets for Vision Transformers [](#chapter-13-large-training-sets-for-vision-transformers)
+# Chapter 13: Large Training Sets for Vision Transformers
+[](#chapter-13-large-training-sets-for-vision-transformers)
 
 
 
@@ -36,7 +37,8 @@ that needs to be learned requires more training examples.
 The following sections explain the main inductive biases encountered in
 CNNs and how ViTs work well without them.
 
-## Inductive Biases in CNNs [](#inductive-biases-in-cnns)
+## Inductive Biases in CNNs
+[](#inductive-biases-in-cnns)
 
 The following are the primary inductive biases that largely define how
 CNNs function:
@@ -152,7 +154,8 @@ information that helps transformers keep track of the relative location
 of tokens, the transformer still needs to learn from the data whether
 and how far spatial information is relevant for the task at hand.
 
-## ViTs Can Outperform CNNs [](#vits-can-outperform-cnns)
+## ViTs Can Outperform CNNs
+[](#vits-can-outperform-cnns)
 
 The hardcoded assumptions via the inductive biases discussed in previous
 sections reduce the number of parameters in CNNs substantially compared
@@ -181,7 +184,8 @@ using different dataset sizes for pretraining. The findings also showed
 that the ViT model excelled over the convolutional approach only after
 being pretrained on a minimum of 100 million images.
 
-## Inductive Biases in ViTs [](#inductive-biases-in-vits)
+## Inductive Biases in ViTs
+[](#inductive-biases-in-vits)
 
 ViTs also possess some inductive biases. For example, vision
 transformers *patchify* the input image to process each input patch
@@ -223,7 +227,8 @@ capture more global, smooth features and shapes. CNNs achieve this by
 applying convolutional kernels of varying sizes and learning different
 filters at each layer.
 
-## Recommendations [](#recommendations)
+## Recommendations
+[](#recommendations)
 
 ViTs have recently begun outperforming CNNs if enough data is available
 for pretraining. However, this doesn't make CNNs obsolete, as methods
@@ -244,7 +249,8 @@ Thus, vision transformers require more training data to achieve good
 predictive performance and produce acceptable visual representations in
 generative modeling contexts.
 
-### Exercises [](#exercises)
+### Exercises
+[](#exercises)
 
 13-1. Consider the patchification of the input images shown in
 Figure [1.4](#fig-ch13-fig04){reference="fig-ch13-fig04"
@@ -257,7 +263,8 @@ result in higher or lower computational costs?
 13-2. Following up on the previous question, do smaller patches
 typically lead to a higher or lower prediction accuracy?
 
-## References [](#references)
+## References
+[](#references)
 
 - The paper proposing the original vision transformer model: Alexey
   Dosovitskiy et al., "An Image Is Worth 16x16 Words: Transformers for

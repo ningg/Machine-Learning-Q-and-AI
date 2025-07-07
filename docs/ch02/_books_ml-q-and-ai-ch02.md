@@ -6,7 +6,8 @@
 
 
 
-# Chapter 2: Self-Supervised Learning [](#chapter-2-self-supervised-learning)
+# Chapter 2: Self-Supervised Learning
+[](#chapter-2-self-supervised-learning)
 
 
 
@@ -24,7 +25,8 @@ the main categories of self-supervised learning.
 
 
 
-## Self-Supervised Learning vs. Transfer Learning [](#self-supervised-learning-vs-transfer-learning) 
+## Self-Supervised Learning vs. Transfer Learning
+[](#self-supervised-learning-vs-transfer-learning) 
 
 Self-supervised learning is related to transfer learning, a technique in
 which a model pretrained on one task is reused as the starting point for
@@ -80,7 +82,8 @@ In sum, we can think of self-supervised learning on the pretext task as
 *representation learning*. We can take the pretrained model to fine-tune
 it on the target task (also known as the *downstream* task).
 
-## Leveraging Unlabeled Data [](#leveraging-unlabeled-data)
+## Leveraging Unlabeled Data
+[](#leveraging-unlabeled-data)
 
 Large neural network architectures require large amounts of labeled data
 to perform and generalize well. However, for many problem areas, we
@@ -104,7 +107,8 @@ parameter structure (in contrast to the weight matrices, for example).
 Thus, conventional tree-based methods are not capable of transfer
 learning and are incompatible with self-supervised learning.
 
-## Self-Prediction and Contrastive Self-Supervised Learning [](#self-prediction-and-contrastive-self-supervised-learning)
+## Self-Prediction and Contrastive Self-Supervised Learning
+[](#self-prediction-and-contrastive-self-supervised-learning)
 
 There are two main categories of self-supervised learning:
 self-prediction and contrastive self-supervised learning. In
@@ -190,14 +194,16 @@ hand, we focus on making only certain variables in the embedding
 representations of similar training pairs appear close to each other
 while maximizing the distance of others.
 
-## Exercises [](#exercises)
+## Exercises
+[](#exercises)
 
 2-1. How could we apply self-supervised learning to video data?
 
 2-2. Can self-supervised learning be used for tabular data represented
 as rows and columns? If so, how could we approach this?
 
-## References [](#references)
+## References
+[](#references)
 
 - For more on the ImageNet dataset:
   <https://en.wikipedia.org/wiki/ImageNet>.

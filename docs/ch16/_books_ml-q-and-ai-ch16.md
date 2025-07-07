@@ -6,7 +6,8 @@
 
 
 
-# Chapter 16: Self-Attention [](#chapter-16-self-attention)
+# Chapter 16: Self-Attention
+[](#chapter-16-self-attention)
 
 
 
@@ -28,7 +29,8 @@ behind developing attention mechanism. We then compare the Bahdanau
 mechanism to the self-attention mechanism prevalent in transformer
 architectures today.
 
-## Attention in RNNs [](#attention-in-rnns)
+## Attention in RNNs
+[](#attention-in-rnns)
 
 One example of an attention mechanism used in RNNs to handle long
 sequences is *Bahdanau attention*. Bahdanau attention was developed to
@@ -108,7 +110,8 @@ when generating the word *help* in the output sequence, the word
 *helfen* in the German input sentence may get a large attention weight,
 as it's highly relevant in this context.
 
-## The Self-Attention Mechanism [](#the-self-attention-mechanism)
+## The Self-Attention Mechanism
+[](#the-self-attention-mechanism)
 
 The Bahdanau attention mechanism relies on a somewhat complicated
 encoder-decoder design to model long-term dependencies in sequence-
@@ -139,7 +142,8 @@ This chapter laid the groundwork for understanding the inner workings of
 transformer models and the attention mechanism. The next chapter covers
 the different types of transformer architectures in more detail.
 
-### Exercises [](#exercises)
+### Exercises
+[](#exercises)
 
 16-1. Considering that self-attention compares each sequence element
 with itself, what is the time and memory complexity of self-attention?
@@ -148,7 +152,8 @@ with itself, what is the time and memory complexity of self-attention?
 processing. Could this mechanism be useful for computer vision
 applications as well?
 
-## References [](#references)
+## References
+[](#references)
 
 - The paper introducing the original self-attention mechanism, also
   known as *scaled dot-product* attention: Ashish Vaswani et al.,

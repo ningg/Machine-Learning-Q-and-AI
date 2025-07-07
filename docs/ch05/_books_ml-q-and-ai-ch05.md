@@ -6,7 +6,8 @@
 
 
 
-# Chapter 5: Reducing Overfitting with Data [](#chapter-5-reducing-overfitting-with-data)
+# Chapter 5: Reducing Overfitting with Data
+[](#chapter-5-reducing-overfitting-with-data)
 
 
 
@@ -28,14 +29,16 @@ collecting more high-quality labeled data. However, if collecting more
 labeled data is not feasible, we can augment the existing data or
 leverage unlabeled data for pretraining.
 
-## Common Methods [](#common-methods)
+## Common Methods
+[](#common-methods)
 
 This chapter summarizes the most prominent examples of dataset-related
 techniques that have stood the test of time, grouping them into the
 following categories: collecting more data, data augmentation, and
 pretraining.
 
-### Collecting More Data [](#collecting-more-data)
+### Collecting More Data
+[](#collecting-more-data)
 
 One of the best ways to reduce overfitting is to collect more
 (good-quality) data. We can plot learning curves to find out whether a
@@ -58,7 +61,8 @@ validation performance suggests the model is underfitting and can
 benefit from more data. Typically, additional data can decrease both
 underfitting and overfitting.
 
-### Data Augmentation [](#data-augmentation)
+### Data Augmentation
+[](#data-augmentation)
 
 Data augmentation refers to generating new data records or features
 based on existing data. It allows for the expansion of a dataset without
@@ -89,7 +93,8 @@ possible to generate new, synthetic data. While more common for image
 data and text, generating synthetic data is also possible for tabular
 datasets.
 
-### Pretraining [](#pretraining)
+### Pretraining
+[](#pretraining)
 
 As discussed in Chapter [\[ch02\]](./ch02/_books_ml-q-and-ai-ch02.md), self-supervised learning lets us leverage large,
 unlabeled datasets to pretrain neural networks. This can also help
@@ -110,7 +115,8 @@ examples per class. If our classifier needs to operate in a context
 where the collection of additional labeled data is not feasible, we may
 also consider few-shot learning.
 
-## Other Methods [](#other-methods)
+## Other Methods
+[](#other-methods)
 
 The previous sections covered the main approaches to using and modifying
 datasets to reduce overfitting. However, this is not an exhaustive list.
@@ -130,7 +136,8 @@ The next chapter covers additional techniques to reduce overfitting from
 a model perspective, and it concludes by discussing which regularization
 techniques we should consider in practice.
 
-### Exercises [](#exercises)
+### Exercises
+[](#exercises)
 
 5-1. Suppose we train an XGBoost model to classify images based on
 manually extracted features obtained from collaborators. The dataset of
@@ -148,7 +155,8 @@ Unfortunately, we find that the classification accuracy is much worse
 than it was before the augmentation. What are some potential reasons for
 this?
 
-## References [](#references)
+## References
+[](#references)
 
 - Apaperondataaugmentationfortabulardata:DerekSnow, "DeltaPy: A
   Framework for Tabular Data Augmentation in Py-  thon"? (2020),

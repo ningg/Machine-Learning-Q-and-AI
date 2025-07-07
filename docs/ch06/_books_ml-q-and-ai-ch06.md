@@ -6,7 +6,8 @@
 
 
 
-# Chapter 6: Reducing Overfitting with Model Modifications [](#chapter-6-reducing-overfitting-with-model-modifications)
+# Chapter 6: Reducing Overfitting with Model Modifications
+[](#chapter-6-reducing-overfitting-with-model-modifications)
 
 
 
@@ -29,13 +30,15 @@ compares them to one another. It concludes by discussing how to choose
 between all types of overfitting reduction methods, including those
 discussed in the previous chapter.
 
-## Common Methods [](#common-methods)
+## Common Methods
+[](#common-methods)
 
 The various model- and training-related techniques to reduce overfitting
 can be grouped into three broad categories: (1) adding regularization,
 (2) choosing smaller models, and (3) building ensemble models.
 
-### Regularization [](#regularization)
+### Regularization
+[](#regularization)
 
 We can interpret regularization as a penalty against complexity. Classic
 regularization techniques for neural networks include $L_2$
@@ -86,7 +89,8 @@ as the training and validation accuracy gap closes. The point where the
 training and validation accuracy is closest is the point with the least
 amount of overfitting, which is usually a good point for early stopping.
 
-### Smaller Models [](#smaller-models)
+### Smaller Models
+[](#smaller-models)
 
 Classic bias-variance theory suggests that reducing model size can
 reduce overfitting. The intuition behind this theory is that, as a
@@ -134,7 +138,8 @@ By minimizing the Kullback-Leibler divergence--the difference between
 the teacher and student score distributions--the student learns to
 mimic the teacher while being smaller and more efficient.
 
-### Caveats with Smaller Models [](#caveats-with-smaller-models)
+### Caveats with Smaller Models
+[](#caveats-with-smaller-models)
 
 While pruning and knowledge distillation can also enhance a model's
 generalization performance, these techniques are not primary or
@@ -167,7 +172,8 @@ computational efficiency of a model. However, while they can also
 enhance a model's generalization performance, these techniques are not
 primary or effective ways of reducing overfitting.
 
-### Ensemble Methods [](#ensemble-methods)
+### Ensemble Methods
+[](#ensemble-methods)
 
 Ensemble methods combine predictions from multiple models to improve the
 overall prediction performance. However, the downside of using multiple
@@ -231,7 +237,8 @@ potential downsides include managing and deploying an ensemble of
 models, which can be more complex and computationally expensive than
 using a single model.
 
-## Other Methods [](#other-methods)
+## Other Methods
+[](#other-methods)
 
 So far, this book has covered some of the most prominent techniques to
 reduce overfitting. Chapter [\[ch05\]](./ch05/_books_ml-q-and-ai-ch05.md) covered techniques that aim to reduce overfitting
@@ -249,7 +256,8 @@ inputs, could also lead to better generalization performance. However,
 this effect is less direct since weight normalization (WeightNorm)
 doesn't explicitly act as a regularizer like weight decay does.
 
-## Choosing a Regularization Technique [](#choosing-a-regularization-technique)
+## Choosing a Regularization Technique
+[](#choosing-a-regularization-technique)
 
 Improving data quality is an essential first step in reducing
 overfitting. However, for recent deep neural networks with large numbers
@@ -262,7 +270,8 @@ In practice, we can and should use multiple methods at once to reduce
 overfitting for an additive effect. To achieve the best results, treat
 selecting these techniques as a hyperparameter optimization problem.
 
-### Exercises [](#exercises)
+### Exercises
+[](#exercises)
 
 6-1. Supposewe'reusingearlystoppingasamechanismtoreduceover-
  fitting--inparticular,amodernearly-stoppingvariantthatcreates
@@ -278,7 +287,8 @@ method for decreasing overfitting and enhancing the reliability of
 predictive modeling efforts. However, there's always a trade-off. What
 are some of the drawbacks associated with ensemble techniques?
 
-## References [](#references)
+## References
+[](#references)
 
 - For more on the distinction between $L_2$ regularization and weight
   decay: Guodong Zhang et al., "Three Mechanisms of Weight Decay

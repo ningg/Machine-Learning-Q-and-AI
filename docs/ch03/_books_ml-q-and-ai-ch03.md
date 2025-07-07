@@ -6,7 +6,8 @@
 
 
 
-# Chapter 3: Few-Shot Learning [](#chapter-3-few-shot-learning)
+# Chapter 3: Few-Shot Learning
+[](#chapter-3-few-shot-learning)
 
 
 
@@ -21,7 +22,8 @@ working on a support set from which we create multiple training tasks to
 assemble training episodes, where each training task consists of
 different classes.
 
-## Datasets and Terminology [](#datasets-and-terminology)
+## Datasets and Terminology
+[](#datasets-and-terminology)
 
 In supervised learning, we fit a model on a training dataset and
 evaluate it on a test dataset. The training set typically contains a
