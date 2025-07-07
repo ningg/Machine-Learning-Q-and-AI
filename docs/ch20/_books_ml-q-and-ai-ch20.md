@@ -94,6 +94,8 @@ store data for retraining; instead, we can use it to update the model as
 soon as it arrives. This is particularly attractive when data storage is
 a concern due to privacy or resource limitations.
 
+> Tips: **有状态的训练**，不需要存储数据，可以及时更新模型；这在`隐私`或`资源有限`的情况下，特别有用。
+
 ## Exercises
 [](#exercises)
 
@@ -101,8 +103,60 @@ a concern due to privacy or resource limitations.
 using a random forest model, including the moving average of the stock
 price as a feature. Since new stock market data arrives daily, we are
 considering how to update the classifier daily to keep it up to date.
-Should we take a stateless training or stateless retraining approach to
+Should we take a stateful training or stateless retraining approach to
 update the classifier?
+
+<details><summary>Answer, Click to expand</summary>
+
+
+When updating a random forest classifier daily with new stock market data, the choice between **stateless retraining** and **stateful retraining** depends on computational efficiency, data recency, and model integrity. Here's a structured analysis:
+
+### 1. **Stateless Retraining (Full Retraining)**  
+   - **Approach**: Train a **new model from scratch** daily using the **entire updated dataset** (historical data + new day's data).  
+   - **Why it fits best for random forests**:  
+     - Random forests are **not inherently incremental**. Trees are built independently via bootstrapping and feature randomization.  
+     - Retraining from scratch ensures:  
+       - **Consistent data representation** (e.g., recalculated moving averages reflect the full history).  
+       - **Optimal tree structures** based on all available data, avoiding bias from sequential updates.  
+     - Mitigates **concept drift** by re-optimizing splits with fresh data.  
+   - **Trade-offs**:  
+     - Computationally expensive as data grows (requires daily full training).  
+     - Use a **sliding window** (e.g., 2 years of data) to cap training time and prioritize recent trends.  
+
+### 2. **Stateful Retraining (Incremental Updates)**  
+   - **Approach**: Update the **existing model** with new data only (e.g., add new trees or adjust leaf nodes).  
+   - **Why it’s less suitable**:  
+     - Random forests lack native support for incremental learning. Workarounds (e.g., warm starts in `sklearn`) merely **add new trees** without modifying existing ones. This:  
+       - **Dilutes model cohesion** (old trees may become outdated).  
+       - **Increases memory/compute** over time without guaranteeing improved accuracy.  
+     - Moving averages and other temporal features **lose consistency** if not recalculated globally.  
+   - **When it might work**:  
+     - Only if new data is appended without affecting historical computations (rare for financial data).  
+     - Prefer models **designed for streaming** (e.g., online gradient boosting, Hoeffding trees).  
+
+### Recommendation: **Stateless Retraining**  
+- **Key reasons**:  
+  1. **Algorithmic compatibility**: Random forests thrive on complete, consistent datasets.  
+  2. **Data integrity**: Ensures moving averages and technical indicators are recalculated correctly over the full series.  
+  3. **Predictive stability**: Avoids "patchwork" models that mix outdated and new logic.  
+- **Optimizations**:  
+  - **Sliding window**: Retrain on a fixed-duration window (e.g., 500 trading days) to balance recency and speed.  
+  - **Parallelization**: Leverage distributed computing (e.g., Spark ML) for faster daily jobs.  
+  - **Model versioning**: Deploy the new model after validation to avoid downtime.  
+
+### Practical Workflow  
+1. **Daily update**:  
+   - Fetch new data → recalculate features (e.g., moving averages) for the full dataset/window.  
+   - Retrain the random forest from scratch.  
+   - Validate against a holdout set (e.g., recent 30 days).  
+2. **Fallback**: If retraining time is prohibitive:  
+   - Reduce frequency (e.g., weekly) or window size.  
+   - Switch to an **online-capable algorithm** (e.g., LGBM with `partial_fit`).  
+
+### Conclusion  
+For a random forest classifier with time-dependent features like moving averages, **stateless retraining** is **strongly recommended**. It preserves data consistency and model robustness, despite higher compute costs. If latency becomes critical, explore windowed retraining or alternative online-learning models instead of forcing stateful updates onto a batch-oriented algorithm.
+
+</details>
 
 20-2. Suppose we deploy a large language model (transformer) such as
 ChatGPT that can answer user queries. The dialogue interface includes
