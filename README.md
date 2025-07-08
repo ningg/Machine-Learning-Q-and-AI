@@ -72,7 +72,7 @@
 
    - [Chapter 14: The Distributional Hypothesis](./docs/ch14/_books_ml-q-and-ai-ch14.md) ✅
    - [Chapter 15: Data Augmentation for Text](./docs/ch15/_books_ml-q-and-ai-ch15.md)
-   - [Chapter 16: Self-Attention](./docs/ch16/_books_ml-q-and-ai-ch16.md)
+   - [Chapter 16: Self-Attention](./docs/ch16/_books_ml-q-and-ai-ch16.md) ✅
    - [Chapter 17: Encoder- and Decoder-Style Transformers](./docs/ch17/_books_ml-q-and-ai-ch17.md)
    - [Chapter 18: Using and Fine-Tuning Pretrained Transformers](./docs/ch18/_books_ml-q-and-ai-ch18.md)
    - [Chapter 19: Evaluating Generative Large Language Models](./docs/ch19/_books_ml-q-and-ai-ch19.md)
