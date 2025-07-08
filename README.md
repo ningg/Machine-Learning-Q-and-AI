@@ -65,12 +65,12 @@
 - **Part II: Computer Vision**
 
    - [Chapter 11: Calculating the Number of Parameters](./docs/ch11/_books_ml-q-and-ai-ch11.md) ✅
-   - [Chapter 12: Fully Connected and Convolutional Layers](./docs/ch12/_books_ml-q-and-ai-ch12.md)
+   - [Chapter 12: Fully Connected and Convolutional Layers](./docs/ch12/_books_ml-q-and-ai-ch12.md) ✅
    - [Chapter 13: Large Training Sets for Vision Transformers](./docs/ch13/_books_ml-q-and-ai-ch13.md)
 
 - **Part III: Natural Language Processing**
 
-   - [Chapter 14: The Distributional Hypothesis](./docs/ch14/_books_ml-q-and-ai-ch14.md)
+   - [Chapter 14: The Distributional Hypothesis](./docs/ch14/_books_ml-q-and-ai-ch14.md) ✅
    - [Chapter 15: Data Augmentation for Text](./docs/ch15/_books_ml-q-and-ai-ch15.md)
    - [Chapter 16: Self-Attention](./docs/ch16/_books_ml-q-and-ai-ch16.md)
    - [Chapter 17: Encoder- and Decoder-Style Transformers](./docs/ch17/_books_ml-q-and-ai-ch17.md)
@@ -79,7 +79,7 @@
 
 - **Part IV: Production and Deployment**
 
-   - [Chapter 20: Stateless and Stateful Training](./docs/ch20/_books_ml-q-and-ai-ch20.md)
+   - [Chapter 20: Stateless and Stateful Training](./docs/ch20/_books_ml-q-and-ai-ch20.md) ✅
    - [Chapter 21: Data-Centric AI](./docs/ch21/_books_ml-q-and-ai-ch21.md)
    - [Chapter 22: Speeding Up Inference](./docs/ch22/_books_ml-q-and-ai-ch22.md)
    - [Chapter 23: Data Distribution Shifts](./docs/ch23/_books_ml-q-and-ai-ch23.md)
