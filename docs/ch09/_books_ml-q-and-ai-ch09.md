@@ -1,11 +1,6 @@
 
 
 
-
-
-
-
-
 # Chapter 9: Generative AI Models
 [](#chapter-9-generative-ai-models)
 
@@ -23,32 +18,31 @@ This chapter will first define generative modeling and then outline each
 type of generative model and discuss its strengths and weaknesses.
 
 ## Generative vs. Discriminative Modeling
-[](#generative-vs-discriminative-modeling) {#generative-vs-discriminative-modeling}
+[](#generative-vs-discriminative-modeling)
 
 In traditional machine learning, there are two primary approaches to
 modeling the relationship between input data (*x*) and output labels
-(*y*): generative models and discriminative models. *Generative models*
-aim to capture the underlying probability distribution of the input data
-*p*(*x*) or the joint distribution *p*(*x*, *y*) between inputs and
-labels. In contrast, *discriminative models* focus on modeling the
-conditional distribution *p*(*y*\\(\|\\)*x*) of the labels given the
+(*y*): `generative models` and `discriminative models`. 
+
+- `Generative models` aim to capture the underlying probability distribution of the input data
+  *p*(*x*) or the joint distribution *p*(*x*, *y*) between inputs and
+  labels. 
+
+- In contrast, `discriminative models` focus on modeling the
+conditional distribution *p*(*y* | *x*) of the labels given the
 inputs.
 
-A classic example that highlights the differences between these approa-
- ches
-istocomparethenaiveBayesclassifierandthelogisticregressionclassifier.
-Both classifiers estimate the class label probabilities
-*p*(*y*\\(\|\\)*x*) and can be used for classification tasks. However,
-logistic regression is considered a discriminative model because it
-directly models the conditional probability distribution
-*p*(*y*\\(\|\\)*x*) of the class labels given the input features without
-making assumptions about the underlying joint distribution of inputs and
-labels. Naive Bayes, on the other hand, is considered a generative model
-because it models the joint probability distribution *p*(*x*, *y*) of
-the input features *x* and the output labels *y*. By learning the joint
-distribution, a generative model like naive Bayes captures the
-underlying data generation process, which enables it to generate new
-samples from the distribution if needed.
+A classic example that highlights the differences between these approaches is to compare the `naive Bayes classifier` and the `logistic regression classifier`.
+
+- Both classifiers estimate the class label probabilities *p*(*y* | *x*) and can be used for classification tasks. 
+- However, `logistic regression` is considered a discriminative model because it directly models the conditional probability distribution *p*(*y* | *x*) of the class labels given the input features without making assumptions about the underlying joint distribution of inputs and labels. 
+- `Naive Bayes`, on the other hand, is considered a generative model because it models the joint probability distribution *p*(*x*, *y*) of the input features *x* and the output labels *y*. By learning the joint distribution, a generative model like naive Bayes captures the underlying data generation process, which enables it to generate new samples from the distribution if needed.
+
+> Tips: 
+> 
+> - 贝叶斯分类器，假设输入和输出之间存在**联合概率分布**；可以生成新的样本，因为它是生成模型；
+> - 逻辑回归分类器，假设输入和输出之间存在**条件概率分布**；不能生成新的样本；
+
 
 ## Types of Deep Generative Models
 [](#types-of-deep-generative-models)
@@ -67,7 +61,11 @@ an energy function, which assigns a scalar value (energy) to each data
 point. Lower energy values correspond to more likely data points. The
 model is trained to minimize the energy of real data points while
 increasing the energy of generated data points.
-ExamplesofEBMsinclude*deepBoltzmannmachines(DBMs)*.Oneoftheearlybreakthroughsindeeplearning,DBMsprovideameanstolearncomplexrepresentationsofdata.Youcanthinkofthemasaformofunsupervisedpretraining,resultinginmodelsthatcanthenbefine-tunedforvarioustasks.
+
+Examples of EBMs include `deep Boltzmann machines (DBMs)`.
+
+One of the early breakthroughs in deep learning, DBMs provide a means to learn complex representations of data. 
+You can think of them as a form of unsupervised pretraining, resulting in models that can then be fine-tuned for various tasks.
 
 Somewhat similar to naive Bayes and logistic regression, DBMs and
 multilayer perceptrons (MLPs) can be thought of as generative and
@@ -75,8 +73,7 @@ discriminative counterparts, with DBMs focusing on capturing the data
 generation process and MLPs focusing on modeling the decision boundary
 between classes or mapping inputs to outputs.
 
-ADBMconsistsofmultiplelayersofhiddennodes,asshowninFigure [1.1](#fig-ch09-fig01){reference="fig-ch09-fig01"
-reference-type="ref"}. As the figure illustrates, along with the hidden
+A `DBM` consists of multiple layers of hidden nodes, as shown in Figure [1.1](#fig-ch09-fig01). As the figure illustrates, along with the hidden
 layers, there's usually a visible layer that corresponds to the
 observable data. This visible layer serves as the input layer where the
 actual data or features are fed into the network. In addition to using a
@@ -84,9 +81,9 @@ different learning algorithm than MLPs (contrastive divergence instead
 of backpropagation), DBMs consist of binary nodes (neurons) instead of
 continuous ones.
 
-![A four-layer deep Boltzmann machine\
-with three stacks of hidden
-nodes](../images/ch09-fig01.png){#fig-ch09-fig01}
+<a id="fig-ch09-fig01"></a>
+
+![A four-layer deep Boltzmann machine with three stacks of hidden nodes](../images/ch09-fig01.png)
 
 Suppose we are interested in generating images. A DBM can learn the
 joint probability distribution over the pixel values in a simple image
@@ -122,26 +119,26 @@ The VAE model consists of two main submodules: an encoder network and a
 decoder network. The encoder network takes, for example, an input image
 and maps it to a latent space by learning a probability distribution
 over the latent variables. This distribution is typically modeled as a
-Gaus-  sian with parameters (mean and variance) that are functions of
+Gaussian with parameters (mean and variance) that are functions of
 the inputimage. The decoder network then takes a sample from the learned
 latent distribution and reconstructs the input image from this sample.
 The goal of the VAE is to learn a compact and expressive latent
 representation that captures the essential structure of the input data
 while being able to generate new images by sampling from the latent
-space. (See Chapter [\[ch01\]](../ch01){reference="ch01"
-reference-type="ref"} for more details on latent representations.)
+space. (See Chapter [\[ch01\]](./ch01/_books_ml-q-and-ai-ch01.md) for more details on latent representations.)
 
-Figure [1.2](#fig-ch09-fig02){reference="fig-ch09-fig02"
-reference-type="ref"} illustrates the encoder and decoder submodules of
-an auto-  encoder, where *x*\\(\'\\) represents the reconstructed input
+Figure [1.2](#fig-ch09-fig02) illustrates the encoder and decoder submodules of
+an auto-encoder, where $x'$ represents the reconstructed input
 *x*. In a standard variational autoencoder, the latent vector is sampled
 from a distribution that approximates a standard Gaussian distribution.
 
-![An autoencoder](../images/ch09-fig02.png){#fig-ch09-fig02}
+<a id="fig-ch09-fig02"></a>
+
+![An autoencoder](../images/ch09-fig02.png)
 
 Training a VAE involves optimizing the model's parameters to minimize
 a loss function composed of two terms: a reconstruction loss and a
-Kullback""Leibler-divergence (KL-divergence) regularization term. The
+Kullback -- Leibler-divergence (KL-divergence) regularization term. The
 reconstruction loss ensures that the decoded samples closely resemble
 the input images, while the KL-divergence term acts as a surrogate loss
 that encourages the learned latent distribution to be close to a
@@ -172,11 +169,11 @@ takes a random noise vector from the latent space as input and generates
 a synthetic data sample (such as an image). The discriminator's task
 is to distinguish between real samples from the training data and fake
 samples generated by the generator, as illustrated in
-Figure [1.3](#fig-ch09-fig03){reference="fig-ch09-fig03"
-reference-type="ref"}.
+Figure [1.3](#fig-ch09-fig03).
 
-![A generative adversarial
-network](../images/ch09-fig03.png){#fig-ch09-fig03}
+<a id="fig-ch09-fig03"></a>
+
+![A generative adversarial network](../images/ch09-fig03.png)
 
 The generator in a GAN somewhat resembles the decoder of a VAE in terms
 of its functionality. During inference, both GAN generators and VAE
@@ -202,7 +199,7 @@ flows*, is inspired by long-standing methods in statistics. The primary
 goal is to transform a simple probability distribution (like a Gaussian)
 into a more complex one using invertible transformations.
 
-Althoughtheconceptofnormalizingflowshasbeenapartofthe statistics field
+Although the concept of `normalizing flows` has been apart of the statistics field
 for a long time, the implementation of early flow-based deep learning
 models, particularly for image generation, is a relatively recent
 development. One of the pioneering models in this area was the
@@ -221,17 +218,16 @@ target data (such as images). We can now generate new data that looks
 like the target data by picking random points from this complex
 distribution.
 
-Figure [1.4](#fig-ch09-fig04){reference="fig-ch09-fig04"
-reference-type="ref"} illustrates the concept of a flow-based model,
+Figure [1.4](#fig-ch09-fig04) illustrates the concept of a flow-based model,
 which maps the complex input distribution to a simpler distribution and
 back.
 
-![A flow-based model](../images/ch09-fig04.png){#fig-ch09-fig04}
+<a id="fig-ch09-fig04"></a>
+
+![A flow-based model](../images/ch09-fig04.png)
 
 At first glance, the illustration is very similar to the VAE
-illustration in
-Figure [1.2](#fig-ch09-fig02){reference="fig-ch09-fig02"
-reference-type="ref"}. However, while VAEs use neural network encoders
+illustration in Figure [1.2](#fig-ch09-fig02). However, while VAEs use neural network encoders
 like convolutional neural networks, the flow-based model uses simpler
 decoupling layers, such as simple linear transformations. Additionally,
 while the decoder in a VAE is independent of the encoder, the
@@ -251,46 +247,39 @@ since they must store and compute inverses of transformations.
 
 *Autoregressive models* are designed to predict the next value based on
 current (and past) values. LLMs for text generation, like ChatGPT
-(discussed further in Chapter [\[ch17\]](../ch17){reference="ch17"
-reference-type="ref"}), are one popular example of this type of model.
+(discussed further in Chapter [\[ch17\]](./ch17/_books_ml-q-and-ai-ch17.md)), are one popular example of this type of model.
 
-Similar to generating one word at a time, in the context of image gen-
- eration, autoregressive models like PixelCNN try to predict one pixel
+Similar to generating one word at a time, in the context of image generation, autoregressive models like `PixelCNN` try to predict one pixel
 at a time, given the pixels they have seen so far. Such a model might
 predict pixels from top left to bottom right, in a raster scan order, or
 in any other defined order.
 
 To illustrate how autoregressive models generate an image one pixel at a
-time, suppose we have an image of size *H*\\(\\times\\)*W* (where *H* is
+time, suppose we have an image of size *H* × *W* (where *H* is
 the height and *W* is the width), ignoring the color channel for
-simplicity's sake. This image consists of *N* pixels, where *i* = 1, .
-. . , *N*. The probability of observing a particular image in the
-dataset is then *P*(*Image*) = *P*(*i*~1~, *i*~2~, . . . , *i~N~*).
+simplicity's sake. This image consists of *N* pixels, where $i = 1, \ldots, N$. The probability of observing a particular image in the
+dataset is then $P(Image) = P(i_1, i_2, \ldots, i_N)$.
 Basedon the chain rule of probability in statistics, we can decompose
 this joint probability into conditional probabilities:
 
-``` math
+$$
 \begin{aligned}
-P( { Image })&=P\left(i_1, i_2, .\,.\,., i_N\right) \\
-&=P\left(i_1\right) \cdot P\left(i_2 \mid i_1\right) \cdot P\left(i_3 \mid i_1, i_2\right) \ldots P\left(i_N \mid i_1 \; to \; i_{N-1}\right)
+P( { Image })&=P\left(i_1, i_2, \ldots, i_N\right) \\
+&=P\left(i_1\right) \cdot P\left(i_2 \mid i_1\right) \cdot P\left(i_3 \mid i_1, i_2\right) \ldots P\left(i_N \mid i_1 \ldots i_{N-1}\right)
 \end{aligned}
-```
+$$
 
-Here, *P*(*i*~1~) is the probability of the first pixel,
-*P*(*i*~2~\\(\|\\)*i*~1~) is the probability of the second pixel given
-the first pixel, *P*(*i*~3~\\(\|\\)*i*~1~, *i*~2~) is the probability of
-the third pixel given the first and second pixels, and so on.
+Here, $P(i_1)$ is the probability of the first pixel, $P(i_2 | i_1)$ is the probability of the second pixel given the first pixel, $P(i_3 | i_1, i_2)$ is the probability of the third pixel given the first and second pixels, and so on.
 
 In the context of image generation, an autoregressive model essentially
 tries to predict one pixel at a time, as described earlier, given the
 pixels it has seen so far.
-Figure [1.5](#fig-ch09-fig05){reference="fig-ch09-fig05"
-reference-type="ref"} illustrates this process, where pixels *i*~1~, . .
-. , *i*~53~ represent the context and pixel *i*~54~ is the next pixel to
-be generated.
 
-![Autoregressive\
-pixel generation](../images/ch09-fig05.png){#fig-ch09-fig05}
+Figure [1.5](#fig-ch09-fig05) illustrates this process, where pixels $i_1, \ldots, i_{53}$ represent the context and pixel $i_{54}$ is the next pixel to be generated.
+
+<a id="fig-ch09-fig05"></a>
+
+![Autoregressive pixel generation](../images/ch09-fig05.png)
 
 The advantage of autoregressive models is that the next-pixel (or word)
 prediction is relatively straightforward and interpretable. In addition,
@@ -303,7 +292,7 @@ training instabilities.
 However, autoregressive models can be slow at generating new samples.
 This is because they have to generate data one step at a time (for
 example, pixel by pixel for images), which can be computationally
-expensive. Auto-  regressive models may also struggle to capture
+expensive. Autoregressive models may also struggle to capture
 long-range dependencies because each output is conditioned only on
 previously generated outputs.
 
@@ -327,13 +316,14 @@ progressively added to the data until it resembles a simpler
 distribution, like Gaussian noise. To generate new samples, the process
 is then reversed, starting from noise and progressively removing it.
 
-Figure [1.6](#fig-ch09-fig06){reference="fig-ch09-fig06"
-reference-type="ref"} outlines the process of adding and removing
+Figure [1.6](#fig-ch09-fig06) outlines the process of adding and removing
 Gaussian noise from an input image *x*. During inference, the reverse
 diffusion process is used to generate a new image *x*, starting with the
 noise tensor *z~n~* sampled from a Gaussian distribution.
 
-![The diffusion process](../images/ch09-fig06.png){#fig-ch09-fig06}
+<a id="fig-ch09-fig06"></a>
+
+![The diffusion process](../images/ch09-fig06.png)
 
 While both diffusion models and flow-based models are generative models
 aiming to learn complex data distributions, they approach the problem
@@ -362,14 +352,13 @@ Consistency model training employs an *ordinary differential equation (O
 trajectory, a path that a noisy image follows as it is gradually
 denoised. The ODE trajectory is defined by a set of differential
 equations that describe how the noise in the image changes over time, as
-illustrated in Figure [1.7](#fig-ch09-fig07){reference="fig-ch09-fig07"
-reference-type="ref"}.
+illustrated in Figure [1.7](#fig-ch09-fig07).
 
-![Trajectories of a consistency model for image\
-denoising](../images/ch09-fig07.png){#fig-ch09-fig07}
+<a id="fig-ch09-fig07"></a>
 
-As Figure [1.7](#fig-ch09-fig07){reference="fig-ch09-fig07"
-reference-type="ref"} demonstrates, we can think of consistency models
+![Trajectories of a consistency model for image denoising](../images/ch09-fig07.png)
+
+As Figure [1.7](#fig-ch09-fig07) demonstrates, we can think of consistency models
 as models that learn to map any point from a probability flow ODE, which
 smoothly converts data to noise, to the input.
 
@@ -405,7 +394,7 @@ that must be run in order, similar to autoregressive models. This can
 make diffusion models less practical for some applications requiring
 fast sampling.
 
-### Exercises
+## Exercises
 [](#exercises)
 
 9-1. How would we evaluate the quality of the images generated by a
