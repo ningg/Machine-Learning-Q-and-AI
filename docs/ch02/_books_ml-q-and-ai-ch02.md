@@ -28,7 +28,7 @@ the main categories of self-supervised learning.
 ## Self-Supervised Learning vs. Transfer Learning
 [](#self-supervised-learning-vs-transfer-learning) 
 
-Self-supervised learning is related to transfer learning, a technique in
+Self-supervised learning is related to `transfer learning`, a technique in
 which a model pretrained on one task is reused as the starting point for
 a model on a second task. For example, suppose we are interested in
 training an image classifier to classify bird species. In transfer
@@ -46,6 +46,10 @@ Figure [1.1](#fig-ch02-fig01) illustrates the process of transfer learning.
 <a id="fig-ch02-fig01"></a>
 
 ![Pretraining with conventional transfer learning](../images/ch02-fig01.png)
+
+> Tips: 自监督学习，与 迁移学习 是相关的。
+> - 相同点在于，都是使用`预训练`的模型，然后进行`微调`。
+> - 差异在于，迁移学习是使用`有标签`的数据，而自监督学习使用`无标签`的数据。
 
 Self-supervised learning is an alternative approach to transfer learning
 in which the model is pretrained not on labeled data but on *unlabeled*
@@ -67,6 +71,8 @@ and [1.2](#fig-ch02-fig02). In transfer learning, we assume that the labels
 are provided along with the dataset; they are typically created
 by human labelers. In self-supervised learning, the labels can be
 directly derived from the training examples.
+
+> Tips: 自监督学习中，数据集的标签，可以`直接`从训练样本中`推导`出来。
 
 A self-supervised learning task could be a missing-word prediction in a
 natural language processing context. For example, given the sentence
@@ -100,6 +106,8 @@ For small neural network models such as multilayer perceptrons with two
 or three layers, self-supervised learning is typically considered
 neither useful nor necessary.
 
+> Tips: 对于`小型`的神经网络模型，如具有两到三层的`多层感知器`，**自监督学习** 在这种情况下 *不实用* 也 *不必要* 。
+
 Self-supervised learning likewise isn't useful in traditional machine
 learning with nonparametric models such as tree-based random forests or
 gradient boosting. Conventional tree-based methods do not have a fixed
@@ -107,11 +115,17 @@ parameter structure (in contrast to the weight matrices, for example).
 Thus, conventional tree-based methods are not capable of transfer
 learning and are incompatible with self-supervised learning.
 
+> Tips: 对于`非参数模型`，如基于树的**随机森林**或**梯度提升**，`自监督学习`通常不适用。
+> 
+> 传统的基于树的方法没有固定的参数结构（与权重矩阵相比），因此传统的基于树的方法**无法进行迁移学习**，也不兼容自监督学习。
+> 
+> FIXME 没理解???
+
 ## Self-Prediction and Contrastive Self-Supervised Learning
 [](#self-prediction-and-contrastive-self-supervised-learning)
 
 There are two main categories of self-supervised learning:
-self-prediction and contrastive self-supervised learning. In
+`self-prediction` and `contrastive self-supervised` learning. In
 *self-prediction*, illustrated in
 Figure [1.3](#fig-ch02-fig03), we typically change or hide parts of the input
 and train the model to reconstruct the original inputs, such as by
@@ -130,7 +144,7 @@ Figure [1.4](#fig-ch02-fig04).
 
 ![A masked autoencoder reconstructing a masked image](../images/ch02-fig04.png)
 
-Missing (masked) input self-prediction methods are also commonly used in
+Missing (`masked`) input self-prediction methods are also commonly used in
 natural language processing contexts. Many generative LLMs, such as GPT,
 are trained on a next-word prediction pretext task (GPT will be
 discussed at greater length in
@@ -173,8 +187,8 @@ produced by model $M(\cdot)$. Let's say we update the model
 weights to decrease the distance $||M(cat) - M(cat')||_2$ and increase the distance
 $||M(cat) - M(elephant)||_2$.
 
-Figure [1.6](#fig-ch02-fig06) summarizes the central concept behind contrastive
-learning for the perturbed image scenario. The model is shown twice,
+Figure [1.6](#fig-ch02-fig06) summarizes the central concept behind 
+`contrastive learning` for the perturbed image scenario. The model is shown twice,
 which is known as a *siamese network* setup. Essentially, the same model
 is utilized in two instances: first, to generate the embedding for the
 original training example, and second, to produce the embedding for the
@@ -193,6 +207,12 @@ training pairs. In *dimension*-contrastive approaches, on the other
 hand, we focus on making only certain variables in the embedding
 representations of similar training pairs appear close to each other
 while maximizing the distance of others.
+
+> Tips: 对比学习，可以分为`样本对比`和`维度对比`两种方法。
+> 
+> - 样本对比，关注于学习嵌入，以最小化/最大化`训练对`之间的距离。
+> - 维度对比，关注于使相似`训练对`中的**某些变量**接近，同时最大化其他变量的距离。
+
 
 ## Exercises
 [](#exercises)
