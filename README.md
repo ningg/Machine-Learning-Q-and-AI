@@ -59,7 +59,7 @@
    - [Chapter 6: Reducing Overfitting with Model Modifications](./docs/ch06/_books_ml-q-and-ai-ch06.md) ✅
    - [Chapter 7: Multi-GPU Training Paradigms](./docs/ch07/_books_ml-q-and-ai-ch07.md)
    - [Chapter 8: The Success of Transformers](./docs/ch08/_books_ml-q-and-ai-ch08.md) ✅
-   - [Chapter 9: Generative AI Models](./docs/ch09/_books_ml-q-and-ai-ch09.md)
+   - [Chapter 9: Generative AI Models](./docs/ch09/_books_ml-q-and-ai-ch09.md) ✅
    - [Chapter 10: Sources of Randomness](./docs/ch10/_books_ml-q-and-ai-ch10.md) ✅
 
 - **Part II: Computer Vision**

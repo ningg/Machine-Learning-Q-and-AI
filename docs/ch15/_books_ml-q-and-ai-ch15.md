@@ -1,11 +1,6 @@
 
 
 
-
-
-
-
-
 # Chapter 15: Data Augmentation for Text
 [](#chapter-15-data-augmentation-for-text)
 
@@ -17,9 +12,26 @@ augmentation techniques for text data?**
 Data augmentation is useful for artificially increasing dataset sizes to
 improve model performance, such as by reducing the degree of
 overfitting, as discussed in
-Chapter [\[ch05\]](../ch05){reference="ch05" reference-type="ref"}.
+Chapter [\[ch05\]](../ch05/_books_ml-q-and-ai-ch05.md).
 This includes techniques often used in computer vision models, like
 rotation, scaling, and flipping.
+
+> Tips: 数据增强（`Data Augmentation`）是一种通过**增加训练数据量**，来提高模型泛化能力的技术。
+> 
+> 数据增强可以分为两类：
+>
+> 1. 基于**规则**的数据增强：通过规则生成新的数据，如同义词替换、单词删除、单词位置交换、句子打乱、噪声注入等。
+> 2. 基于**模型**的数据增强：通过模型生成新的数据，如`GAN`、`VAE`等。
+> 
+> 数据增强通常包括以下几种技术：
+>
+> 1. 同义词替换（`Synonym Replacement`）：依赖同义词典，替换同义词；建议设置替换频率和相似度阈值。
+> 2. 单词删除（`Word Deletion`）：随机删除句子中的某些单词；建议设置删除率。
+> 3. 单词位置交换（`Word Position Swapping`）：随机交换句子中某些单词的位置；建议设置交换率。
+> 4. 句子打乱（`Sentence Shuffling`）：随机打乱句子中某些句子的顺序；建议设置打乱率。
+> 5. 噪声注入（`Noise Injection`）：在句子中添加一些随机噪声；建议设置噪声率。
+> 6. 回译（`Back Translation`）：将句子翻译成另一种语言，再翻译回来；建议设置翻译模型。
+> 7. 合成数据（`Synthetic Data`）：使用LLM生成新的数据；建议设置生成模型。
 
 Similarly, there are several techniques for augmenting text data. The
 most common include synonym replacement, word deletion, word position
@@ -31,8 +43,8 @@ at <https://github.com/rasbt/MachineLearning-QandAI-book>.
 ## Synonym Replacement
 [](#synonym-replacement)
 
-In *synonym replacement*, we randomly choose words in a sentence""often
-nouns, verbs, adjectives, and adverbs""and replace them with synonyms.
+In *synonym replacement*, we randomly choose words in a sentence -- often
+nouns, verbs, adjectives, and adverbs -- and replace them with synonyms.
 For example, we might begin with the sentence "The cat quickly jumped
 over the lazy dog,"? and then augment the sentence as follows: "The
 cat rapidly jumped over the idle dog."?
@@ -46,6 +58,9 @@ text replacement tools have settings for adjusting replacement frequency
 and similarity thresholds. However, automatic synonym replacement is not
 perfect, and you might want to apply post-processing checks to filter
 out replacements that might not make sense.
+
+
+> Tips: 自动`同义词替换`的结果并不准确，建议筛除不合适的替换结果。
 
 ## Word Deletion
 [](#word-deletion)
@@ -74,6 +89,8 @@ have been removed. Typical deletion rates might range from 10 percent to
 20 percent, but this is a general guideline and could vary significantly
 based on the specific use case.
 
+> Tips: **单词删除**，有时候会删除掉一些重要的词语，导致句子不通顺，建议设置**删除率**。一般删除率在`10%`到`20%`之间，但具体需要根据具体任务调整。
+
 ## Word Position Swapping
 [](#word-position-swapping)
 
@@ -93,6 +110,8 @@ can drastically change the meaning of a sentence or make it completely
 nonsensical. Moreover, word shuffling may interfere with the model's
 learning process, as the positional relationships between certain words
 can be vital in these contexts.
+
+> Tips: 词序打乱，有助于模型关注词语本身及其关系，而非固定语序。但过度打乱可能导致语义丢失或句子无意义。某些任务中，词语的顺序很重要，随意打乱会影响模型学习效果。
 
 ## Sentence Shuffling
 [](#sentence-shuffling)
@@ -146,6 +165,8 @@ These modifications are beneficial for tasks that involve spell-checking
 and text correction, but they can also help make the model more robust
 to imperfect inputs.
 
+> Tips: 随机字符插入、删除、错别字，有助于模型学习拼写和语法错误，但过度使用可能导致模型过拟合。
+
 ## Back Translation
 [](#back-translation)
 
@@ -174,6 +195,8 @@ This method requires access to reliable machine translation models or
 services, and care must be taken to ensure that the back-translated
 sentences retain the essential meaning of the original sentences.
 
+> Tips: 回译，通过将句子翻译成另一种语言，再翻译回来，可以生成新的数据。但回译的结果有时并不准确，需要筛除不合适的回译结果。
+
 ## Synthetic Data
 [](#synthetic-data)
 
@@ -186,22 +209,19 @@ maintaining the overall meaning while creating something new.
 
 Modern techniques to generate synthetic data now also include using
 decoder-style LLMs such as GPT (decoder-style LLMs are discussed in more
-detail in Chapter [\[ch17\]](../ch17){reference="ch17"
-reference-type="ref"}). We can use these models to generate new data
+detail in Chapter [\[ch17\]](./ch17/_books_ml-q-and-ai-ch17.md)). We can use these models to generate new data
 from scratch by using "complete the sentence"? or "generate example
 sentences"? prompts, among others. We can also use LLMs as alternatives
 to back translation, prompting them to rewrite sentences as shown in
-Figure [1.1](#fig-ch15-fig01){reference="fig-ch15-fig01"
-reference-type="ref"}.
+Figure [1.1](#fig-ch15-fig01).
 
-<figure id="fig-ch15-fig01">
+<a id="fig-ch15-fig01"></a>
 
-<figcaption>Using an LLM to rewrite a sentence</figcaption>
-</figure>
+![Using an LLM to rewrite a sentence](../images/ch15-fig01.jpg)
+
 
 Note that an LLM, as shown in
-Figure [1.1](#fig-ch15-fig01){reference="fig-ch15-fig01"
-reference-type="ref"}, runs in a nondeterministic mode by default, which
+Figure [1.1](#fig-ch15-fig01), runs in a nondeterministic mode by default, which
 means we can prompt it multiple times to obtain a variety of rewritten
 sentences.
 
@@ -223,7 +243,9 @@ task-specific dataset, data augmentation techniques might become more
 relevant again, mainly if the task-specific labeled dataset size is
 limited.
 
-### Exercises
+> Tips: `数据增强`在LLM的`预训练`阶段可能`不太有用`，因为LLM已经在大规模数据上预训练过了。但在`微调阶段`，数据增强可能`更有用`，特别是当任务特定的标注数据集较小时。
+
+## Exercises
 [](#exercises)
 
 15-1. Can the use of text data augmentation help with privacy concerns?
