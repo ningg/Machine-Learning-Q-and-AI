@@ -36,7 +36,7 @@
 
 <div align='center'>
     <img src="./docs/images/2023-ml-ai-beyond-cn.jpg" alt="Datawhale" width="30%">
-    <img src="./docs/images/2023-ml-ai-beyond.jpg" alt="Datawhale" width="28%">
+    <img src="./docs/images/2023-ml-ai-beyond.jpg" alt="Datawhale" width="27.65%">
 </div>
 
 
