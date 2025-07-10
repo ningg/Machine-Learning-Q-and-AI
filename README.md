@@ -41,8 +41,12 @@
 </div>
 
 
+<div align='center'>
+    <img src="./docs/images/2023-ml-ai-beyond-cn.jpg" alt="Datawhale" width="30%">
+    <img src="./docs/images/2023-ml-ai-beyond.jpg" alt="Datawhale" width="30%">
+</div>
 
-![](./docs/images/2023-ml-ai-beyond-cn.jpg)
+
 
 当前工程中，维护的 大模型技术 30 讲，目录如下：
 
