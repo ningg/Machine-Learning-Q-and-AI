@@ -65,12 +65,11 @@ Forinstance,ifwetake100differentdatasamplesandcomputea 95 percent
 confidence interval for each sample, approximately 95 of the 100
 confidence intervals will contain the true population value (such as the
 generalization accuracy), as illustrated in
-Figure [\[fig-ch25-fig01\]](#fig-ch25-fig01){reference="fig-ch25-fig01"
-reference-type="ref"}.
+Figure [\[fig-ch25-fig01\]](#fig-ch25-fig01).
 
-::: figurewide
-![image](../images/ch25-fig01.png){style="width:5.625in"}
-:::
+<a id="fig-ch25-fig01"></a>
+
+![image](../images/ch25-fig01.png)
 
 More concretely, if we were to draw 100 different representative test
 sets from the population (for instance, the entire possible set of
@@ -83,14 +82,13 @@ We can display confidence intervals in several ways. It is common to use
 a bar plot representation where the top of the bar represents the
 parameter value (for example, model accuracy) and the whiskers denote
 the upper andlower levels of the confidence interval (left chart of
-Figure [1.1](#fig-ch25-fig02){reference="fig-ch25-fig02"
-reference-type="ref"}). Alternatively, the confidence intervals can be
+Figure [1.1](#fig-ch25-fig02). Alternatively, the confidence intervals can be
 shown without bars, as in the right chart of
-Figure [1.1](#fig-ch25-fig02){reference="fig-ch25-fig02"
-reference-type="ref"}.
+Figure [1.1](#fig-ch25-fig02).
 
-![Two common plotting variants to illustrate confidence
-intervals](../images/ch25-fig02.png){#fig-ch25-fig02}
+<a id="fig-ch25-fig02"></a>
+
+![Two common plotting variants to illustrate confidence intervals](../images/ch25-fig02.png)
 
 This visualization is functionally useful in a number of ways. For
 instance, when confidence intervals for two model performances do *not*
@@ -109,10 +107,10 @@ there can still be a statistically significant difference.
 Alternatively, to provide more detailed information about the exact
 quantities, we can use a table view to express the confidence intervals.
 The two common notations are summarized in
-Table [1.1](#confidence-intervals){reference="confidence-intervals"
-reference-type="ref"}.
+Table [1.1](#confidence-intervals).
 
-::: {#confidence-intervals}
+<a id="confidence-intervals"></a>
+
 \| \| \| \| \| \|
 \|\-\-\-\--\|\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\--\|\-\-\-\-\-\--\|\-\-\-\-\-\--\|\-\-\-\--\|
 \| 1 \| 89.1% \$\$\\pm\$\$ 1.7% \| . . . \| . . . \| \| \| 2 \| 79.5%
@@ -121,7 +119,6 @@ reference-type="ref"}.
 90.8%) \| . . . \| . . . \| \| \| 2 \| 79.5% (77.3%, 81.7%) \| . . . \|
 . . . \| \| \| 3 \| 95.2% (93.6%, 96.8%) \| . . . \| . . . \| \|
 Confidence Intervals
-:::
 
 The \\(\\pm\\) notation is often preferred if the confidence interval is
 *symmetric*, meaning the upper and lower endpoints are equidistant from
@@ -236,24 +233,22 @@ points will likely be duplicated in this new sample, whereas other data
 points are not sampled at all.We can then repeat this procedure for
 multiple rounds to obtain multiple training and test sets. This process
 is known as *out-of-bag bootstrapping*, illustrated in
-Figure [\[fig-ch25-fig04\]](#fig-ch25-fig04){reference="fig-ch25-fig04"
-reference-type="ref"}.
+Figure [\[fig-ch25-fig04\]](#fig-ch25-fig04).
 
-::: figurewide
-![image](../images/ch25-fig04.png){style="width:5.625in"}
-:::
+<a id="fig-ch25-fig04"></a>
+
+![image](../images/ch25-fig04.png)
 
 Suppose we constructed *k* training and test sets. We can now take each
 of these splits to train and evaluate the model to obtain *k* test set
 accuracy estimates. Considering this distribution of test set accuracy
 estimates, we can take the range between the 2.5th and 97.5th percentile
 to obtain the 95 percent confidence interval, as illustrated in
-Figure [1.2](#fig-ch25-fig05){reference="fig-ch25-fig05"
-reference-type="ref"}.
+Figure [1.2](#fig-ch25-fig05).
 
-![The distribution of test accuracies from 1,000 bootstrap\
-samples, including a 95 percent confidence
-interval](../images/ch25-fig05.png){#fig-ch25-fig05}
+<a id="fig-ch25-fig05"></a>
+
+![The distribution of test accuracies from 1,000 bootstrap samples, including a 95 percent confidence interval](../images/ch25-fig05.png)
 
 Unlike the normal approximation interval method, we can consider this
 out-of-bag bootstrap approach to be more agnostic to the specific
@@ -279,12 +274,13 @@ estimates, which are reweighting the accuracy estimates.
 An alternative approach to bootstrapping training sets is to bootstrap
 test sets.The idea is to train the model on the existing training set as
 usual and then to evaluate the model on bootstrapped test sets, as
-illustrated in Figure [1.3](#fig-ch25-fig06){reference="fig-ch25-fig06"
-reference-type="ref"}. After obtaining the test set performance
+illustrated in Figure [1.3](#fig-ch25-fig06). After obtaining the test set performance
 estimates, we can then apply the percentile method described in the
 previous section.
 
-![Bootstrapping the test set](../images/ch25-fig06.png){#fig-ch25-fig06}
+<a id="fig-ch25-fig06"></a>
+
+![Bootstrapping the test set](../images/ch25-fig06.png)
 
 Contrary to the prior bootstrap technique, this method uses a trained
 model and simply resamples the test set (instead of the training sets).
@@ -363,7 +359,7 @@ sizes. Lastly, constructing confidence intervals from different random
 seeds is expensive but can give us additional insights into the
 model's stability.
 
-### Exercises
+## Exercises
 [](#exercises)
 
 25-1. As mentioned earlier, the most common choice of confidence level

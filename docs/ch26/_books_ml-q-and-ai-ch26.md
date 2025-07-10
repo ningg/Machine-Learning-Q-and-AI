@@ -17,14 +17,14 @@ predictions, and when do we use one over the other?**
 Confidence intervals and conformal predictions are both statistical
 methods to estimate the range of plausible values for an unknown
 population parameter. As discussed in
-Chapter [\[ch25\]](../ch25){reference="ch25" reference-type="ref"}, a
+Chapter [\[ch25\]](./ch25/_books_ml-q-and-ai-ch25.md), a
 confidence interval quantifies the level of confidence that a population
 parameter lies within an interval. For instance, a 95 percent confidence
 interval for the mean of a population means that if we were to take many
 samples from the population and calculate the 95 percent confidence
 interval for each sample, we would expect the true population mean
 (average) to lie within these intervals 95 percent of the time.
-Chapter [\[ch25\]](../ch25){reference="ch25" reference-type="ref"}
+Chapter [\[ch25\]](./ch25/_books_ml-q-and-ai-ch25.md)
 covered several techniques for applying this method to estimate the
 prediction performance of machine learning models. Conformal
 predictions, on the other hand, are commonly used for creating
@@ -116,14 +116,13 @@ are designed to contain the true outcome with a certain probability.
 For classifiers, a prediction region for a given input is a set of
 labels such that the set contains the true label with a given confidence
 (typically 95 percent), as illustrated in
-Figure [1.1](#fig-ch26-fig01){reference="fig-ch26-fig01"
-reference-type="ref"}.
+Figure [1.1](#fig-ch26-fig01).
 
-![Prediction regions for a classification
-task](../images/ch26-fig01.png){#fig-ch26-fig01}
+<a id="fig-ch26-fig01"></a>
 
-As depicted in Figure [1.1](#fig-ch26-fig01){reference="fig-ch26-fig01"
-reference-type="ref"}, the ImageNet dataset consists of a subset of bird
+![Prediction regions for a classification task](../images/ch26-fig01.png)
+
+As depicted in Figure [1.1](#fig-ch26-fig01), the ImageNet dataset consists of a subset of bird
 species. Some bird species in ImageNet belong to one of the follow-
  ing classes: *hawk*, *duck*, *eagle*, or *goose*. ImageNet also
 contains other animals, for example, cats. For a new image to classify
@@ -276,16 +275,14 @@ predictions. For instance, it can help identify cases where the model is
 unsure and may need additional data, human oversight, or a different
 approach.
 
-### Exercises
+## Exercises
 [](#exercises)
 
 26-1. Prediction set sizes can vary between instances. For example, we
 may encounter a prediction set size of 1 for a given instance and for
 another, a set size of 3. What does the prediction set size tell us?
 
-26-2. Chapters [\[ch25\]](../ch25){reference="ch25"
-reference-type="ref"} and [\[ch26\]](../ch26){reference="ch26"
-reference-type="ref"} focused on classification methods. Could we use
+26-2. Chapters [\[ch25\]](./ch25/_books_ml-q-and-ai-ch25.md) and [\[ch26\]](./ch26/_books_ml-q-and-ai-ch26.md) focused on classification methods. Could we use
 conformal prediction and confidence intervals for regression too?
 
 ## References

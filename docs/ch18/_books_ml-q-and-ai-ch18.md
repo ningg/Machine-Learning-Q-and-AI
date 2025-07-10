@@ -27,26 +27,27 @@ from the model. This concept is also known as *prompting*. Finally,
 it's also possible to fine-tune all or just a small number of
 parameters to achieve the desired outcomes.
 
-Thefollowingsectionsdiscussthesetypesofapproachesingreaterdepth.
+The following sections discuss these types of approaches in greater depth.
 
 ## Using Transformers for Classification Tasks
 [](#using-transformers-for-classification-tasks)
 
-Let'sstartwiththeconventionalmethodsforutilizingpretrainedtransformers:
-training another model on feature embeddings, fine-tuning outputlayers,
+Let's start with the conventional methods for utilizing pretrained transformers:
+training another model on feature embeddings, fine-tuning output layers,
 and fine-tuning all layers. We'll discuss these in the context of
 classification. (We will revisit prompting later in the section
-"In-Context Learning, Indexing, and Prompt Tuning"? on page .)
+"In-Context Learning, Indexing, and Prompt Tuning" on page .)
 
 In the feature-based approach, we load the pretrained model and keep it
 "frozen,"? meaning we do not update any parameters of the pretrained
 model. Instead, we treat the model as a feature extractor that we apply
 to our new dataset. We then train a downstream model on these
 embeddings.
-Thisdownstreammodelcanbeanymodelwelike(randomforests,XGBoost, and so
+
+This downstream model can be any model like (random forests, XGBoost, and so
 on), but linear classifiers typically perform best. This is likely
 because pretrained transformers like BERT and GPT already extract
-high-quality, in-  formative features from the input data. These
+high-quality, informative features from the input data. These
 feature embeddings often capture complex relationships and patterns,
 making it easy for a linear classifier to effectively separate the
 data into different classes. Furthermore, linear classifiers, such as
@@ -59,14 +60,14 @@ transformer model at all. Finally, the embeddings can be precomputed for
 a given training dataset (since they don't change) when training a
 classifier for multiple training epochs.
 
-Figure [1.1](#fig-ch18-fig01){reference="fig-ch18-fig01"
-reference-type="ref"} illustrates how LLMs are typically created and
+Figure [1.1](#fig-ch18-fig01) illustrates how LLMs are typically created and
 adopted for downstream tasks using fine-tuning. Here, a pretrained
 model, trained on a general text corpus, is fine-tuned to perform tasks
 like German-to-English translation.
 
-![The general fine-tuning workflow of large language
-models](../images/ch18-fig01.png){#fig-ch18-fig01}
+<a id="fig-ch18-fig01"></a>
+
+![The general fine-tuning workflow of large language models](../images/ch18-fig01.png)
 
 The conventional methods for fine-tuning pretrained LLMs include
 updating only the output layers, a method we'll refer to as
@@ -89,18 +90,17 @@ fine-tuning I, it typically leads to better modeling or predictive
 performance. This is especially true for more specialized
 domain-specific datasets.
 
-Figure [\[fig-ch18-fig02\]](#fig-ch18-fig02){reference="fig-ch18-fig02"
-reference-type="ref"} summarizes the three approaches described in this
+Figure [1.2](#fig-ch18-fig02) summarizes the three approaches described in this
 section so far.
 
-::: figurewide
-![image](../images/ch18-fig02.png){style="width:5.625in"}
-:::
+<a id="fig-ch18-fig02"></a>
+
+![image](../images/ch18-fig02.png)
+
 
 In addition to the conceptual summary of the three fine-tuning methods
 described in this section,
-Figure [\[fig-ch18-fig02\]](#fig-ch18-fig02){reference="fig-ch18-fig02"
-reference-type="ref"} also provides a rule-of-thumb guideline for these
+Figure [1.2](#fig-ch18-fig02) also provides a rule-of-thumb guideline for these
 methods regarding training efficiency. Since fine-tuning II involves
 updating more layers and parameters than fine-tuning I, backpropagation
 is costlier for fine-tuning II. For similar reasons, fine-tuning II is
@@ -112,26 +112,25 @@ costlier than a simpler feature-based approach.
 LLMs like GPT-2 and GPT-3 popularized the concept of *in-context
 learning*, often called *zero-shot* or *few-shot learning* in this
 context, which is illustrated in
-Figure [1.2](#fig-ch18-fig03){reference="fig-ch18-fig03"
-reference-type="ref"}.
+Figure [1.3](#fig-ch18-fig03).
 
-![Prompting an LLM for in-context
-learning](../images/ch18-fig03.png){#fig-ch18-fig03 style="width:98.0%"}
+<a id="fig-ch18-fig03"></a>
 
-As Figure [1.2](#fig-ch18-fig03){reference="fig-ch18-fig03"
-reference-type="ref"} shows, in-context learning aims to provide context
+![Prompting an LLM for in-context learning](../images/ch18-fig03.png)
+
+As Figure [1.3](#fig-ch18-fig03) shows, in-context learning aims to provide context
 or examples of the task within the input or prompt, allowing the model
 to infer the desired behavior and generate appropriate responses. This
 approach takes advantage of the model's ability to learn from vast
 amounts of data during pretraining, which includes diverse tasks and
 contexts.
 
-::: note
+
 The definition of few-shot learning, considered synonymous with
 in-context learning-based methods, differs from the conventional
 approach to few-shot learning discussed in
-Chapter [\[ch03\]](../ch03){reference="ch03" reference-type="ref"}.
-:::
+Chapter [\[ch03\]](./ch03/_books_ml-q-and-ai-ch03.md).
+
 
 For example, suppose we want to use in-context learning for few-shot
 German""English translation using a large-scale pretrained language
@@ -204,17 +203,16 @@ another LLM for automatic prompt generation and evaluation.
 
 Yet another way to leverage a purely in-context learning-based approach
 is *indexing*, illustrated in
-Figure [1.3](#fig-ch18-fig04){reference="fig-ch18-fig04"
-reference-type="ref"}.
+Figure [1.3](#fig-ch18-fig04)
 
-![LLM indexing to retrieve information from external
-documents](../images/ch18-fig04.png){#fig-ch18-fig04}
+<a id="fig-ch18-fig04"></a>
+
+![LLM indexing to retrieve information from external documents](../images/ch18-fig04.png)
 
 In the context of LLMs,we can think of indexing as a workaround based on
 in-context learning that allows us to turn LLMs into information
 retrieval systems to extract information from external resources and
-websites. In Figure [1.3](#fig-ch18-fig04){reference="fig-ch18-fig04"
-reference-type="ref"}, an indexing module parses a document or website
+websites. In Figure [1.4](#fig-ch18-fig04), an indexing module parses a document or website
 into smaller chunks, embedded into vectors that can be stored in a
 vector database. When a user submits a query, the indexing module
 computes the vector similarity between the embedded query and each
@@ -228,12 +226,11 @@ In recent years, many methods have been developed to adapt pretrained
 transformers more efficiently for new target tasks. These methods are
 commonly referred to as *parameter-efficient fine-tuning*, with the most
 popular methods at the time of writing summarized in
-Figure [1.4](#fig-ch18-fig05){reference="fig-ch18-fig05"
-reference-type="ref"}.
+Figure [1.5](#fig-ch18-fig05).
 
-![The main categories of parameter-efficient\
-fine-tuning techniques, with popular
-examples](../images/ch18-fig05.png){#fig-ch18-fig05}
+<a id="fig-ch18-fig05"></a>
+
+![The main categories of parameter-efficient fine-tuning techniques, with popular examples](../images/ch18-fig05.png)
 
 In contrast to the hard prompting approach discussed in the previous
 section, *softprompting* strategies optimize embedded versions of the
@@ -289,8 +286,7 @@ def transformer_block_with_prefix(x):
 ::::
 
 Let's break
-Listing [\[prefixTuning\]](#prefixTuning){reference="prefixTuning"
-reference-type="ref"} into three main parts: implementing the soft
+Listing [1.6](#prefixTuning) into three main parts: implementing the soft
 prompt, concatenating the soft prompt (prefix) with the input, and
 implementing the rest of the transformer block.
 
@@ -305,15 +301,14 @@ transformer block, including self-attention, layer normalization, and
 feed-forward neural network layers, wrapped around residual connections.
 
 As shown in
-Listing [\[prefixTuning\]](#prefixTuning){reference="prefixTuning"
-reference-type="ref"}, prefix tuning modifies a transformer block by
+Listing [1.6](#prefixTuning), prefix tuning modifies a transformer block by
 adding a trainable soft prompt.
-Figure [1.5](#fig-ch18-fig06){reference="fig-ch18-fig06"
-reference-type="ref"} further illustrates the difference between a
+Figure [1.6](#fig-ch18-fig06) further illustrates the difference between a
 regular transformer block and a prefix tuning transformer block.
 
-![A regular transformer compared with prefix
-tuning](../images/ch18-fig06.png){#fig-ch18-fig06 style="width:95.0%"}
+<a id="fig-ch18-fig06"></a>
+
+![A regular transformer compared with prefix tuning](../images/ch18-fig06.png)
 
 Both soft prompt tuning and prefix tuning are considered parameter
 efficient since they require training only the prepended parameter
@@ -324,12 +319,11 @@ additional parameters to the transformer layers. In the original adapter
 method, additionalfully connected layers were added after the multihead
 self-attention and existing fully connected layers in each transformer
 block, as illustrated in
-Figure [1.6](#fig-ch18-fig07){reference="fig-ch18-fig07"
-reference-type="ref"}.
+Figure [1.7](#fig-ch18-fig07).
 
-![Comparison of a regular transformer block (left) and a transformer
-block with adapter layers](../images/ch18-fig07.png){#fig-ch18-fig07
-style="width:95.0%"}
+<a id="fig-ch18-fig07"></a>
+
+![Comparison of a regular transformer block (left) and a transformer block with adapter layers](../images/ch18-fig07.png)
 
 Only the new adapter layers are updated when training the LLM using the
 original adapter method, while the remaining transformer layers remain
@@ -400,8 +394,7 @@ def lora_forward_matmul(x):
 ::::
 
 In
-Listing [\[matrixMultiplication\]](#matrixMultiplication){reference="matrixMultiplication"
-reference-type="ref"},`scalar`{.language-plaintext .highlighter-rouge}
+Listing [\[matrixMultiplication\]](#matrixMultiplication),`scalar`{.language-plaintext .highlighter-rouge}
 is a scaling factor that adjusts the magnitude of the combined result
 (original model output plus low-rank adaptation). This balances the
 pretrained model's knowledge and the new task-specific adaptation.
@@ -474,7 +467,7 @@ adapting these models to a wide array of tasks and domains. As research
 in this area progresses, we can expect further improvements and
 innovations in using pretrained language models.
 
-### Exercises
+## Exercises
 [](#exercises)
 
 18-1. When does it make more sense to use in-context learning rather

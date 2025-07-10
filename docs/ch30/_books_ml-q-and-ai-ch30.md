@@ -12,8 +12,7 @@
 
 
 **Suppose we plot a learning curve (as shown in
-Figure [\[fig-ch05-fig01\]](#fig-ch05-fig01){reference="fig-ch05-fig01"
-reference-type="ref"} on page , for example) and find the machine
+Figure [\[fig-ch05-fig01\]](#fig-ch05-fig01) on page , for example) and find the machine
 learning model overfits and could benefit from more training data. What
 are some different approaches for dealing with limited labeled data in
 supervised machine learning settings?**
@@ -41,13 +40,12 @@ storage might be insufficient, or the data may be hard to access.
 [](#bootstrapping-the-data)
 
 Similar to the techniques for reducing overfitting discussed in
-Chapter [\[ch05\]](../ch05){reference="ch05" reference-type="ref"}, it
+Chapter [\[ch05\]](./ch05/_books_ml-q-and-ai-ch05.md), it
 can be helpful to "bootstrap"? the data by generating modified
 (augmented) or artificial (synthetic) training examples to boost the
 performance of the predictive model. Of course, improving the quality of
 data can also lead to the improved predictive performance of a model, as
-discussed in Chapter [\[ch21\]](../ch21){reference="ch21"
-reference-type="ref"}.
+discussed in Chapter [\[ch21\]](./ch21/_books_ml-q-and-ai-ch21.md).
 
 ### Transfer Learning
 [](#transfer-learning)
@@ -55,11 +53,11 @@ reference-type="ref"}.
 Transferlearningdescribestrainingamodelonageneraldataset(forexample,
 ImageNet) and then fine-tuning the pretrained target dataset (for
 example, a dataset consisting of different bird species), as outlined in
-Figure [1.1](#fig-ch30-fig01){reference="fig-ch30-fig01"
-reference-type="ref"}.
+Figure [1.1](#fig-ch30-fig01).
 
-![The process of transfer
-learning](../images/ch30-fig01.png){#fig-ch30-fig01}
+<a id="fig-ch30-fig01"></a>
+
+![The process of transfer learning](../images/ch30-fig01.png)
 
 Transfer learning is usually done in the context of deep learning, where
 model weights can be updated. This is in contrast to tree-based methods,
@@ -79,31 +77,31 @@ learning is also often called *unsupervised pretraining*.
 Common examples of self-supervised learning include the *next word*
 (used in GPT, for example) or *masked word* (used in BERT, for example)
 pretraining tasks in language modeling, covered in more detail in
-Chapter [\[ch17\]](../ch17){reference="ch17" reference-type="ref"}.
+Chapter [\[ch17\]](./ch17/_books_ml-q-and-ai-ch17.md).
 Another intuitive example from computer vision includes *inpainting*:
 predicting the missing part of an image that was randomly removed,
-illustrated in Figure [1.2](#fig-ch30-fig02){reference="fig-ch30-fig02"
-reference-type="ref"}.
+illustrated in Figure [1.2](#fig-ch30-fig02).
 
-![Inpainting for self-supervised
-learning](../images/ch30-fig02.png){#fig-ch30-fig02}
+<a id="fig-ch30-fig02"></a>
+
+![Inpainting for self-supervised learning](../images/ch30-fig02.png)
 
 For more detail on self-supervised learning, see
-Chapter [\[ch02\]](../ch02){reference="ch02" reference-type="ref"}.
+Chapter [\[ch02\]](./ch02/_books_ml-q-and-ai-ch02.md).
 
 ### Active Learning
 [](#active-learning)
 
 In active learning, illustrated in
-Figure [1.3](#fig-ch30-fig03){reference="fig-ch30-fig03"
-reference-type="ref"}, we typically involve manual labelers or users for
+Figure [1.3](#fig-ch30-fig03), we typically involve manual labelers or users for
 feedback during the learning process. However, instead of labeling the
 entire dataset up front, active learning includes a prioritization
 scheme for suggesting unlabeled data points for labeling to maximize the
 machine learning model's performance.
 
-![In active learning, a model queries an\
-oracle for labels.](../images/ch30-fig03.png){#fig-ch30-fig03}
+<a id="fig-ch30-fig03"></a>
+
+![In active learning, a model queries an oracle for labels.](../images/ch30-fig03.png)
 
 The term *active learning* refers to the fact that the model actively
 selects data for labeling. For example, the simplest form of active
@@ -121,16 +119,15 @@ learning is zero-shot learning, where no labels are provided. Popular
 examples of zero-shot learning include GPT-3 and related language
 models, where the user has to provide all the necessary information via
 the input prompt, as illustrated in
-Figure [1.4](#fig-ch30-fig04){reference="fig-ch30-fig04"
-reference-type="ref"}.
+Figure [1.4](#fig-ch30-fig04).
 
-<figure id="fig-ch30-fig04">
+<a id="fig-ch30-fig04"></a
 
 <figcaption>Zero-shot classification with ChatGPT</figcaption>
 </figure>
 
 For more detail on few-shot learning, see
-Chapter [\[ch03\]](../ch03){reference="ch03" reference-type="ref"}.
+Chapter [\[ch03\]](./ch03/_books_ml-q-and-ai-ch03.md).
 
 ### Meta-Learning
 [](#meta-learning)
@@ -150,17 +147,17 @@ converts support and query images into vector representations. These
 vector representations are optimized for determining the predicted class
 of the query example via comparisons with the training examples in the
 support set. (This form of meta-learning is illustrated in
-Chapter [\[ch03\]](../ch03){reference="ch03" reference-type="ref"} on
+Chapter [\[ch03\]](./ch03/_books_ml-q-and-ai-ch03.md) on
 page .) Another branch of meta-learning unrelated to the few-shot
 learning approach is focused on extracting metadata (also called
 *meta-features*) from datasets for supervised learning tasks, as
-illustrated in Figure [1.5](#fig-ch30-fig05){reference="fig-ch30-fig05"
-reference-type="ref"}. The meta-features are descriptions of the dataset
+illustrated in Figure [1.5](#fig-ch30-fig05). The meta-features are descriptions of the dataset
 itself. For example, these can include the number of features and
 statistics of the different features (kurtosis, range, mean, and so on).
 
-![The meta-learning process involving the extraction of
-metadata](../images/ch30-fig05.png){#fig-ch30-fig05}
+<a id="fig-ch30-fig05"></a>
+
+![The meta-learning process involving the extraction of metadata](../images/ch30-fig05.png)
 
 The extracted meta-features provide information for selecting a machine
 learning algorithm for the dataset at hand. Using this approach, we can
@@ -171,8 +168,7 @@ reduce overfitting when the dataset is small.
 [](#weakly-supervised-learning)
 
 Weakly supervised learning, illustrated in
-Figure [1.6](#fig-ch30-fig06){reference="fig-ch30-fig06"
-reference-type="ref"}, involves using an external label source to
+Figure [1.6](#fig-ch30-fig06), involves using an external label source to
 generate labels for an unlabeled dataset. Often, the labels created by a
 weakly supervised labeling function are more noisy or inaccurate than
 those produced by a human or domain expert, hence the term *weakly*
@@ -180,12 +176,11 @@ supervised. We can develop or adopt a rule-based classifier to create
 the labels in weakly supervised learning; these rules usually cover only
 a subset of the unlabeled dataset.
 
-![Weakly supervised learning uses external labeling functions to\
-train machine learning
-models.](../images/ch30-fig06.png){#fig-ch30-fig06}
+<a id="fig-ch30-fig06"></a>
 
-Let'sreturntotheexampleofemailspamclassificationfromChapter [\[ch23\]](../ch23){reference="ch23"
-reference-type="ref"} to illustrate a rule-based approach for data
+![Weakly supervised learning uses external labeling functions to train machine learning models.](../images/ch30-fig06.png)
+
+Let'sreturntotheexampleofemailspamclassificationfromChapter [\[ch23\]](./ch23/_books_ml-q-and-ai-ch23.md) to illustrate a rule-based approach for data
 labeling. In weak supervision, we could design a rule-based classifier
 based on the keyword *SALE* in the email subject header line to identify
 a subset of spam emails. Note that while we may use this rule to label
@@ -209,10 +204,11 @@ only a subset of the data. In semi-supervision, we do not use an
 external label function; instead, we leverage the structure of the data
 itself. We can, for example, label additional data points based on the
 density of neighboring labeled data points, as illustrated in
-Figure [1.7](#fig-ch30-fig07){reference="fig-ch30-fig07"
-reference-type="ref"}.
+Figure [1.7](#fig-ch30-fig07).
 
-![Semi-supervised learning](../images/ch30-fig07.png){#fig-ch30-fig07}
+<a id="fig-ch30-fig07"></a>
+
+![Semi-supervised learning](../images/ch30-fig07.png)
 
 While we can apply weak supervision to an entirely unlabeled dataset,
 semi-supervised learning requires at least a portion of the data to be
@@ -238,7 +234,7 @@ learning model for this pseudo-labeling, self-training is also related
 to semi-supervised learning.
 
 An example of self-training is knowledge distillation, discussed in
-Chapter [\[ch06\]](../ch06){reference="ch06" reference-type="ref"}.
+Chapter [\[ch06\]](./ch06/_books_ml-q-and-ai-ch06.md).
 
 ### Multi-Task Learning
 [](#multi-task-learning)
@@ -258,17 +254,15 @@ tasks. This approach often results in models that perform better on
 unseen data. There are two subcategories of multi-task learning:
 multi-task learning with hard parameter sharing and multi-task learning
 with soft parameter sharing.
-Figure [\[fig-ch30-fig08\]](#fig-ch30-fig08){reference="fig-ch30-fig08"
-reference-type="ref"} illustrates the difference between these two
+Figure [\[fig-ch30-fig08\]](#fig-ch30-fig08) illustrates the difference between these two
 methods.
 
-::: figurewide
-![image](../images/ch30-fig08.png){style="width:5.625in"}
-:::
+<a id="fig-ch30-fig08"></a>
+
+![image](../images/ch30-fig08.png)
 
 In *hard* parameter sharing, as shown in
-Figure [\[fig-ch30-fig08\]](#fig-ch30-fig08){reference="fig-ch30-fig08"
-reference-type="ref"}, only the output layers are task specific, while
+Figure [\[fig-ch30-fig08\]](#fig-ch30-fig08), only the output layers are task specific, while
 all the tasks share the same hidden layers and neural network backbone
 architecture. In contrast, *soft* parameter sharing uses separate neural
 networks for each task, but regularization techniques such as distance
@@ -288,16 +282,15 @@ restricted to only two modalities and can be used for any number of
 input modalities). Depending on the task, we may employ a matching loss
 that forces the embedding vectors between related images and text to be
 similar, as shown in
-Figure [1.8](#fig-ch30-fig09){reference="fig-ch30-fig09"
-reference-type="ref"}. (See
-Chapter [\[ch01\]](../ch01){reference="ch01" reference-type="ref"} for
+Figure [1.8](#fig-ch30-fig09). (See
+Chapter [\[ch01\]](./ch01/_books_ml-q-and-ai-ch01.md) for
 more on embedding vectors.)
 
-![Multimodal learning with a matching
-loss](../images/ch30-fig09.png){#fig-ch30-fig09}
+<a id="fig-ch30-fig09"></a>
 
-Figure [1.8](#fig-ch30-fig09){reference="fig-ch30-fig09"
-reference-type="ref"} shows image and text encoders as separate
+![Multimodal learning with a matching loss](../images/ch30-fig09.png)
+
+Figure [1.8](#fig-ch30-fig09) shows image and text encoders as separate
 components. The image encoder can be a convolutional backbone or a
 vision transformer, and the language encoder can be a recurrent neural
 network or language transformer. However, it's common nowadays to use
@@ -307,19 +300,17 @@ processes both video and text for action classification and video
 captioning.
 
 Optimizing a matching loss, as shown in
-Figure [1.8](#fig-ch30-fig09){reference="fig-ch30-fig09"
-reference-type="ref"}, can be useful for learning embeddings that can be
+Figure [1.8](#fig-ch30-fig09), can be useful for learning embeddings that can be
 applied to various tasks, such as image classification or summarization.
 However, it is also possible to directly optimize the target loss, like
 classification or regression, as
-Figure [1.9](#fig-ch30-fig10){reference="fig-ch30-fig10"
-reference-type="ref"} illustrates.
+Figure [1.9](#fig-ch30-fig10) illustrates.
 
-![Multimodal learning for optimizing a supervised\
-learning objective](../images/ch30-fig10.png){#fig-ch30-fig10}
+<a id="fig-ch30-fig10"></a>
 
-Figure [1.9](#fig-ch30-fig10){reference="fig-ch30-fig10"
-reference-type="ref"} shows data being collected from two different
+![Multimodal learning for optimizing a supervised learning objective](../images/ch30-fig10.png)
+
+Figure [1.9](#fig-ch30-fig10) shows data being collected from two different
 sensors. One could be a thermometer and the other could be a video
 camera. The signal encoders convert the information into embeddings
 (sharing the same number of dimensions), which are then concatenated to
@@ -338,7 +329,7 @@ Choosing models with stronger inductive biases can help lower data
 requirements by making assumptions about the structure of the data. For
 example, due to their inductive biases, convolutional networks require
 less data than vision transformers, as discussed in
-Chapter [\[ch13\]](../ch13){reference="ch13" reference-type="ref"}.
+Chapter [\[ch13\]](./ch13/_books_ml-q-and-ai-ch13.md).
 
 ## Recommendations
 [](#recommendations)
@@ -351,27 +342,26 @@ engineering are compatible with all the methods discussed in this
 chapter. Multi-task learning and multimodal inputs can also be used with
 the learning strategies outlined here. If the model suffers from
 overfitting, we should also include techniques discussed in
-Chapters [\[ch05\]](../ch05){reference="ch05" reference-type="ref"} and
-[\[ch06\]](../ch06){reference="ch06" reference-type="ref"}.
+Chapters [\[ch05\]](./ch05/_books_ml-q-and-ai-ch05.md) and
+[\[ch06\]](./ch06/_books_ml-q-and-ai-ch06.md).
 
 But how can we choose between active learning, few-shot learning,
 transfer learning, self-supervised learning, semi-supervised learning,
 and weakly supervised learning? Deciding which supervised learning
 technique(s) to try is highly context dependent. You can use the diagram
-in Figure [1.10](#fig-ch30-fig11){reference="fig-ch30-fig11"
-reference-type="ref"} as a guide to choosing the best method for your
+in Figure [1.10](#fig-ch30-fig11) as a guide to choosing the best method for your
 particular project.
 
-![Recommendations for choosing a supervised learning\
-technique](../images/ch30-fig11.png){#fig-ch30-fig11}
+<a id="fig-ch30-fig11"></a>
+
+![Recommendations for choosing a supervised learning technique](../images/ch30-fig11.png)
 
 Note that the dark boxes in
-Figure [1.10](#fig-ch30-fig11){reference="fig-ch30-fig11"
-reference-type="ref"} are not terminal nodes but arc back to the second
+Figure [1.10](#fig-ch30-fig11) are not terminal nodes but arc back to the second
 box, "Evaluate model performance"?; additional arrows were omitted to
 avoid visual clutter.
 
-### Exercises
+## Exercises
 [](#exercises)
 
 30-1. Suppose we are given the task of constructing a machine learning

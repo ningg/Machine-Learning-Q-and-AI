@@ -29,14 +29,13 @@ run the model on a batch of samples rather than on a single sample at a
 time. This is sometimes also referred to as *batched inference* and
 assumes that we are receiving multiple input samples or user inputs
 simultaneously or within a short time window, as illustrated in
-Figure [1.1](#fig-ch22-fig01){reference="fig-ch22-fig01"
-reference-type="ref"}.
+Figure [1.1](#fig-ch22-fig01).
 
-![Sequential inference and batched
-inference](../images/ch22-fig01.png){#fig-ch22-fig01}
+<a id="fig-ch22-fig01"></a>
 
-Figure [1.1](#fig-ch22-fig01){reference="fig-ch22-fig01"
-reference-type="ref"} shows sequential inference processing one item at
+![Sequential inference and batched inference](../images/ch22-fig01.png)
+
+Figure [1.1](#fig-ch22-fig01) shows sequential inference processing one item at
 a time, which creates a bottleneck if there are several samples waiting
 to be classified. In batched inference, the model processes all four
 samples at the same time.
@@ -69,12 +68,11 @@ doing this would be to use a `for`{.language-plaintext
 by one. However, this can be quite slow, especially for large arrays.
 With vectorization, you can perform the dot product operation on the
 entire array at once, as shown in
-Figure [1.2](#fig-ch22-fig02){reference="fig-ch22-fig02"
-reference-type="ref"}.
+Figure [1.2](#fig-ch22-fig02).
 
-![A classic loop versus a vectorized dot\
-product computation in
-Python](../images/ch22-fig02.png){#fig-ch22-fig02}
+<a id="fig-ch22-fig02"></a>
+
+![A classic loop versus a vectorized dot product computation in Python](../images/ch22-fig02.png)
 
 In the context of linear algebra or deep learning frameworks like
 TensorFlow and PyTorch, vectorization is typically done automatically.
@@ -93,15 +91,15 @@ down a loop's iteration space into smaller chunks or "tiles."? This
 ensures that once data is loaded into cache, all possible computations
 are performed on it before the cache is cleared.
 
-Figure [1.3](#fig-ch22-fig03){reference="fig-ch22-fig03"
-reference-type="ref"} illustrates the concept of loop tiling for
+Figure [1.3](#fig-ch22-fig03) illustrates the concept of loop tiling for
 accessing elements in a two-dimensional array. In a regular
 `for`{.language-plaintext .highlighter-rouge} loop, we iterate over
 columns and rows one element at a time, whereas in loop tiling, we
 subdivide the array into smaller tiles.
 
-![Loop tiling in a two-dimensional
-array](../images/ch22-fig03.png){#fig-ch22-fig03}
+<a id="fig-ch22-fig03"></a>
+
+![Loop tiling in a two-dimensional array](../images/ch22-fig03.png)
 
 Note that in languages such as Python, we don't usually perform loop
 tiling, because Python and many other high-level languages do not allow
@@ -115,12 +113,12 @@ arrays.
 
 *Operator fusion*, sometimes called *loop fusion*, is an optimization
 technique that combines multiple loops into a single loop. This is
-illustrated in Figure [1.4](#fig-ch22-fig04){reference="fig-ch22-fig04"
-reference-type="ref"}, where two separate loops to calculate the sum and
+illustrated in Figure [1.4](#fig-ch22-fig04),
 the product of an array of numbers are fused into a single loop.
 
-![Fusing two loops (left) into one
-(right)](../images/ch22-fig04.png){#fig-ch22-fig04}
+<a id="fig-ch22-fig04"></a>
+
+![Fusing two loops (left) into one (right)](../images/ch22-fig04.png)
 
 Operator fusion can improve the performance of a model by reducing the
 overhead of loop control, decreasing memory access times by improving
@@ -182,16 +180,15 @@ categories.
 ::: note
 Other techniques to improve inference speeds include knowledge
 distillation and pruning, discussed in
-Chapter [\[ch06\]](../ch06){reference="ch06" reference-type="ref"}.
+Chapter [\[ch06\]](./ch06/_books_ml-q-and-ai-ch06.md).
 However, these techniques affect the model architecture, resulting in
 smaller models, so they are out of scope for this chapter's question.
 :::
 
-### Exercises
+## Exercises
 [](#exercises)
 
-22-1. Chapter [\[ch07\]](../ch07){reference="ch07"
-reference-type="ref"} covered several multi-GPU training paradigms to
+22-1. Chapter [\[ch07\]](./ch07/_books_ml-q-and-ai-ch07.md) covered several multi-GPU training paradigms to
 speed up modeltraining.UsingmultipleGPUscan,intheory,alsospeedupmodel
 inference. However, in reality, this approach is often not the most
 efficient or most practical option. Why is that?

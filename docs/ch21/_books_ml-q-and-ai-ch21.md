@@ -32,13 +32,12 @@ architectures or loss functions). Here, we consider existing benchmark
 datasets to compare the new method to previous approaches and determine
 whether it is an improvement over the status quo.
 
-Figure [\[fig-ch21-fig01\]](#fig-ch21-fig01){reference="fig-ch21-fig01"
-reference-type="ref"} summarizes the difference between data-centric and
+Figure [1.1](#fig-ch21-fig01) summarizes the difference between data-centric and
 model-centric workflows.
 
-::: figurewide
-![image](../images/ch21-fig01.png){style="width:5.625in"}
-:::
+<a id="fig-ch21-fig01"></a>
+
+![image](../images/ch21-fig01.png)
 
 While *data-centric AI* is a relatively new term, the idea behind it is
 not. Many people I've spoken with say they used a data-centric
@@ -118,7 +117,7 @@ model-centric modes makes a lot of sense. Investing in data quality
 early on will benefit all models. Once a good dataset is available, we
 can begin to focus on model tuning to improve performance.
 
-### Exercises
+## Exercises
 [](#exercises)
 
 21-1. A recent trend is the increased use of predictive analytics in

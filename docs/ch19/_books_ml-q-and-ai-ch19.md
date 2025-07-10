@@ -136,19 +136,17 @@ This is commonly done for n-grams rather than individual words, but for
 simplicity, we will stick to words or 1-grams. (In practice, BLEU is
 often computed for 4-grams.)
 
-Figure [\[fig-ch19-fig01\]](#fig-ch19-fig01){reference="fig-ch19-fig01"
-reference-type="ref"} demonstrates the BLEU score calculation, using the
+Figure [1.1](#fig-ch19-fig01) demonstrates the BLEU score calculation, using the
 example of calculating the 1-gram BLEU score. The individual steps in
-Figure [\[fig-ch19-fig01\]](#fig-ch19-fig01){reference="fig-ch19-fig01"
-reference-type="ref"} illustrate how we compute the 1-gram BLEU score
+Figure [1.1](#fig-ch19-fig01) illustrate how we compute the 1-gram BLEU score
 based on its individual components, the weighted precision times a
 brevity penalty. You can also find a code implementation of this
 calculation in the *supplementary/q15-text* *-augment* subfolder at
 <https://github.com/rasbt/MachineLearning-QandAI-book>.
 
-::: figurewide
-![image](../images/ch19-fig01.png){style="width:5.625in"}
-:::
+<a id="fig-ch19-fig01"></a>
+
+![image](../images/ch19-fig01.png)
 
 BLEU has several shortcomings, mostly owing to the fact that it measures
 string similarity, and similarity alone is not sufficient for capturing
@@ -191,13 +189,12 @@ Modern implementations compute ROUGE as an F1 score that is the harmonic
 mean of recall (how many words in the reference occur in the candidate
 text) and precision (how many words in the candidate text occur in the
 reference text). For example,
-Figure [\[fig-ch19-fig02\]](#fig-ch19-fig02){reference="fig-ch19-fig02"
-reference-type="ref"} shows a 1-gram ROUGE score computation (though in
+Figure [1.2](#fig-ch19-fig02) shows a 1-gram ROUGE score computation (though in
 practice, ROUGE is often computed for bigrams, that is, 2-grams).
 
-::: figurewide
-![image](../images/ch19-fig02.png){style="width:6.5in"}
-:::
+<a id="fig-ch19-fig02"></a>
+
+![image](../images/ch19-fig02.png)
 
 There are other ROUGE variants beyond ROUGE-1 (the F1 score""based
 ROUGE score for 1-grams):
@@ -233,11 +230,11 @@ Another more recently developed extrinsic metric is BERTScore.
 Forreadersfamiliarwiththeinceptionscoreforgenerativevision models,
 BERTScore takes a similar approach, using embeddings from a pretrained
 model (for more on embeddings, see
-Chapter [\[ch01\]](../ch01){reference="ch01" reference-type="ref"}).
+Chapter [\[ch01\]](./ch01/_books_ml-q-and-ai-ch01.md)).
 Here, BERT-  Score measures the similarity between a candidate text and
 a reference text by leveraging the contextual embeddings produced by the
 BERT model (the encoder-style transformer discussed in
-Chapter [\[ch17\]](../ch17){reference="ch17" reference-type="ref"}).
+Chapter [\[ch17\]](./ch17/_books_ml-q-and-ai-ch17.md)).
 
 The steps to compute BERTScore are as follows:
 
@@ -259,14 +256,13 @@ The steps to compute BERTScore are as follows:
 6.  Compute the final BERTScore by taking the average similarity scores
     of all tokens in the candidate text.
 
-Figure [\[fig-ch19-fig03\]](#fig-ch19-fig03){reference="fig-ch19-fig03"
-reference-type="ref"} further illustrates these six steps. You can also
+Figure [1.3](#fig-ch19-fig03) further illustrates these six steps. You can also
 find a computational example in the *subfolder/q15-text-augment*
 subfolder at <https://github.com/rasbt/MachineLearning-QandAI-book>.
 
-::: figurewide
-![image](../images/ch19-fig03.png){style="width:5.625in"}
-:::
+<a id="fig-ch19-fig03"></a>
+
+![image](../images/ch19-fig03.png)
 
 BERTScore can be used for translations and summaries, and it captures
 the semantic similarity better than traditional metrics like BLEU and
@@ -297,12 +293,11 @@ Besides perplexity, ROUGE, BLEU, and BERTScore, several other popular
 evaluation metrics are used to assess the predictive performance of
 LLMs.
 
-### Exercises
+## Exercises
 [](#exercises)
 
 19-1. In step 5 of
-Figure [\[fig-ch19-fig03\]](#fig-ch19-fig03){reference="fig-ch19-fig03"
-reference-type="ref"}, the cosine similarity between the two embeddings
+Figure [1.3](#fig-ch19-fig03), the cosine similarity between the two embeddings
 of "cat"? is not 1.0, where 1.0 indicates a maximum cosine
 similarity. Why is that?
 

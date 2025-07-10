@@ -31,11 +31,11 @@ meet the criteria for proper metrics.
 
 To illustrate the criteria of a proper metric, consider two vectors or
 points **v** and **w** and their distance *d*(**v**, **w**), as shown in
-Figure [1.1](#fig-ch27-fig01){reference="fig-ch27-fig01"
-reference-type="ref"}.
+Figure [1.1](#fig-ch27-fig01).
 
-![The Euclidean distance between two 2D
-vectors](../images/ch27-fig01.png){#fig-ch27-fig01}
+<a id="fig-ch27-fig01"></a>
+
+![The Euclidean distance between two 2D vectors](../images/ch27-fig01.png)
 
 The criteria of a proper metric are the following:
 
@@ -53,14 +53,14 @@ The criteria of a proper metric are the following:
 To better understand the triangle inequality, think of the points as
 vertices of a triangle. If we consider any triangle, the sum of two of
 the sides is always larger than the third side, as illustrated in
-Figure [1.2](#fig-ch27-fig02){reference="fig-ch27-fig02"
-reference-type="ref"}.
+Figure [1.2](#fig-ch27-fig02).
 
-![Triangle inequality](../images/ch27-fig02.png){#fig-ch27-fig02}
+<a id="fig-ch27-fig02"></a>
 
-Considerwhatwouldhappenifthetriangleinequalitydepictedin
-Figure [1.2](#fig-ch27-fig02){reference="fig-ch27-fig02"
-reference-type="ref"} weren't true. If the sum of the lengths of sides
+![Triangle inequality](../images/ch27-fig02.png)
+
+Consider what would happen if the triangle in equality depicted in
+Figure [1.2](#fig-ch27-fig02) weren't true. If the sum of the lengths of sides
 AB and BC was shorter than AC, then sides AB and BC would not meet to
 form a triangle; instead, they would fall short of each other. Thus, the
 fact that they meet and form a triangle demonstrates the triangle
@@ -196,7 +196,10 @@ As you can see, 0.624 \\(\\geq\\) 0.825 + 0.277 does not hold here.
 In conclusion, while the cross-entropy loss is a useful loss function
 for training neural networks via (stochastic) gradient descent, it is
 not a proper distance metric, as it does not satisfy any of the three
-criteria. \### Exercises
+criteria. 
+
+## Exercises
+[](#exercises)
 
 27-1. Suppose we consider using the mean absolute error (MAE) as an
 alternative to the root mean square error (RMSE) for measuring the
