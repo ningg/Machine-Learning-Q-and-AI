@@ -36,10 +36,13 @@
 
 
 <div align="center">
-  <p>在线阅读：<a href="https://ningg.top/Machine-Learning-Q-and-AI/">《大模型技术30讲》</a></p>
+  <p><b>在线阅读</b>：<a href="https://ningg.top/Machine-Learning-Q-and-AI/">《大模型技术30讲》</a></p>
   <p><em>深入理解 LLM 核心原理，直击要点</em></p>
 </div>
 
+
+
+![](./docs/images/2023-ml-ai-beyond-cn.jpg)
 
 当前工程中，维护的 大模型技术 30 讲，目录如下：
 
