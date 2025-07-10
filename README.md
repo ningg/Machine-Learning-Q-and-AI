@@ -34,17 +34,17 @@
 
 ## 3.在线阅读
 
+<div align='center'>
+    <img src="./docs/images/2023-ml-ai-beyond-cn.jpg" alt="Datawhale" width="30%">
+    <img src="./docs/images/2023-ml-ai-beyond.jpg" alt="Datawhale" width="28%">
+</div>
 
-<div align="center">
+
+<div align="left">
   <p><b>在线阅读</b>：<a href="https://ningg.top/Machine-Learning-Q-and-AI/">《大模型技术30讲》</a></p>
   <p><em>深入理解 LLM 核心原理，直击要点</em></p>
 </div>
 
-
-<div align='center'>
-    <img src="./docs/images/2023-ml-ai-beyond-cn.jpg" alt="Datawhale" width="30%">
-    <img src="./docs/images/2023-ml-ai-beyond.jpg" alt="Datawhale" width="30%">
-</div>
 
 
 
