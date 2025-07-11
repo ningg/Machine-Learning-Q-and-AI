@@ -388,7 +388,7 @@ x_{ij}^{10}
 - Source 选择 `docs` 目录（或根目录，取决于你的 index.html 放在哪里）
 - 保存后，GitHub 会分配一个访问地址（如 `https://yourname.github.io/your-repo/`）
 
-### 5. 访问你的 Docsify 网站
+#### 5. 访问你的 Docsify 网站
 - 访问上一步生成的 URL 即可看到 Docsify 驱动的文档网站。
 
 ---

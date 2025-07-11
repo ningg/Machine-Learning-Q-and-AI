@@ -363,19 +363,19 @@ dimensions that can effectively capture most of the information in the
 original data. Popular low-rank transformation techniques include
 principal component analysis and singular vector decomposition.
 
-For example, suppose \\(\\Delta\\)*W* represents the parameter update
+For example, suppose $\Delta W$ represents the parameter update
 for a weight matrix of the LLM with dimension
-\\(\\mathbb{R}\\)*^A\\(\\times\\)B^*. We can decompose the weight update
-matrix into two smaller matrices: \\(\\Delta\\)*W* = *W~A~W~B~*, where
-*W~A~*\\(\\in\\) \\(\\mathbb{R}\\)*^A\\(\\times\\)h^* and
-*W~A~*\\(\\in\\) \\(\\mathbb{R}\\)*^h\\(\\times\\)B^*. Here, we keep the
-original weight frozen and train only the new matrices *W~A~* and
-*W~B~*.
+$\mathbb{R}^{A \times B}$. We can decompose the weight update
+matrix into two smaller matrices: $\Delta W = W_A W_B$, where
+$W_A \in \mathbb{R}^{A \times h}$ and
+$W_A \in \mathbb{R}^{h \times B}$. Here, we keep the
+original weight frozen and train only the new matrices $W_A$ and
+$W_B$.
 
 How is this method parameter efficient if we introduce new weight
 matrices? These new matrices can be very small. For example, if *A* = 25
-and *B* = 50, then the size of \\(\\Delta\\)*W* is 25 \\(\\times\\) 50 =
-1,250. If *h* = 5, then *W~A~* has 125 parameters, *W~B~* has 250
+and *B* = 50, then the size of $\Delta W$ is 25 $\times$ 50 =
+1,250. If *h* = 5, then $W_A$ has 125 parameters, $W_B$ has 250
 parameters, and the two matrices combined have only 125 + 250 = 375
 parameters in total.
 
