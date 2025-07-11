@@ -67,7 +67,9 @@ like German-to-English translation.
 
 <a id="fig-ch18-fig01"></a>
 
-![The general fine-tuning workflow of large language models](../images/ch18-fig01.png)
+<div align="center">
+  <img src="../images/ch18-fig01.png" alt="The general fine-tuning workflow of large language models" width="60%" />
+</div>
 
 The conventional methods for fine-tuning pretrained LLMs include
 updating only the output layers, a method we'll refer to as
@@ -95,7 +97,9 @@ section so far.
 
 <a id="fig-ch18-fig02"></a>
 
-![image](../images/ch18-fig02.png)
+<div align="center">
+  <img src="../images/ch18-fig02.png" alt="image" width="60%" />
+</div>
 
 
 In addition to the conceptual summary of the three fine-tuning methods
@@ -116,7 +120,9 @@ Figure [1.3](#fig-ch18-fig03).
 
 <a id="fig-ch18-fig03"></a>
 
-![Prompting an LLM for in-context learning](../images/ch18-fig03.png)
+<div align="center">
+  <img src="../images/ch18-fig03.png" alt="Prompting an LLM for in-context learning" width="60%" />
+</div>
 
 As Figure [1.3](#fig-ch18-fig03) shows, in-context learning aims to provide context
 or examples of the task within the input or prompt, allowing the model
@@ -138,9 +144,7 @@ model like GPT-3. To do so, we provide a few examples of
 German""English translations to help the model understand the desired
 task, as follows:
 
-:::: {.language-plaintext .highlighter-rouge}
-::: highlight
-``` highlight
+```text
 Translate the following German sentences into English:
 
 Example 1:
@@ -154,8 +158,6 @@ English: "The weather is nice today."
 Translate this sentence:
 German: "Wo ist die naechste Bushaltestelle?"
 ```
-:::
-::::
 
 Generally, in-context learning does not perform as well as fine-tuning
 for certain tasks or specific datasets since it relies on the pretrained
@@ -207,7 +209,9 @@ Figure [1.3](#fig-ch18-fig04)
 
 <a id="fig-ch18-fig04"></a>
 
-![LLM indexing to retrieve information from external documents](../images/ch18-fig04.png)
+<div align="center">
+  <img src="../images/ch18-fig04.png" alt="LLM indexing to retrieve information from external documents" width="60%" />
+</div>
 
 In the context of LLMs,we can think of indexing as a workaround based on
 in-context learning that allows us to turn LLMs into information
@@ -230,7 +234,9 @@ Figure [1.5](#fig-ch18-fig05).
 
 <a id="fig-ch18-fig05"></a>
 
-![The main categories of parameter-efficient fine-tuning techniques, with popular examples](../images/ch18-fig05.png)
+<div align="center">
+  <img src="../images/ch18-fig05.png" alt="The main categories of parameter-efficient fine-tuning techniques, with popular examples" width="60%" />
+</div>
 
 In contrast to the hard prompting approach discussed in the previous
 section, *softprompting* strategies optimize embedded versions of the
@@ -242,16 +248,12 @@ The prepended tensor is then tuned to improve the modeling performance
 on a target data-  set using gradient descent. In Python-like
 pseudocode, soft prompt tuning can be described as
 
-:::: {.language-plaintext .highlighter-rouge}
-::: highlight
-``` highlight
+```python
 x = EmbeddingLayer(input_ids)
 x = concatenate([soft_prompt_tensor, x],
                  dim=seq_len)
 output = model(x)
 ```
-:::
-::::
 
 where the `soft_prompt_tensor`{.language-plaintext .highlighter-rouge}
 has the same feature dimension as the embedded inputs produced by the
@@ -266,9 +268,7 @@ instead of only the embedded inputs, which can stabilize the training.
 The implementation of prefix tuning is illustrated in the following
 pseudocode:
 
-:::: {.language-plaintext .highlighter-rouge}
-::: highlight
-``` highlight
+```python
 def transformer_block_with_prefix(x):
     soft_prompt = FullyConnectedLayers(# Prefix
       soft_prompt)                     # Prefix
@@ -282,11 +282,9 @@ def transformer_block_with_prefix(x):
     x = LayerNorm(x + residual)
     return x
 ```
-:::
-::::
 
 Let's break
-Listing [1.6](#prefixTuning) into three main parts: implementing the soft
+Listing [1.6](#fig-ch18-fig06) into three main parts: implementing the soft
 prompt, concatenating the soft prompt (prefix) with the input, and
 implementing the rest of the transformer block.
 
@@ -301,14 +299,16 @@ transformer block, including self-attention, layer normalization, and
 feed-forward neural network layers, wrapped around residual connections.
 
 As shown in
-Listing [1.6](#prefixTuning), prefix tuning modifies a transformer block by
+Listing [1.6](#fig-ch18-fig06), prefix tuning modifies a transformer block by
 adding a trainable soft prompt.
 Figure [1.6](#fig-ch18-fig06) further illustrates the difference between a
 regular transformer block and a prefix tuning transformer block.
 
 <a id="fig-ch18-fig06"></a>
 
-![A regular transformer compared with prefix tuning](../images/ch18-fig06.png)
+<div align="center">
+  <img src="../images/ch18-fig06.png" alt="A regular transformer compared with prefix tuning" width="60%" />
+</div>
 
 Both soft prompt tuning and prefix tuning are considered parameter
 efficient since they require training only the prepended parameter
@@ -323,7 +323,9 @@ Figure [1.7](#fig-ch18-fig07).
 
 <a id="fig-ch18-fig07"></a>
 
-![Comparison of a regular transformer block (left) and a transformer block with adapter layers](../images/ch18-fig07.png)
+<div align="center">
+  <img src="../images/ch18-fig07.png" alt="Comparison of a regular transformer block (left) and a transformer block with adapter layers" width="60%" />
+</div>
 
 Only the new adapter layers are updated when training the LLM using the
 original adapter method, while the remaining transformer layers remain
@@ -335,9 +337,7 @@ considered parameter efficient.
 
 In pseudocode, the original adapter method can be written as follows:
 
-:::: {.language-plaintext .highlighter-rouge}
-::: highlight
-``` highlight
+```python
 def transformer_block_with_adapter(x):
     residual = x
     x = SelfAttention(x)
@@ -349,8 +349,6 @@ def transformer_block_with_adapter(x):
     x = LayerNorm(x + residual)
     return x
 ```
-:::
-::::
 
 *Low-rankadaptation(LoRA)*, another popular parameter-efficient
 fine-tuning method worth considering,refers to reparameterizing
@@ -382,16 +380,12 @@ parameters in total.
 After learning the weight update matrix, we can then write the matrix
 multiplication of a fully connected layer, as shown in this pseudocode:
 
-:::: {.language-plaintext .highlighter-rouge}
-::: highlight
-``` highlight
+```python
 def lora_forward_matmul(x):
     h = x . W  # Regular matrix multiplication
     h += x . (W_A . W_B) * scalar
     return h
 ```
-:::
-::::
 
 In
 Listing [\[matrixMultiplication\]](#matrixMultiplication),`scalar`{.language-plaintext .highlighter-rouge}
@@ -483,8 +477,7 @@ model preserves (and does not forget) the original knowledge?
   "Language Models Are Unsupervised Multitask Learners"? (2019),
   [*https://*](https://www.semanticscholar.org/paper/Language-Models-are-Unsupervised-Multitask-Learners-Radford-Wu/9405cc0d6169988371b2755e573cc28650d14dfe)
   [*www.semanticscholar.org/paper/Language-Models-are-Unsupervised*](https://www.semanticscholar.org/paper/Language-Models-are-Unsupervised-Multitask-Learners-Radford-Wu/9405cc0d6169988371b2755e573cc28650d14dfe)
-  [*-Multitask-Learners-Radford-Wu/9405cc0d6169988371b2755e573*](https://www.semanticscholar.org/paper/Language-Models-are-Unsupervised-Multitask-Learners-Radford-Wu/9405cc0d6169988371b2755e573cc28650d14dfe)
-  [*cc28650d14dfe*](https://www.semanticscholar.org/paper/Language-Models-are-Unsupervised-Multitask-Learners-Radford-Wu/9405cc0d6169988371b2755e573cc28650d14dfe).
+  [*-Multitask-Learners-Radford-Wu/9405cc0d6169988371b2755e573*](https://www.semanticscholar.org/paper/Language-Models-are-Unsupervised-Multitask-Learners-Radford-Wu/9405cc0d6169988371b2755e573cc28650d14dfe).
 
 - The paper introducing the GPT-3 model: Tom B. Brown et al.,
   "Language Models Are Few-Shot Learners"? (2020),

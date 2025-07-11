@@ -52,9 +52,9 @@ Figure [1.1](#fig-ch05-fig01), the validation accuracy increases as the trainin
 set sizes increase. This indicates that we can improve the model's
 performance by collecting more data.
 
-<a id="fig-ch05-fig01"></a>
-
-![The learning curve plot of a model fit to different training\set sizes](../images/ch05-fig01.png)
+<div align="center">
+  <img src="../images/ch05-fig01.png" alt="The learning curve plot of a model fit to different training\set sizes" width="60%" />
+</div>
 
 The gap between training and validation performance indicates the degree
 of overfitting--the more extensive the gap, the more overfitting
@@ -84,9 +84,9 @@ pixel values for specific pixel locations.
 Figure [1.2](#fig-ch05-fig02) highlights common image data augmentation
 techniques, including `increasing brightness`, `flipping`, and `cropping`.
 
-<a id="fig-ch05-fig02"></a>
-
-![A selection of different image data augmentation techniques](../images/ch05-fig02.png)
+<div align="center">
+  <img src="../images/ch05-fig02.png" alt="A selection of different image data augmentation techniques" width="60%" />
+</div>
 
 Data augmentation is usually standard for image data (see
 Figure [1.2](#fig-ch05-fig02)) and text data (discussed further in

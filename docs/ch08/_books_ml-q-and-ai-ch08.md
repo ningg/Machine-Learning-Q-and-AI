@@ -87,7 +87,9 @@ Figure [1.1](#fig-ch08-fig01).
 
 <a id="fig-ch08-fig01"></a>
 
-![The conceptual difference between model weights in fully connected layers (top) and attention scores (bottom)](../images/ch08-fig01.png)
+<div align="center">
+  <img src="../images/ch08-fig01.png" alt="The conceptual difference between model weights in fully connected layers (top) and attention scores (bottom)" width="60%" />
+</div>
 
 As the top part of
 Figure [1.1](#fig-ch08-fig01) shows, once trained, the weights of fully
@@ -186,7 +188,9 @@ easy to parallelize across different GPU cores.
 
 <a id="fig-ch08-fig02"></a>
 
-![A simplified self-attention mechanism without weight parameters](../images/ch08-fig02.png)
+<div align="center">
+  <img src="../images/ch08-fig02.png" alt="A simplified self-attention mechanism without weight parameters" width="60%" />
+</div>
 
 In addition, the individual weight matrices used in the self-attention
 mechanism (not shown in Figure [1.2](#fig-ch08-fig02)) can be distributed across different machines for

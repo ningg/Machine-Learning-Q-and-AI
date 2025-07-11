@@ -76,40 +76,31 @@ Perplexity is closely related to the cross entropy directly minimized
 during training, which is why we refer to perplexity as an *intrinsic
 metric*.
 
-Perplexity is defined as 2^*H*(*p*,\ *q*)/*n*^, where *H*(*p*, *q*) is
-the cross entropy between the true distribution of words *p* and the
-predicted distribution of words *q*, and *n* is the sentence length (the
-number of words or tokens) to normalize the score. As cross entropy
-decreases, perplexity decreases as well""the lower the perplexity, the
-better. While we typically compute the cross entropy using a natural
-logarithm, we calculate the cross entropy and perplexity with a base-2
-logarithm for the intuitive relationship to hold. (However, whether we
-use a base-2 or natural logarithm is only a minor implementation
-detail.)
+Perplexity is defined as
 
-In practice, since the probability for each word in the target sentence
-is always 1, we compute the cross entropy as the logarithm of the
-probability scores returned by the model we want to evaluate. In other
-words, if we have the predicted probability score for each word in a
-sentence *s*, we can compute the perplexity directly as follows:
+$$
+2^{H(p,q)/n}
+$$
 
-\\\[Perplexity(s) = 2\^{-\\frac{1}{n} \\log_2 (p(s))}\\\]
+where *H*(*p*, *q*) is the cross entropy between the true distribution of words *p* and the predicted distribution of words *q*, and *n* is the sentence length (the number of words or tokens) to normalize the score. As cross entropy decreases, perplexity decreases as well——the lower the perplexity, the better. While we typically compute the cross entropy using a natural logarithm, we calculate the cross entropy and perplexity with a base-2 logarithm for the intuitive relationship to hold. (However, whether we use a base-2 or natural logarithm is only a minor implementation detail.)
 
-where *s* is the sentence or text we want to evaluate, such as "The
-quick brown fox jumps over the lazy dog,"? *p*(*s*) is the probability
-scores returned by the model, and *n* is the number of words or tokens.
-For example, if the model returns the probability scores \[0.99, 0.85,
-0.89, 0.99, 0.99, 0.99, 0.99, 0.99\], the perplexity is:
+In practice, since the probability for each word in the target sentence is always 1, we compute the cross entropy as the logarithm of the probability scores returned by the model we want to evaluate. In other words, if we have the predicted probability score for each word in a sentence *s*, we can compute the perplexity directly as follows:
 
-\\\[\\begin{aligned} & 2\^{-\\frac{1}{8} \\cdot \\sum_i \\log_2 p(w_i)}
-\\\\ =\\,& 2\^{-\\frac{1}{8} \\cdot \\sum \\log_2 (0.99 \\,\\times\\,
-0.85 \\,\\times\\, 0.89 \\,\\times\\, 0.99 \\,\\times\\, 0.99
-\\,\\times\\, 0.99 \\,\\times\\, 0.99 \\,\\times\\, 0.99) }\\\\
-=\\,&1.043 \\end{aligned}\\\]
+$$
+Perplexity(s) = 2^{-\frac{1}{n} \log_2 (p(s))}
+$$
 
-If the sentence was "The fast black cat jumps over the lazy dog,"?
-with probabilities \[0.99, 0.65, 0.13, 0.05, 0.21, 0.99, 0.99, 0.99\],
-the corresponding perplexity would be 2.419.
+where *s* is the sentence or text we want to evaluate, such as "The quick brown fox jumps over the lazy dog,"? *p*(*s*) is the probability scores returned by the model, and *n* is the number of words or tokens. For example, if the model returns the probability scores [0.99, 0.85, 0.89, 0.99, 0.99, 0.99, 0.99, 0.99], the perplexity is:
+
+$$
+\begin{aligned}
+& 2^{-\frac{1}{8} \cdot \sum_i \log_2 p(w_i)} \\
+=\,& 2^{-\frac{1}{8} \cdot \sum \log_2 (0.99 \times 0.85 \times 0.89 \times 0.99 \times 0.99 \times 0.99 \times 0.99 \times 0.99) }\\
+=\,&1.043
+\end{aligned}
+$$
+
+If the sentence was "The fast black cat jumps over the lazy dog,"? with probabilities [0.99, 0.65, 0.13, 0.05, 0.21, 0.99, 0.99, 0.99], the corresponding perplexity would be 2.419.
 
 You can find a code implementation and example of this calculation in
 the *supplementary/q19-evaluation-llms* subfolder at
@@ -136,17 +127,9 @@ This is commonly done for n-grams rather than individual words, but for
 simplicity, we will stick to words or 1-grams. (In practice, BLEU is
 often computed for 4-grams.)
 
-Figure [1.1](#fig-ch19-fig01) demonstrates the BLEU score calculation, using the
-example of calculating the 1-gram BLEU score. The individual steps in
-Figure [1.1](#fig-ch19-fig01) illustrate how we compute the 1-gram BLEU score
-based on its individual components, the weighted precision times a
-brevity penalty. You can also find a code implementation of this
-calculation in the *supplementary/q15-text* *-augment* subfolder at
-<https://github.com/rasbt/MachineLearning-QandAI-book>.
-
-<a id="fig-ch19-fig01"></a>
-
-![image](../images/ch19-fig01.png)
+<div align="center">
+  <img src="../images/ch19-fig01.png" alt="image" width="60%" />
+</div>
 
 BLEU has several shortcomings, mostly owing to the fact that it measures
 string similarity, and similarity alone is not sufficient for capturing
@@ -189,12 +172,9 @@ Modern implementations compute ROUGE as an F1 score that is the harmonic
 mean of recall (how many words in the reference occur in the candidate
 text) and precision (how many words in the candidate text occur in the
 reference text). For example,
-Figure [1.2](#fig-ch19-fig02) shows a 1-gram ROUGE score computation (though in
-practice, ROUGE is often computed for bigrams, that is, 2-grams).
-
-<a id="fig-ch19-fig02"></a>
-
-![image](../images/ch19-fig02.png)
+<div align="center">
+  <img src="../images/ch19-fig02.png" alt="image" width="60%" />
+</div>
 
 There are other ROUGE variants beyond ROUGE-1 (the F1 score""based
 ROUGE score for 1-grams):
@@ -256,13 +236,9 @@ The steps to compute BERTScore are as follows:
 6.  Compute the final BERTScore by taking the average similarity scores
     of all tokens in the candidate text.
 
-Figure [1.3](#fig-ch19-fig03) further illustrates these six steps. You can also
-find a computational example in the *subfolder/q15-text-augment*
-subfolder at <https://github.com/rasbt/MachineLearning-QandAI-book>.
-
-<a id="fig-ch19-fig03"></a>
-
-![image](../images/ch19-fig03.png)
+<div align="center">
+  <img src="../images/ch19-fig03.png" alt="image" width="60%" />
+</div>
 
 BERTScore can be used for translations and summaries, and it captures
 the semantic similarity better than traditional metrics like BLEU and

@@ -32,12 +32,9 @@ architectures or loss functions). Here, we consider existing benchmark
 datasets to compare the new method to previous approaches and determine
 whether it is an improvement over the status quo.
 
-Figure [1.1](#fig-ch21-fig01) summarizes the difference between data-centric and
-model-centric workflows.
-
-<a id="fig-ch21-fig01"></a>
-
-![image](../images/ch21-fig01.png)
+<div align="center">
+  <img src="../images/ch21-fig01.png" alt="data-centric vs model-centric workflows" width="60%" />
+</div>
 
 While *data-centric AI* is a relatively new term, the idea behind it is
 not. Many people I've spoken with say they used a data-centric

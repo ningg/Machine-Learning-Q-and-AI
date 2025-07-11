@@ -44,7 +44,10 @@ general approach to check for discrepancies between training and test
 sets is adversarial validation.
 
 *Adversarial validation*, illustrated in
-Figure [\[fig-ch29-fig01\]](#fig-ch29-fig01), is a technique to identify the degree of
+<div align="center">
+  <img src="../images/ch29-fig01.png" alt="adversarial validation illustration" width="60%" />
+</div>
+is a technique to identify the degree of
 similarity between the training and test data. We first merge the
 training and test sets into a single dataset, and then we create a
 binary target variable that distinguishes between training and test
@@ -56,10 +59,6 @@ want the model to perform poorly, indicating that the training and test
 data distributions are similar. On the other hand, if the model performs
 well in predicting the *Is test?* label, it suggests a discrepancy
 between the training and test data that we need to investigate further.
-
-<a id="fig-ch29-fig01"></a>
-
-![image](../images/ch29-fig01.png)
 
 What mitigation techniques should we use if we detect a training""test
 set discrepancy using adversarial validation? If we're working with a

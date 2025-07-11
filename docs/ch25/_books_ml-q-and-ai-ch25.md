@@ -69,7 +69,9 @@ Figure [\[fig-ch25-fig01\]](#fig-ch25-fig01).
 
 <a id="fig-ch25-fig01"></a>
 
-![image](../images/ch25-fig01.png)
+<div align="center">
+  <img src="../images/ch25-fig01.png" alt="Confidence interval illustration" width="60%" />
+</div>
 
 More concretely, if we were to draw 100 different representative test
 sets from the population (for instance, the entire possible set of
@@ -88,7 +90,9 @@ Figure [1.1](#fig-ch25-fig02).
 
 <a id="fig-ch25-fig02"></a>
 
-![Two common plotting variants to illustrate confidence intervals](../images/ch25-fig02.png)
+<div align="center">
+  <img src="../images/ch25-fig02.png" alt="Two common plotting variants to illustrate confidence intervals" width="60%" />
+</div>
 
 This visualization is functionally useful in a number of ways. For
 instance, when confidence intervals for two model performances do *not*
@@ -237,7 +241,9 @@ Figure [\[fig-ch25-fig04\]](#fig-ch25-fig04).
 
 <a id="fig-ch25-fig04"></a>
 
-![image](../images/ch25-fig04.png)
+<div align="center">
+  <img src="../images/ch25-fig04.png" alt="Out-of-bag bootstrapping illustration" width="60%" />
+</div>
 
 Suppose we constructed *k* training and test sets. We can now take each
 of these splits to train and evaluate the model to obtain *k* test set
@@ -248,7 +254,9 @@ Figure [1.2](#fig-ch25-fig05).
 
 <a id="fig-ch25-fig05"></a>
 
-![The distribution of test accuracies from 1,000 bootstrap samples, including a 95 percent confidence interval](../images/ch25-fig05.png)
+<div align="center">
+  <img src="../images/ch25-fig05.png" alt="Distribution of test accuracies from 1,000 bootstrap samples, including a 95 percent confidence interval" width="60%" />
+</div>
 
 Unlike the normal approximation interval method, we can consider this
 out-of-bag bootstrap approach to be more agnostic to the specific
@@ -280,7 +288,9 @@ previous section.
 
 <a id="fig-ch25-fig06"></a>
 
-![Bootstrapping the test set](../images/ch25-fig06.png)
+<div align="center">
+  <img src="../images/ch25-fig06.png" alt="Bootstrapping the test set" width="60%" />
+</div>
 
 Contrary to the prior bootstrap technique, this method uses a trained
 model and simply resamples the test set (instead of the training sets).

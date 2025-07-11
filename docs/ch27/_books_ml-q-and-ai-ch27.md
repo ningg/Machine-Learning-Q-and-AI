@@ -35,7 +35,9 @@ Figure [1.1](#fig-ch27-fig01).
 
 <a id="fig-ch27-fig01"></a>
 
-![The Euclidean distance between two 2D vectors](../images/ch27-fig01.png)
+<div align="center">
+  <img src="../images/ch27-fig01.png" alt="The Euclidean distance between two 2D vectors" width="60%" />
+</div>
 
 The criteria of a proper metric are the following:
 
@@ -57,7 +59,9 @@ Figure [1.2](#fig-ch27-fig02).
 
 <a id="fig-ch27-fig02"></a>
 
-![Triangle inequality](../images/ch27-fig02.png)
+<div align="center">
+  <img src="../images/ch27-fig02.png" alt="Triangle inequality" width="60%" />
+</div>
 
 Consider what would happen if the triangle in equality depicted in
 Figure [1.2](#fig-ch27-fig02) weren't true. If the sum of the lengths of sides

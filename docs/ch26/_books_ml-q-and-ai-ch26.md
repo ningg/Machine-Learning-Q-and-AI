@@ -118,9 +118,9 @@ labels such that the set contains the true label with a given confidence
 (typically 95 percent), as illustrated in
 Figure [1.1](#fig-ch26-fig01).
 
-<a id="fig-ch26-fig01"></a>
-
-![Prediction regions for a classification task](../images/ch26-fig01.png)
+<div align="center">
+  <img src="../images/ch26-fig01.png" alt="Prediction regions for a classification task" width="60%" />
+</div>
 
 As depicted in Figure [1.1](#fig-ch26-fig01), the ImageNet dataset consists of a subset of bird
 species. Some bird species in ImageNet belong to one of the follow-

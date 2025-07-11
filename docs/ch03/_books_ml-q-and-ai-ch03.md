@@ -55,7 +55,9 @@ concept with a smaller example.
 
 <a id="fig-ch03-fig01"></a>
 
-![Training tasks in few-shot learning](../images/ch03-fig01.png)
+<div align="center">
+  <img src="../images/ch03-fig01.png" alt="Training tasks in few-shot learning" width="60%" />
+</div>
 
 Rather than fitting the model to the training dataset, we can think of
 `few-shot learning` as "**learning to learn.**"? In contrast to supervised
@@ -88,7 +90,9 @@ Figure [1.2](#fig-ch03-fig02).
 
 <a id="fig-ch03-fig02"></a>
 
-![Classes seen during training and testing](../images/ch03-fig02.png)
+<div align="center">
+  <img src="../images/ch03-fig02.png" alt="Classes seen during training and testing" width="60%" />
+</div>
 
 As Figure [1.2](#fig-ch03-fig02) shows, the support and query sets contain
 different images from the same class during training. The same is true
@@ -106,7 +110,9 @@ Figure [1.3](#fig-ch03-fig03) illustrates this approach.
 
 <a id="fig-ch03-fig03"></a>
 
-![Learning embeddings that are suitable for classification](../images/ch03-fig03.png)
+<div align="center">
+  <img src="../images/ch03-fig03.png" alt="Learning embeddings that are suitable for classification" width="60%" />
+</div>
 
 The model learns how to produce good embeddings from the support set to
 classify the query image based on finding the most similar embedding

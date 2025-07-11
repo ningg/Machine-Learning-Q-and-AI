@@ -48,7 +48,9 @@ mechanism in Figure [1.1](#fig-ch16-fig01).
 
 <a id="fig-ch16-fig01"></a>
 
-![The Bahdanau mechanism uses a separate RNN to compute attention weights.](../images/ch16-fig01.png)
+<div align="center">
+  <img src="../images/ch16-fig01.png" alt="The Bahdanau mechanism uses a separate RNN to compute attention weights." width="60%" />
+</div>
 
 In Figure [1.1](#fig-ch16-fig01), the $\alpha$ values represent the attention
 weights for the second sequence element and each other element in the
@@ -85,7 +87,9 @@ Figure [\[fig-ch16-fig02\]](#fig-ch16-fig02).
 
 <a id="fig-ch16-fig02"></a>
 
-![image](../images/ch16-fig02.png)
+<div align="center">
+  <img src="../images/ch16-fig02.png" alt="image" width="60%" />
+</div>
 
 Figure [\[fig-ch16-fig02\]](#fig-ch16-fig02) shows two different sequence-to-sequence RNN
 designs for sentence translation.
@@ -145,7 +149,9 @@ elements.
 
 <a id="fig-ch16-fig03"></a>
 
-![A simple self-attention mechanism without weight matrices](../images/ch16-fig03.png)
+<div align="center">
+  <img src="../images/ch16-fig03.png" alt="A simple self-attention mechanism without weight matrices" width="60%" />
+</div>
 
 While Figure [1.2](#fig-ch16-fig03) doesn't include weight matrices, the
 self-attention mechanism used in transformers typically involves

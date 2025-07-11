@@ -47,7 +47,9 @@ Figure [\[fig-ch11-fig01\]](#fig-ch11-fig01).
 
 <a id="fig-ch11-fig01"></a>
 
-![image](../images/ch11-fig01.png)
+<div align="center">
+  <img src="../images/ch11-fig01.png" alt="image" width="60%" />
+</div>
 
 
 What is the number of trainable parameters in this convolutional
@@ -70,7 +72,9 @@ illustrated in Figure [1.1](#fig-ch11-fig02).
 
 <a id="fig-ch11-fig02"></a>
 
-![A convolutional layer with one input channel and one output channel](../images/ch11-fig02.png)
+<div align="center">
+  <img src="../images/ch11-fig02.png" alt="A convolutional layer with one input channel and one output channel" width="60%" />
+</div>
 
 In this case, we have 26 parameters, since we have $5 \times 5 = 25$ weights via the kernel plus the bias unit. 
 The computation to determine an output value or pixel $z$ 
@@ -84,7 +88,9 @@ Figure [1.2](#fig-ch11-fig03).
 
 <a id="fig-ch11-fig03"></a>
 
-![A convolutional layer with three input channels and one output channel](../images/ch11-fig03.png)
+<div align="center">
+  <img src="../images/ch11-fig03.png" alt="A convolutional layer with three input channels and one output channel" width="60%" />
+</div>
 
 In that case, we compute the output value by performing the
 aforementioned operation, $\sum_j w_j x_j$, for each input
@@ -110,7 +116,9 @@ have $5 \times 76 = 380$ parameters.
 
 <a id="fig-ch11-fig04"></a>
 
-![A convolutional layer with three input channels and five output channels](../images/ch11-fig04.png)
+<div align="center">
+  <img src="../images/ch11-fig04.png" alt="A convolutional layer with three input channels and five output channels" width="60%" />
+</div>
 
 Returning to the neural network architecture illustrated in
 Figure [\[fig-ch11-fig01\]](#fig-ch11-fig01) at the beginning of this section, we compute the
@@ -145,7 +153,9 @@ in Figure [1.4](#fig-ch11-fig05), we have $5 \times 3 = 15$ weights and three b
 
 <a id="fig-ch11-fig05"></a>
 
-![A fully connected layer with five inputs and three outputs](../images/ch11-fig05.png)
+<div align="center">
+  <img src="../images/ch11-fig05.png" alt="A fully connected layer with five inputs and three outputs" width="60%" />
+</div>
 
 Returning once more to the neural network architecture illustrated in
 Figure [\[fig-ch11-fig01\]](#fig-ch11-fig01), we can now calculate the parameters in the fully

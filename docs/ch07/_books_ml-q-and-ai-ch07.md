@@ -100,9 +100,9 @@ Figure [\[fig-ch07-fig01\]](#fig-ch07-fig01){reference="fig-ch07-fig01"
 reference-type="ref"} for two GPUs. (This concept can be extended to an
 arbitrary number of GPUs.)
 
-::: figurewide
-![image](../images/ch07-fig01.png){style="width:5.525in"}
-:::
+<div align="center">
+  <img src="../images/ch07-fig01.png" alt="image" width="60%" />
+</div>
 
 Like model parallelism, tensor parallelism allows us to work around
 memory limitations. At the same time, it also lets us execute operations
@@ -117,9 +117,9 @@ can slow down the overall training process.
 Figure [1.1](#fig-ch07-fig02){reference="fig-ch07-fig02"
 reference-type="ref"} compares model, data, and tensor parallelism.
 
-![A comparison of model, data, and tensor
-parallelism](../images/ch07-fig02.png){#fig-ch07-fig02
-style="width:98.0%"}
+<div align="center">
+  <img src="../images/ch07-fig02.png" alt="A comparison of model, data, and tensor parallelism" width="60%" />
+</div>
 
 In model parallelism, we put different layers onto different GPUs to
 work around GPU memory limitations. In data parallelism, we split a
@@ -175,8 +175,9 @@ reference-type="ref"}, splits the input sequence into smaller chunks to
 be distributed across GPUs, which aims to reduce computation memory
 constraints of self-attention mechanisms.
 
-![Sequence parallelism divides long inputs\
-among GPUs.](../images/ch07-fig03.png){#fig-ch07-fig03}
+<div align="center">
+  <img src="../images/ch07-fig03.png" alt="Sequence parallelism divides long inputs among GPUs." width="60%" />
+</div>
 
 How does sequence parallelism relate to the multi-GPU techniques
 discussed earlier? Sequence parallelism deals specifically with

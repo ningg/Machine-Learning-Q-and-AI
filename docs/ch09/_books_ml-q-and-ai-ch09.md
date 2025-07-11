@@ -83,7 +83,9 @@ continuous ones.
 
 <a id="fig-ch09-fig01"></a>
 
-![A four-layer deep Boltzmann machine with three stacks of hidden nodes](../images/ch09-fig01.png)
+<div align="center">
+  <img src="../images/ch09-fig01.png" alt="A four-layer deep Boltzmann machine with three stacks of hidden nodes" width="60%" />
+</div>
 
 Suppose we are interested in generating images. A DBM can learn the
 joint probability distribution over the pixel values in a simple image
@@ -134,7 +136,9 @@ from a distribution that approximates a standard Gaussian distribution.
 
 <a id="fig-ch09-fig02"></a>
 
-![An autoencoder](../images/ch09-fig02.png)
+<div align="center">
+  <img src="../images/ch09-fig02.png" alt="An autoencoder" width="60%" />
+</div>
 
 Training a VAE involves optimizing the model's parameters to minimize
 a loss function composed of two terms: a reconstruction loss and a
@@ -173,7 +177,9 @@ Figure [1.3](#fig-ch09-fig03).
 
 <a id="fig-ch09-fig03"></a>
 
-![A generative adversarial network](../images/ch09-fig03.png)
+<div align="center">
+  <img src="../images/ch09-fig03.png" alt="A generative adversarial network" width="60%" />
+</div>
 
 The generator in a GAN somewhat resembles the decoder of a VAE in terms
 of its functionality. During inference, both GAN generators and VAE
@@ -224,7 +230,9 @@ back.
 
 <a id="fig-ch09-fig04"></a>
 
-![A flow-based model](../images/ch09-fig04.png)
+<div align="center">
+  <img src="../images/ch09-fig04.png" alt="A flow-based model" width="60%" />
+</div>
 
 At first glance, the illustration is very similar to the VAE
 illustration in Figure [1.2](#fig-ch09-fig02). However, while VAEs use neural network encoders
@@ -279,7 +287,9 @@ Figure [1.5](#fig-ch09-fig05) illustrates this process, where pixels $i_1, \ldo
 
 <a id="fig-ch09-fig05"></a>
 
-![Autoregressive pixel generation](../images/ch09-fig05.png)
+<div align="center">
+  <img src="../images/ch09-fig05.png" alt="Autoregressive pixel generation" width="60%" />
+</div>
 
 The advantage of autoregressive models is that the next-pixel (or word)
 prediction is relatively straightforward and interpretable. In addition,
@@ -323,7 +333,9 @@ noise tensor *z~n~* sampled from a Gaussian distribution.
 
 <a id="fig-ch09-fig06"></a>
 
-![The diffusion process](../images/ch09-fig06.png)
+<div align="center">
+  <img src="../images/ch09-fig06.png" alt="The diffusion process" width="60%" />
+</div>
 
 While both diffusion models and flow-based models are generative models
 aiming to learn complex data distributions, they approach the problem
@@ -336,7 +348,8 @@ generating high-quality images with realistic details and textures.
 Diffusion models are also easier to train than GANs. The downside of
 diffusion models, however, is that they are slower to sample from since
 they require running a series of sequential steps, similar to flow-based
-models and autoregressive models.
+models and autoregressive models. This can make diffusion models less
+practical for some applications requiring fast sampling.
 
 ### Consistency Models
 [](#consistency-models)
@@ -356,7 +369,9 @@ illustrated in Figure [1.7](#fig-ch09-fig07).
 
 <a id="fig-ch09-fig07"></a>
 
-![Trajectories of a consistency model for image denoising](../images/ch09-fig07.png)
+<div align="center">
+  <img src="../images/ch09-fig07.png" alt="Trajectories of a consistency model for image denoising" width="60%" />
+</div>
 
 As Figure [1.7](#fig-ch09-fig07) demonstrates, we can think of consistency models
 as models that learn to map any point from a probability flow ODE, which

@@ -35,7 +35,9 @@ sentence grammatically incorrect.
 
 <a id="fig-ch14-fig01"></a>
 
-![Common and uncommonwordsinagivencontext](../images/ch14-fig01.png)
+<div align="center">
+  <img src="../images/ch14-fig01.png" alt="Common and uncommonwordsinagivencontext" width="60%" />
+</div>
 
 It is easy to construct counterexamples using polysemous words, that is,
 words that have multiple meanings that are related but not identical.
@@ -85,7 +87,9 @@ apart in the embedding space.
 
 <a id="fig-ch14-fig02"></a>
 
-![Word2vec embeddings in a two-dimensional\vector space](../images/ch14-fig02.png)
+<div align="center">
+  <img src="../images/ch14-fig02.png" alt="Word2vec embeddings in a two-dimensional\vector space" width="60%" />
+</div>
 
 BERT is an LLM based on the transformer architecture (see
 Chapter [\[ch08\]](./ch08/_books_ml-q-and-ai-ch08.md))
@@ -99,7 +103,9 @@ are close in the embedding space.
 
 <a id="fig-ch14-fig03"></a>
 
-![BERT's pretraining task involves predicting randomly masked words.](../images/ch14-fig03.png)
+<div align="center">
+  <img src="../images/ch14-fig03.png" alt="BERT's pretraining task involves predicting randomly masked words." width="60%" />
+</div>
 
 GPT, which like BERT is also an LLM based on the transformer
 architecture, functions as a decoder. Decoder-style models like GPT
@@ -111,7 +117,9 @@ sequence simultaneously.
 
 <a id="fig-ch14-fig04"></a>
 
-![GPT is pretrained by predicting the next word.](../images/ch14-fig04.png)
+<div align="center">
+  <img src="../images/ch14-fig04.png" alt="GPT is pretrained by predicting the next word." width="60%" />
+</div>
 
 Where BERT is a bidirectional language model that considers the whole
 input sequence, GPT only strictly parses previous sequence elements.

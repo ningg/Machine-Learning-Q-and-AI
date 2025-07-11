@@ -38,7 +38,9 @@ different parts of the data from a given data stream.
 
 <a id="fig-ch20-fig01"></a>
 
-![Stateless training replaces the model periodically.](../images/ch20-fig01.png)
+<div align="center">
+  <img src="../images/ch20-fig01.png" alt="Stateless training replaces the model periodically." width="60%" />
+</div>
 
 For example, to update the initial model in
 Figure [1.1](#fig-ch20-fig01) (Model 1) to a newer model (Model 2), we train the
@@ -75,7 +77,9 @@ transfer learning or self-supervised learning.
 
 <a id="fig-ch20-fig02"></a>
 
-![Stateful training updates models periodically.](../images/ch20-fig02.png)
+<div align="center">
+  <img src="../images/ch20-fig02.png" alt="Stateful training updates models periodically." width="60%" />
+</div>
 
 The stateful approach mimics a transfer or self-supervised learning
 workflow where we adopt a pretrained model for fine-tuning. However,

@@ -38,9 +38,9 @@ we would typicallymapthediseaseseverityvariabletoanintegerrepresentation
 and 3 (severe and moderate) is the same as the distance between 2 and 1
 (mild and none).
 
-<a id="fig-ch24-fig01"></a>
-
-![The distance between ordinal categories is arbitrary.](../images/ch24-fig01.png)
+<div align="center">
+  <img src="../images/ch24-fig01.png" alt="The distance between ordinal categories is arbitrary." width="60%" />
+</div>
 
 In short, we use Poisson regression for count data. We use ordinal
 regression when we know that certain outcomes are "higher"? or

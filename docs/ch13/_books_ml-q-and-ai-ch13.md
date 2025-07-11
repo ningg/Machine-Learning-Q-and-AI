@@ -92,8 +92,9 @@ the right, the results will correspondingly shift to the right, as
 illustrated in Figure [1.1](#fig-ch13-fig01){reference="fig-ch13-fig01"
 reference-type="ref"}.
 
-![Equivariance under different image
-translations](../images/ch13-fig01.png){#fig-ch13-fig01}
+<div align="center">
+  <img src="../images/ch13-fig01.png" alt="Equivariance under different image translations" width="60%" />
+</div>
 
 As Figure [1.1](#fig-ch13-fig01){reference="fig-ch13-fig01"
 reference-type="ref"} shows, under translation invariance, we get the
@@ -111,8 +112,9 @@ demonstrates the concept of translation equivariance in CNNs, in which a
 convolutional filter captures the input signal (the two dark blocks)
 irrespective of where it is located in the input.
 
-![Convolutional filters and translation
-equivariance](../images/ch13-fig02.png){#fig-ch13-fig02}
+<div align="center">
+  <img src="../images/ch13-fig02.png" alt="Convolutional filters and translation equivariance" width="60%" />
+</div>
 
 Figure [1.2](#fig-ch13-fig02){reference="fig-ch13-fig02"
 reference-type="ref"} shows a \\(3 \\times 3\\) input image that
@@ -133,8 +135,9 @@ weights will be activated, as illustrated in
 Figure [1.3](#fig-ch13-fig03){reference="fig-ch13-fig03"
 reference-type="ref"}.
 
-![Location-specific weights in fully\
-connected layers](../images/ch13-fig03.png){#fig-ch13-fig03}
+<div align="center">
+  <img src="../images/ch13-fig03.png" alt="Location-specific weights in fully connected layers" width="60%" />
+</div>
 
 Like fully connected networks, ViT architecture (and transformer
 architecture in general) lacks the inductive bias for spatial invariance
@@ -195,8 +198,9 @@ image, as illustrated in
 Figure [1.4](#fig-ch13-fig04){reference="fig-ch13-fig04"
 reference-type="ref"}.
 
-![How a vision transformer operates on image
-patches](../images/ch13-fig04.png){#fig-ch13-fig04}
+<div align="center">
+  <img src="../images/ch13-fig04.png" alt="How a vision transformer operates on image patches" width="60%" />
+</div>
 
 The patchify inductive bias allows ViTs to scale to larger image sizes
 without increasing the number of parameters in the model, which can be

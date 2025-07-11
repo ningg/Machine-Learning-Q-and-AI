@@ -45,7 +45,9 @@ Figure [1.1](#fig-ch02-fig01) illustrates the process of transfer learning.
 
 <a id="fig-ch02-fig01"></a>
 
-![Pretraining with conventional transfer learning](../images/ch02-fig01.png)
+<div align="center">
+  <img src="../images/ch02-fig01.png" alt="Pretraining with conventional transfer learning" width="60%" />
+</div>
 
 > Tips: 自监督学习，与 迁移学习 是相关的。
 > - 相同点在于，都是使用`预训练`的模型，然后进行`微调`。
@@ -62,7 +64,9 @@ called *pretext tasks*.
 
 <a id="fig-ch02-fig02"></a>
 
-![Pretraining with self-supervised learning](../images/ch02-fig02.png)
+<div align="center">
+  <img src="../images/ch02-fig02.png" alt="Pretraining with self-supervised learning" width="60%" />
+</div>
 
 The main difference between transfer learning and self-supervised
 learning lies in how we obtain the labels during step 1 in
@@ -133,7 +137,9 @@ using a perturbation mask that obfuscates certain pixels in an image.
 
 <a id="fig-ch02-fig03"></a>
 
-![Self-prediction after applying a perturbation mask](../images/ch02-fig03.png)
+<div align="center">
+  <img src="../images/ch02-fig03.png" alt="Self-prediction after applying a perturbation mask" width="40%" />
+</div>
 
 A classic example is a denoising autoencoder that learns to remove noise
 from an input image. Alternatively, consider a masked autoencoder that
@@ -142,7 +148,9 @@ Figure [1.4](#fig-ch02-fig04).
 
 <a id="fig-ch02-fig04"></a>
 
-![A masked autoencoder reconstructing a masked image](../images/ch02-fig04.png)
+<div align="center">
+  <img src="../images/ch02-fig04.png" alt="A masked autoencoder reconstructing a masked image" width="60%" />
+</div>
 
 Missing (`masked`) input self-prediction methods are also commonly used in
 natural language processing contexts. Many generative LLMs, such as GPT,
@@ -171,7 +179,9 @@ Figure [1.5](#fig-ch02-fig05).
 
 <a id="fig-ch02-fig05"></a>
 
-![Image pairs encountered in contrastive learning](../images/ch02-fig05.png)
+<div align="center">
+  <img src="../images/ch02-fig05.png" alt="Image pairs encountered in contrastive learning" width="60%" />
+</div>
 
 The perturbed cat image in this figure still shows the same cat, so we
 want the network to produce a similar embedding vector. We also consider
@@ -196,7 +206,9 @@ perturbed version of the sample.
 
 <a id="fig-ch02-fig06"></a>
 
-![Contrastive learning](../images/ch02-fig06.png)
+<div align="center">
+  <img src="../images/ch02-fig06.png" alt="Contrastive learning" width="60%" />
+</div>
 
 This example outlines the main idea behind contrastive learning, but
 many subvariants exist. Broadly, we can categorize these into *sample*

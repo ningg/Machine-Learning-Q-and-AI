@@ -57,7 +57,9 @@ Figure [1.1](#fig-ch30-fig01).
 
 <a id="fig-ch30-fig01"></a>
 
-![The process of transfer learning](../images/ch30-fig01.png)
+<div align="center">
+  <img src="../images/ch30-fig01.png" alt="The process of transfer learning" width="60%" />
+</div>
 
 Transfer learning is usually done in the context of deep learning, where
 model weights can be updated. This is in contrast to tree-based methods,
@@ -84,7 +86,9 @@ illustrated in Figure [1.2](#fig-ch30-fig02).
 
 <a id="fig-ch30-fig02"></a>
 
-![Inpainting for self-supervised learning](../images/ch30-fig02.png)
+<div align="center">
+  <img src="../images/ch30-fig02.png" alt="Inpainting for self-supervised learning" width="60%" />
+</div>
 
 For more detail on self-supervised learning, see
 Chapter [\[ch02\]](./ch02/_books_ml-q-and-ai-ch02.md).
@@ -101,7 +105,9 @@ machine learning model's performance.
 
 <a id="fig-ch30-fig03"></a>
 
-![In active learning, a model queries an oracle for labels.](../images/ch30-fig03.png)
+<div align="center">
+  <img src="../images/ch30-fig03.png" alt="In active learning, a model queries an oracle for labels." width="60%" />
+</div>
 
 The term *active learning* refers to the fact that the model actively
 selects data for labeling. For example, the simplest form of active
@@ -157,7 +163,9 @@ statistics of the different features (kurtosis, range, mean, and so on).
 
 <a id="fig-ch30-fig05"></a>
 
-![The meta-learning process involving the extraction of metadata](../images/ch30-fig05.png)
+<div align="center">
+  <img src="../images/ch30-fig05.png" alt="The meta-learning process involving the extraction of metadata" width="60%" />
+</div>
 
 The extracted meta-features provide information for selecting a machine
 learning algorithm for the dataset at hand. Using this approach, we can
@@ -178,7 +186,9 @@ a subset of the unlabeled dataset.
 
 <a id="fig-ch30-fig06"></a>
 
-![Weakly supervised learning uses external labeling functions to train machine learning models.](../images/ch30-fig06.png)
+<div align="center">
+  <img src="../images/ch30-fig06.png" alt="Weakly supervised learning uses external labeling functions to train machine learning models." width="60%" />
+</div>
 
 Let'sreturntotheexampleofemailspamclassificationfromChapter [\[ch23\]](./ch23/_books_ml-q-and-ai-ch23.md) to illustrate a rule-based approach for data
 labeling. In weak supervision, we could design a rule-based classifier
@@ -208,7 +218,9 @@ Figure [1.7](#fig-ch30-fig07).
 
 <a id="fig-ch30-fig07"></a>
 
-![Semi-supervised learning](../images/ch30-fig07.png)
+<div align="center">
+  <img src="../images/ch30-fig07.png" alt="Semi-supervised learning" width="60%" />
+</div>
 
 While we can apply weak supervision to an entirely unlabeled dataset,
 semi-supervised learning requires at least a portion of the data to be
@@ -259,7 +271,9 @@ methods.
 
 <a id="fig-ch30-fig08"></a>
 
-![image](../images/ch30-fig08.png)
+<div align="center">
+  <img src="../images/ch30-fig08.png" alt="Multi-task learning: hard vs soft parameter sharing" width="60%" />
+</div>
 
 In *hard* parameter sharing, as shown in
 Figure [\[fig-ch30-fig08\]](#fig-ch30-fig08), only the output layers are task specific, while
@@ -288,7 +302,9 @@ more on embedding vectors.)
 
 <a id="fig-ch30-fig09"></a>
 
-![Multimodal learning with a matching loss](../images/ch30-fig09.png)
+<div align="center">
+  <img src="../images/ch30-fig09.png" alt="Multimodal learning with a matching loss" width="60%" />
+</div>
 
 Figure [1.8](#fig-ch30-fig09) shows image and text encoders as separate
 components. The image encoder can be a convolutional backbone or a
@@ -308,7 +324,9 @@ Figure [1.9](#fig-ch30-fig10) illustrates.
 
 <a id="fig-ch30-fig10"></a>
 
-![Multimodal learning for optimizing a supervised learning objective](../images/ch30-fig10.png)
+<div align="center">
+  <img src="../images/ch30-fig10.png" alt="Multimodal learning for optimizing a supervised learning objective" width="60%" />
+</div>
 
 Figure [1.9](#fig-ch30-fig10) shows data being collected from two different
 sensors. One could be a thermometer and the other could be a video
@@ -354,7 +372,9 @@ particular project.
 
 <a id="fig-ch30-fig11"></a>
 
-![Recommendations for choosing a supervised learning technique](../images/ch30-fig11.png)
+<div align="center">
+  <img src="../images/ch30-fig11.png" alt="Recommendations for choosing a supervised learning technique" width="60%" />
+</div>
 
 Note that the dark boxes in
 Figure [1.10](#fig-ch30-fig11) are not terminal nodes but arc back to the second

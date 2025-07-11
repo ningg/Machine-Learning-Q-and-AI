@@ -87,7 +87,9 @@ Figure [1.1](#fig-ch06-fig01).
 
 <a id="fig-ch06-fig01"></a>
 
-![Early stopping](../images/ch06-fig01.png)
+<div align="center">
+  <img src="../images/ch06-fig01.png" alt="Early stopping" width="60%" />
+</div>
 
 In Figure [1.1](#fig-ch06-fig01), we can see that the validation accuracy increases
 as the training and validation accuracy gap closes. The point where the
@@ -142,7 +144,9 @@ diverges from the other in terms of information content).
 
 <a id="fig-ch06-fig02"></a>
 
-![image](../images/ch06-fig02.png)
+<div align="center">
+  <img src="../images/ch06-fig02.png" alt="image" width="60%" />
+</div>
 
 By minimizing the Kullback-Leibler divergence--the difference between
 the teacher and student score distributions--the student learns to
@@ -240,7 +244,9 @@ Figure [1.2](#fig-ch06-fig03).
 
 <a id="fig-ch06-fig03"></a>
 
-![[k]{.upright}-fold cross-validation for creating model ensembles](../images/ch06-fig03.png)
+<div align="center">
+  <img src="../images/ch06-fig03.png" alt="[k]{.upright}-fold cross-validation for creating model ensembles" width="60%" />
+</div>
 
 As shown in Figure [1.2](#fig-ch06-fig03), the *k*-fold ensemble approach trains each of the
 *k* models on the respective *k* "" 1 training folds in each round.

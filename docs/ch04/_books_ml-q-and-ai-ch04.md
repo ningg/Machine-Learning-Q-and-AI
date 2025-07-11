@@ -33,7 +33,9 @@ help clarify the concept.
 
 <a id="fig-ch04-fig01"></a>
 
-![The lottery hypothesis training procedure](../images/ch04-fig01.png)
+<div align="center">
+  <img src="../images/ch04-fig01.png" alt="The lottery hypothesis training procedure" width="60%" />
+</div>
 
 In Figure [1.1](#fig-ch04-fig01), we start with a large `neural network` that we
 train until convergence , meaning we put in our best efforts to make it

@@ -27,7 +27,9 @@ illustrated in Figure [1.1](#fig-ch28-fig01).
 
 <a id="fig-ch28-fig01"></a>
 
-![An example of [k]{.upright}-fold cross-validation for model evaluation where [k]{.upright} = 5](../images/ch28-fig01.png)
+<div align="center">
+  <img src="../images/ch28-fig01.png" alt="An example of k-fold cross-validation for model evaluation where k = 5" width="60%" />
+</div>
 
 Using *k*-fold cross-validation, we usually evaluate the performance of
 a particular hyperparameter configuration by computing the average
@@ -76,7 +78,9 @@ Figure [1.2](#fig-ch28-fig02).
 
 <a id="fig-ch28-fig02"></a>
 
-![A comparison of 5-fold and 10-fold cross-validation](../images/ch28-fig02.png)
+<div align="center">
+  <img src="../images/ch28-fig02.png" alt="A comparison of 5-fold and 10-fold cross-validation" width="60%" />
+</div>
 
 However, this does not mean large training sets are bad, since they can
 reduce the pessimistic bias of the performance estimate (mostly a good

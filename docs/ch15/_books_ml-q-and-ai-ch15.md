@@ -215,9 +215,9 @@ sentences"? prompts, among others. We can also use LLMs as alternatives
 to back translation, prompting them to rewrite sentences as shown in
 Figure [1.1](#fig-ch15-fig01).
 
-<a id="fig-ch15-fig01"></a>
-
-![Using an LLM to rewrite a sentence](../images/ch15-fig01.jpg)
+<div align="center">
+  <img src="../images/ch15-fig01.jpg" alt="Using an LLM to rewrite a sentence" width="60%" />
+</div>
 
 
 Note that an LLM, as shown in
