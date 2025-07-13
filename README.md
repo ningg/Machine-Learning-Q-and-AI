@@ -34,18 +34,17 @@
 
 ## 3.在线阅读（GitHub Pages）
 
+**在线阅读**：[《大模型技术30讲》](https://ningg.top/Machine-Learning-Q-and-AI/)
+
+* *深入理解 LLM 核心原理，直击要点*
+
 <div align='center'>
     <img src="./docs/images/2023-ml-ai-beyond-cn.jpg" alt="Datawhale" width="30%">
     <img src="./docs/images/2023-ml-ai-beyond.jpg" alt="Datawhale" width="27.65%">
 </div>
 
 
-**在线阅读**：[《大模型技术30讲》](https://ningg.top/Machine-Learning-Q-and-AI/)
 
-* *深入理解 LLM 核心原理，直击要点*
-
-
----
 
 当前工程中，维护的 大模型技术 30 讲，目录如下：
 
