@@ -89,8 +89,8 @@
 - **Part IV: Production and Deployment**
 
    - [Chapter 20: Stateless and Stateful Training](./docs/ch20/_books_ml-q-and-ai-ch20.md) ✅
-   - [Chapter 21: Data-Centric AI](./docs/ch21/_books_ml-q-and-ai-ch21.md)
-   - [Chapter 22: Speeding Up Inference](./docs/ch22/_books_ml-q-and-ai-ch22.md)
+   - [Chapter 21: Data-Centric AI](./docs/ch21/_books_ml-q-and-ai-ch21.md) ✅
+   - [Chapter 22: Speeding Up Inference](./docs/ch22/_books_ml-q-and-ai-ch22.md) ✅
    - [Chapter 23: Data Distribution Shifts](./docs/ch23/_books_ml-q-and-ai-ch23.md) ✅
 
 - **Part V: Predictive Performance and Model Evaluation**
