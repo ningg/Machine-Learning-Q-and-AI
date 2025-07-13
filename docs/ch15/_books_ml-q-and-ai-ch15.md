@@ -216,7 +216,7 @@ to back translation, prompting them to rewrite sentences as shown in
 Figure [1.1](#fig-ch15-fig01).
 
 <div align="center">
-  <img src="../images/ch15-fig01.jpg" alt="Using an LLM to rewrite a sentence" width="60%" />
+  <img src="./images/ch15-fig01.jpg" alt="Using an LLM to rewrite a sentence" width="60%" />
 </div>
 
 

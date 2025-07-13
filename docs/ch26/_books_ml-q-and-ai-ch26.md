@@ -119,7 +119,7 @@ labels such that the set contains the true label with a given confidence
 Figure [1.1](#fig-ch26-fig01).
 
 <div align="center">
-  <img src="../images/ch26-fig01.png" alt="Prediction regions for a classification task" width="60%" />
+  <img src="./images/ch26-fig01.png" alt="Prediction regions for a classification task" width="60%" />
 </div>
 
 As depicted in Figure [1.1](#fig-ch26-fig01), the ImageNet dataset consists of a subset of bird

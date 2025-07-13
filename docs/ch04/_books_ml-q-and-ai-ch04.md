@@ -34,7 +34,7 @@ help clarify the concept.
 <a id="fig-ch04-fig01"></a>
 
 <div align="center">
-  <img src="../images/ch04-fig01.png" alt="The lottery hypothesis training procedure" width="60%" />
+  <img src="./images/ch04-fig01.png" alt="The lottery hypothesis training procedure" width="60%" />
 </div>
 
 In Figure [1.1](#fig-ch04-fig01), we start with a large `neural network` that we

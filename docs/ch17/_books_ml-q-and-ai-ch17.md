@@ -47,7 +47,7 @@ Figure [\[fig-ch17-fig01\]](#fig-ch17-fig01).
 <a id="fig-ch17-fig01"></a>
 
 <div align="center">
-  <img src="../images/ch17-fig01.png" alt="image" width="60%" />
+  <img src="./images/ch17-fig01.png" alt="image" width="60%" />
 </div>
 
 
@@ -114,7 +114,7 @@ pretraining objective used in BERT-style transformers.
 <a id="fig-ch17-fig02"></a>
 
 <div align="center">
-  <img src="../images/ch17-fig02.png" alt="BERT randomly masks 15 percent of the input tokens during pretraining." width="60%" />
+  <img src="./images/ch17-fig02.png" alt="BERT randomly masks 15 percent of the input tokens during pretraining." width="60%" />
 </div>
 
 As Figure [1.1](#fig-ch17-fig02) demonstrates, the main idea behind masked language
@@ -174,7 +174,7 @@ Figure [\[fig-ch17-fig03\]](#fig-ch17-fig03), the decoder generates the output 
 <a id="fig-ch17-fig03"></a>
 
 <div align="center">
-  <img src="../images/ch17-fig03.png" alt="image" width="60%" />
+  <img src="./images/ch17-fig03.png" alt="image" width="60%" />
 </div>
 
 This masking (shown explicitly in
@@ -272,7 +272,7 @@ diagrammed in Figure [1.2](#fig-ch17-fig04).
 <a id="fig-ch17-fig04"></a>
 
 <div align="center">
-  <img src="../images/ch17-fig04.png" alt="Some of the most popular large language transformers organized by architecture type and developer" width="60%" />
+  <img src="./images/ch17-fig04.png" alt="Some of the most popular large language transformers organized by architecture type and developer" width="60%" />
 </div>
 
 While encoder-only models have gradually become less popular,

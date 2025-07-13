@@ -58,7 +58,7 @@ Figure [1.1](#fig-ch30-fig01).
 <a id="fig-ch30-fig01"></a>
 
 <div align="center">
-  <img src="../images/ch30-fig01.png" alt="The process of transfer learning" width="60%" />
+  <img src="./images/ch30-fig01.png" alt="The process of transfer learning" width="60%" />
 </div>
 
 Transfer learning is usually done in the context of deep learning, where
@@ -87,7 +87,7 @@ illustrated in Figure [1.2](#fig-ch30-fig02).
 <a id="fig-ch30-fig02"></a>
 
 <div align="center">
-  <img src="../images/ch30-fig02.png" alt="Inpainting for self-supervised learning" width="60%" />
+  <img src="./images/ch30-fig02.png" alt="Inpainting for self-supervised learning" width="60%" />
 </div>
 
 For more detail on self-supervised learning, see
@@ -106,7 +106,7 @@ machine learning model's performance.
 <a id="fig-ch30-fig03"></a>
 
 <div align="center">
-  <img src="../images/ch30-fig03.png" alt="In active learning, a model queries an oracle for labels." width="60%" />
+  <img src="./images/ch30-fig03.png" alt="In active learning, a model queries an oracle for labels." width="60%" />
 </div>
 
 The term *active learning* refers to the fact that the model actively
@@ -164,7 +164,7 @@ statistics of the different features (kurtosis, range, mean, and so on).
 <a id="fig-ch30-fig05"></a>
 
 <div align="center">
-  <img src="../images/ch30-fig05.png" alt="The meta-learning process involving the extraction of metadata" width="60%" />
+  <img src="./images/ch30-fig05.png" alt="The meta-learning process involving the extraction of metadata" width="60%" />
 </div>
 
 The extracted meta-features provide information for selecting a machine
@@ -187,7 +187,7 @@ a subset of the unlabeled dataset.
 <a id="fig-ch30-fig06"></a>
 
 <div align="center">
-  <img src="../images/ch30-fig06.png" alt="Weakly supervised learning uses external labeling functions to train machine learning models." width="60%" />
+  <img src="./images/ch30-fig06.png" alt="Weakly supervised learning uses external labeling functions to train machine learning models." width="60%" />
 </div>
 
 Let'sreturntotheexampleofemailspamclassificationfromChapter [\[ch23\]](./ch23/_books_ml-q-and-ai-ch23.md) to illustrate a rule-based approach for data
@@ -219,7 +219,7 @@ Figure [1.7](#fig-ch30-fig07).
 <a id="fig-ch30-fig07"></a>
 
 <div align="center">
-  <img src="../images/ch30-fig07.png" alt="Semi-supervised learning" width="60%" />
+  <img src="./images/ch30-fig07.png" alt="Semi-supervised learning" width="60%" />
 </div>
 
 While we can apply weak supervision to an entirely unlabeled dataset,
@@ -272,7 +272,7 @@ methods.
 <a id="fig-ch30-fig08"></a>
 
 <div align="center">
-  <img src="../images/ch30-fig08.png" alt="Multi-task learning: hard vs soft parameter sharing" width="60%" />
+  <img src="./images/ch30-fig08.png" alt="Multi-task learning: hard vs soft parameter sharing" width="60%" />
 </div>
 
 In *hard* parameter sharing, as shown in
@@ -303,7 +303,7 @@ more on embedding vectors.)
 <a id="fig-ch30-fig09"></a>
 
 <div align="center">
-  <img src="../images/ch30-fig09.png" alt="Multimodal learning with a matching loss" width="60%" />
+  <img src="./images/ch30-fig09.png" alt="Multimodal learning with a matching loss" width="60%" />
 </div>
 
 Figure [1.8](#fig-ch30-fig09) shows image and text encoders as separate
@@ -325,7 +325,7 @@ Figure [1.9](#fig-ch30-fig10) illustrates.
 <a id="fig-ch30-fig10"></a>
 
 <div align="center">
-  <img src="../images/ch30-fig10.png" alt="Multimodal learning for optimizing a supervised learning objective" width="60%" />
+  <img src="./images/ch30-fig10.png" alt="Multimodal learning for optimizing a supervised learning objective" width="60%" />
 </div>
 
 Figure [1.9](#fig-ch30-fig10) shows data being collected from two different
@@ -373,7 +373,7 @@ particular project.
 <a id="fig-ch30-fig11"></a>
 
 <div align="center">
-  <img src="../images/ch30-fig11.png" alt="Recommendations for choosing a supervised learning technique" width="60%" />
+  <img src="./images/ch30-fig11.png" alt="Recommendations for choosing a supervised learning technique" width="60%" />
 </div>
 
 Note that the dark boxes in

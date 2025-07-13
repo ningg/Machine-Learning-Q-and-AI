@@ -28,7 +28,7 @@ illustrated in Figure [1.1](#fig-ch28-fig01).
 <a id="fig-ch28-fig01"></a>
 
 <div align="center">
-  <img src="../images/ch28-fig01.png" alt="An example of k-fold cross-validation for model evaluation where k = 5" width="60%" />
+  <img src="./images/ch28-fig01.png" alt="An example of k-fold cross-validation for model evaluation where k = 5" width="60%" />
 </div>
 
 Using *k*-fold cross-validation, we usually evaluate the performance of
@@ -79,7 +79,7 @@ Figure [1.2](#fig-ch28-fig02).
 <a id="fig-ch28-fig02"></a>
 
 <div align="center">
-  <img src="../images/ch28-fig02.png" alt="A comparison of 5-fold and 10-fold cross-validation" width="60%" />
+  <img src="./images/ch28-fig02.png" alt="A comparison of 5-fold and 10-fold cross-validation" width="60%" />
 </div>
 
 However, this does not mean large training sets are bad, since they can

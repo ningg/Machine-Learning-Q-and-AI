@@ -84,7 +84,7 @@ continuous ones.
 <a id="fig-ch09-fig01"></a>
 
 <div align="center">
-  <img src="../images/ch09-fig01.png" alt="A four-layer deep Boltzmann machine with three stacks of hidden nodes" width="60%" />
+  <img src="./images/ch09-fig01.png" alt="A four-layer deep Boltzmann machine with three stacks of hidden nodes" width="60%" />
 </div>
 
 Suppose we are interested in generating images. A DBM can learn the
@@ -137,7 +137,7 @@ from a distribution that approximates a standard Gaussian distribution.
 <a id="fig-ch09-fig02"></a>
 
 <div align="center">
-  <img src="../images/ch09-fig02.png" alt="An autoencoder" width="60%" />
+  <img src="./images/ch09-fig02.png" alt="An autoencoder" width="60%" />
 </div>
 
 Training a VAE involves optimizing the model's parameters to minimize
@@ -178,7 +178,7 @@ Figure [1.3](#fig-ch09-fig03).
 <a id="fig-ch09-fig03"></a>
 
 <div align="center">
-  <img src="../images/ch09-fig03.png" alt="A generative adversarial network" width="60%" />
+  <img src="./images/ch09-fig03.png" alt="A generative adversarial network" width="60%" />
 </div>
 
 The generator in a GAN somewhat resembles the decoder of a VAE in terms
@@ -231,7 +231,7 @@ back.
 <a id="fig-ch09-fig04"></a>
 
 <div align="center">
-  <img src="../images/ch09-fig04.png" alt="A flow-based model" width="60%" />
+  <img src="./images/ch09-fig04.png" alt="A flow-based model" width="60%" />
 </div>
 
 At first glance, the illustration is very similar to the VAE
@@ -288,7 +288,7 @@ Figure [1.5](#fig-ch09-fig05) illustrates this process, where pixels $i_1, \ldo
 <a id="fig-ch09-fig05"></a>
 
 <div align="center">
-  <img src="../images/ch09-fig05.png" alt="Autoregressive pixel generation" width="60%" />
+  <img src="./images/ch09-fig05.png" alt="Autoregressive pixel generation" width="60%" />
 </div>
 
 The advantage of autoregressive models is that the next-pixel (or word)
@@ -334,7 +334,7 @@ noise tensor *z~n~* sampled from a Gaussian distribution.
 <a id="fig-ch09-fig06"></a>
 
 <div align="center">
-  <img src="../images/ch09-fig06.png" alt="The diffusion process" width="60%" />
+  <img src="./images/ch09-fig06.png" alt="The diffusion process" width="60%" />
 </div>
 
 While both diffusion models and flow-based models are generative models
@@ -370,7 +370,7 @@ illustrated in Figure [1.7](#fig-ch09-fig07).
 <a id="fig-ch09-fig07"></a>
 
 <div align="center">
-  <img src="../images/ch09-fig07.png" alt="Trajectories of a consistency model for image denoising" width="60%" />
+  <img src="./images/ch09-fig07.png" alt="Trajectories of a consistency model for image denoising" width="60%" />
 </div>
 
 As Figure [1.7](#fig-ch09-fig07) demonstrates, we can think of consistency models

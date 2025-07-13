@@ -43,7 +43,7 @@ Figure [1.1](#fig-ch12-fig01).
 <a id="fig-ch12-fig01"></a>
 
 <div align="center">
-  <img src="../images/ch12-fig01.png" alt="Four inputs and two outputs connected via eight weight parameters" width="60%" />
+  <img src="./images/ch12-fig01.png" alt="Four inputs and two outputs connected via eight weight parameters" width="60%" />
 </div>
 
 The fully connected layer in this figure consists of eight weights and
@@ -77,7 +77,7 @@ depicted in Figure [1.2](#fig-ch12-fig02).
 <a id="fig-ch12-fig02"></a>
 
 <div align="center">
-  <img src="../images/ch12-fig02.png" alt="A convolutional layer with a 2x2 kernel that equals the input size and two output channels" width="60%" />
+  <img src="./images/ch12-fig02.png" alt="A convolutional layer with a 2x2 kernel that equals the input size and two output channels" width="60%" />
 </div>
 
 
@@ -119,7 +119,7 @@ Figure [1.3](#fig-ch12-fig03).
 <a id="fig-ch12-fig03"></a>
 
 <div align="center">
-  <img src="../images/ch12-fig03.png" alt="The number of output nodes equals the number of channels if the kernel size is equal to the input size." width="60%" />
+  <img src="./images/ch12-fig03.png" alt="The number of output nodes equals the number of channels if the kernel size is equal to the input size." width="60%" />
 </div>
 
 Each kernel consists of a stack of weights equal to the number of input

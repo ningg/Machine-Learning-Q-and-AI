@@ -46,7 +46,7 @@ Figure [1.1](#fig-ch02-fig01) illustrates the process of transfer learning.
 <a id="fig-ch02-fig01"></a>
 
 <div align="center">
-  <img src="../images/ch02-fig01.png" alt="Pretraining with conventional transfer learning" width="60%" />
+  <img src="./images/ch02-fig01.png" alt="Pretraining with conventional transfer learning" width="60%" />
 </div>
 
 > Tips: 自监督学习，与 迁移学习 是相关的。
@@ -65,7 +65,7 @@ called *pretext tasks*.
 <a id="fig-ch02-fig02"></a>
 
 <div align="center">
-  <img src="../images/ch02-fig02.png" alt="Pretraining with self-supervised learning" width="60%" />
+  <img src="./images/ch02-fig02.png" alt="Pretraining with self-supervised learning" width="60%" />
 </div>
 
 The main difference between transfer learning and self-supervised
@@ -138,7 +138,7 @@ using a perturbation mask that obfuscates certain pixels in an image.
 <a id="fig-ch02-fig03"></a>
 
 <div align="center">
-  <img src="../images/ch02-fig03.png" alt="Self-prediction after applying a perturbation mask" width="40%" />
+  <img src="./images/ch02-fig03.png" alt="Self-prediction after applying a perturbation mask" width="40%" />
 </div>
 
 A classic example is a denoising autoencoder that learns to remove noise
@@ -149,7 +149,7 @@ Figure [1.4](#fig-ch02-fig04).
 <a id="fig-ch02-fig04"></a>
 
 <div align="center">
-  <img src="../images/ch02-fig04.png" alt="A masked autoencoder reconstructing a masked image" width="60%" />
+  <img src="./images/ch02-fig04.png" alt="A masked autoencoder reconstructing a masked image" width="60%" />
 </div>
 
 Missing (`masked`) input self-prediction methods are also commonly used in
@@ -180,7 +180,7 @@ Figure [1.5](#fig-ch02-fig05).
 <a id="fig-ch02-fig05"></a>
 
 <div align="center">
-  <img src="../images/ch02-fig05.png" alt="Image pairs encountered in contrastive learning" width="60%" />
+  <img src="./images/ch02-fig05.png" alt="Image pairs encountered in contrastive learning" width="60%" />
 </div>
 
 The perturbed cat image in this figure still shows the same cat, so we
@@ -207,7 +207,7 @@ perturbed version of the sample.
 <a id="fig-ch02-fig06"></a>
 
 <div align="center">
-  <img src="../images/ch02-fig06.png" alt="Contrastive learning" width="60%" />
+  <img src="./images/ch02-fig06.png" alt="Contrastive learning" width="60%" />
 </div>
 
 This example outlines the main idea behind contrastive learning, but

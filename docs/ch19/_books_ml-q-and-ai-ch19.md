@@ -128,7 +128,7 @@ simplicity, we will stick to words or 1-grams. (In practice, BLEU is
 often computed for 4-grams.)
 
 <div align="center">
-  <img src="../images/ch19-fig01.png" alt="image" width="60%" />
+  <img src="./images/ch19-fig01.png" alt="image" width="60%" />
 </div>
 
 BLEU has several shortcomings, mostly owing to the fact that it measures
@@ -173,7 +173,7 @@ mean of recall (how many words in the reference occur in the candidate
 text) and precision (how many words in the candidate text occur in the
 reference text). For example,
 <div align="center">
-  <img src="../images/ch19-fig02.png" alt="image" width="60%" />
+  <img src="./images/ch19-fig02.png" alt="image" width="60%" />
 </div>
 
 There are other ROUGE variants beyond ROUGE-1 (the F1 score""based
@@ -237,7 +237,7 @@ The steps to compute BERTScore are as follows:
     of all tokens in the candidate text.
 
 <div align="center">
-  <img src="../images/ch19-fig03.png" alt="image" width="60%" />
+  <img src="./images/ch19-fig03.png" alt="image" width="60%" />
 </div>
 
 BERTScore can be used for translations and summaries, and it captures

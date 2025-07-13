@@ -45,7 +45,7 @@ sets is adversarial validation.
 
 *Adversarial validation*, illustrated in
 <div align="center">
-  <img src="../images/ch29-fig01.png" alt="adversarial validation illustration" width="60%" />
+  <img src="./images/ch29-fig01.png" alt="adversarial validation illustration" width="60%" />
 </div>
 is a technique to identify the degree of
 similarity between the training and test data. We first merge the

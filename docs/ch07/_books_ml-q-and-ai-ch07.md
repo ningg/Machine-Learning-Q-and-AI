@@ -101,7 +101,7 @@ reference-type="ref"} for two GPUs. (This concept can be extended to an
 arbitrary number of GPUs.)
 
 <div align="center">
-  <img src="../images/ch07-fig01.png" alt="image" width="60%" />
+  <img src="./images/ch07-fig01.png" alt="image" width="60%" />
 </div>
 
 Like model parallelism, tensor parallelism allows us to work around
@@ -118,7 +118,7 @@ Figure [1.1](#fig-ch07-fig02){reference="fig-ch07-fig02"
 reference-type="ref"} compares model, data, and tensor parallelism.
 
 <div align="center">
-  <img src="../images/ch07-fig02.png" alt="A comparison of model, data, and tensor parallelism" width="60%" />
+  <img src="./images/ch07-fig02.png" alt="A comparison of model, data, and tensor parallelism" width="60%" />
 </div>
 
 In model parallelism, we put different layers onto different GPUs to
@@ -176,7 +176,7 @@ be distributed across GPUs, which aims to reduce computation memory
 constraints of self-attention mechanisms.
 
 <div align="center">
-  <img src="../images/ch07-fig03.png" alt="Sequence parallelism divides long inputs among GPUs." width="60%" />
+  <img src="./images/ch07-fig03.png" alt="Sequence parallelism divides long inputs among GPUs." width="60%" />
 </div>
 
 How does sequence parallelism relate to the multi-GPU techniques

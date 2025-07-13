@@ -56,7 +56,7 @@ concept with a smaller example.
 <a id="fig-ch03-fig01"></a>
 
 <div align="center">
-  <img src="../images/ch03-fig01.png" alt="Training tasks in few-shot learning" width="60%" />
+  <img src="./images/ch03-fig01.png" alt="Training tasks in few-shot learning" width="60%" />
 </div>
 
 Rather than fitting the model to the training dataset, we can think of
@@ -91,7 +91,7 @@ Figure [1.2](#fig-ch03-fig02).
 <a id="fig-ch03-fig02"></a>
 
 <div align="center">
-  <img src="../images/ch03-fig02.png" alt="Classes seen during training and testing" width="60%" />
+  <img src="./images/ch03-fig02.png" alt="Classes seen during training and testing" width="60%" />
 </div>
 
 As Figure [1.2](#fig-ch03-fig02) shows, the support and query sets contain
@@ -111,7 +111,7 @@ Figure [1.3](#fig-ch03-fig03) illustrates this approach.
 <a id="fig-ch03-fig03"></a>
 
 <div align="center">
-  <img src="../images/ch03-fig03.png" alt="Learning embeddings that are suitable for classification" width="60%" />
+  <img src="./images/ch03-fig03.png" alt="Learning embeddings that are suitable for classification" width="60%" />
 </div>
 
 The model learns how to produce good embeddings from the support set to
