@@ -5,7 +5,11 @@
 
 买了一本《大模型技术30讲》，简单阅读了下，要点突出，对于入门、加深关键点理解，很有用。
 
-但是，也存在问题：《大模型技术30讲》印刷质量真的偏差，而且大部分`术语`，都翻译为中文了，不利于中英对比，特别是 AI 领域基本都是英文的，需要我们熟悉`英文术语`。
+但是，也存在问题 & 未满足的诉求：
+
+- 1.《大模型技术30讲》纸质版 *（2025年3月第2次印刷）*，印刷质量，偏差；
+- 2.大部分`术语`，都翻译为中文，不利于`中英对比`，特别是 AI 领域基本都是英文的，需要我们熟悉`英文术语`。
+- 3.希望有 `电子版` 资料，方便利用 AI 工具辅助理解，提升效率。
 
 
 因此，找到 [原始文档：Machine Learning Q and AI](https://sebastianraschka.com/books/ml-q-and-ai/)，反复消化原始信息。
@@ -87,7 +91,7 @@
    - [Chapter 20: Stateless and Stateful Training](./docs/ch20/_books_ml-q-and-ai-ch20.md) ✅
    - [Chapter 21: Data-Centric AI](./docs/ch21/_books_ml-q-and-ai-ch21.md)
    - [Chapter 22: Speeding Up Inference](./docs/ch22/_books_ml-q-and-ai-ch22.md)
-   - [Chapter 23: Data Distribution Shifts](./docs/ch23/_books_ml-q-and-ai-ch23.md)
+   - [Chapter 23: Data Distribution Shifts](./docs/ch23/_books_ml-q-and-ai-ch23.md) ✅
 
 - **Part V: Predictive Performance and Model Evaluation**
 
