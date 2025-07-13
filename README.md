@@ -18,13 +18,13 @@
 本项目是系统性学习大模型技术要点的教程，基于原始的 *《30 Essential Questions and Answers on Machine Learning and AI》* ，进行中文批注，增强可读性。
 
 
-### 你将收获什么？
+### 2.1.你将收获什么？
 
 1. 系统性学习：大模型技术要点的教程
 2. 熟悉核心的术语（英文 + 中文）
 3. 共同维护，中文批注，增强可读性，贡献给开源社区
 
-### 迭代计划
+### 2.2.迭代计划
 
 1. 首板：中文标注
 2. 导出 pdf 文件
@@ -32,7 +32,7 @@
 
 
 
-## 3.在线阅读
+## 3.在线阅读（GitHub Pages）
 
 <div align='center'>
     <img src="./docs/images/2023-ml-ai-beyond-cn.jpg" alt="Datawhale" width="30%">
@@ -40,13 +40,12 @@
 </div>
 
 
-<div align="left">
-  <p><b>在线阅读</b>：<a href="https://ningg.top/Machine-Learning-Q-and-AI/">《大模型技术30讲》</a></p>
-  <p><em>深入理解 LLM 核心原理，直击要点</em></p>
-</div>
+**在线阅读**：[《大模型技术30讲》](https://ningg.top/Machine-Learning-Q-and-AI/)
+
+* *深入理解 LLM 核心原理，直击要点*
 
 
-
+---
 
 当前工程中，维护的 大模型技术 30 讲，目录如下：
 
