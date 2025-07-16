@@ -95,7 +95,7 @@
 
 - **Part V: Predictive Performance and Model Evaluation**
 
-   - [Chapter 24: Poisson and Ordinal Regression](./docs/ch24/_books_ml-q-and-ai-ch24.md)
+   - [Chapter 24: Poisson and Ordinal Regression](./docs/ch24/_books_ml-q-and-ai-ch24.md) ✅
    - [Chapter 25: Confidence Intervals](./docs/ch25/_books_ml-q-and-ai-ch25.md)
    - [Chapter 26: Confidence Intervals vs. Conformal Predictions](./docs/ch26/_books_ml-q-and-ai-ch26.md)
    - [Chapter 27: Proper Metrics](./docs/ch27/_books_ml-q-and-ai-ch27.md) ✅
