@@ -96,12 +96,12 @@
 - **Part V: Predictive Performance and Model Evaluation**
 
    - [Chapter 24: Poisson and Ordinal Regression](./docs/ch24/_books_ml-q-and-ai-ch24.md) ✅
-   - [Chapter 25: Confidence Intervals](./docs/ch25/_books_ml-q-and-ai-ch25.md)
+   - [Chapter 25: Confidence Intervals](./docs/ch25/_books_ml-q-and-ai-ch25.md) ✅
    - [Chapter 26: Confidence Intervals vs. Conformal Predictions](./docs/ch26/_books_ml-q-and-ai-ch26.md)
    - [Chapter 27: Proper Metrics](./docs/ch27/_books_ml-q-and-ai-ch27.md) ✅
    - [Chapter 28: The k in k-Fold Cross-Validation](./docs/ch28/_books_ml-q-and-ai-ch28.md) ✅
    - [Chapter 29: Training and Test Set Discordance](./docs/ch29/_books_ml-q-and-ai-ch29.md) ✅
-   - [Chapter 30: Limited Labeled Data](./docs/ch30/_books_ml-q-and-ai-ch30.md)
+   - [Chapter 30: Limited Labeled Data](./docs/ch30/_books_ml-q-and-ai-ch30.md) ✅
 
 </details>
 

@@ -14,7 +14,7 @@
 **What are the different ways to construct confidence intervals for
 machine learning classifiers?**
 
-There are several ways to construct confidence intervals for machine
+There are several ways to construct `confidence intervals` for machine
 learning models, depending on the model type and the nature of your
 data. For instance, some methods are computationally expensive when
 working with deep neural networks and are thus more suitable to less
@@ -39,8 +39,8 @@ definition and interpretation of confidence intervals.
 ## Defining Confidence Intervals
 [](#defining-confidence-intervals)
 
-A *confidence interval* is a type of method to estimate an unknown
-population parameter. A *population parameter* is a specific measure of
+A `confidence interval` is a type of method to estimate an unknown
+population parameter. A **population parameter** is a specific measure of
 a statistical population, for example, a mean (average) value or
 proportion. By "specific"? measure, I mean there is a single, exact
 value for that parameter for the entire population. Even though this
@@ -48,6 +48,12 @@ value may not be known and often needs to be estimated from a sample, it
 is a fixed and definite characteristic of the population. A *statistical
 population*, in turn, is the complete set of items or individuals we
 study.
+
+> **置信区间**，通常用于估计**总体参数**的精确度。它提供了一个范围，在这个范围内，我们可以对总体参数的值有较高的信心。
+> 
+> 统计学中，**总体参数**是指描述总体分布特征的数值，例如总体均值、总体方差等。
+> 
+> 总体参数是固定的、确定的，但通常无法直接观测到，需要通过样本数据进行估计。
 
 In a machine learning context, the population could be considered the
 entire possible set of instances or data points that the model may
@@ -61,7 +67,8 @@ the concept of a confidence interval comes in. A 95 percent confidence
 interval for the generalization accuracy gives us a range in which we
 can be reasonably sure that the true generalization accuracy lies.
 
-Forinstance,ifwetake100differentdatasamplesandcomputea 95 percent
+
+For instance, if we take 100 different data samples and compute a 95 percent
 confidence interval for each sample, approximately 95 of the 100
 confidence intervals will contain the true population value (such as the
 generalization accuracy), as illustrated in
@@ -70,7 +77,7 @@ Figure [\[fig-ch25-fig01\]](#fig-ch25-fig01).
 <a id="fig-ch25-fig01"></a>
 
 <div align="center">
-  <img src="./images/ch25-fig01.png" alt="Confidence interval illustration" width="60%" />
+  <img src="./images/ch25-fig01.png" alt="Confidence interval illustration" width="75%" />
 </div>
 
 More concretely, if we were to draw 100 different representative test
@@ -84,9 +91,11 @@ We can display confidence intervals in several ways. It is common to use
 a bar plot representation where the top of the bar represents the
 parameter value (for example, model accuracy) and the whiskers denote
 the upper andlower levels of the confidence interval (left chart of
-Figure [1.1](#fig-ch25-fig02). Alternatively, the confidence intervals can be
+Figure [1.1](#fig-ch25-fig02) ). Alternatively, the confidence intervals can be
 shown without bars, as in the right chart of
 Figure [1.1](#fig-ch25-fig02).
+
+> 图 1.1 展示了置信区间的两种常见表示方式。左图使用条形图表示，条形的高度表示参数值（例如模型准确率），而须状物则表示置信区间的上下界。右图则不使用条形，直接显示置信区间的上下界。
 
 <a id="fig-ch25-fig02"></a>
 
@@ -97,37 +106,44 @@ Figure [1.1](#fig-ch25-fig02).
 This visualization is functionally useful in a number of ways. For
 instance, when confidence intervals for two model performances do *not*
 overlap, it's a strong visual indicator that the performances are
-signifi-  cantly different. Take the example of statistical
+significantly different. Take the example of statistical
 significance tests, such as t-tests: if two 95 percent confidence
 intervals do not overlap, it strongly suggests that the difference
 between the two measurements is statistically significant at the 0.05
 level.
+
+> 如果两个模型的置信区间**没有重叠**，则表明两个模型的性能存在**显著差异**。
+> 
+> 例如，假设我们有两个模型，它们的置信区间分别为 [0.85, 0.95] 和 [0.80, 0.90]。由于这两个区间没有重叠，我们可以认为这两个模型的性能存在显著差异。
 
 On the other hand, if two 95 percent confidence intervals overlap, we
 cannot automatically conclude that there's no significant difference
 between the two measurements. Even when confidence intervals overlap,
 there can still be a statistically significant difference.
 
+> 如果两个模型的置信区间重叠，则不能自动得出两个测量值之间没有显著差异的结论。即使置信区间重叠，仍然可能存在统计显著差异。
+
 Alternatively, to provide more detailed information about the exact
 quantities, we can use a table view to express the confidence intervals.
 The two common notations are summarized in
 Table [1.1](#confidence-intervals).
 
-<a id="confidence-intervals"></a>
+<a id="confidence-intervals">Confidence Intervals</a>
 
-\| \| \| \| \| \|
-\|\-\-\-\--\|\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\--\|\-\-\-\-\-\--\|\-\-\-\-\-\--\|\-\-\-\--\|
-\| 1 \| 89.1% \$\$\\pm\$\$ 1.7% \| . . . \| . . . \| \| \| 2 \| 79.5%
-\$\$\\pm\$\$ 2.2% \| . . . \| . . . \| \| \| 3 \| 95.2% \$\$\\pm\$\$
-1.6% \| . . . \| . . . \| \| \| \| \| \| \| \| \| 1 \| 89.1% (87.4%,
-90.8%) \| . . . \| . . . \| \| \| 2 \| 79.5% (77.3%, 81.7%) \| . . . \|
-. . . \| \| \| 3 \| 95.2% (93.6%, 96.8%) \| . . . \| . . . \| \|
-Confidence Intervals
+| 模型编号 | 置信区间（±表示法）      | 置信区间（下限, 上限）      |
+|---------|-------------------------|-----------------------------|
+| 1       | 89.1% ± 1.7%            | 89.1% (87.4%, 90.8%)        |
+| 2       | 79.5% ± 2.2%            | 79.5% (77.3%, 81.7%)        |
+| 3       | 95.2% ± 1.6%            | 95.2% (93.6%, 96.8%)        |
 
-The \\(\\pm\\) notation is often preferred if the confidence interval is
+
+
+The $\pm$ notation is often preferred if the confidence interval is 
 *symmetric*, meaning the upper and lower endpoints are equidistant from
 the estimated parameter. Alternatively, the lower and upper confidence
 intervals can be written explicitly.
+
+> $\pm$ 符号常用于表示置信区间，尤其是在置信区间是对称的情况下
 
 ## The Methods
 [](#the-methods)
@@ -148,42 +164,41 @@ trained on various data partitions like in *k*-fold cross-validation.
 
 How does it work? In short, the formula for calculating the confidence
 interval for a predicted parameter (for example, the sample mean,
-denoted as \\(\\bar{\\text{\\emph{x}}})\\), assuming a normal
-distribution, is expressed as \\(\\bar{\\text{\\emph{x}}}\\) \\(\\pm\\)
-*z* \\(\\times\\) *SE*.
+denoted as $\bar{x}$), assuming a normal
+distribution, is expressed as $\bar{x} \pm z \times \mathrm{SE}$.
 
 In this formula, *z* represents the *z*-score, which indicates a
 particular value's number of standard deviations from the mean in a
 standard normal distribution. *SE* represents the standard error of the
 predicted parameter (in this case, the sample mean).
 
-::: note
-Most readers will be familiar with [z]{.upright}-score tables that are
+
+Most readers will be familiar with `z-score` tables that are
 usually found in the back of introductory statistics textbooks. However,
-a more convenient and preferred way to obtain [z]{.upright}-scores is to
-use functions like SciPy's \`stats.zscore\` function, which computes
-the [z]{.upright}-scores for given confidence levels.
-:::
+a more convenient and preferred way to obtain `z-scores` is to
+use functions like SciPy's `stats.zscore` function, which computes
+the `z-scores` for given confidence levels.
+
 
 For our scenario, the sample mean, denoted as
-\\(\\bar{\\text{\\emph{x}}}\\), corresponds to the test set accuracy,
-ACC~test~, a measure of successful predictions in the context of a
+$\bar{x}$, corresponds to the test set accuracy,
+$\mathrm{ACC}_{\mathrm{test}}$，a measure of successful predictions in the context of a
 binomial proportion confidence interval.
 
 The standard error can be calculated under a normal approximation as
 follows:
 
-``` math
-\text{SE} = \sqrt{ \frac{1}{n} \text{ACC}_{\text{test}}\left(1- \text{ACC}_{\text{test}}\right)}
-```
+$$
+\mathrm{SE} = \sqrt{ \frac{1}{n} \, \mathrm{ACC}_{\mathrm{test}} \left(1 - \mathrm{ACC}_{\mathrm{test}}\right) }
+$$
 
-In this equation, *n* signifies the size of the test set. Substituting
+In this equation, $n$ signifies the size of the test set. Substituting
 the standard error back into the previous formula, we obtain the
 following:
 
-``` math
-\text{ACC}_{\text{test}} \pm z \sqrt{\frac{1}{n} \text{ACC}_{\text{test}}\left(1- \text{ACC}_{\text{test}}\right)}
-```
+$$
+\mathrm{ACC}_{\mathrm{test}} \pm z \sqrt{ \frac{1}{n} \, \mathrm{ACC}_{\mathrm{test}} \left(1 - \mathrm{ACC}_{\mathrm{test}}\right) }
+$$
 
 Additional code examples to implement this method can also be found in
 the *supplementary/q25_confidence-intervals* subfolder in the
@@ -216,7 +231,7 @@ independent test datasets, which is typically not feasible. A workaround
 is the bootstrap method, which resamples existing data to estimate the
 sampling distribution.
 
-::: note
+
 In practice, when the test set is large enough, the normal distribution
 approximation will hold, thanks to the central limit theorem. This
 theorem states that the sum (or average) of a large number of
@@ -228,11 +243,11 @@ the central limit theorem, we can at least estimate the rate of
 convergence to the normal distribution using the Berry""Esseen theorem,
 which gives a more quantitative estimate of how quickly the convergence
 in the central limit theorem occurs.
-:::
 
-Inamachinelearningcontext,wecantaketheoriginaldatasetanddraw a random
-sample *with replacement*. If the dataset has size *n* and we draw a
-random sample with replacement of size *n*, this implies that some data
+
+In a machine learning context, we can take the original dataset and draw a random
+sample *with replacement*. If the dataset has size $n$ and we draw a
+random sample with replacement of size $n$, this implies that some data
 points will likely be duplicated in this new sample, whereas other data
 points are not sampled at all.We can then repeat this procedure for
 multiple rounds to obtain multiple training and test sets. This process
@@ -242,7 +257,7 @@ Figure [\[fig-ch25-fig04\]](#fig-ch25-fig04).
 <a id="fig-ch25-fig04"></a>
 
 <div align="center">
-  <img src="./images/ch25-fig04.png" alt="Out-of-bag bootstrapping illustration" width="60%" />
+  <img src="./images/ch25-fig04.png" alt="Out-of-bag bootstrapping illustration" width="75%" />
 </div>
 
 Suppose we constructed *k* training and test sets. We can now take each
@@ -309,45 +324,45 @@ models than others. How can we build a confidence interval from these
 experiments? If we assume that the sample means follow a normal
 distribution, we can employ a previously discussed method where we
 calculate the confidence interval around a sample mean, denoted as
-\\(\\bar{\\text{\\emph{x}}}\\), as follows:
+$\bar{x}$, as follows:
 
-``` math
-\bar{x} \pm z \times \text{SE}
-```
+$$
+\bar{x} \pm z \cdot \mathrm{SE}
+$$
 
 Since in this context we often work with a relatively modest number of
-samples (for instance, models from 5 to 10 random seeds), assuming a *t*
+samples (for instance, models from 5 to 10 random seeds), assuming a $t$
 distribution is deemed more suitable than a normal distribution.
-Therefore, we substitute the *z* value with a *t* value in the preceding
-formula. (As the sample size increases, the *t* distribution tends to
+Therefore, we substitute the $z$ value with a $t$ value in the preceding
+formula. (As the sample size increases, the $t$ distribution tends to
 look more like the standard normal distribution, and the critical values
-\[*z* and *t*\] become increasingly similar.)
+[$z$ and $t$] become increasingly similar.)
 
-Furthermore,ifweareinterestedintheaverageaccuracy,denoted as
-\\(\\overline{\\text{ACC}}\\)~test~, we consider ACC~test,\ *j*~
-corresponding to a unique random seed *j* as a sample. The number of
-random seeds we evaluate would then constitute the sample size *n*. As
+Furthermore, if we are interested in the average accuracy, denoted as
+$\overline{\mathrm{ACC}}_{\mathrm{test}}$, we consider $\mathrm{ACC}_{\mathrm{test},\,j}$
+corresponding to a unique random seed $j$ as a sample. The number of
+random seeds we evaluate would then constitute the sample size $n$. As
 such, we would calculate:
 
-``` math
-\overline{\text{ACC}}_{\text{test}} \pm t \times \text{SE}
-```
+$$
+\overline{\mathrm{ACC}}_{\mathrm{test}} \pm t \cdot \mathrm{SE}
+$$
 
-Here, SE is the standard error, calculated as SE =
-SD/\\(\\!\\sqrt{\\text{\\emph{n}}}\\), while
+Here, $\mathrm{SE}$ is the standard error, calculated as
+$\mathrm{SE} = \mathrm{SD} / \sqrt{n}$, while
 
-``` math
-\overline{\text{ACC}}_{\text{test}} = \frac{1}{r} \sum_{j\,=\,1}^{r} \text{ACC}_{\text{test}, j}
-```
+$$
+\overline{\mathrm{ACC}}_{\mathrm{test}} = \frac{1}{r} \sum_{j=1}^{r} \mathrm{ACC}_{\mathrm{test},\,j}
+$$
 
-is the average accuracy, which we compute over the *r* random seeds. The
-standard deviation SD is calculated as follows:
+is the average accuracy, which we compute over the $r$ random seeds. The
+standard deviation $\mathrm{SD}$ is calculated as follows:
 
-``` math
-\mathrm{SD}=\sqrt{\frac{\sum_j\left(A C C_{\mathrm{test}, j}-\overline{A C C}_{\text {test }}\right)^2}{r-1}}
-```
+$$
+\mathrm{SD} = \sqrt{ \frac{ \sum_{j=1}^{r} \left( \mathrm{ACC}_{\mathrm{test},\,j} - \overline{\mathrm{ACC}}_{\mathrm{test}} \right)^2 }{ r-1 } }
+$$
 
-Tosummarize,calculatingtheconfidenceintervalsusingvarious random seeds
+To summarize, calculating the confidence intervals using various random seeds
 is another effective alternative. However, it is primarily beneficial
 for deep learning models. It proves to be costlier than both the normal
 approximation approach (method 1) and bootstrapping the test set

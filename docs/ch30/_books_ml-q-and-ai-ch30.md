@@ -12,14 +12,19 @@
 
 
 **Suppose we plot a learning curve (as shown in
-Figure [\[fig-ch05-fig01\]](#fig-ch05-fig01) on page , for example) and find the machine
+Figure [\[fig-ch05-fig01\]](./ch05/_books_ml-q-and-ai-ch05.md#fig-ch05-fig01) on page , for example) and find the machine
 learning model overfits and could benefit from more training data. What
 are some different approaches for dealing with limited labeled data in
 supervised machine learning settings?**
 
+> 学习曲线（Learning Curve）是机器学习中用于评估模型性能随训练数据量变化趋势的图表。它通常用于诊断模型是否存在过拟合或欠拟合问题。
+
 In lieu of collecting more data, there are several methods related to
 regular supervised learning that we can use to improve model performance
 in limited labeled data regimes.
+
+> 除了收集更多数据，还有几种方法，用于改进标**签数据有限**时的模型性能。
+
 
 ## Improving Model Performance with Limited Labeled Data
 [](#improving-model-performance-with-limited-labeled-data)
@@ -36,35 +41,47 @@ this). However, this is often not feasible in practice, because
 acquiring high-quality data can be costly, computational resources and
 storage might be insufficient, or the data may be hard to access.
 
+> 收集更多训练数据，通常是提高模型性能的最佳方法（学习曲线是诊断此问题的一个很好的指标）。
+> 
+> 然而，这在实践中通常不可行，因为获取高质量数据可能很昂贵，计算资源和存储空间可能不足，或者数据可能难以获取。
+
 ### Bootstrapping the Data
 [](#bootstrapping-the-data)
 
 Similar to the techniques for reducing overfitting discussed in
 Chapter [\[ch05\]](./ch05/_books_ml-q-and-ai-ch05.md), it
-can be helpful to "bootstrap"? the data by generating modified
+can be helpful to "bootstrap" the data by generating modified
 (augmented) or artificial (synthetic) training examples to boost the
 performance of the predictive model. Of course, improving the quality of
 data can also lead to the improved predictive performance of a model, as
 discussed in Chapter [\[ch21\]](./ch21/_books_ml-q-and-ai-ch21.md).
 
+> 与第 5 章讨论的减少过拟合的技术类似，可以通过生成修改（增强）或人工（合成）训练示例来“引导”数据，以提高预测模型的性能。
+> 
+> 当然，提高数据质量也可以提高模型的预测性能，如第 21 章所述。
+
 ### Transfer Learning
 [](#transfer-learning)
 
-Transferlearningdescribestrainingamodelonageneraldataset(forexample,
+Transfer learning describes training a model on a general dataset (for example,
 ImageNet) and then fine-tuning the pretrained target dataset (for
 example, a dataset consisting of different bird species), as outlined in
 Figure [1.1](#fig-ch30-fig01).
 
+> 迁移学习描述了在通用数据集（例如 ImageNet）上训练模型，然后对预训练的目标数据集（例如包含不同鸟类物种的数据集）进行微调，如图 1.1 所示。
+
 <a id="fig-ch30-fig01"></a>
 
 <div align="center">
-  <img src="./images/ch30-fig01.png" alt="The process of transfer learning" width="60%" />
+  <img src="./images/ch30-fig01.png" alt="The process of transfer learning" width="40%" />
 </div>
 
 Transfer learning is usually done in the context of deep learning, where
 model weights can be updated. This is in contrast to tree-based methods,
 since most decision tree algorithms are nonparametric models that do not
 support iterative training or parameter updates.
+
+> 迁移学习，通常用于深度学习场景，其中可以更新模型权重。这与基于树的方法形成对比，因为大多数决策树算法是非参数模型，不支持迭代训练或参数更新。
 
 ### Self-Supervised Learning
 [](#self-supervised-learning)
@@ -74,7 +91,11 @@ pretrained on a different task before being fine-tuned to a target task
 for which only limited data exists. However, self-supervised learning
 usually relies on label information that can be directly and
 automatically extracted from unlabeled data. Hence, self-supervised
-learning is also often called *unsupervised pretraining*.
+learning is also often called **unsupervised pretraining**.
+
+> 与迁移学习类似，在自监督学习中，模型在不同的任务上进行预训练，然后针对目标任务进行微调，而目标任务只有有限的数据。
+> 
+> 然而，自监督学习通常依赖于可以直接从无标签数据中自动提取的标签信息。因此，自监督学习也经常被称为**无监督预训练**。
 
 Common examples of self-supervised learning include the *next word*
 (used in GPT, for example) or *masked word* (used in BERT, for example)
@@ -87,7 +108,7 @@ illustrated in Figure [1.2](#fig-ch30-fig02).
 <a id="fig-ch30-fig02"></a>
 
 <div align="center">
-  <img src="./images/ch30-fig02.png" alt="Inpainting for self-supervised learning" width="60%" />
+  <img src="./images/ch30-fig02.png" alt="Inpainting for self-supervised learning" width="40%" />
 </div>
 
 For more detail on self-supervised learning, see
@@ -103,13 +124,17 @@ entire dataset up front, active learning includes a prioritization
 scheme for suggesting unlabeled data points for labeling to maximize the
 machine learning model's performance.
 
+> 在主动学习中，如图 1.3 所示，我们通常涉及手动标签器或用户在训练过程中提供反馈。
+> 
+> 然而，与提前标记整个数据集不同，主动学习包括一个优先级方案，用于建议未标记的数据点进行标记，以最大化机器学习模型的性能。
+
 <a id="fig-ch30-fig03"></a>
 
 <div align="center">
-  <img src="./images/ch30-fig03.png" alt="In active learning, a model queries an oracle for labels." width="60%" />
+  <img src="./images/ch30-fig03.png" alt="In active learning, a model queries an oracle for labels." width="40%" />
 </div>
 
-The term *active learning* refers to the fact that the model actively
+The term **active learning** refers to the fact that the model actively
 selects data for labeling. For example, the simplest form of active
 learning selects data points with high prediction uncertainty for
 labeling by a human annotator (also referred to as an *oracle*).
@@ -117,20 +142,27 @@ labeling by a human annotator (also referred to as an *oracle*).
 ### Few-Shot Learning
 [](#few-shot-learning)
 
-In a few-shot learning scenario, we often deal with extremely small
+In a `few-shot` learning scenario, we often deal with extremely small
 datasets that include only a handful of examples per class. In research
 contexts, 1-shot(one example per class) and 5-shot (five examples per
 class) learning scenarios are very common. An extreme case of few-shot
-learning is zero-shot learning, where no labels are provided. Popular
+learning is `zero-shot` learning, where no labels are provided. Popular
 examples of zero-shot learning include GPT-3 and related language
 models, where the user has to provide all the necessary information via
 the input prompt, as illustrated in
 Figure [1.4](#fig-ch30-fig04).
 
-<a id="fig-ch30-fig04"></a
+> 在少样本学习场景中，我们通常处理包含每个类别只有少量示例的极端情况。
+> 
+> 在研究上下文中，1-shot（每个类别一个示例）和5-shot（每个类别五个示例）学习场景非常常见。
+> 
+> 小样本学习的极端情况，是**零样本学习**，其中没有提供标签。
+> 
+> 零样本学习的流行示例包括 GPT-3 和相关语言模型，其中用户必须通过输入提示提供所有必要信息，如图 1.4 所示。
 
-<figcaption>Zero-shot classification with ChatGPT</figcaption>
-</figure>
+<a id="fig-ch30-fig04"></a>
+
+Zero-shot classification with ChatGPT
 
 For more detail on few-shot learning, see
 Chapter [\[ch03\]](./ch03/_books_ml-q-and-ai-ch03.md).
