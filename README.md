@@ -43,8 +43,8 @@
 * *深入理解 LLM 核心原理，直击要点*
 
 <div align='center'>
-    <img src="./docs/images/2023-ml-ai-beyond-cn.jpg" alt="Datawhale" width="30%">
-    <img src="./docs/images/2023-ml-ai-beyond.jpg" alt="Datawhale" width="27.65%">
+    <img src="./docs/images/2023-ml-ai-beyond-cn.jpg" width="30%">
+    <img src="./docs/images/2023-ml-ai-beyond.jpg" width="27.65%">
 </div>
 
 
