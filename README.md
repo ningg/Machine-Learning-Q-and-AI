@@ -38,7 +38,7 @@
 
 ## 3.在线阅读（GitHub Pages）
 
-**在线阅读**：[《大模型技术30讲》](https://ningg.top/Machine-Learning-Q-and-AI/) , pdf 文件：[《大模型技术30讲》](https://ningg.top/Machine-Learning-Q-and-AI/pdf/大模型技术30讲(英文&中文批注)_LLM_30_Essential_Lectures_AI.pdf)
+**在线阅读**：[《大模型技术30讲》](https://ningg.top/Machine-Learning-Q-and-AI/) , pdf 文件：[《大模型技术30讲-PDF版本》](https://ningg.top/Machine-Learning-Q-and-AI/pdf/大模型技术30讲(英文&中文批注)_LLM_30_Essential_Lectures_AI.pdf)
 
 * *深入理解 LLM 核心原理，直击要点*
 
