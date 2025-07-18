@@ -1,3 +1,7 @@
+- **大模型技术30讲（原版&中文批注）**
+
+    - [Abstract](./README.md)
+
 - **Table of Contents**
 
     - [Introduction](./introduction/_books_ml-q-and-ai-chapters_introduction.md)
