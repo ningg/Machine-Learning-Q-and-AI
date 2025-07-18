@@ -1,4 +1,4 @@
-# Machine-Learning-Q-and-AI
+# 大模型技术30讲（英文原版&中文批注）
 
 大模型技术30讲（原版），30 Essential Questions and Answers on Machine Learning and AI
 
@@ -32,7 +32,7 @@
 ### 2.2.迭代计划
 
 1. 首板：中文标注: DOING
-2. 导出 pdf 文件: TODO
+2. 导出 pdf 文件: DOING
 3. 同步到多个开源社区: TODO
 
 

@@ -30,9 +30,9 @@
 
 ### 2.2.迭代计划
 
-1. 首板：中文标注
-2. 导出 pdf 文件
-3. 同步到多个开源社区
+1. 首板：中文标注: DOING
+2. 导出 pdf 文件: DOING
+3. 同步到多个开源社区: TODO
 
 
 
@@ -422,4 +422,6 @@ x_{ij}^{10}
 </details>
 
 
+### 附录E. Docsify 导出 pdf 文件
 
+参考： [ningg/docsify-to-pdf](https://github.com/ningg/docsify-to-pdf)

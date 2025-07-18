@@ -1,3 +1,6 @@
+docs/node_modules
+docs/pdf
+
 .cursor/
 **.DS_Store
 
