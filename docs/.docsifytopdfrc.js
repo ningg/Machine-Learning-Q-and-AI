@@ -17,12 +17,7 @@ module.exports = {
       printBackground: true,
       displayHeaderFooter: true,
       footerTemplate: '<div style="font-size: 10px; text-align: center; width: 100%;">第 <span class="pageNumber"></span> 页，共 <span class="totalPages"></span> 页</div>',
-      // 添加目录支持
-      generateToc: true,
-      // 使用 PDF 原生书签而不是页面目录
-      useNativeBookmarks: true,
-      tocHeaderTemplate: '<div style="font-size: 18px; font-weight: bold; text-align: center; margin: 20px 0;">目录</div>',
-      tocTemplate: '<div style="font-size: 12px; margin: 10px 0; display: flex; justify-content: space-between; align-items: center;"><a href="#{href}" style="color: #333; text-decoration: none;">{title}</a><span style="color: #666; border-bottom: 1px dotted #ccc; flex: 1; margin: 0 8px;"></span><span style="color: #666;">{page}</span></div>'
+      outline: true,
     },
     
     // 必填：Chrome 浏览器可执行文件路径
