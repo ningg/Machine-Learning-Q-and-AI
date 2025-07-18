@@ -10,9 +10,9 @@ module.exports = {
       format: "A4",
       margin: {
         top: "20mm",
-        right: "20mm",
+        right: "18mm",
         bottom: "20mm",
-        left: "20mm"
+        left: "18mm"
       },
       printBackground: true,
       displayHeaderFooter: true,
