@@ -52,7 +52,7 @@ and 3 (severe and moderate) is the same as the distance between 2 and 1
 <a id="fig-ch24-fig01"></a>
 
 <div align="center">
-  <img src="./images/ch24-fig01.png" alt="The distance between ordinal categories is arbitrary." width="60%" />
+  <img src="./images/ch24-fig01.png" alt="The distance between ordinal categories is arbitrary." width="78%" />
 </div>
 
 In short, we use Poisson regression for count data. We use Ordinal

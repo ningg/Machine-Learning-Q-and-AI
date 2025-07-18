@@ -88,7 +88,7 @@ Figure [1.1](#fig-ch06-fig01).
 <a id="fig-ch06-fig01"></a>
 
 <div align="center">
-  <img src="./images/ch06-fig01.png" alt="Early stopping" width="60%" />
+  <img src="./images/ch06-fig01.png" alt="Early stopping" width="78%" />
 </div>
 
 In Figure [1.1](#fig-ch06-fig01), we can see that the validation accuracy increases
@@ -145,7 +145,7 @@ diverges from the other in terms of information content).
 <a id="fig-ch06-fig02"></a>
 
 <div align="center">
-  <img src="./images/ch06-fig02.png" alt="image" width="60%" />
+  <img src="./images/ch06-fig02.png" alt="image" width="78%" />
 </div>
 
 By minimizing the Kullback-Leibler divergence--the difference between
@@ -245,7 +245,7 @@ Figure [1.2](#fig-ch06-fig03).
 <a id="fig-ch06-fig03"></a>
 
 <div align="center">
-  <img src="./images/ch06-fig03.png" alt="[k]{.upright}-fold cross-validation for creating model ensembles" width="60%" />
+  <img src="./images/ch06-fig03.png" alt="[k]{.upright}-fold cross-validation for creating model ensembles" width="78%" />
 </div>
 
 As shown in Figure [1.2](#fig-ch06-fig03), the *k*-fold ensemble approach trains each of the

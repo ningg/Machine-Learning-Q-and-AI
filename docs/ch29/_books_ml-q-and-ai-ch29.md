@@ -54,7 +54,7 @@ sets is adversarial validation.
 <a id="fig-ch29-fig01"></a>
 
 <div align="center">
-  <img src="./images/ch29-fig01.png" alt="adversarial validation illustration" width="60%" />
+  <img src="./images/ch29-fig01.png" alt="adversarial validation illustration" width="78%" />
 </div>
 
 is a technique to identify the degree of

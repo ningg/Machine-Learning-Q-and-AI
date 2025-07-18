@@ -40,7 +40,7 @@ whether it is an improvement over the status quo.
 > - 我们考虑现有的**基准数据集**，以比较新方法与先前的方法，并确定它是否更优。
 
 <div align="center">
-  <img src="./images/ch21-fig01.png" alt="data-centric vs model-centric workflows" width="60%" />
+  <img src="./images/ch21-fig01.png" alt="data-centric vs model-centric workflows" width="78%" />
 </div>
 
 While *data-centric AI* is a relatively new term, the idea behind it is

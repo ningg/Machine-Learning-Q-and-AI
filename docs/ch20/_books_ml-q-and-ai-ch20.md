@@ -39,7 +39,7 @@ different parts of the data from a given data stream.
 <a id="fig-ch20-fig01"></a>
 
 <div align="center">
-  <img src="./images/ch20-fig01.png" alt="Stateless training replaces the model periodically." width="60%" />
+  <img src="./images/ch20-fig01.png" alt="Stateless training replaces the model periodically." width="78%" />
 </div>
 
 For example, to update the initial model in
@@ -78,7 +78,7 @@ transfer learning or self-supervised learning.
 <a id="fig-ch20-fig02"></a>
 
 <div align="center">
-  <img src="./images/ch20-fig02.png" alt="Stateful training updates models periodically." width="60%" />
+  <img src="./images/ch20-fig02.png" alt="Stateful training updates models periodically." width="78%" />
 </div>
 
 The stateful approach mimics a transfer or self-supervised learning

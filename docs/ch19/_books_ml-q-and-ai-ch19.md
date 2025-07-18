@@ -152,7 +152,7 @@ Figure [fig:ch19-fig01](#fig-ch19-fig01) demonstrates the BLEU score calculation
 <a id="fig-ch19-fig01"></a>
 
 <div align="center">
-  <img src="./images/ch19-fig01.png" alt="image" width="75%" />
+  <img src="./images/ch19-fig01.png" alt="image" width="97%" />
 </div>
 
 
@@ -218,7 +218,7 @@ a 1-gram ROUGE score computation (though in practice, ROUGE is often computed fo
 <a id="fig-ch19-fig02"></a>
 
 <div align="center">
-  <img src="./images/ch19-fig02.png" alt="image" width="75%" />
+  <img src="./images/ch19-fig02.png" alt="image" width="97%" />
 </div>
 
 There are other ROUGE variants beyond ROUGE-1 (the F1 score--based
@@ -291,7 +291,7 @@ You can also find a computational example in the `subfolder/q15-text-augment` su
 <a id="fig-ch19-fig03"></a>
 
 <div align="center">
-  <img src="./images/ch19-fig03.png" alt="image" width="75%" />
+  <img src="./images/ch19-fig03.png" alt="image" width="97%" />
 </div>
 
 BERTScore can be used for translations and summaries, and it captures

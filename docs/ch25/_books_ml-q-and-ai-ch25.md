@@ -77,7 +77,7 @@ Figure [\[fig-ch25-fig01\]](#fig-ch25-fig01).
 <a id="fig-ch25-fig01"></a>
 
 <div align="center">
-  <img src="./images/ch25-fig01.png" alt="Confidence interval illustration" width="75%" />
+  <img src="./images/ch25-fig01.png" alt="Confidence interval illustration" width="95%" />
 </div>
 
 More concretely, if we were to draw 100 different representative test
@@ -100,7 +100,7 @@ Figure [1.1](#fig-ch25-fig02).
 <a id="fig-ch25-fig02"></a>
 
 <div align="center">
-  <img src="./images/ch25-fig02.png" alt="Two common plotting variants to illustrate confidence intervals" width="60%" />
+  <img src="./images/ch25-fig02.png" alt="Two common plotting variants to illustrate confidence intervals" width="78%" />
 </div>
 
 This visualization is functionally useful in a number of ways. For
@@ -257,7 +257,7 @@ Figure [\[fig-ch25-fig04\]](#fig-ch25-fig04).
 <a id="fig-ch25-fig04"></a>
 
 <div align="center">
-  <img src="./images/ch25-fig04.png" alt="Out-of-bag bootstrapping illustration" width="75%" />
+  <img src="./images/ch25-fig04.png" alt="Out-of-bag bootstrapping illustration" width="95%" />
 </div>
 
 Suppose we constructed *k* training and test sets. We can now take each
@@ -270,7 +270,7 @@ Figure [1.2](#fig-ch25-fig05).
 <a id="fig-ch25-fig05"></a>
 
 <div align="center">
-  <img src="./images/ch25-fig05.png" alt="Distribution of test accuracies from 1,000 bootstrap samples, including a 95 percent confidence interval" width="60%" />
+  <img src="./images/ch25-fig05.png" alt="Distribution of test accuracies from 1,000 bootstrap samples, including a 95 percent confidence interval" width="78%" />
 </div>
 
 Unlike the normal approximation interval method, we can consider this
@@ -304,7 +304,7 @@ previous section.
 <a id="fig-ch25-fig06"></a>
 
 <div align="center">
-  <img src="./images/ch25-fig06.png" alt="Bootstrapping the test set" width="60%" />
+  <img src="./images/ch25-fig06.png" alt="Bootstrapping the test set" width="78%" />
 </div>
 
 Contrary to the prior bootstrap technique, this method uses a trained

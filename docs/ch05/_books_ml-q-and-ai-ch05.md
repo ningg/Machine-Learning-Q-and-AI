@@ -55,7 +55,7 @@ performance by collecting more data.
 <a id="fig-ch05-fig01"></a>
 
 <div align="center">
-  <img src="./images/ch05-fig01.png" alt="The learning curve plot of a model fit to different training\set sizes" width="60%" />
+  <img src="./images/ch05-fig01.png" alt="The learning curve plot of a model fit to different training\set sizes" width="78%" />
 </div>
 
 The gap between training and validation performance indicates the degree
@@ -89,7 +89,7 @@ techniques, including `increasing brightness`, `flipping`, and `cropping`.
 <a id="fig-ch05-fig02"></a>
 
 <div align="center">
-  <img src="./images/ch05-fig02.png" alt="A selection of different image data augmentation techniques" width="60%" />
+  <img src="./images/ch05-fig02.png" alt="A selection of different image data augmentation techniques" width="78%" />
 </div>
 
 Data augmentation is usually standard for image data (see

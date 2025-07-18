@@ -84,7 +84,7 @@ like German-to-English translation.
 <a id="fig-ch18-fig01"></a>
 
 <div align="center">
-  <img src="./images/ch18-fig01.png" alt="The general fine-tuning workflow of large language models" width="60%" />
+  <img src="./images/ch18-fig01.png" alt="The general fine-tuning workflow of large language models" width="78%" />
 </div>
 
 The conventional methods for fine-tuning pretrained LLMs include
@@ -118,7 +118,7 @@ section so far.
 <a id="fig-ch18-fig02"></a>
 
 <div align="center">
-  <img src="./images/ch18-fig02.png" alt="image" width="60%" />
+  <img src="./images/ch18-fig02.png" alt="image" width="78%" />
 </div>
 
 
@@ -140,7 +140,7 @@ Figure [1.3](#fig-ch18-fig03).
 <a id="fig-ch18-fig03"></a>
 
 <div align="center">
-  <img src="./images/ch18-fig03.png" alt="Prompting an LLM for in-context learning" width="40%" />
+  <img src="./images/ch18-fig03.png" alt="Prompting an LLM for in-context learning" width="52%" />
 </div>
 
 As Figure [1.3](#fig-ch18-fig03) shows, **in-context learning** aims to provide context
@@ -240,7 +240,7 @@ is `indexing`, illustrated in Figure [1.3](#fig-ch18-fig04)
 <a id="fig-ch18-fig04"></a>
 
 <div align="center">
-  <img src="./images/ch18-fig04.png" alt="LLM indexing to retrieve information from external documents" width="50%" />
+  <img src="./images/ch18-fig04.png" alt="LLM indexing to retrieve information from external documents" width="65%" />
 </div>
 
 In the context of LLMs, we can think of `indexing` as a workaround based on
@@ -268,7 +268,7 @@ popular methods at the time of writing summarized in Figure [1.5](#fig-ch18-fig
 <a id="fig-ch18-fig05"></a>
 
 <div align="center">
-  <img src="./images/ch18-fig05.png" alt="The main categories of parameter-efficient fine-tuning techniques, with popular examples" width="45%" />
+  <img src="./images/ch18-fig05.png" alt="The main categories of parameter-efficient fine-tuning techniques, with popular examples" width="58%" />
 </div>
 
 In contrast to the hard prompting approach discussed in the previous
@@ -343,7 +343,7 @@ regular transformer block and a prefix tuning transformer block.
 <a id="fig-ch18-fig06"></a>
 
 <div align="center">
-  <img src="./images/ch18-fig06.png" alt="A regular transformer compared with prefix tuning" width="60%" />
+  <img src="./images/ch18-fig06.png" alt="A regular transformer compared with prefix tuning" width="78%" />
 </div>
 
 Both `soft prompt` tuning and `prefix tuning` are considered parameter
@@ -359,7 +359,7 @@ block, as illustrated in Figure [1.7](#fig-ch18-fig07).
 <a id="fig-ch18-fig07"></a>
 
 <div align="center">
-  <img src="./images/ch18-fig07.png" alt="Comparison of a regular transformer block (left) and a transformer block with adapter layers" width="60%" />
+  <img src="./images/ch18-fig07.png" alt="Comparison of a regular transformer block (left) and a transformer block with adapter layers" width="78%" />
 </div>
 
 Only the new adapter layers are updated when training the LLM using the

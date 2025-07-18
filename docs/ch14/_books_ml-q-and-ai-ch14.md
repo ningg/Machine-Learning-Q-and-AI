@@ -36,7 +36,7 @@ sentence grammatically incorrect.
 <a id="fig-ch14-fig01"></a>
 
 <div align="center">
-  <img src="./images/ch14-fig01.png" alt="Common and uncommonwordsinagivencontext" width="60%" />
+  <img src="./images/ch14-fig01.png" alt="Common and uncommonwordsinagivencontext" width="78%" />
 </div>
 
 It is easy to construct counterexamples using polysemous words, that is,
@@ -88,7 +88,7 @@ apart in the embedding space.
 <a id="fig-ch14-fig02"></a>
 
 <div align="center">
-  <img src="./images/ch14-fig02.png" alt="Word2vec embeddings in a two-dimensional\vector space" width="60%" />
+  <img src="./images/ch14-fig02.png" alt="Word2vec embeddings in a two-dimensional\vector space" width="78%" />
 </div>
 
 BERT is an LLM based on the transformer architecture (see
@@ -104,7 +104,7 @@ are close in the embedding space.
 <a id="fig-ch14-fig03"></a>
 
 <div align="center">
-  <img src="./images/ch14-fig03.png" alt="BERT's pretraining task involves predicting randomly masked words." width="60%" />
+  <img src="./images/ch14-fig03.png" alt="BERT's pretraining task involves predicting randomly masked words." width="78%" />
 </div>
 
 GPT, which like BERT is also an LLM based on the transformer
@@ -118,7 +118,7 @@ sequence simultaneously.
 <a id="fig-ch14-fig04"></a>
 
 <div align="center">
-  <img src="./images/ch14-fig04.png" alt="GPT is pretrained by predicting the next word." width="60%" />
+  <img src="./images/ch14-fig04.png" alt="GPT is pretrained by predicting the next word." width="78%" />
 </div>
 
 Where BERT is a bidirectional language model that considers the whole

@@ -49,7 +49,7 @@ mechanism in Figure [1.1](#fig-ch16-fig01).
 <a id="fig-ch16-fig01"></a>
 
 <div align="center">
-  <img src="./images/ch16-fig01.png" alt="The Bahdanau mechanism uses a separate RNN to compute attention weights." width="60%" />
+  <img src="./images/ch16-fig01.png" alt="The Bahdanau mechanism uses a separate RNN to compute attention weights." width="78%" />
 </div>
 
 In Figure [1.1](#fig-ch16-fig01), the $\alpha$ values represent the attention
@@ -88,7 +88,7 @@ Figure [\[fig-ch16-fig02\]](#fig-ch16-fig02).
 <a id="fig-ch16-fig02"></a>
 
 <div align="center">
-  <img src="./images/ch16-fig02.png" alt="image" width="60%" />
+  <img src="./images/ch16-fig02.png" alt="image" width="78%" />
 </div>
 
 Figure [\[fig-ch16-fig02\]](#fig-ch16-fig02) shows two different sequence-to-sequence RNN
@@ -150,7 +150,7 @@ elements.
 <a id="fig-ch16-fig03"></a>
 
 <div align="center">
-  <img src="./images/ch16-fig03.png" alt="A simple self-attention mechanism without weight matrices" width="60%" />
+  <img src="./images/ch16-fig03.png" alt="A simple self-attention mechanism without weight matrices" width="78%" />
 </div>
 
 While Figure [1.2](#fig-ch16-fig03) doesn't include weight matrices, the

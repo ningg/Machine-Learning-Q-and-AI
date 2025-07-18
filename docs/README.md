@@ -1,4 +1,4 @@
-# 大模型技术30讲（英文原版&中文批注）
+# 大模型技术30讲（英文&中文批注）
 
 大模型技术30讲（原版），30 Essential Questions and Answers on Machine Learning and AI
 

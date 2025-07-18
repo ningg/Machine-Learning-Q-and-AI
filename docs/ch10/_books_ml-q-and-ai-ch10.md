@@ -48,7 +48,7 @@ Figure [1.1](#fig-ch10-fig01). As the figure shows, the loss will converge to d
 <a id="fig-ch10-fig01"></a>
 
 <div align="center">
-  <img src="./images/ch10-fig01.png" alt="Different starting weights can lead to different final weights." width="60%" />
+  <img src="./images/ch10-fig01.png" alt="Different starting weights can lead to different final weights." width="78%" />
 </div>
 
 In practice, it is therefore recommended to run the training (if the
@@ -112,7 +112,7 @@ during training.
 <a id="fig-ch10-fig02"></a>
 
 <div align="center">
-  <img src="./images/ch10-fig02.png" alt="In dropout, hidden nodes are intermittently and randomly disabled during each forward pass in training." width="60%" />
+  <img src="./images/ch10-fig02.png" alt="In dropout, hidden nodes are intermittently and randomly disabled during each forward pass in training." width="78%" />
 </div>
 
 To create reproducible training runs, we must seed the random generator 
@@ -272,7 +272,7 @@ probable candidates at each step of the next-word generation process.
 <a id="fig-ch10-fig03"></a>
 
 <div align="center">
-  <img src="./images/ch10-fig03.png" alt="Top-k sampling" width="60%" />
+  <img src="./images/ch10-fig03.png" alt="Top-k sampling" width="78%" />
 </div>
 
 Given an input prompt, the language model produces a probability
@@ -291,7 +291,7 @@ illustrated in Figure [1.4](#fig-ch10-fig04), is an alternative to top-*k* samp
 <a id="fig-ch10-fig04"></a>
 
 <div align="center">
-  <img src="./images/ch10-fig04.png" alt="Nucleus sampling" width="60%" />
+  <img src="./images/ch10-fig04.png" alt="Nucleus sampling" width="78%" />
 </div>
 
 Similar to top-*k* sampling, the goal of nucleus sampling is to balance

@@ -57,7 +57,7 @@ the input, $p(y|x)$, remains the same.
 > - 协变量 covariate，一般是指 特征变量，通常会影响输出结果，但并不一定是主要因素.
 
 <div align="center">
-  <img src="./images/ch23-fig01.png" alt="Training data and new data distributions differ under covariate shift." width="50%" />
+  <img src="./images/ch23-fig01.png" alt="Training data and new data distributions differ under covariate shift." width="65%" />
 </div>
 
 For example, suppose we trained a model to predict whether an email is
@@ -194,7 +194,7 @@ and retraining or adapting the model.
 [](#types-of-data-distribution-shifts)
 
 <div align="center">
-  <img src="./images/ch23-fig02.png" alt="Different types of data shifts in a binary classification context" width="40%" />
+  <img src="./images/ch23-fig02.png" alt="Different types of data shifts in a binary classification context" width="52%" />
 </div>
 
 As noted in the previous sections, some types of distribution shift are

@@ -41,7 +41,7 @@ Figure [1.1](#fig-ch22-fig01).
 <a id="fig-ch22-fig01"></a>
 
 <div align="center">
-  <img src="./images/ch22-fig01.png" alt="Sequential inference and batched inference" width="60%" />
+  <img src="./images/ch22-fig01.png" alt="Sequential inference and batched inference" width="78%" />
 </div>
 
 Figure [1.1](#fig-ch22-fig01) shows sequential inference processing one item at
@@ -82,7 +82,7 @@ Figure [1.2](#fig-ch22-fig02).
 <a id="fig-ch22-fig02"></a>
 
 <div align="center">
-  <img src="./images/ch22-fig02.png" alt="A classic loop versus a vectorized dot product computation in Python" width="50%" />
+  <img src="./images/ch22-fig02.png" alt="A classic loop versus a vectorized dot product computation in Python" width="65%" />
 </div>
 
 In the context of linear algebra or deep learning frameworks like
@@ -112,7 +112,7 @@ subdivide the array into smaller tiles.
 <a id="fig-ch22-fig03"></a>
 
 <div align="center">
-  <img src="./images/ch22-fig03.png" alt="Loop tiling in a two-dimensional array" width="60%" />
+  <img src="./images/ch22-fig03.png" alt="Loop tiling in a two-dimensional array" width="78%" />
 </div>
 
 Note that in languages such as Python, we don't usually perform loop
@@ -137,7 +137,7 @@ the product of an array of numbers are fused into a single loop.
 <a id="fig-ch22-fig04"></a>
 
 <div align="center">
-  <img src="./images/ch22-fig04.png" alt="Fusing two loops (left) into one (right)" width="60%" />
+  <img src="./images/ch22-fig04.png" alt="Fusing two loops (left) into one (right)" width="78%" />
 </div>
 
 `Operator fusion` can improve the performance of a model by reducing the
