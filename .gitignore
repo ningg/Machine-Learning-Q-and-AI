@@ -1,7 +1,6 @@
 node_modules
 docs/node_modules
 
-.cursor/
 **.DS_Store
 
 # Compiled class file
