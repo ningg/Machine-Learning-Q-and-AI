@@ -174,11 +174,9 @@ method*. Suppose we train a classifier on a training set to distinguish
 between three species of birds: sparrows, robins, and hawks. Suppose the
 predicted probabilities for a calibration dataset are as follows:
 
-Sparrow \[0.95, 0.9, 0.85, 0.8, 0.75\]
-
-Robin \[0.7, 0.65, 0.6, 0.55, 0.5\]
-
-Hawk \[0.4, 0.35, 0.3, 0.25, 0.2\]
+* Sparrow \[0.95, 0.9, 0.85, 0.8, 0.75\]
+* Robin \[0.7, 0.65, 0.6, 0.55, 0.5\]
+* Hawk \[0.4, 0.35, 0.3, 0.25, 0.2\]
 
 As depicted here, we have a calibration set consisting of 15 examples,
 five for each of the three classes. Note that a classifier returns three
@@ -192,11 +190,9 @@ In this case, we kept only 0.95.
 Next, after we obtain the previous probability scores, we can compute
 the nonconformity score as 1 minus the probability, as follows:
 
-Sparrow \[0.05, 0.1, 0.15, 0.2, 0.25\]
-
-Robin \[0.3, 0.35, 0.4, 0.45, 0.5\]
-
-Hawk \[0.6, 0.65, 0.7, 0.75, 0.8\]
+* Sparrow \[0.05, 0.1, 0.15, 0.2, 0.25\]
+* Robin \[0.3, 0.35, 0.4, 0.45, 0.5\]
+* Hawk \[0.6, 0.65, 0.7, 0.75, 0.8\]
 
 Considering a confidence level of 0.95, we now select a threshold such
 that 95 percent of these nonconformity scores fall below that threshold.
@@ -209,11 +205,9 @@ to classify. We calculate the nonconformity score of this new bird
 image, assuming it belongs to each bird species (class label) in the
 training set:
 
-Sparrow 0.26
-
-Robin 0.45
-
-Hawk 0.9
+* Sparrow 0.26
+* Robin 0.45
+* Hawk 0.9
 
 In this case, the *Sparrow* and *Robin* nonconformity scores fall below
 the threshold of 0.8. Thus, the prediction set for this input is

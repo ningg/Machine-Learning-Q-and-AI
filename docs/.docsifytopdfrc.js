@@ -16,6 +16,7 @@ module.exports = {
       },
       printBackground: true,
       displayHeaderFooter: true,
+      headerTemplate: '<div style="font-size: 10px; text-align: center; width: 100%; color: gray;"><span class="date"></span>&emsp;&emsp;|&emsp;&emsp;<span class="title"></span>&emsp;&emsp;|&emsp;&emsp;<span style="color: #42b983;">https://ningg.top/Machine-Learning-Q-and-AI/</span></div>',
       footerTemplate: '<div style="font-size: 10px; text-align: center; width: 100%;">第 <span class="pageNumber"></span> 页，共 <span class="totalPages"></span> 页</div>',
       outline: true,
     },
