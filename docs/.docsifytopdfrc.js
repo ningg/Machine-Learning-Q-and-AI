@@ -3,7 +3,7 @@ module.exports = {
     contents: ["_sidebar.md"],
     
     // 必需：PDF 输出路径
-    pathToPublic: "pdf/LLM_30_Essential_Lectures_AI.pdf",
+    pathToPublic: "pdf/大模型技术30讲(英文&中文批注)_LLM_30_Essential_Lectures_AI.pdf",
     
     // 可选：PDF 选项（Puppeteer 配置）
     pdfOptions: {
