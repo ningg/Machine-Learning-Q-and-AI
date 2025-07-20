@@ -50,13 +50,14 @@ N-*way* K-*shot*, where
 
 The most common values are *K* = 1 or *K* = 5. For instance, in a 5-way 1-shot problem, there are
 five classes with only one example each.
-Figure [1.1](#fig-ch03-fig01) depicts a 3-way 1-shot setting to illustrate the
+Figure [3.1](#fig-ch03-fig01) depicts a 3-way 1-shot setting to illustrate the
 concept with a smaller example.
 
 <a id="fig-ch03-fig01"></a>
 
 <div align="center">
   <img src="./images/ch03-fig01.png" alt="Training tasks in few-shot learning" width="78%" />
+  <div><b>Figure 3.1</b></div>
 </div>
 
 Rather than fitting the model to the training dataset, we can think of
@@ -86,15 +87,16 @@ training is also often called the `base set`. Again, the task is to
 classify the query images. Test tasks are similar to training tasks,
 except that none of the classes during testing overlap with those
 encountered during training, as illustrated in
-Figure [1.2](#fig-ch03-fig02).
+Figure [3.2](#fig-ch03-fig02).
 
 <a id="fig-ch03-fig02"></a>
 
 <div align="center">
   <img src="./images/ch03-fig02.png" alt="Classes seen during training and testing" width="78%" />
+  <div><b>Figure 3.2</b></div>
 </div>
 
-As Figure [1.2](#fig-ch03-fig02) shows, the support and query sets contain
+As Figure [3.2](#fig-ch03-fig02) shows, the support and query sets contain
 different images from the same class during training. The same is true
 during testing. However, notice that the classes in the support and
 query sets differ from the support and query sets encountered during
@@ -106,12 +108,13 @@ parameters such that it can *adapt* well to a new task. On a high level,
 one few-shot learning strategy is to learn a model that produces
 embeddings where we can find the target class via a nearest-neighbor
 search among the images in the support set.
-Figure [1.3](#fig-ch03-fig03) illustrates this approach.
+Figure [3.3](#fig-ch03-fig03) illustrates this approach.
 
 <a id="fig-ch03-fig03"></a>
 
 <div align="center">
   <img src="./images/ch03-fig03.png" alt="Learning embeddings that are suitable for classification" width="78%" />
+  <div><b>Figure 3.3</b></div>
 </div>
 
 The model learns how to produce good embeddings from the support set to
