@@ -24,7 +24,7 @@ CNNs and ViTs can be used for the same tasks, including image
 classification, object detection, and image segmentation. CNNs are
 mainly composed of convolutional layers, while ViTs consist primarily of
 multi-head attention blocks (discussed in
-Chapter [\[ch08\]](./ch08){reference="ch08" reference-type="ref"} in
+Chapter [\[ch08\]](./ch08/_books_ml-q-and-ai-ch08.md) in
 the context of transformers for natural language inputs).
 
 CNNs have more inductive biases that are hardcoded as part of the
@@ -119,10 +119,10 @@ irrespective of where it is located in the input.
   <div><b>Figure 13.2</b></div>
 </div>
 
-Figure [13.2](#fig-ch13-fig02) shows a \\(3 \\times 3\\) input image that
+Figure [13.2](#fig-ch13-fig02) shows a $3 \times 3$ input image that
 consists of two nonzero pixel values in the upper-left corner (top
 portion of the figure) or upper-right corner (bottom portion of the
-figure). If we apply a \\(2 \\times 2\\) convolutional filter to these
+figure). If we apply a $2 \times 2$ convolutional filter to these
 two input image scenarios, we can see that the output feature maps
 contain the same extracted pattern, which is on either the left (top of
 the figure) or the right (bottom of the figure), demonstrating the
@@ -176,7 +176,7 @@ extensivep retraining, but they can perform very well with a
 sufficiently large pretraining dataset. In contrast to language
 transformers, where unsupervised pretraining (such as
 self-supervisedlearning, disussed in
-Chapter [\[ch02\]](./ch02/_books_ml-q-and-ai-ch02.md) is
+Chapter [\[ch02\]](./ch02/_books_ml-q-and-ai-ch02.md) ) is
 a preferred choice, vision transformers are often pretrained using
 large, labeled datasets like ImageNet, which provides millions of
 labeled images for training, and regular supervised learning.

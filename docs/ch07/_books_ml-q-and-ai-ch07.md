@@ -27,13 +27,13 @@ multiple approaches into a hybrid technique.
 This chapter introduces several training paradigms and provides advice
 on which to use in practice.
 
-::: note
-This chapter primarily uses the term [GPUs]{.upright} to describe the
+
+This chapter primarily uses the term `GPUs` to describe the
 hardware utilized for parallel processing. However, the same concepts
 and techniques discussed can be applied to other specialized hardware
 devices, such as tensor processing units (TPUs) or other accelerators,
 depending on the specific architecture and requirements of the system.
-:::
+
 
 ## The Training Paradigms
 [](#the-training-paradigms)
@@ -62,8 +62,8 @@ can scale to an arbitrary number of layers and GPUs.
 This is a good strategy for dealing with limited GPU memory where the
 complete network does not fit into one GPU. However, there are more
 efficient ways of using multiple GPUs, such as tensor parallelism,
-because the chain-like structure (layer 1 on GPU 1 \\(\\rightarrow\\)
-layer 2 on GPU 2 \\(\\rightarrow\\) ."†."†.) in model parallelism
+because the chain-like structure (layer 1 on GPU 1 $\rightarrow$
+layer 2 on GPU 2 $\rightarrow$ ...) in model parallelism
 introduces a bottleneck. In other words, a major disadvantage of model
 parallelism is that the GPUs have to wait for each other. They cannot
 efficiently work in parallel, as they depend on one other's outputs.
@@ -220,7 +220,7 @@ sequential dependency as in model parallelism.
 Modern multi-GPU strategies also typically combine data parallelism and
 tensor parallelism.
 
-### Exercises
+## Exercises
 [](#exercises)
 
 7-1. Suppose we are implementing our own version of tensor parallelism,
