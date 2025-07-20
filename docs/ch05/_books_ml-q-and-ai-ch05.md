@@ -48,7 +48,7 @@ given model would benefit from more data. To construct a learning curve,
 we train the model to different training set sizes (10 percent, 20
 percent, and so on) and evaluate the trained model on the same
 fixed-size validation or test set. As shown in
-Figure [1.1](#fig-ch05-fig01), the validation accuracy increases as the training
+Figure [5.1](#fig-ch05-fig01), the validation accuracy increases as the training
 set sizes increase. This indicates that we can improve the model's
 performance by collecting more data.
 
@@ -56,6 +56,7 @@ performance by collecting more data.
 
 <div align="center">
   <img src="./images/ch05-fig01.png" alt="The learning curve plot of a model fit to different training\set sizes" width="78%" />
+  <div><b>Figure 5.1</b></div>
 </div>
 
 The gap between training and validation performance indicates the degree
@@ -83,17 +84,18 @@ pixel values for specific pixel locations.
 
 > Tips: 数据增强 `data augmentation`，可以**提高模型的泛化性能**。为什么？因为增强后的数据，使模型忽略`虚假信息`，典型场景：在`图像数据`中，会弱化`特定像素`的`像素值`。
 
-Figure [1.2](#fig-ch05-fig02) highlights common image data augmentation
+Figure [5.2](#fig-ch05-fig02) highlights common image data augmentation
 techniques, including `increasing brightness`, `flipping`, and `cropping`.
 
 <a id="fig-ch05-fig02"></a>
 
 <div align="center">
   <img src="./images/ch05-fig02.png" alt="A selection of different image data augmentation techniques" width="78%" />
+  <div><b>Figure 5.2</b></div>
 </div>
 
 Data augmentation is usually standard for image data (see
-Figure [1.2](#fig-ch05-fig02)) and text data (discussed further in
+Figure [5.2](#fig-ch05-fig02)) and text data (discussed further in
 Chapter [\[ch15\]](./ch15/_books_ml-q-and-ai-ch15.md),
 but data augmentation methods for tabular data also exist.
 

@@ -43,12 +43,13 @@ each, where the output layer is a` classification layer` for 10 classes.
 
 
 The architecture of this network is illustrated in
-Figure [\[fig-ch11-fig01\]](#fig-ch11-fig01).
+Figure [11.1](#fig-ch11-fig01).
 
 <a id="fig-ch11-fig01"></a>
 
 <div align="center">
   <img src="./images/ch11-fig01.png" alt="image" width="78%" />
+  <div><b>Figure 11.1</b></div>
 </div>
 
 
@@ -66,7 +67,7 @@ kernel's width and height and the number of input and output channels.
 The number of bias units depends on the number of output channels only.
 To illustrate the computation step by step, suppose we have a kernel
 width and height of 5, one input channel, and one output channel, as
-illustrated in Figure [1.1](#fig-ch11-fig02).
+illustrated in Figure [11.2](#fig-ch11-fig02).
 
 > Tips: 卷积层的参数数量，取决于`卷积核`(kernel)的宽度、高度、输入通道数和输出通道数。
 
@@ -74,6 +75,7 @@ illustrated in Figure [1.1](#fig-ch11-fig02).
 
 <div align="center">
   <img src="./images/ch11-fig02.png" alt="A convolutional layer with one input channel and one output channel" width="78%" />
+  <div><b>Figure 11.2</b></div>
 </div>
 
 In this case, we have 26 parameters, since we have $5 \times 5 = 25$ weights via the kernel plus the bias unit. 
@@ -84,12 +86,13 @@ a weight parameter of the kernel, and $b$ is the bias unit.
 > Tips: 一个**卷积核** `kernel` 的参数量，`weights` = 宽度 x 高度。
 
 Now, suppose we have three input channels, as illustrated in
-Figure [1.2](#fig-ch11-fig03).
+Figure [11.3](#fig-ch11-fig03).
 
 <a id="fig-ch11-fig03"></a>
 
 <div align="center">
   <img src="./images/ch11-fig03.png" alt="A convolutional layer with three input channels and one output channel" width="78%" />
+  <div><b>Figure 11.3</b></div>
 </div>
 
 In that case, we compute the output value by performing the
@@ -108,7 +111,7 @@ $3 \times 25 + 1 = 76$ parameters in this convolutional layer.
 We use one kernel for each output channel, where each kernel is unique
 to a given output channel. Thus, if we extend the number of output
 channels from one to five, as shown in
-Figure [1.3](#fig-ch11-fig04), we extend the number of parameters by a factor of 5. 
+Figure [11.4](#fig-ch11-fig04), we extend the number of parameters by a factor of 5. 
 
 In other words, if the kernel for one output channel has 76
 parameters, the 5 kernels required for the five output channels will
@@ -118,10 +121,11 @@ have $5 \times 76 = 380$ parameters.
 
 <div align="center">
   <img src="./images/ch11-fig04.png" alt="A convolutional layer with three input channels and five output channels" width="78%" />
+  <div><b>Figure 11.4</b></div>
 </div>
 
 Returning to the neural network architecture illustrated in
-Figure [\[fig-ch11-fig01\]](#fig-ch11-fig01) at the beginning of this section, we compute the
+Figure [11.1](#fig-ch11-fig01) at the beginning of this section, we compute the
 number of parameters in the convolutional layers based on the kernel
 size and number of input and output channels. For example, the first
 convolutional layer has three input channels, five output channels, and
@@ -146,7 +150,7 @@ node to each output node, so the number of weights is the number of
 inputs times the number of outputs plus the bias units added to the
 output. For example, if we have a fully connected layer with five inputs
 and three outputs, as shown
-in Figure [1.4](#fig-ch11-fig05), we have $5 \times 3 = 15$ weights and three bias units, that is,
+in Figure [11.5](#fig-ch11-fig05), we have $5 \times 3 = 15$ weights and three bias units, that is,
 18 parameters total.
 
 > Tips: 一个**全连接层** `fully connected layer` 的参数量，`weights` = 输入节点数 x 输出节点数。
@@ -155,10 +159,11 @@ in Figure [1.4](#fig-ch11-fig05), we have $5 \times 3 = 15$ weights and three b
 
 <div align="center">
   <img src="./images/ch11-fig05.png" alt="A fully connected layer with five inputs and three outputs" width="78%" />
+  <div><b>Figure 11.5</b></div>
 </div>
 
 Returning once more to the neural network architecture illustrated in
-Figure [\[fig-ch11-fig01\]](#fig-ch11-fig01), we can now calculate the parameters in the fully
+Figure [11.1](#fig-ch11-fig01), we can now calculate the parameters in the fully
 connected layers as follows: $192 \times 128 + 128 = 24,704$ in the
 first fully connected layer and $128 \times 10 + 10 = 1,290$ in the
 second fully connected layer, the output layer. 

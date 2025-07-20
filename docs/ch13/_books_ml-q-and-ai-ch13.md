@@ -24,7 +24,7 @@ CNNs and ViTs can be used for the same tasks, including image
 classification, object detection, and image segmentation. CNNs are
 mainly composed of convolutional layers, while ViTs consist primarily of
 multi-head attention blocks (discussed in
-Chapter [\[ch08\]](../ch08){reference="ch08" reference-type="ref"} in
+Chapter [\[ch08\]](./ch08){reference="ch08" reference-type="ref"} in
 the context of transformers for natural language inputs).
 
 CNNs have more inductive biases that are hardcoded as part of the
@@ -89,15 +89,16 @@ output does not change with an input shift, while *translation
 equivariance* implies that the output shifts with the input in a
 corresponding manner. In other words, if we shift the input object to
 the right, the results will correspondingly shift to the right, as
-illustrated in Figure [1.1](#fig-ch13-fig01){reference="fig-ch13-fig01"
-reference-type="ref"}.
+illustrated in Figure [13.1](#fig-ch13-fig01).
+
+<a id="fig-ch13-fig01"></a>
 
 <div align="center">
   <img src="./images/ch13-fig01.png" alt="Equivariance under different image translations" width="78%" />
+  <div><b>Figure 13.1</b></div>
 </div>
 
-As Figure [1.1](#fig-ch13-fig01){reference="fig-ch13-fig01"
-reference-type="ref"} shows, under translation invariance, we get the
+As Figure [13.1](#fig-ch13-fig01) shows, under translation invariance, we get the
 same output pattern regardless of the order in which we apply the
 operations: transformation followed by translation or translation
 followed by transformation.
@@ -105,19 +106,20 @@ followed by transformation.
 As mentioned earlier, CNNs achieve translation equivariance through a
 combination of their local connectivity, weight sharing, and
 hierarchical processing properties.
-Figure [1.2](#fig-ch13-fig02){reference="fig-ch13-fig02"
-reference-type="ref"} depicts a convolutional operation to illustrate
+Figure [13.2](#fig-ch13-fig02) depicts a convolutional operation to illustrate
 the local connectivity and weight-sharing priors. This figure
 demonstrates the concept of translation equivariance in CNNs, in which a
 convolutional filter captures the input signal (the two dark blocks)
 irrespective of where it is located in the input.
 
+<a id="fig-ch13-fig02"></a>
+
 <div align="center">
   <img src="./images/ch13-fig02.png" alt="Convolutional filters and translation equivariance" width="78%" />
+  <div><b>Figure 13.2</b></div>
 </div>
 
-Figure [1.2](#fig-ch13-fig02){reference="fig-ch13-fig02"
-reference-type="ref"} shows a \\(3 \\times 3\\) input image that
+Figure [13.2](#fig-ch13-fig02) shows a \\(3 \\times 3\\) input image that
 consists of two nonzero pixel values in the upper-left corner (top
 portion of the figure) or upper-right corner (bottom portion of the
 figure). If we apply a \\(2 \\times 2\\) convolutional filter to these
@@ -132,11 +134,13 @@ this point, picture a multilayer perceptron with one hidden layer. Each
 pixel in the input image is connected with each value in the resulting
 output. If we shift the input by one or more pixels, a different set of
 weights will be activated, as illustrated in
-Figure [1.3](#fig-ch13-fig03){reference="fig-ch13-fig03"
-reference-type="ref"}.
+Figure [13.3](#fig-ch13-fig03).
+
+<a id="fig-ch13-fig03"></a>
 
 <div align="center">
   <img src="./images/ch13-fig03.png" alt="Location-specific weights in fully connected layers" width="78%" />
+  <div><b>Figure 13.3</b></div>
 </div>
 
 Like fully connected networks, ViT architecture (and transformer
@@ -164,8 +168,7 @@ The hardcoded assumptions via the inductive biases discussed in previous
 sections reduce the number of parameters in CNNs substantially compared
 to fully connected layers. On the other hand, ViTs tend to have larger
 numbers of parameters than CNNs, which require more training data.
-(Refer to Chapter [\[ch11\]](../ch11){reference="ch11"
-reference-type="ref"} for a refresher on how to precisely calculate the
+(Refer to Chapter [\[ch11\]](./ch11/_books_ml-q-and-ai-ch11.md) for a refresher on how to precisely calculate the
 number of parameters in fully connected and convolutional layers.)
 
 ViTs may underperform compared to popular CNN architectures without
@@ -173,7 +176,7 @@ extensivep retraining, but they can perform very well with a
 sufficiently large pretraining dataset. In contrast to language
 transformers, where unsupervised pretraining (such as
 self-supervisedlearning, disussed in
-Chapter [\[ch02\]](../ch02){reference="ch02" reference-type="ref"}) is
+Chapter [\[ch02\]](./ch02/_books_ml-q-and-ai-ch02.md) is
 a preferred choice, vision transformers are often pretrained using
 large, labeled datasets like ImageNet, which provides millions of
 labeled images for training, and regular supervised learning.
@@ -195,11 +198,13 @@ transformers *patchify* the input image to process each input patch
 individually. Here, each patch can attend to all other patches so that
 the model learns relationships between far-apart patches in the input
 image, as illustrated in
-Figure [1.4](#fig-ch13-fig04){reference="fig-ch13-fig04"
-reference-type="ref"}.
+Figure [13.4](#fig-ch13-fig04).
+
+<a id="fig-ch13-fig04"></a>
 
 <div align="center">
   <img src="./images/ch13-fig04.png" alt="How a vision transformer operates on image patches" width="78%" />
+  <div><b>Figure 13.4</b></div>
 </div>
 
 The patchify inductive bias allows ViTs to scale to larger image sizes
@@ -257,8 +262,7 @@ generative modeling contexts.
 [](#exercises)
 
 13-1. Consider the patchification of the input images shown in
-Figure [1.4](#fig-ch13-fig04){reference="fig-ch13-fig04"
-reference-type="ref"}. The size of the resulting patches controls a
+Figure [13.4](#fig-ch13-fig04). The size of the resulting patches controls a
 computational and predictive performance trade-off. The optimal patch
 size depends on the application and desired trade-off between
 computational cost and model performance. Do smaller patches typically

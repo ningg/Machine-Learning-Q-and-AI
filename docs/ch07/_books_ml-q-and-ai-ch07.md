@@ -96,12 +96,12 @@ matrix multiplication across GPUs.
 We can implement tensor parallelism using basic principles of linear
 algebra; we can split a matrix multiplication across two GPUs in a row-
 or column-wise fashion, as illustrated in
-Figure [\[fig-ch07-fig01\]](#fig-ch07-fig01){reference="fig-ch07-fig01"
-reference-type="ref"} for two GPUs. (This concept can be extended to an
+Figure [7.1](#fig-ch07-fig01) for two GPUs. (This concept can be extended to an
 arbitrary number of GPUs.)
 
 <div align="center">
   <img src="./images/ch07-fig01.png" alt="image" width="78%" />
+  <div><b>Figure 7.1</b></div>
 </div>
 
 Like model parallelism, tensor parallelism allows us to work around
@@ -114,11 +114,13 @@ matrices are split or sharded. For instance, tensor parallelism requires
 frequent synchronization of the model parameters across devices, which
 can slow down the overall training process.
 
-Figure [1.1](#fig-ch07-fig02){reference="fig-ch07-fig02"
-reference-type="ref"} compares model, data, and tensor parallelism.
+Figure [7.2](#fig-ch07-fig02) compares model, data, and tensor parallelism.
+
+<a id="fig-ch07-fig02"></a>
 
 <div align="center">
   <img src="./images/ch07-fig02.png" alt="A comparison of model, data, and tensor parallelism" width="78%" />
+  <div><b>Figure 7.2</b></div>
 </div>
 
 In model parallelism, we put different layers onto different GPUs to
@@ -170,13 +172,15 @@ linearly.
 However, these efficient self-attention mechanisms are less popular, and
 most people still prefer the original scaled-dot product attention
 mechanism as of this writing. Sequence parallelism, illustrated in
-Figure [1.2](#fig-ch07-fig03){reference="fig-ch07-fig03"
-reference-type="ref"}, splits the input sequence into smaller chunks to
+Figure [7.3](#fig-ch07-fig03), splits the input sequence into smaller chunks to
 be distributed across GPUs, which aims to reduce computation memory
 constraints of self-attention mechanisms.
 
+<a id="fig-ch07-fig03"></a>
+
 <div align="center">
   <img src="./images/ch07-fig03.png" alt="Sequence parallelism divides long inputs among GPUs." width="78%" />
+  <div><b>Figure 7.3</b></div>
 </div>
 
 How does sequence parallelism relate to the multi-GPU techniques

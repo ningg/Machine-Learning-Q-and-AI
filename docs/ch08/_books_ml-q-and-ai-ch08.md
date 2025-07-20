@@ -67,7 +67,7 @@ connected, convolutional, or attention-based encoder.
 > - 表面上，这听起来非常类似于`全连接层`，其中每个输入元素与下一个层中的输入元素的权重连接。
 > - 在注意力机制中，计算注意力权重涉及将每个输入元素与所有其他元素进行比较。
 > - 通过这种方法获得的注意力权重是`动态`的，并且依赖于输入。
-> - 相比之下，卷积或全连接层的权重在训练后是`固定的`，如Figure [1.1](#fig-ch08-fig01)所示。
+> - 相比之下，卷积或全连接层的权重在训练后是`固定的`，如Figure [8.1](#fig-ch08-fig01)所示。
 
 
 
@@ -83,16 +83,17 @@ comparing each input element to all others. The attention weights
 obtained by this approach are dynamic and input dependent. In contrast,
 the weights of a convolutional or fully connected layer are fixed after
 training, as illustrated in
-Figure [1.1](#fig-ch08-fig01).
+Figure [8.1](#fig-ch08-fig01).
 
 <a id="fig-ch08-fig01"></a>
 
 <div align="center">
   <img src="./images/ch08-fig01.png" alt="The conceptual difference between model weights in fully connected layers (top) and attention scores (bottom)" width="78%" />
+  <div><b>Figure 8.1</b></div>
 </div>
 
 As the top part of
-Figure [1.1](#fig-ch08-fig01) shows, once trained, the weights of fully
+Figure [8.1](#fig-ch08-fig01) shows, once trained, the weights of fully
 connected layers remain fixed regardless of the input. In contrast, as
 shown at the bottom, self-attention weights change depending on the
 inputs, even after a transformer is trained.
@@ -183,17 +184,18 @@ self-attention mechanism used in most transformer architectures involves
 computing the weighted sum between a pair of input elements.
 Furthermore, these pair-wise token comparisons can be computed
 independently, as illustrated in
-Figure [1.2](#fig-ch08-fig02), making the self-attention mechanism relatively
+Figure [8.2](#fig-ch08-fig02), making the self-attention mechanism relatively
 easy to parallelize across different GPU cores.
 
 <a id="fig-ch08-fig02"></a>
 
 <div align="center">
   <img src="./images/ch08-fig02.png" alt="A simplified self-attention mechanism without weight parameters" width="78%" />
+  <div><b>Figure 8.2</b></div>
 </div>
 
 In addition, the individual weight matrices used in the self-attention
-mechanism (not shown in Figure [1.2](#fig-ch08-fig02)) can be distributed across different machines for
+mechanism (not shown in Figure [8.2](#fig-ch08-fig02)) can be distributed across different machines for
 distributed and parallel computing.
 
 ## Exercises

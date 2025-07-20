@@ -72,12 +72,13 @@ For instance, if we take 100 different data samples and compute a 95 percent
 confidence interval for each sample, approximately 95 of the 100
 confidence intervals will contain the true population value (such as the
 generalization accuracy), as illustrated in
-Figure [\[fig-ch25-fig01\]](#fig-ch25-fig01).
+Figure [25.1](#fig-ch25-fig01).
 
 <a id="fig-ch25-fig01"></a>
 
 <div align="center">
   <img src="./images/ch25-fig01.png" alt="Confidence interval illustration" width="95%" />
+  <div><b>Figure 25.1</b></div>
 </div>
 
 More concretely, if we were to draw 100 different representative test
@@ -91,9 +92,9 @@ We can display confidence intervals in several ways. It is common to use
 a bar plot representation where the top of the bar represents the
 parameter value (for example, model accuracy) and the whiskers denote
 the upper andlower levels of the confidence interval (left chart of
-Figure [1.1](#fig-ch25-fig02) ). Alternatively, the confidence intervals can be
+Figure [25.2](#fig-ch25-fig02) ). Alternatively, the confidence intervals can be
 shown without bars, as in the right chart of
-Figure [1.1](#fig-ch25-fig02).
+Figure [25.2](#fig-ch25-fig02).
 
 > 图 1.1 展示了置信区间的两种常见表示方式。左图使用条形图表示，条形的高度表示参数值（例如模型准确率），而须状物则表示置信区间的上下界。右图则不使用条形，直接显示置信区间的上下界。
 
@@ -101,6 +102,7 @@ Figure [1.1](#fig-ch25-fig02).
 
 <div align="center">
   <img src="./images/ch25-fig02.png" alt="Two common plotting variants to illustrate confidence intervals" width="78%" />
+  <div><b>Figure 25.2</b></div>
 </div>
 
 This visualization is functionally useful in a number of ways. For
@@ -252,12 +254,13 @@ points will likely be duplicated in this new sample, whereas other data
 points are not sampled at all.We can then repeat this procedure for
 multiple rounds to obtain multiple training and test sets. This process
 is known as *out-of-bag bootstrapping*, illustrated in
-Figure [\[fig-ch25-fig04\]](#fig-ch25-fig04).
+Figure [25.4](#fig-ch25-fig04).
 
 <a id="fig-ch25-fig04"></a>
 
 <div align="center">
   <img src="./images/ch25-fig04.png" alt="Out-of-bag bootstrapping illustration" width="95%" />
+  <div><b>Figure 25.4</b></div>
 </div>
 
 Suppose we constructed *k* training and test sets. We can now take each
@@ -265,12 +268,13 @@ of these splits to train and evaluate the model to obtain *k* test set
 accuracy estimates. Considering this distribution of test set accuracy
 estimates, we can take the range between the 2.5th and 97.5th percentile
 to obtain the 95 percent confidence interval, as illustrated in
-Figure [1.2](#fig-ch25-fig05).
+Figure [25.5](#fig-ch25-fig05).
 
 <a id="fig-ch25-fig05"></a>
 
 <div align="center">
   <img src="./images/ch25-fig05.png" alt="Distribution of test accuracies from 1,000 bootstrap samples, including a 95 percent confidence interval" width="78%" />
+  <div><b>Figure 25.5</b></div>
 </div>
 
 Unlike the normal approximation interval method, we can consider this
@@ -297,7 +301,7 @@ estimates, which are reweighting the accuracy estimates.
 An alternative approach to bootstrapping training sets is to bootstrap
 test sets.The idea is to train the model on the existing training set as
 usual and then to evaluate the model on bootstrapped test sets, as
-illustrated in Figure [1.3](#fig-ch25-fig06). After obtaining the test set performance
+illustrated in Figure [25.6](#fig-ch25-fig06). After obtaining the test set performance
 estimates, we can then apply the percentile method described in the
 previous section.
 
@@ -305,6 +309,7 @@ previous section.
 
 <div align="center">
   <img src="./images/ch25-fig06.png" alt="Bootstrapping the test set" width="78%" />
+  <div><b>Figure 25.6</b></div>
 </div>
 
 Contrary to the prior bootstrap technique, this method uses a trained

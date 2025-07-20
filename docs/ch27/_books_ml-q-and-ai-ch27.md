@@ -40,12 +40,13 @@ meet the criteria for proper metrics.
 
 To illustrate the criteria of a proper metric, consider two vectors or
 points $\mathbf{v}$ and $\mathbf{w}$, and their distance $d(\mathbf{v}, \mathbf{w})$, as shown in
-Figure [1.1](#fig-ch27-fig01).
+Figure [27.1](#fig-ch27-fig01).
 
 <a id="fig-ch27-fig01"></a>
 
 <div align="center">
   <img src="./images/ch27-fig01.png" alt="The Euclidean distance between two 2D vectors" width="78%" />
+  <div><b>Figure 27.1</b></div>
 </div>
 
 The criteria of a proper metric are the following:
@@ -65,16 +66,17 @@ The criteria of a proper metric are the following:
 To better understand the triangle inequality, think of the points as
 vertices of a triangle. If we consider any triangle, the sum of two of
 the sides is always larger than the third side, as illustrated in
-Figure [1.2](#fig-ch27-fig02).
+Figure [27.2](#fig-ch27-fig02).
 
 <a id="fig-ch27-fig02"></a>
 
 <div align="center">
   <img src="./images/ch27-fig02.png" alt="Triangle inequality" width="52%" />
+  <div><b>Figure 27.2</b></div>
 </div>
 
 Consider what would happen if the triangle in equality depicted in
-Figure [1.2](#fig-ch27-fig02) weren't true. If the sum of the lengths of sides
+Figure [27.2](#fig-ch27-fig02) weren't true. If the sum of the lengths of sides
 AB and BC was shorter than AC, then sides AB and BC would not meet to
 form a triangle; instead, they would fall short of each other. Thus, the
 fact that they meet and form a triangle demonstrates the triangle

@@ -19,7 +19,7 @@ are, the more often they appear in similar contexts.
 > Tips: **分布假设**（distributional hypothesis），也称为分布语义学（distributional semantics），用于描述单词在上下文中的分布模式。它认为，在`相似的上下文`中出现的`单词`往往具有`相似的含义`。
 
 Consider the sentence in
-Figure [1.1](#fig-ch14-fig01), for example. The words *cats* and *dogs* often
+Figure [14.1](#fig-ch14-fig01), for example. The words *cats* and *dogs* often
 occur in similar contexts, and we could replace *cats* with *dogs*
 without making the sentence sound awkward. We could also replace *cats*
 with *hamsters*, since both are mammals and pets, and the sentence would
@@ -37,6 +37,7 @@ sentence grammatically incorrect.
 
 <div align="center">
   <img src="./images/ch14-fig01.png" alt="Common and uncommonwordsinagivencontext" width="78%" />
+  <div><b>Figure 14.1</b></div>
 </div>
 
 It is easy to construct counterexamples using polysemous words, that is,
@@ -82,13 +83,14 @@ After training, word embeddings are placed within the vector space so
 that words with common contexts in the corpus--that is, words with
 semantic and syntactic similarities--are positioned close to each
 other, as illustrated in
-Figure [1.2](#fig-ch14-fig02). Conversely, dissimilar words are located farther
+Figure [14.2](#fig-ch14-fig02). Conversely, dissimilar words are located farther
 apart in the embedding space.
 
 <a id="fig-ch14-fig02"></a>
 
 <div align="center">
   <img src="./images/ch14-fig02.png" alt="Word2vec embeddings in a two-dimensional\vector space" width="78%" />
+  <div><b>Figure 14.2</b></div>
 </div>
 
 BERT is an LLM based on the transformer architecture (see
@@ -96,7 +98,7 @@ Chapter [\[ch08\]](./ch08/_books_ml-q-and-ai-ch08.md))
 that uses a masked language modeling approach that involves masking
 (hiding) some of the words in a sentence. Its task is to predict these
 masked words based on the other words in the sequence, as illustrated in
-Figure [1.3](#fig-ch14-fig03). This is a form of the self-supervised learning
+Figure [14.3](#fig-ch14-fig03). This is a form of the self-supervised learning
 used to pretrain LLMs (see Chapter [\[ch02\]](./ch02/_books_ml-q-and-ai-ch02.md) for more on self-supervised learning). The
 pretrained model produces embeddings in which similar words (or tokens)
 are close in the embedding space.
@@ -105,13 +107,14 @@ are close in the embedding space.
 
 <div align="center">
   <img src="./images/ch14-fig03.png" alt="BERT's pretraining task involves predicting randomly masked words." width="78%" />
+  <div><b>Figure 14.3</b></div>
 </div>
 
 GPT, which like BERT is also an LLM based on the transformer
 architecture, functions as a decoder. Decoder-style models like GPT
 learn to predict subsequent words in a sequence based on the preceding
 ones, as illustrated in
-Figure [1.4](#fig-ch14-fig04). GPT contrasts with BERT, an encoder model, as it
+Figure [14.4](#fig-ch14-fig04). GPT contrasts with BERT, an encoder model, as it
 emphasizes predicting what follows rather than encoding the entire
 sequence simultaneously.
 
@@ -119,6 +122,7 @@ sequence simultaneously.
 
 <div align="center">
   <img src="./images/ch14-fig04.png" alt="GPT is pretrained by predicting the next word." width="78%" />
+  <div><b>Figure 14.4</b></div>
 </div>
 
 Where BERT is a bidirectional language model that considers the whole

@@ -58,6 +58,7 @@ the input, $p(y|x)$, remains the same.
 
 <div align="center">
   <img src="./images/ch23-fig01.png" alt="Training data and new data distributions differ under covariate shift." width="65%" />
+  <div><b>Figure 23.1</b></div>
 </div>
 
 For example, suppose we trained a model to predict whether an email is
@@ -195,6 +196,7 @@ and retraining or adapting the model.
 
 <div align="center">
   <img src="./images/ch23-fig02.png" alt="Different types of data shifts in a binary classification context" width="52%" />
+  <div><b>Figure 23.2</b></div>
 </div>
 
 As noted in the previous sections, some types of distribution shift are

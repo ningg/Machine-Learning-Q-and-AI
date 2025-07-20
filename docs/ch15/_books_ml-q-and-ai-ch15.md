@@ -12,7 +12,7 @@ augmentation techniques for text data?**
 Data augmentation is useful for artificially increasing dataset sizes to
 improve model performance, such as by reducing the degree of
 overfitting, as discussed in
-Chapter [\[ch05\]](../ch05/_books_ml-q-and-ai-ch05.md).
+Chapter [\[ch05\]](./ch05/_books_ml-q-and-ai-ch05.md).
 This includes techniques often used in computer vision models, like
 rotation, scaling, and flipping.
 

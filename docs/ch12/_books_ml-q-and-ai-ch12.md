@@ -29,7 +29,7 @@ filter is equal to the size of the receptive field and when the size of
 the convolutional filter is 1. As an illustration of these two
 scenarios, consider a fully connected layer with two input and four
 output units, as shown in
-Figure [1.1](#fig-ch12-fig01).
+Figure [12.1](#fig-ch12-fig01).
 
 > Tips: `全连接层`和`卷积层`在两种情况下是`等价`的： 
 >   - 当`卷积核`的大小等于`感受野`的大小。
@@ -44,6 +44,7 @@ Figure [1.1](#fig-ch12-fig01).
 
 <div align="center">
   <img src="./images/ch12-fig01.png" alt="Four inputs and two outputs connected via eight weight parameters" width="78%" />
+  <div><b>Figure 12.1</b></div>
 </div>
 
 The fully connected layer in this figure consists of eight weights and
@@ -72,17 +73,18 @@ how we compute a number of parameters in a convolutional kernel with one
 input channel and multiple output channels. We have a kernel size of
 $2×2$, one input channel, and two output channels. The input
 size is also $2×2$, a reshaped version of the four inputs
-depicted in Figure [1.2](#fig-ch12-fig02).
+depicted in Figure [12.2](#fig-ch12-fig02).
 
 <a id="fig-ch12-fig02"></a>
 
 <div align="center">
   <img src="./images/ch12-fig02.png" alt="A convolutional layer with a 2x2 kernel that equals the input size and two output channels" width="78%" />
+  <div><b>Figure 12.2</b></div>
 </div>
 
 
 If the convolutional kernel dimensions equal the input size, as depicted
-in Figure [1.2](#fig-ch12-fig02), there is no sliding window mechanism in the
+in Figure [12.2](#fig-ch12-fig02), there is no sliding window mechanism in the
 convolutional layer. For the first output channel, we have the following
 set of weights:
 
@@ -114,12 +116,13 @@ code to show this equivalence with a hands-on example in the
 The second scenario assumes that we reshape the input into an input
 "image"? with $1×1$ dimensions where the number of "color
 channels"? equals the number of input features, as depicted in
-Figure [1.3](#fig-ch12-fig03).
+Figure [12.3](#fig-ch12-fig03).
 
 <a id="fig-ch12-fig03"></a>
 
 <div align="center">
   <img src="./images/ch12-fig03.png" alt="The number of output nodes equals the number of channels if the kernel size is equal to the input size." width="78%" />
+  <div><b>Figure 12.3</b></div>
 </div>
 
 Each kernel consists of a stack of weights equal to the number of input

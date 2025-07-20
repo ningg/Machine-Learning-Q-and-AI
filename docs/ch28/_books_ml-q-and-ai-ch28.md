@@ -31,12 +31,13 @@ that is, how well it performs on new data. In *k*-fold cross-validation,
 we use the training data for model selection and evaluation by
 partitioning it into *k* validation rounds and folds. If we have *k*
 folds, we have *k* iterations, leading to *k* different models, as
-illustrated in Figure [1.1](#fig-ch28-fig01).
+illustrated in Figure [28.1](#fig-ch28-fig01).
 
 <a id="fig-ch28-fig01"></a>
 
 <div align="center">
   <img src="./images/ch28-fig01.png" alt="An example of k-fold cross-validation for model evaluation where k = 5" width="78%" />
+  <div><b>Figure 28.1</b></div>
 </div>
 
 Using *k*-fold cross-validation, we usually evaluate the performance of
@@ -86,19 +87,20 @@ naive Bayes classifiers, on a handful of small datasets.
 For example, in 10-fold cross-validation, we use 9/10 (90 percent) of
 the data for training in each round, whereas in 5-fold cross-validation,
 we use only 4/5 (80 percent) of the data, as shown in
-Figure [1.2](#fig-ch28-fig02).
+Figure [28.2](#fig-ch28-fig02).
 
 <a id="fig-ch28-fig02"></a>
 
 <div align="center">
   <img src="./images/ch28-fig02.png" alt="A comparison of 5-fold and 10-fold cross-validation" width="78%" />
+  <div><b>Figure 28.2</b></div>
 </div>
 
 However, this does not mean large training sets are bad, since they can
 reduce the pessimistic bias of the performance estimate (mostly a good
 thing) if we assume that the model training can benefit from more
 training data. (See
-Figure [\[fig-ch05-fig01\]](./ch05/_books_ml-q-and-ai-ch05.md#fig-ch05-fig01) on page  for an example of a learning curve.)
+Figure [5.1](./ch05/_books_ml-q-and-ai-ch05.md#fig-ch05-fig01) on page  for an example of a learning curve.)
 
 In practice, both a very small and a very large *k* may increase
 variance. For instance, a larger *k* makes the training folds more

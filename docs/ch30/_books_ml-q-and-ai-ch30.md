@@ -12,7 +12,7 @@
 
 
 **Suppose we plot a learning curve (as shown in
-Figure [\[fig-ch05-fig01\]](./ch05/_books_ml-q-and-ai-ch05.md#fig-ch05-fig01) on page , for example) and find the machine
+Figure [5.1](./ch05/_books_ml-q-and-ai-ch05.md#fig-ch05-fig01) on page , for example) and find the machine
 learning model overfits and could benefit from more training data. What
 are some different approaches for dealing with limited labeled data in
 supervised machine learning settings?**
@@ -66,7 +66,7 @@ discussed in Chapter [\[ch21\]](./ch21/_books_ml-q-and-ai-ch21.md).
 Transfer learning describes training a model on a general dataset (for example,
 ImageNet) and then fine-tuning the pretrained target dataset (for
 example, a dataset consisting of different bird species), as outlined in
-Figure [1.1](#fig-ch30-fig01).
+Figure [30.1](#fig-ch30-fig01).
 
 > 迁移学习描述了在通用数据集（例如 ImageNet）上训练模型，然后对预训练的目标数据集（例如包含不同鸟类物种的数据集）进行微调，如图 1.1 所示。
 
@@ -74,6 +74,7 @@ Figure [1.1](#fig-ch30-fig01).
 
 <div align="center">
   <img src="./images/ch30-fig01.png" alt="The process of transfer learning" width="52%" />
+  <div><b>Figure 30.1</b></div>
 </div>
 
 Transfer learning is usually done in the context of deep learning, where
@@ -103,12 +104,13 @@ pretraining tasks in language modeling, covered in more detail in
 Chapter [\[ch17\]](./ch17/_books_ml-q-and-ai-ch17.md).
 Another intuitive example from computer vision includes *inpainting*:
 predicting the missing part of an image that was randomly removed,
-illustrated in Figure [1.2](#fig-ch30-fig02).
+illustrated in Figure [30.2](#fig-ch30-fig02).
 
 <a id="fig-ch30-fig02"></a>
 
 <div align="center">
   <img src="./images/ch30-fig02.png" alt="Inpainting for self-supervised learning" width="52%" />
+  <div><b>Figure 30.2</b></div>
 </div>
 
 For more detail on self-supervised learning, see
@@ -118,7 +120,7 @@ Chapter [\[ch02\]](./ch02/_books_ml-q-and-ai-ch02.md).
 [](#active-learning)
 
 In active learning, illustrated in
-Figure [1.3](#fig-ch30-fig03), we typically involve manual labelers or users for
+Figure [30.3](#fig-ch30-fig03), we typically involve manual labelers or users for
 feedback during the learning process. However, instead of labeling the
 entire dataset up front, active learning includes a prioritization
 scheme for suggesting unlabeled data points for labeling to maximize the
@@ -132,6 +134,7 @@ machine learning model's performance.
 
 <div align="center">
   <img src="./images/ch30-fig03.png" alt="In active learning, a model queries an oracle for labels." width="52%" />
+  <div><b>Figure 30.3</b></div>
 </div>
 
 The term **active learning** refers to the fact that the model actively
@@ -150,7 +153,7 @@ learning is `zero-shot` learning, where no labels are provided. Popular
 examples of zero-shot learning include GPT-3 and related language
 models, where the user has to provide all the necessary information via
 the input prompt, as illustrated in
-Figure [1.4](#fig-ch30-fig04).
+Figure [30.4](#fig-ch30-fig04).
 
 > 在少样本学习场景中，我们通常处理包含每个类别只有少量示例的极端情况。
 > 
@@ -189,7 +192,7 @@ Chapter [\[ch03\]](./ch03/_books_ml-q-and-ai-ch03.md) on
 page .) Another branch of meta-learning unrelated to the few-shot
 learning approach is focused on extracting metadata (also called
 *meta-features*) from datasets for supervised learning tasks, as
-illustrated in Figure [1.5](#fig-ch30-fig05). The meta-features are descriptions of the dataset
+illustrated in Figure [30.5](#fig-ch30-fig05). The meta-features are descriptions of the dataset
 itself. For example, these can include the number of features and
 statistics of the different features (kurtosis, range, mean, and so on).
 
@@ -197,6 +200,7 @@ statistics of the different features (kurtosis, range, mean, and so on).
 
 <div align="center">
   <img src="./images/ch30-fig05.png" alt="The meta-learning process involving the extraction of metadata" width="78%" />
+  <div><b>Figure 30.5</b></div>
 </div>
 
 The extracted meta-features provide information for selecting a machine
@@ -208,7 +212,7 @@ reduce overfitting when the dataset is small.
 [](#weakly-supervised-learning)
 
 Weakly supervised learning, illustrated in
-Figure [1.6](#fig-ch30-fig06), involves using an external label source to
+Figure [30.6](#fig-ch30-fig06), involves using an external label source to
 generate labels for an unlabeled dataset. Often, the labels created by a
 weakly supervised labeling function are more noisy or inaccurate than
 those produced by a human or domain expert, hence the term *weakly*
@@ -220,6 +224,7 @@ a subset of the unlabeled dataset.
 
 <div align="center">
   <img src="./images/ch30-fig06.png" alt="Weakly supervised learning uses external labeling functions to train machine learning models." width="78%" />
+  <div><b>Figure 30.6</b></div>
 </div>
 
 Let'sreturntotheexampleofemailspamclassificationfromChapter [\[ch23\]](./ch23/_books_ml-q-and-ai-ch23.md) to illustrate a rule-based approach for data
@@ -246,12 +251,13 @@ only a subset of the data. In semi-supervision, we do not use an
 external label function; instead, we leverage the structure of the data
 itself. We can, for example, label additional data points based on the
 density of neighboring labeled data points, as illustrated in
-Figure [1.7](#fig-ch30-fig07).
+Figure [30.7](#fig-ch30-fig07).
 
 <a id="fig-ch30-fig07"></a>
 
 <div align="center">
   <img src="./images/ch30-fig07.png" alt="Semi-supervised learning" width="78%" />
+  <div><b>Figure 30.7</b></div>
 </div>
 
 While we can apply weak supervision to an entirely unlabeled dataset,
@@ -298,17 +304,18 @@ tasks. This approach often results in models that perform better on
 unseen data. There are two subcategories of multi-task learning:
 multi-task learning with hard parameter sharing and multi-task learning
 with soft parameter sharing.
-Figure [\[fig-ch30-fig08\]](#fig-ch30-fig08) illustrates the difference between these two
+Figure [30.8](#fig-ch30-fig08) illustrates the difference between these two
 methods.
 
 <a id="fig-ch30-fig08"></a>
 
 <div align="center">
   <img src="./images/ch30-fig08.png" alt="Multi-task learning: hard vs soft parameter sharing" width="78%" />
+  <div><b>Figure 30.8</b></div>
 </div>
 
 In *hard* parameter sharing, as shown in
-Figure [\[fig-ch30-fig08\]](#fig-ch30-fig08), only the output layers are task specific, while
+Figure [30.8](#fig-ch30-fig08), only the output layers are task specific, while
 all the tasks share the same hidden layers and neural network backbone
 architecture. In contrast, *soft* parameter sharing uses separate neural
 networks for each task, but regularization techniques such as distance
@@ -328,7 +335,7 @@ restricted to only two modalities and can be used for any number of
 input modalities). Depending on the task, we may employ a matching loss
 that forces the embedding vectors between related images and text to be
 similar, as shown in
-Figure [1.8](#fig-ch30-fig09). (See
+Figure [30.9](#fig-ch30-fig09). (See
 Chapter [\[ch01\]](./ch01/_books_ml-q-and-ai-ch01.md) for
 more on embedding vectors.)
 
@@ -336,9 +343,10 @@ more on embedding vectors.)
 
 <div align="center">
   <img src="./images/ch30-fig09.png" alt="Multimodal learning with a matching loss" width="78%" />
+  <div><b>Figure 30.9</b></div>
 </div>
 
-Figure [1.8](#fig-ch30-fig09) shows image and text encoders as separate
+Figure [30.9](#fig-ch30-fig09) shows image and text encoders as separate
 components. The image encoder can be a convolutional backbone or a
 vision transformer, and the language encoder can be a recurrent neural
 network or language transformer. However, it's common nowadays to use
@@ -348,19 +356,20 @@ processes both video and text for action classification and video
 captioning.
 
 Optimizing a matching loss, as shown in
-Figure [1.8](#fig-ch30-fig09), can be useful for learning embeddings that can be
+Figure [30.9](#fig-ch30-fig09), can be useful for learning embeddings that can be
 applied to various tasks, such as image classification or summarization.
 However, it is also possible to directly optimize the target loss, like
 classification or regression, as
-Figure [1.9](#fig-ch30-fig10) illustrates.
+Figure [30.10](#fig-ch30-fig10) illustrates.
 
 <a id="fig-ch30-fig10"></a>
 
 <div align="center">
   <img src="./images/ch30-fig10.png" alt="Multimodal learning for optimizing a supervised learning objective" width="78%" />
+  <div><b>Figure 30.10</b></div>
 </div>
 
-Figure [1.9](#fig-ch30-fig10) shows data being collected from two different
+Figure [30.10](#fig-ch30-fig10) shows data being collected from two different
 sensors. One could be a thermometer and the other could be a video
 camera. The signal encoders convert the information into embeddings
 (sharing the same number of dimensions), which are then concatenated to
@@ -399,17 +408,18 @@ But how can we choose between active learning, few-shot learning,
 transfer learning, self-supervised learning, semi-supervised learning,
 and weakly supervised learning? Deciding which supervised learning
 technique(s) to try is highly context dependent. You can use the diagram
-in Figure [1.10](#fig-ch30-fig11) as a guide to choosing the best method for your
+in Figure [30.11](#fig-ch30-fig11) as a guide to choosing the best method for your
 particular project.
 
 <a id="fig-ch30-fig11"></a>
 
 <div align="center">
   <img src="./images/ch30-fig11.png" alt="Recommendations for choosing a supervised learning technique" width="78%" />
+  <div><b>Figure 30.11</b></div>
 </div>
 
 Note that the dark boxes in
-Figure [1.10](#fig-ch30-fig11) are not terminal nodes but arc back to the second
+Figure [30.11](#fig-ch30-fig11) are not terminal nodes but arc back to the second
 box, "Evaluate model performance"?; additional arrows were omitted to
 avoid visual clutter.
 

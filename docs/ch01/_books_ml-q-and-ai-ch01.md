@@ -149,12 +149,13 @@ analysis or processing.
 convolutional layers followed by three fully connected (FC) layers,
 similar to AlexNet (<https://en.wikipedia.org/wiki/AlexNet>), as
 illustrated in
-Figure [\[fig-ch01-fig04\]](#fig-ch01-fig04).
+Figure [1.4](#fig-ch01-fig04).
 
 <a id="fig-ch01-fig04"></a>
 
 <div style="text-align:center">
   <img src="./images/ch01-fig04.png" alt="fig-ch01-fig04" style="width:70%;">
+  <div><b>Figure 1.4</b></div>
 </div>
 
 We can think of these fully connected layers as two hidden layers and an

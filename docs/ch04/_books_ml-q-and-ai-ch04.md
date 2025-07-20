@@ -27,7 +27,7 @@ discusses the practical implications and limitations of the hypothesis.
 ## The Lottery Ticket Training Procedure
 [](#the-lottery-ticket-training-procedure)
 
-Figure [1.1](#fig-ch04-fig01) illustrates the training procedure for the lottery
+Figure [4.1](#fig-ch04-fig01) illustrates the training procedure for the lottery
 ticket hypothesis in four steps, which we'll discuss one by one to
 help clarify the concept.
 
@@ -35,16 +35,17 @@ help clarify the concept.
 
 <div align="center">
   <img src="./images/ch04-fig01.png" alt="The lottery hypothesis training procedure" width="78%" />
+  <div><b>Figure 4.1</b></div>
 </div>
 
-In Figure [1.1](#fig-ch04-fig01), we start with a large `neural network` that we
+In Figure [4.1](#fig-ch04-fig01), we start with a large `neural network` that we
 train until convergence , meaning we put in our best efforts to make it
 perform as well as possible on a target dataset (for example, minimizing
 training loss and maximizing classification accuracy). This large neural
 network is initialized as usual using small random weights.
 
 Next, as shown in
-Figure [1.1](#fig-ch04-fig01), we `prune` the neural network's `weight` parameters
+Figure [4.1](#fig-ch04-fig01), we `prune` the neural network's `weight` parameters
 , removing them from the network. We can do this by setting the weights
 to zero to create sparse weight matrices. Here, we can either prune
 individual weights, known as *unstructured* pruning, or prune larger
@@ -62,7 +63,7 @@ concept in Chapter [\[ch06\]](./ch06/_books_ml-q-and-ai-ch06.md) when discussin
 
 After the pruning step, we reset the weights to the original small
 random values used in step 1 in
-Figure [1.1](#fig-ch04-fig01) and train the pruned network . It's worth
+Figure [4.1](#fig-ch04-fig01) and train the pruned network . It's worth
 emphasizing that we do not reinitialize the pruned network with any
 small random weights (as is typical for iterative magnitude pruning),
 and instead we reuse the weights from step 1.

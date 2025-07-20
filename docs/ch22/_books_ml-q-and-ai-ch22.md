@@ -34,7 +34,7 @@ run the model on a batch of samples rather than on a single sample at a
 time. This is sometimes also referred to as *batched inference* and
 assumes that we are receiving multiple input samples or user inputs
 simultaneously or within a short time window, as illustrated in
-Figure [1.1](#fig-ch22-fig01).
+Figure [22.1](#fig-ch22-fig01).
 
 > Tips: **并行化**，也被称为`批量推理`，同时或短时间窗口内，接收到多个输入样本或用户输入，模型同时处理。
 
@@ -42,9 +42,10 @@ Figure [1.1](#fig-ch22-fig01).
 
 <div align="center">
   <img src="./images/ch22-fig01.png" alt="Sequential inference and batched inference" width="78%" />
+  <div><b>Figure 22.1</b></div>
 </div>
 
-Figure [1.1](#fig-ch22-fig01) shows sequential inference processing one item at
+Figure [22.1](#fig-ch22-fig01) shows sequential inference processing one item at
 a time, which creates a bottleneck if there are several samples waiting
 to be classified. In batched inference, the model processes all four
 samples at the same time.
@@ -77,12 +78,13 @@ doing this would be to use a `for` loop, iterating over each element of the arra
 by one. However, this can be quite slow, especially for large arrays.
 With vectorization, you can perform the dot product operation on the
 entire array at once, as shown in
-Figure [1.2](#fig-ch22-fig02).
+Figure [22.2](#fig-ch22-fig02).
 
 <a id="fig-ch22-fig02"></a>
 
 <div align="center">
   <img src="./images/ch22-fig02.png" alt="A classic loop versus a vectorized dot product computation in Python" width="65%" />
+  <div><b>Figure 22.2</b></div>
 </div>
 
 In the context of linear algebra or deep learning frameworks like
@@ -104,7 +106,7 @@ are performed on it before the cache is cleared.
 
 > Tips: **循环分块**，也被称为`循环嵌套优化`，将循环的迭代空间分成小块，确保数据加载到缓存后，所有可能的计算都在缓存中完成，然后缓存被清除。
 
-Figure [1.3](#fig-ch22-fig03) illustrates the concept of loop tiling for
+Figure [22.3](#fig-ch22-fig03) illustrates the concept of loop tiling for
 accessing elements in a two-dimensional array. In a regular
 `for` loop, we iterate over columns and rows one element at a time, whereas in loop tiling, we
 subdivide the array into smaller tiles.
@@ -113,6 +115,7 @@ subdivide the array into smaller tiles.
 
 <div align="center">
   <img src="./images/ch22-fig03.png" alt="Loop tiling in a two-dimensional array" width="78%" />
+  <div><b>Figure 22.3</b></div>
 </div>
 
 Note that in languages such as Python, we don't usually perform loop
@@ -129,7 +132,7 @@ arrays.
 
 *Operator fusion*, sometimes called *loop fusion*, is an optimization
 technique that combines multiple loops into a single loop. This is
-illustrated in Figure [1.4](#fig-ch22-fig04),
+illustrated in Figure [22.4](#fig-ch22-fig04),
 the product of an array of numbers are fused into a single loop.
 
 > Tips: **算子融合**，也被称为`循环融合`，将多个循环合并成一个循环。
@@ -138,6 +141,7 @@ the product of an array of numbers are fused into a single loop.
 
 <div align="center">
   <img src="./images/ch22-fig04.png" alt="Fusing two loops (left) into one (right)" width="78%" />
+  <div><b>Figure 22.4</b></div>
 </div>
 
 `Operator fusion` can improve the performance of a model by reducing the

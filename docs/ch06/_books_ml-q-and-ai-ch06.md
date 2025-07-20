@@ -81,7 +81,7 @@ representations of the same data, which helps to reduce overfitting.
 In `early stopping`, we monitor the model's performance on a validation
 set during training and stop the training process when the performance
 on the validation set begins to decline, as illustrated in
-Figure [1.1](#fig-ch06-fig01).
+Figure [6.1](#fig-ch06-fig01).
 
 > Tips: 早停 `early stopping`，通过`监控模型在验证集上的性能`，来停止训练过程。
 
@@ -89,9 +89,10 @@ Figure [1.1](#fig-ch06-fig01).
 
 <div align="center">
   <img src="./images/ch06-fig01.png" alt="Early stopping" width="78%" />
+  <div><b>Figure 6.1</b></div>
 </div>
 
-In Figure [1.1](#fig-ch06-fig01), we can see that the validation accuracy increases
+In Figure [6.1](#fig-ch06-fig01), we can see that the validation accuracy increases
 as the training and validation accuracy gap closes. The point where the
 training and validation accuracy is closest is the point with the least
 amount of overfitting, which is usually a good point for early stopping.
@@ -128,7 +129,7 @@ accuracy as the teacher, but it does so more efficiently due to the
 smaller size. As a nice side effect, the smaller student may overfit
 less than the larger teacher model.
 
-Figure [1.2](#fig-ch06-fig02) diagrams the original knowledge distillation
+Figure [6.2](#fig-ch06-fig02) diagrams the original knowledge distillation
 process. Here, the `teacher` is first trained in a regular supervised
 fashion to classify the examples in the dataset well, using a
 conventional cross-entropy loss between the predicted scores and ground
@@ -146,6 +147,7 @@ diverges from the other in terms of information content).
 
 <div align="center">
   <img src="./images/ch06-fig02.png" alt="image" width="78%" />
+  <div><b>Figure 6.2</b></div>
 </div>
 
 By minimizing the Kullback-Leibler divergence--the difference between
@@ -240,15 +242,16 @@ performance metric across all *k* iterations to estimate the overall
 performance measure of the model. After evaluation, we can either train
 the model on the entire training dataset or combine the individual
 models as an ensemble, as shown in
-Figure [1.2](#fig-ch06-fig03).
+Figure [6.2](#fig-ch06-fig03).
 
 <a id="fig-ch06-fig03"></a>
 
 <div align="center">
   <img src="./images/ch06-fig03.png" alt="[k]{.upright}-fold cross-validation for creating model ensembles" width="78%" />
+  <div><b>Figure 6.3</b></div>
 </div>
 
-As shown in Figure [1.2](#fig-ch06-fig03), the *k*-fold ensemble approach trains each of the
+As shown in Figure [6.2](#fig-ch06-fig03), the *k*-fold ensemble approach trains each of the
 *k* models on the respective *k* "" 1 training folds in each round.
 After evaluating the models on the validation folds, we can combine them
 into a majority vote classifier or build an ensemble using stacking, a

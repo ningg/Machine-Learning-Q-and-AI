@@ -35,7 +35,7 @@ we can use a normal distribution to approximate a Poisson distribution.)
 
 *Ordinal data* is a subcategory of categorical data where the categories
 have a natural order, such as 1 \< 2 \< 3, as illustrated in
-Figure [1.1](#fig-ch24-fig01). Ordinal data is often represented as positive
+Figure [24.1](#fig-ch24-fig01). Ordinal data is often represented as positive
 integers and may look similar to count
 data.Forexample,considerthestarratingonAmazon(1star,2stars,3stars, and
 so on). However, ordinal regression does not make any assumptions about
@@ -53,6 +53,7 @@ and 3 (severe and moderate) is the same as the distance between 2 and 1
 
 <div align="center">
   <img src="./images/ch24-fig01.png" alt="The distance between ordinal categories is arbitrary." width="78%" />
+  <div><b>Figure 24.1</b></div>
 </div>
 
 In short, we use Poisson regression for count data. We use Ordinal

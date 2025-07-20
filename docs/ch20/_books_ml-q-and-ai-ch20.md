@@ -30,7 +30,7 @@ stateless *retraining*.
 
 > Tips: 无状态训练，是先训练一个`初始模型`，然后在新数据到达时，重新训练模型；可以简单认为是`树状结构`，初始模型是`父节点`、衍生出一堆`叶子节点`模型.
 
-As Figure [1.1](#fig-ch20-fig01) shows, we can think of stateless retraining as a
+As Figure [20.1](#fig-ch20-fig01) shows, we can think of stateless retraining as a
 sliding window approach in which we retrain the initial model on
 different parts of the data from a given data stream.
 
@@ -40,10 +40,11 @@ different parts of the data from a given data stream.
 
 <div align="center">
   <img src="./images/ch20-fig01.png" alt="Stateless training replaces the model periodically." width="78%" />
+  <div><b>Figure 20.1</b></div>
 </div>
 
 For example, to update the initial model in
-Figure [1.1](#fig-ch20-fig01) (Model 1) to a newer model (Model 2), we train the
+Figure [20.1](#fig-ch20-fig01) (Model 1) to a newer model (Model 2), we train the
 model on 30 percent of the initial data and 70 percent of the most
 recent data at a given point in time.
 
@@ -53,7 +54,7 @@ feature-target relationships via retraining the model from scratch in
 user-defined checkpoint intervals. This approach is prevalent with
 conventional machine learning systems that cannot be fine-tuned as part
 of a transfer or self-supervised learning workflow (see
-Chapter [\[ch02\]](../ch02/_books_ml-q-and-ai-ch02.md)).
+Chapter [\[ch02\]](./ch02/_books_ml-q-and-ai-ch02.md)).
 
 > Tips: 传统的模型，中无状态训练，比较流行，比如`随机森林`、`梯度提升`等，这些都是无法`微调`的
 
@@ -70,7 +71,7 @@ arrives.
 
 > Tips: 有状态的训练，可以认为是 `链式结构`，初始模型 -> 新模型 -> 新模型 -> ... ， 每次都基于最新模型叠加而来.
 
-As illustrated in Figure [1.2](#fig-ch20-fig02), we do not retrain the initial model (Model1.0)
+As illustrated in Figure [20.2](#fig-ch20-fig02), we do not retrain the initial model (Model1.0)
 from scratch; instead, we update or fine-tune it as new data arrives.
 This approach is particularly attractive for models compatible with
 transfer learning or self-supervised learning.
@@ -79,6 +80,7 @@ transfer learning or self-supervised learning.
 
 <div align="center">
   <img src="./images/ch20-fig02.png" alt="Stateful training updates models periodically." width="78%" />
+  <div><b>Figure 20.2</b></div>
 </div>
 
 The stateful approach mimics a transfer or self-supervised learning

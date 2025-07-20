@@ -76,7 +76,7 @@ classifier for multiple training epochs.
 > 3. 线性分类器通常具有较强的正则化属性，有助于防止在高维特征空间中过拟合。
 > 4. 特征可以预先计算，用于多个训练轮次的分类器训练。 
 
-Figure [1.1](#fig-ch18-fig01) illustrates how LLMs are typically created and
+Figure [18.1](#fig-ch18-fig01) illustrates how LLMs are typically created and
 adopted for downstream tasks using fine-tuning. Here, a pretrained
 model, trained on a general text corpus, is fine-tuned to perform tasks
 like German-to-English translation.
@@ -85,6 +85,7 @@ like German-to-English translation.
 
 <div align="center">
   <img src="./images/ch18-fig01.png" alt="The general fine-tuning workflow of large language models" width="78%" />
+  <div><b>Figure 18.1</b></div>
 </div>
 
 The conventional methods for fine-tuning pretrained LLMs include
@@ -112,19 +113,20 @@ fine-tuning I, it typically leads to better modeling or predictive
 performance. This is especially true for more specialized
 domain-specific datasets.
 
-Figure [1.2](#fig-ch18-fig02) summarizes the three approaches described in this
+Figure [18.2](#fig-ch18-fig02) summarizes the three approaches described in this
 section so far.
 
 <a id="fig-ch18-fig02"></a>
 
 <div align="center">
   <img src="./images/ch18-fig02.png" alt="image" width="78%" />
+  <div><b>Figure 18.2</b></div>
 </div>
 
 
 In addition to the conceptual summary of the three fine-tuning methods
 described in this section,
-Figure [1.2](#fig-ch18-fig02) also provides a rule-of-thumb guideline for these
+Figure [18.2](#fig-ch18-fig02) also provides a rule-of-thumb guideline for these
 methods regarding training efficiency. Since fine-tuning II involves
 updating more layers and parameters than fine-tuning I, backpropagation
 is costlier for fine-tuning II. For similar reasons, fine-tuning II is
@@ -135,15 +137,16 @@ costlier than a simpler feature-based approach.
 
 LLMs like GPT-2 and GPT-3 popularized the concept of `in-context learning`, often called **zero-shot** or **few-shot learning** in this
 context, which is illustrated in
-Figure [1.3](#fig-ch18-fig03).
+Figure [18.3](#fig-ch18-fig03).
 
 <a id="fig-ch18-fig03"></a>
 
 <div align="center">
   <img src="./images/ch18-fig03.png" alt="Prompting an LLM for in-context learning" width="52%" />
+  <div><b>Figure 18.3</b></div>
 </div>
 
-As Figure [1.3](#fig-ch18-fig03) shows, **in-context learning** aims to provide context
+As Figure [18.3](#fig-ch18-fig03) shows, **in-context learning** aims to provide context
 or examples of the task within the input or prompt, allowing the model
 to infer the desired behavior and generate appropriate responses. This
 approach takes advantage of the model's ability to learn from vast
@@ -235,18 +238,19 @@ differentiable. In addition, other methods exist that propose to use
 another LLM for automatic prompt generation and evaluation.
 
 Yet another way to leverage a purely in-context learning-based approach
-is `indexing`, illustrated in Figure [1.3](#fig-ch18-fig04)
+is `indexing`, illustrated in Figure [18.4](#fig-ch18-fig04)
 
 <a id="fig-ch18-fig04"></a>
 
 <div align="center">
   <img src="./images/ch18-fig04.png" alt="LLM indexing to retrieve information from external documents" width="65%" />
+  <div><b>Figure 18.4</b></div>
 </div>
 
 In the context of LLMs, we can think of `indexing` as a workaround based on
 in-context learning that allows us to turn LLMs into information
 retrieval systems to extract information from external resources and
-websites. In Figure [1.4](#fig-ch18-fig04), an indexing module parses a document or website
+websites. In Figure [18.4](#fig-ch18-fig04), an indexing module parses a document or website
 into smaller chunks, embedded into vectors that can be stored in a
 vector database. When a user submits a query, the indexing module
 computes the vector similarity between the embedded query and each
@@ -263,12 +267,13 @@ the top *k* most similar embeddings to synthesize the response.
 In recent years, many methods have been developed to adapt pretrained
 transformers more efficiently for new target tasks. These methods are
 commonly referred to as `parameter-efficient fine-tuning`, with the most
-popular methods at the time of writing summarized in Figure [1.5](#fig-ch18-fig05).
+popular methods at the time of writing summarized in Figure [18.5](#fig-ch18-fig05).
 
 <a id="fig-ch18-fig05"></a>
 
 <div align="center">
   <img src="./images/ch18-fig05.png" alt="The main categories of parameter-efficient fine-tuning techniques, with popular examples" width="58%" />
+  <div><b>Figure 18.5</b></div>
 </div>
 
 In contrast to the hard prompting approach discussed in the previous
@@ -324,7 +329,7 @@ def transformer_block_with_prefix(x):
 ```
 
 Let's break
-Listing [1.6](#fig-ch18-fig06) into three main parts: implementing the soft
+Listing [18.6](#fig-ch18-fig06) into three main parts: implementing the soft
 prompt, concatenating the soft prompt (prefix) with the input, and
 implementing the rest of the transformer block.
 
@@ -335,15 +340,16 @@ Third, the subsequent lines of code describe the standard operations in a
 transformer block, including self-attention, layer normalization, and
 feed-forward neural network layers, wrapped around residual connections.
 
-As shown in Listing [1.6](#fig-ch18-fig06), `prefix tuning` modifies a transformer block by
+As shown in Listing [18.6](#fig-ch18-fig06), `prefix tuning` modifies a transformer block by
 adding a trainable `soft prompt`.
-Figure [1.6](#fig-ch18-fig06) further illustrates the difference between a
+Figure [18.6](#fig-ch18-fig06) further illustrates the difference between a
 regular transformer block and a prefix tuning transformer block.
 
 <a id="fig-ch18-fig06"></a>
 
 <div align="center">
   <img src="./images/ch18-fig06.png" alt="A regular transformer compared with prefix tuning" width="78%" />
+  <div><b>Figure 18.6</b></div>
 </div>
 
 Both `soft prompt` tuning and `prefix tuning` are considered parameter
@@ -354,12 +360,13 @@ tensors and not the LLM parameters themselves.
 additional parameters to the transformer layers. In the original adapter
 method, additional fully connected layers were added after the multihead
 self-attention and existing fully connected layers in each transformer
-block, as illustrated in Figure [1.7](#fig-ch18-fig07).
+block, as illustrated in Figure [18.7](#fig-ch18-fig07).
 
 <a id="fig-ch18-fig07"></a>
 
 <div align="center">
   <img src="./images/ch18-fig07.png" alt="Comparison of a regular transformer block (left) and a transformer block with adapter layers" width="78%" />
+  <div><b>Figure 18.7</b></div>
 </div>
 
 Only the new adapter layers are updated when training the LLM using the

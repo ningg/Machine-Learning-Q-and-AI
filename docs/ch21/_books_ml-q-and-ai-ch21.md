@@ -41,6 +41,7 @@ whether it is an improvement over the status quo.
 
 <div align="center">
   <img src="./images/ch21-fig01.png" alt="data-centric vs model-centric workflows" width="78%" />
+  <div><b>Figure 21.1</b></div>
 </div>
 
 While *data-centric AI* is a relatively new term, the idea behind it is
