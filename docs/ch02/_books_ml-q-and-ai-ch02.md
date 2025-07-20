@@ -41,12 +41,13 @@ bird species of interest. (Often, we just have to change the
 class-specific output layer, but we can otherwise adopt the pretrained
 network as is.)
 
-Figure [1.1](#fig-ch02-fig01) illustrates the process of transfer learning.
+Figure [2.1](#fig-ch02-fig01) illustrates the process of transfer learning.
 
 <a id="fig-ch02-fig01"></a>
 
 <div align="center">
   <img src="./images/ch02-fig01.png" alt="Pretraining with conventional transfer learning" width="78%" />
+  <div><b>Figure 2.1</b></div>
 </div>
 
 > Tips: 自监督学习，与 迁移学习 是相关的。
@@ -59,19 +60,20 @@ data. We consider an unlabeled dataset for which we do not have label
 information, and then we find a way to obtain labels from the
 dataset's structure to formulate a prediction task for the neural
 network, as illustrated in
-Figure [1.2](#fig-ch02-fig02). These self-supervised training tasks are also
+Figure [2.2](#fig-ch02-fig02). These self-supervised training tasks are also
 called *pretext tasks*.
 
 <a id="fig-ch02-fig02"></a>
 
 <div align="center">
   <img src="./images/ch02-fig02.png" alt="Pretraining with self-supervised learning" width="78%" />
+  <div><b>Figure 2.2</b></div>
 </div>
 
 The main difference between transfer learning and self-supervised
 learning lies in how we obtain the labels during step 1 in
-Figures [1.1](#fig-ch02-fig01)
-and [1.2](#fig-ch02-fig02). In transfer learning, we assume that the labels
+Figures [2.1](#fig-ch02-fig01)
+and [2.2](#fig-ch02-fig02). In transfer learning, we assume that the labels
 are provided along with the dataset; they are typically created
 by human labelers. In self-supervised learning, the labels can be
 directly derived from the training examples.
@@ -131,7 +133,7 @@ learning and are incompatible with self-supervised learning.
 There are two main categories of self-supervised learning:
 `self-prediction` and `contrastive self-supervised` learning. In
 *self-prediction*, illustrated in
-Figure [1.3](#fig-ch02-fig03), we typically change or hide parts of the input
+Figure [2.3](#fig-ch02-fig03), we typically change or hide parts of the input
 and train the model to reconstruct the original inputs, such as by
 using a perturbation mask that obfuscates certain pixels in an image.
 
@@ -139,17 +141,19 @@ using a perturbation mask that obfuscates certain pixels in an image.
 
 <div align="center">
   <img src="./images/ch02-fig03.png" alt="Self-prediction after applying a perturbation mask" width="52%" />
+  <div><b>Figure 2.3</b></div>
 </div>
 
 A classic example is a denoising autoencoder that learns to remove noise
 from an input image. Alternatively, consider a masked autoencoder that
 reconstructs the missing parts of an image, as shown in
-Figure [1.4](#fig-ch02-fig04).
+Figure [2.4](#fig-ch02-fig04).
 
 <a id="fig-ch02-fig04"></a>
 
 <div align="center">
   <img src="./images/ch02-fig04.png" alt="A masked autoencoder reconstructing a masked image" width="78%" />
+  <div><b>Figure 2.4</b></div>
 </div>
 
 Missing (`masked`) input self-prediction methods are also commonly used in
@@ -175,12 +179,13 @@ draw a random image of a cat (the network does not know the label,
 because we assume that the dataset is unlabeled). We then augment,
 corrupt, or perturb this cat image, such as by adding a random noise
 layer and cropping it differently, as shown in
-Figure [1.5](#fig-ch02-fig05).
+Figure [2.5](#fig-ch02-fig05).
 
 <a id="fig-ch02-fig05"></a>
 
 <div align="center">
   <img src="./images/ch02-fig05.png" alt="Image pairs encountered in contrastive learning" width="78%" />
+  <div><b>Figure 2.5</b></div>
 </div>
 
 The perturbed cat image in this figure still shows the same cat, so we
@@ -197,7 +202,7 @@ produced by model $M(\cdot)$. Let's say we update the model
 weights to decrease the distance $||M(cat) - M(cat')||_2$ and increase the distance
 $||M(cat) - M(elephant)||_2$.
 
-Figure [1.6](#fig-ch02-fig06) summarizes the central concept behind 
+Figure [2.6](#fig-ch02-fig06) summarizes the central concept behind 
 `contrastive learning` for the perturbed image scenario. The model is shown twice,
 which is known as a *siamese network* setup. Essentially, the same model
 is utilized in two instances: first, to generate the embedding for the
@@ -208,12 +213,13 @@ perturbed version of the sample.
 
 <div align="center">
   <img src="./images/ch02-fig06.png" alt="Contrastive learning" width="78%" />
+  <div><b>Figure 2.6</b></div>
 </div>
 
 This example outlines the main idea behind contrastive learning, but
 many subvariants exist. Broadly, we can categorize these into *sample*
 contrastive and *dimension* contrastive methods. The elephant-cat
-example in Figure [1.6](#fig-ch02-fig06) illustrates a sample contrastive method, where we
+example in Figure [2.6](#fig-ch02-fig06) illustrates a sample contrastive method, where we
 focus on learning embeddings to minimize and maximize distances between
 training pairs. In *dimension*-contrastive approaches, on the other
 hand, we focus on making only certain variables in the embedding
