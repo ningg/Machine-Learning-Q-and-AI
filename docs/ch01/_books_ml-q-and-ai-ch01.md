@@ -30,7 +30,7 @@ information in machine learning contexts.
 ## Embeddings
 [](#embeddings)
 
-Embedding vectors, or *embeddings* for short, encode relatively
+`Embedding vectors`, or *embeddings* for short, encode relatively
 high-dimensional data into relatively low-dimensional vectors.
 
 > Tips: 嵌入向量，简称 `嵌入`，是输入数据的一种表示形式，相似的输入、对应的嵌入向量`彼此接近`；通常，将高维数据，转换为低维嵌入向量。
@@ -50,6 +50,8 @@ Blue, the one-hot encoding would represent Red as \[1, 0, 0\], Green as
 \[0, 1, 0\], and Blue as \[0, 0, 1\]. These one-hot encoded categorical
 variables can then be mapped into continuous embedding vectors by
 utilizing the learned weight matrix of an embedding layer or module.
+
+> 独热编码：`one-hot` 编码，是一种将分类数据转换为`二进制向量`的方法，其中每个类别映射到包含 1 的向量，在对应类别的索引位置为1，其他位置为0。
 
 We can also use embedding methods for dense data such as images. For
 example, the last layers of a convolutional neural network may yield
@@ -92,7 +94,7 @@ For readers interested in a more formal explanation using mathematical
 terminology, an embedding is an `injective` and `structure-preserving` map
 between an input space *X* and the embedding space *Y*. This implies
 that similar inputs will be located at points in close proximity within
-the embedding space, which can be seen as the "structure-preserving"?
+the embedding space, which can be seen as the "structure-preserving" 
 characteristic of the embedding.
 
 >Tips: 嵌入向量，是输入空间 *X* 和嵌入空间 *Y* 之间的一个**单向**和**结构保持**映射。这意味着相似的输入，在嵌入空间中彼此接近，这就是`结构保持`特性。
@@ -102,6 +104,8 @@ characteristic of the embedding.
 
 *Latent space* is typically used synonymously with *embedding space*,
 the space into which embedding vectors are mapped.
+
+>Tips: 隐空间 \ 潜空间，通常与**嵌入空间**同义，是`嵌入向量`映射到的空间。
 
 Similar items can appear close in the latent space; however, this is not
 a strict requirement. More loosely, we can think of the latent space as
@@ -167,6 +171,69 @@ layers can be utilized to produce useful embeddings? Interested readers
 can find more details about the AlexNet architecture and implementation
 in the original publication by Alex Krizhevsky, Ilya Sutskever, and
 Geoffrey Hinton.
+
+
+<a id="fig-ch01-fig03"></a>
+
+<div style="text-align:center">
+  <img src="./images/ch01-as-01.png" alt="Answer 1" style="width:70%;">
+  <div><b>Answer 1-1</b></div>
+</div>
+
+**AlexNet 的完整流程**：
+
+* **输入图像 → 卷积层堆叠 (Conv1–Conv5) → 展平 → 全连接层 (FC6–FC8)**
+* 标红的 **Conv5、FC6、FC7** 是常用来提取有用 **embedding 特征** 的层。
+  * Conv5 → 检测 / 分割（保留空间位置信息）
+  * FC6 → 迁移学习（整体结构特征）
+  * FC7 → 图像检索 / 聚类（高级语义表示）
+
+
+>**Answer:**
+>
+>> asking: in an AlexNet-style convolutional neural network (five conv layers + three >FC layers), **which layers can provide useful embeddings** that capture semantic >information about the input.
+>
+>Let’s break it down:
+>
+>1. **Convolutional Layers (early to mid layers)**
+>
+>* **Early conv layers (conv1–conv2):**
+>  These capture **low-level features** like edges, corners, textures, and simple >shapes.
+>  → Not very useful as "semantic embeddings," but good for transfer to tasks >requiring fine textures (e.g., medical images, style).
+>
+>* **Mid-depth conv layers (conv3–conv5):**
+>  These capture **mid- to high-level features** (object parts, motifs, hierarchical >compositions).
+>  → Often very useful as **general embeddings** for vision tasks like detection, >segmentation, or retrieval.
+>  (In fact, features from conv5 of AlexNet were widely used in early transfer >learning.)
+>
+>2. **Fully Connected Layers**
+>
+>* **First two FC layers (fc6, fc7):**
+>  These act like **dense "semantic bottlenecks."**
+>
+>  * `fc6` embeddings capture global object structure.
+>  * `fc7` embeddings are particularly popular for transfer learning and >representation learning because they’re **highly discriminative yet not tied to the >final class labels.**
+>    → Both are excellent choices for embeddings.
+>
+>* **Last FC layer (fc8, the classifier):**
+>  This outputs class scores (e.g., 1000-dim for ImageNet).
+>  → Too task-specific (logits for specific labels). Not generally useful as >embeddings unless you remove the softmax and use the logits for re-scoring.
+>
+>3. **Best Practices**
+>
+>* If you want **general embeddings** (for clustering, retrieval, transfer learning):
+>  * Use `conv5` (after flatten + pooling) or `fc6`/`fc7`.
+>  * `fc7` is most common, since it captures high-level semantics.
+>* If you want **task-specific representations:**
+>  * Use `fc8` logits.
+>* If you want **visual features for downstream CV models (e.g., detection, >segmentation):**
+>  * Use convolutional feature maps (conv3–conv5), since they preserve spatial >structure.
+>
+> 4. **Summary:**
+>
+>Useful embeddings can be taken from **the last convolutional layer (conv5) or the >penultimate fully connected layers (fc6, fc7)**. The final output layer (fc8) is >usually not used for embeddings since it’s tied to a specific classification task.
+
+
 
 1-2. Name some types of input representations that are not embeddings.
 
