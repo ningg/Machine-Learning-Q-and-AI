@@ -31,7 +31,7 @@
 
 ### 2.2.迭代计划
 
-1. 首版：中文标注: ✅
+1. 首版：中文批注: ✅
 2. 导出 pdf 文件: ✅
 3. 同步到多个开源社区: TODO
 
@@ -56,7 +56,7 @@
 
 <div align='center'>
     <img src="./images/2023-ml-ai-beyond-cn.jpg" width="30%">
-    <img src="./images/2023-ml-ai-beyond.jpg" width="27.65%">
+    <img src="./images/2023-ml-ai-beyond.jpg" width="30%">
 </div>
 
 
