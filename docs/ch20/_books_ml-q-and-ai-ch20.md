@@ -6,13 +6,17 @@
 
 
 
+
 # Chapter 20: Stateless and Stateful Training
+> 本章在生产训练/部署语境下对比无状态（周期重训）与有状态（增量更新）两类流程，并各辅图示与习题。
 [](#stateless-and-stateful-training)
 
 
 
 **What is the difference between stateless and stateful training
 workflows in the context of production and deployment systems?**
+
+无状态与有状态描述的是：新数据到来时，是周期性从零或近似从零重训，还是在既有权重上继续优化。
 
 Stateless training and stateful training refer to different ways of
 training a production model.
@@ -21,6 +25,7 @@ training a production model.
 
 
 ## Stateless (Re)training
+> 本节说明无状态训练先训初版再在数据流上按窗口重训的图景，并点出与传统批量学习模型的天然契合。
 [](#stateless-retraining)
 
 In stateless training, the more conventional approach, we first train an
@@ -28,11 +33,15 @@ In stateless training, the more conventional approach, we first train an
 data arrives. Hence, stateless training is also commonly referred to as
 stateless *retraining*.
 
+常见做法是先在初始训练集上得到 `initial model`，新数据持续到达后按策略整批或按窗口再次训练，因此也称无状态 *retraining*。
+
 > Tips: 无状态训练，是先训练一个`初始模型`，然后在新数据到达时，重新训练模型；可以简单认为是`树状结构`，初始模型是`父节点`、衍生出一堆`叶子节点`模型.
 
 As Figure [20.1](#fig-ch20-fig01) shows, we can think of stateless retraining as a
 sliding window approach in which we retrain the initial model on
 different parts of the data from a given data stream.
+
+可把它想象成对流式数据截取滑动窗口、周期性回到同一训练管线重训，使模型随时间对齐最新数据段。
 
 > Tips: 图示中，`初始模型`是`父节点`，`新模型`是`叶子节点`，`新模型`是基于`初始模型`训练的；训练新模型时，会截取`滑动窗口`数据。
 
@@ -48,6 +57,8 @@ Figure [20.1](#fig-ch20-fig01) (Model 1) to a newer model (Model 2), we train th
 model on 30 percent of the initial data and 70 percent of the most
 recent data at a given point in time.
 
+举例：从 Model 1 升到 Model 2 时，可在某一时刻混合 30% 早期样本与 70% 近期样本再训一版。
+
 Stateless retraining is a straightforward approach that allows us to
 adapt the model to the most recent changes in the data and
 feature-target relationships via retraining the model from scratch in
@@ -56,18 +67,25 @@ conventional machine learning systems that cannot be fine-tuned as part
 of a transfer or self-supervised learning workflow (see
 Chapter [\[ch02\]](./ch02/_books_ml-q-and-ai-ch02.md)).
 
+做法直观：按固定节拍整体重训即可响应最新的特征–目标关系；它特别适合难以“增量更新权重”的传统监督管线（参见第 2 章关于迁移/自监督的讨论）。
+
 > Tips: 传统的模型，中无状态训练，比较流行，比如`随机森林`、`梯度提升`等，这些都是无法`微调`的
 
 For example, standard implementations of tree-based models, such as
 random forests and gradient boosting (XGBoost, CatBoost, and LightGBM),
 fall into this category.
 
+例如随机森林与各类梯度提升库的主流实现通常属于此类。
+
 ## Stateful Training
+> 本节描述有状态训练如何在初训后持续微调、并阐明其针对概念/特征/标签漂移与迁移学习“换任务”之间的本质不同。
 [](#stateful-training)
 
 In stateful training, we train the model on an initial batch of data and
 then update it periodically (as opposed to retraining it) when new data
 arrives.
+
+有状态路线是首次批量训练后，新数据到来时在原参数附近继续更新，而非每次都完整重训。
 
 > Tips: 有状态的训练，可以认为是 `链式结构`，初始模型 -> 新模型 -> 新模型 -> ... ， 每次都基于最新模型叠加而来.
 
@@ -75,6 +93,8 @@ As illustrated in Figure [20.2](#fig-ch20-fig02), we do not retrain the initial 
 from scratch; instead, we update or fine-tune it as new data arrives.
 This approach is particularly attractive for models compatible with
 transfer learning or self-supervised learning.
+
+图 20.2 显示并不每次从 Model 1.0 彻底重算，而是在其权重上微调；这与支持迁移或自监督初始化的深度网络十分契合。
 
 <a id="fig-ch20-fig02"></a>
 
@@ -93,6 +113,8 @@ classification task. For instance, in transfer learning, the target
 labels often differ. In self-supervised learning, we obtain the target
 labels from the dataset features.
 
+表面上都像“拿一版预训练再微调”，但有状态强调同一部署任务下随时间的分布漂移（概念、特征、标注方式变化）；迁移与自监督则更常指换任务或从数据本身构造伪标签。
+
 > Tips: 有状态的训练，跟`迁移学习`、`自监督学习`，有本质区别；有状态的训练，会更新模型，以适应概念、特征、标签的漂移；而迁移学习、自监督学习，是基于预训练模型，进行微调。
 
 One significant advantage of stateful training is that we do not need to
@@ -100,9 +122,12 @@ store data for retraining; instead, we can use it to update the model as
 soon as it arrives. This is particularly attractive when data storage is
 a concern due to privacy or resource limitations.
 
+若不能长期囤积原始样本（合规或资源），有状态增量可以在样本流过当下立即用于更新，而不必保留全史做周期全量重训。
+
 > Tips: **有状态的训练**，不需要存储数据，可以及时更新模型；这在`隐私`或`资源有限`的情况下，特别有用。
 
 ## Exercises
+> 本节通过金融日更随机森林与按月迭代大模型两题，巩固两类形态的算法与业务约束层面的选择。
 [](#exercises)
 
 20-1. Suppose we train a classifier for stock trading recommendations

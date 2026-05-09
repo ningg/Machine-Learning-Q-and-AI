@@ -6,7 +6,9 @@
 
 
 
+
 # Chapter 18: Using and Fine-Tuning Pretrained Transformers
+> 本章从分类与下游任务出发，串讲特征提取、全量/部分微调、上下文学习与提示、索引，以及参数高效微调与 RLHF 等适配手段。
 [](#chapter-18-using-and-fine-tuning-pretrained-transformers)
 
 
@@ -32,9 +34,14 @@ from the model. This concept is also known as *prompting*. Finally,
 it's also possible to fine-tune all or just a small number of
 parameters to achieve the desired outcomes.
 
+常见路径包括：用冻结的 Transformer 抽特征再训下游；在提示里放示例做 in-context（即 *prompting*）；或对全部或少量参数做微调。多数预训练模型本身不必再训即可间接使用。
+
 The following sections discuss these types of approaches in greater depth.
 
+下文将逐类展开这些思路。
+
 ## Using Transformers for Classification Tasks
+> 本节在分类设定下比较特征提取、Fine-tuning I/II，并用图示概括效率与效果上的经验法则。
 [](#using-transformers-for-classification-tasks)
 
 Let's start with the conventional methods for utilizing pretrained transformers:
@@ -43,11 +50,15 @@ and fine-tuning all layers. We'll discuss these in the context of
 classification. (We will revisit prompting later in the section
 "In-Context Learning, Indexing, and Prompt Tuning" on page .)
 
+我们先在分类场景讨论三类常规用法：在 embedding 上另训模型、只微调输出层、微调全部层；提示相关方法稍后同一章另一节再谈。
+
 In the feature-based approach, we load the pretrained model and keep it
 "frozen," meaning we do not update any parameters of the pretrained
 model. Instead, we treat the model as a feature extractor that we apply
 to our new dataset. We then train a downstream model on these
 embeddings.
+
+特征法则是加载预训练模型并保持冻结，把它当特征提取器在新数据上跑一遍，再在特征上训练下游模型。
 
 > 特征提取方法：
 > 1. 加载预训练模型并保持冻结状态，不更新任何参数。
@@ -70,6 +81,8 @@ transformer model at all. Finally, the embeddings can be precomputed for
 a given training dataset (since they don't change) when training a
 classifier for multiple training epochs.
 
+下游可选任意模型，但线性分类器往往最好：高质量嵌入已编码复杂模式，线性边界即可分开类别，且强正则有助抑制高维过拟合；特征还可预先算好、多轮训练分类器而无需反复前向骨干。
+
 > 特征提取方法的优点：
 > 1. 不需要更新预训练模型。
 > 2. 提取的特征通常能够捕捉复杂的关系和模式，使得线性分类器能够有效地分离数据。
@@ -80,6 +93,8 @@ Figure [18.1](#fig-ch18-fig01) illustrates how LLMs are typically created and
 adopted for downstream tasks using fine-tuning. Here, a pretrained
 model, trained on a general text corpus, is fine-tuned to perform tasks
 like German-to-English translation.
+
+图 18.1 展示从通用语料预训练到下游微调的典型流程，例如德英翻译。
 
 <a id="fig-ch18-fig01"></a>
 
@@ -93,6 +108,8 @@ updating only the output layers, a method we'll refer to as
 *fine-tuning I*, and updating all layers, which we'll call
 *fine-tuning II*.
 
+微调层面常分 *fine-tuning I*（只动输出侧）与 *fine-tuning II*（全层更新）。
+
 > 微调方法，分为 2 类：
 > 1. 只更新输出层，称为 **fine-tuning I**。
 > 2. 更新所有层，称为 **fine-tuning II**。
@@ -104,6 +121,8 @@ parameters in these new layers. Since we don't need to backpropagate
 through the whole network, this approach is relatively efficient
 regarding throughput and memory requirements.
 
+Fine-tuning I 与特征法类似，但把新输出层接在 LLM 上并只训这些层，骨干仍冻结，故反传浅、吞吐与显存相对友好。
+
 In `fine-tuning II`, we load the model and add one or more output layers,
 similarly to fine-tuning I. However, instead of backpropagating only
 through the last layers, we update *all* layers via backpropagation,
@@ -113,8 +132,12 @@ fine-tuning I, it typically leads to better modeling or predictive
 performance. This is especially true for more specialized
 domain-specific datasets.
 
+fine-tuning II 同样加输出头但全网络反传，代价最高，往往在领域专用数据上效果最好。
+
 Figure [18.2](#fig-ch18-fig02) summarizes the three approaches described in this
 section so far.
+
+图 18.2 归纳本节至今的三类做法。
 
 <a id="fig-ch18-fig02"></a>
 
@@ -132,12 +155,17 @@ updating more layers and parameters than fine-tuning I, backpropagation
 is costlier for fine-tuning II. For similar reasons, fine-tuning II is
 costlier than a simpler feature-based approach.
 
+图 18.2 也给出训练开销的经验排序：fine-tuning II 更新最多因而反传最贵，其次 Fine-tuning I，特征法通常最省。
+
 ## In-Context Learning, Indexing, and Prompt Tuning
+> 本节讨论 in-context / 硬提示优化、与索引式检索增强，以及它们与全参数微调的取舍。
 [](#in-context-learning-indexing-and-prompt-tuning)
 
 LLMs like GPT-2 and GPT-3 popularized the concept of `in-context learning`, often called **zero-shot** or **few-shot learning** in this
 context, which is illustrated in
 Figure [18.3](#fig-ch18-fig03).
+
+GPT-2/3 等使 `in-context learning` 广为人知，在此语境下也常称 **zero-shot** 或 **few-shot learning**，见图 18.3。
 
 <a id="fig-ch18-fig03"></a>
 
@@ -153,11 +181,15 @@ approach takes advantage of the model's ability to learn from vast
 amounts of data during pretraining, which includes diverse tasks and
 contexts.
 
+其核心是在提示中嵌入任务说明或示例，让模型据预训练中学到的广泛模式推断合适回复。
+
 
 The definition of **few-shot learning**, considered synonymous with
 in-context learning-based methods, differs from the conventional
 approach to few-shot learning discussed in
 Chapter [\[ch03\]](./ch03/_books_ml-q-and-ai-ch03.md).
+
+这里把 **few-shot** 与基于上下文的示范学习近乎同义，与第 3 章经典小样本学习设定有所不同。
 
 > 此处讨论的 **few-shot learning** 与第 3 章讨论的 **few-shot learning** 不同。
 
@@ -167,6 +199,8 @@ German -- English translation using a large-scale pretrained language
 model like GPT-3. To do so, we provide a few examples of
 German -- English translations to help the model understand the desired
 task, as follows:
+
+例如用 GPT-3 做德英示范翻译时，可在提示里放若干德英句对：
 
 ```text
 Translate the following German sentences into English:
@@ -188,6 +222,8 @@ for certain tasks or specific datasets since it relies on the pretrained
 model's ability to generalize from its training data without further
 adapting its parameters for the particular task at hand.
 
+总体上它对部分任务不如微调：参数未针对当前数据再适配，全凭预训练泛化。
+
 > 上下文学习在某些任务或特定数据集上可能不如微调，因为它依赖于预训练模型从其训练数据中泛化，而无需为特定任务进一步调整其参数。
 
 However, in-context learning has its advantages. It can be particularly
@@ -196,6 +232,8 @@ also enables rapid experimentation with different tasks without
 fine-tuning the model parameters in cases where we don't have direct
 access to the model or where we interact only with the model through a
 UI or API (for example, ChatGPT).
+
+但在标注稀缺或只能通过 API/UI 访问模型时，它便于快速试错、无需本地训参。
 
 > 上下文学习的优点：
 > 1. 在有标签数据有限或不可用的情况下，上下文学习特别有用。
@@ -210,11 +248,15 @@ tuning does not modify the model parameters, but it may involve using a
 smaller labeled dataset to identify the best prompt formulation for the
 specific task. 
 
+与之相关的是 **hard prompt tuning**：离散 token 不可微，因而不改权重而改提示措辞，有时用少量标注搜更好模板。
+
 > 提示词工程，即提示词微调。不改变模型参数，而是优化提示词（可能包含一小部分标签示例数据），以达到更好的性能。
 
 For example, to improve the prompts for the previous
 German -- English translation task, we might try the following three
 prompting variations:
+
+可尝试如下三种模板变体（占位符示例保留原貌）：
 
 - Translate the German sentence '{german_sentence}' into English: {english_translation}
 
@@ -237,8 +279,12 @@ known as *hard* prompting since, again, the input tokens are not
 differentiable. In addition, other methods exist that propose to use
 another LLM for automatic prompt generation and evaluation.
 
+硬提示省算力但常弱于全微调，且可能要人工或外挂 LLM 比较多条提示质量。
+
 Yet another way to leverage a purely in-context learning-based approach
 is `indexing`, illustrated in Figure [18.4](#fig-ch18-fig04)
+
+纯 in-context 路线还可借 `indexing` 把外部文档搬进上下文，见图 18.4。
 
 <a id="fig-ch18-fig04"></a>
 
@@ -257,17 +303,22 @@ computes the vector similarity between the embedded query and each
 vector stored in the database. Finally, the indexing module retrieves
 the top *k* most similar embeddings to synthesize the response.
 
+可把索引视为 in-context 的变通：切块、嵌入、入向量库，查询时取与 query 最相近的 top-*k* 片段拼进提示再生成。
+
 > 索引，即索引模块，将文档或网站解析为更小的块 chunk，嵌入到向量中，可以存储在**向量数据库**中。
 > - 当用户提交查询时，索引模块计算嵌入查询与数据库中每个向量的相似度。
 > - 最后，索引模块检索与查询最相似的 *k* 个嵌入向量，以合成响应。
 
 ## Parameter-Efficient Fine-Tuning
+> 本节介绍软/前缀提示、Adapter 与 LoRA 等参数高效微调思路及典型实现草图。
 [](#parameter-efficient-fine-tuning)
 
 In recent years, many methods have been developed to adapt pretrained
 transformers more efficiently for new target tasks. These methods are
 commonly referred to as `parameter-efficient fine-tuning`, with the most
 popular methods at the time of writing summarized in Figure [18.5](#fig-ch18-fig05).
+
+近年大量工作致力于少更新原权重即可完成适配，统称 `parameter-efficient fine-tuning`，见图 18.5。
 
 <a id="fig-ch18-fig05"></a>
 
@@ -285,11 +336,15 @@ parameter tensor (the "soft prompt") to the embedded query tokens.
 The prepended tensor is then tuned to improve the modeling performance
 on a target dataset using gradient descent. 
 
+与硬提示不同，`soft prompting` 在连续嵌入空间优化可训练张量，常把它拼在序列前再梯度下降。
+
 > 硬提示词，调整了输入的离散 tokens；软提示词，调整了输入的 tokens 的嵌入。
 > - 软提示词的思路是，在输入的 tokens 前添加一个可训练的参数 tensor（即软提示词），
 > - 然后使用梯度下降优化这个 tensor，以提高在目标数据集上的建模性能。
 
 In Python-like pseudocode, soft prompt tuning can be described as
+
+下面用与 Python 语法相近的伪代码示意。
 
 ```python
 x = EmbeddingLayer(input_ids)
@@ -303,15 +358,21 @@ embedding layer. Consequently, the modified input matrix has additional
 rows (as if it extended the original input sequence with additional
 tokens, making it longer).
 
+`soft_prompt_tensor` 与词嵌入同维，相当于在序列维上“加长”了输入。
+
 Another popular prompt tuning method is `prefix tuning`. *Prefix tuning*
 is similar to soft prompt tuning, except that in prefix tuning, we
 prepend trainable tensors (soft prompts) to each transformer block
 instead of only the embedded inputs, which can stabilize the training.
 
+`prefix tuning` 则在每个 Transformer 块前也拼可训练前缀，有时更稳。
+
 > 前缀调优，在每个 transformer block 前添加一个可训练的参数 tensor。
 
 The implementation of prefix tuning is illustrated in the following
 pseudocode:
+
+实现示意伪代码如下：
 
 ```python
 def transformer_block_with_prefix(x):
@@ -333,6 +394,8 @@ Listing [18.6](#fig-ch18-fig06) into three main parts: implementing the soft
 prompt, concatenating the soft prompt (prefix) with the input, and
 implementing the rest of the transformer block.
 
+可把 Listing 18.6 拆成三段：前缀经 MLP；与 `x` 沿 `seq_len` 拼接；其后是标准自注意—LayerNorm—前馈—残差。
+
 First, the `soft_prompt`, a tensor, is processed through a set of fully connected layers. 
 Second, the transformed soft prompt is concatenated with the main input, `x`. 
 The dimension along which they are concatenated is denoted by `seq_len`, referring to the sequence length dimension. 
@@ -340,10 +403,14 @@ Third, the subsequent lines of code describe the standard operations in a
 transformer block, including self-attention, layer normalization, and
 feed-forward neural network layers, wrapped around residual connections.
 
+依次：张量 `soft_prompt` 过全连接；变换后与主输入 `x` 拼接；再接常规子层。
+
 As shown in Listing [18.6](#fig-ch18-fig06), `prefix tuning` modifies a transformer block by
 adding a trainable `soft prompt`.
 Figure [18.6](#fig-ch18-fig06) further illustrates the difference between a
 regular transformer block and a prefix tuning transformer block.
+
+Listing 18.6 表明 `prefix tuning` 通过对块内注入可训练 `soft prompt` 改变块行为；图 18.6 对比普通块与前缀块。
 
 <a id="fig-ch18-fig06"></a>
 
@@ -356,11 +423,15 @@ Both `soft prompt` tuning and `prefix tuning` are considered parameter
 efficient since they require training only the prepended parameter
 tensors and not the LLM parameters themselves.
 
+二者只训前缀张量，原 LLM 权重可不更新，故属参数高效。
+
 `Adapter methods` are related to `prefix tuning` in that they add
 additional parameters to the transformer layers. In the original adapter
 method, additional fully connected layers were added after the multihead
 self-attention and existing fully connected layers in each transformer
 block, as illustrated in Figure [18.7](#fig-ch18-fig07).
+
+Adapter 在每块注意力后与 MLP 旁插入小型全连接支路，见图 18.7。
 
 <a id="fig-ch18-fig07"></a>
 
@@ -377,9 +448,13 @@ low-dimensional representation, while the second layer projects it back
 into the original input dimension -- this adapter method is usually
 considered parameter efficient.
 
+原始 Adapter 只更新插入层，其余冻结；先投影到低维再映回原维，因而参数量小。
+
 > 只会更新 adapter 层，其他层保持冻结。
 
 In pseudocode, the original adapter method can be written as follows:
+
+Adapter 伪代码：
 
 ```python
 def transformer_block_with_adapter(x):
@@ -405,6 +480,8 @@ dimensions that can effectively capture most of the information in the
 original data. Popular low-rank transformation techniques include
 **principal component analysis** and **singular vector decomposition**.
 
+LoRA 用低秩分解近似权重更新，与低秩近似思想一致；PCA、奇异值分解等是经典低秩工具。
+
 > 低秩适应（LoRA），另一种流行的参数高效微调方法，值得考虑，指的是使用低秩变换重新参数化预训练 LLM 权重。
 > - LoRA 与低秩变换的概念相关，低秩变换是一种技术，使用较低维度的表示来近似高维矩阵或数据集。
 > - 低秩变换（或低秩近似）通过找到更少的维度组合来有效捕获原始数据中的大部分信息。
@@ -419,6 +496,8 @@ $W_A \in \mathbb{R}^{h \times B}$. Here, we keep the
 original weight frozen and train only the new matrices $W_A$ and
 $W_B$.
 
+例如将 $\Delta W$ 分解为 $W_A W_B$，冻结原权重只训二者。
+
 How is this method parameter efficient if we introduce new weight
 matrices? These new matrices can be very small. For example, if *A* = 25
 and *B* = 50, then the size of $\Delta W$ is 25 $\times$ 50 =
@@ -426,8 +505,12 @@ and *B* = 50, then the size of $\Delta W$ is 25 $\times$ 50 =
 parameters, and the two matrices combined have only 125 + 250 = 375
 parameters in total.
 
+因 $h$ 可远小于 $\min(A,B)$，新增参数量可远小于满秩 $\Delta W$。
+
 After learning the weight update matrix, we can then write the matrix
 multiplication of a fully connected layer, as shown in this pseudocode:
+
+学好后，全连接前向可把低秩修正叠到原输出上，如：
 
 ```python
 def lora_forward_matmul(x):
@@ -441,21 +524,28 @@ is a scaling factor that adjusts the magnitude of the combined result
 (original model output plus low-rank adaptation). This balances the
 pretrained model's knowledge and the new task-specific adaptation.
 
+`scalar` 调节原输出与低秩增量之比重，平衡旧知识与任务适配。
+
 According to the original paper introducing the LoRA method, models
 using LoRA perform slightly better than models using the adapter method
 across several task-specific benchmarks. Often, LoRA performs even
 better than models fine-tuned using the fine-tuning II method described
 earlier.
 
+原论文显示 LoRA 在多项基准上常略胜 Adapter，有时甚至优于前文 fine-tuning II。
+
 > 原始提出 LoRA 方法的论文指出，使用 LoRA 的模型在多个任务特定基准上略微优于使用适配器方法的模型。
 > 通常，LoRA 甚至比前面描述的 fine-tuning II 方法微调的模型性能更好。
 
 ## Reinforcement Learning with Human Feedback
+> 本节转向监督微调之外的 RLHF：奖励建模、PPO 以及为何用人机协同信号代替端到端在人类标注上训练。
 [](#reinforcement-learning-with-human-feedback)
 
 The previous section focused on ways to make fine-tuning more efficient.
 Switching gears, how can we improve the modeling performance of LLMs via
 fine-tuning?
+
+上一节侧重“省参数”；这里问：微调还能如何进一步提升表现？
 
 The conventional way to adapt or fine-tune an LLM for a new target
 domain or task is to use a supervised approach with labeled target data.
@@ -463,6 +553,8 @@ For instance, the `fine-tuning II` approach allows us to adapt a
 pretrained LLM and fine-tune it on a target task such as sentiment
 classification, using a dataset that contains texts with sentiment
 labels like *positive*, *neutral*, and *negative*.
+
+常规做法是用带标注的目标数据监督微调，例如情感三分类。
 
 > 监督微调，用有标签的目标数据集，训练 LLM 以适应新任务。
 
@@ -472,6 +564,8 @@ which can be used to further improve the model's
 alignment with human preferences. For example, ChatGPT and its
 predecessor, InstructGPT, are two popular examples of pretrained LLMs
 (GPT-3) fine-tuned using RLHF.
+
+监督微调之上还可做 `reinforcement learning with human feedback (RLHF)` 以对齐人类偏好；ChatGPT、InstructGPT 是著名先例。
 
 > 强化学习，用人类反馈，训练 LLM 以适应人类偏好。
 
@@ -487,6 +581,8 @@ model, and is then used to adapt the pretrained LLM to human preferences
 via additional fine-tuning. The training in this additional fine-tuning
 stage uses a flavor of reinforcement learning called **proximal policy optimization** (`PPO`).
 
+RLHF 混合监督与强化：人类排序或打分形成奖励信号，先训奖励模型，再以 **proximal policy optimization**（`PPO`）等策略进一步优化策略模型。
+
 > 在 RLHF 中，使用监督学习和强化学习相结合的方法，训练 LLM 以适应人类偏好。
 > - 人类反馈被收集，通过人类对不同模型输出的排序或评分，提供奖励信号。
 > - 收集到的奖励标签可以用于训练奖励模型，然后用于指导 LLM 适应人类偏好。
@@ -497,9 +593,12 @@ RLHF uses a reward model instead of training the pretrained model on the
 human feedback directly because involving humans in the learning process
 would create a bottleneck since we cannot obtain feedback in realtime.
 
+不用人类反馈直接当损失，是因为人在环无法实时、规模受限，故用奖励模型代行。
+
 > 使用**奖励模型**而不是直接在人类反馈上训练预训练模型，因为涉及人类的学习过程会创建瓶颈，因为无法实时获得反馈。
 
 ## Adapting Pretrained Language Models
+> 本节收束全章：在多种适配路线之间做效率—效果权衡，并展望预训练模型用法演进。
 [](#adapting-pretrained-language-models)
 
 While fine-tuning all layers of a pretrained LLM remains the gold
@@ -509,6 +608,8 @@ we can effectively apply LLMs to new tasks while minimizing computational
 costs and resources by utilizing feature-based methods, in-context
 learning, or parameter-efficient fine-tuning techniques.
 
+全层微调仍是强基准，但特征法、上下文学习与参数高效微调等可在算力受限时仍把 LLM 用到新任务上。
+
 
 The three conventional methods -- feature-based approach, fine-tuning I,
 and fine-tuning II -- provide different computational efficiency and
@@ -517,6 +618,8 @@ soft prompt tuning, prefix tuning, and adapter methods further optimize
 the adaptation process, reducing the number of parameters to be updated.
 Meanwhile, RLHF presents an alternative approach to supervised
 fine-tuning, potentially improving modeling performance.
+
+特征法 / Fine-tuning I / II 在效率与效果间取舍不同；软提示、前缀、Adapter 等进一步减需训参数；RLHF 则是另一条提升对齐与表现的路线。
 
 > 三种传统方法 -- 特征基方法、微调 I 和微调 II -- 提供了不同的计算效率和性能权衡。
 > - 参数高效微调方法，如软提示词调优、前缀调优和适配器方法，进一步优化了适配过程，减少了需要更新的参数数量。
@@ -528,7 +631,10 @@ adapting these models to a wide array of tasks and domains. As research
 in this area progresses, we can expect further improvements and
 innovations in using pretrained language models.
 
+预训练语言模型的适配手段仍在快速演进，可期待后续新方法在任务覆盖面与效率上继续改进。
+
 ## Exercises
+> 本节习题对比 in-context 与微调适用场景，并思考参数高效微调如何缓解遗忘。
 [](#exercises)
 
 18-1. When does it make more sense to use in-context learning rather
@@ -538,6 +644,7 @@ than fine-tuning, and vice versa?
 model preserves (and does not forget) the original knowledge?
 
 ## References
+> 本节列出 GPT-2/3、提示与索引库、软/前缀提示、Adapter、LoRA、PEFT 综述、InstructGPT 与 PPO 等文献与资源。
 [](#references)
 
 - The paper introducing the GPT-2 model: Alec Radford et al.,

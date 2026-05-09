@@ -7,12 +7,15 @@
 
 
 # Chapter 2: Self-Supervised Learning
+> 本章定义自监督学习及其与迁移学习的关系，说明如何利用无标签数据，并介绍自预测与对比式自监督两大范式及练习、延伸阅读。
 [](#chapter-2-self-supervised-learning)
 
 
 
 **What is self-supervised learning, when is it useful, and what are the
 main approaches to implementing it?**
+
+什么是自监督学习、何时有用、以及实现它的主要途径有哪些？
 
 *Self-supervised learning* is a pretraining procedure that lets neural
 networks leverage large, unlabeled datasets in a supervised fashion.
@@ -21,12 +24,15 @@ related method for pretraining neural networks, and discusses the
 practical applications of self-supervised learning. Finally, it outlines
 the main categories of self-supervised learning.
 
+*自监督学习*是一种预训练流程，使神经网络能以「监督」的方式利用大规模无标签数据。本章将自监督学习与迁移学习对照，讨论其实用场景，并概括自监督学习的主要类别。
+
 > Tips: 自监督学习，是一种预训练方法，让神经网络利用`无标签`的大数据集，进行`监督学习`。
 > 其实，使用`无标签`数据，自动构造了`伪标签`（例如：遮挡部分内容、预测缺失内容），也是一种`监督学习`。
 
 
 
 ## Self-Supervised Learning vs. Transfer Learning
+> 本节对比迁移学习（有标签 ImageNet 预训练再微调）与自监督学习（从无标签数据构造伪标签的 pretext task），并说明二者在「标签来源」上的根本差异。
 [](#self-supervised-learning-vs-transfer-learning) 
 
 Self-supervised learning is related to `transfer learning`, a technique in
@@ -42,7 +48,11 @@ bird species of interest. (Often, we just have to change the
 class-specific output layer, but we can otherwise adopt the pretrained
 network as is.)
 
+自监督学习与 `transfer learning`（迁移学习）相关：后者把在任务 A 上预训练的模型作为任务 B 的起点。例如先在大型有标签数据集 ImageNet 上预训练卷积网络，再在小规模鸟类数据集上微调（常只需替换最后的分类头，其余权重可沿用）。
+
 Figure [2.1](#fig-ch02-fig01) illustrates the process of transfer learning.
+
+Figure [2.1](#fig-ch02-fig01) 示意传统迁移学习的流程。
 
 <a id="fig-ch02-fig01"></a>
 
@@ -64,6 +74,8 @@ network, as illustrated in
 Figure [2.2](#fig-ch02-fig02). These self-supervised training tasks are also
 called *pretext tasks*.
 
+自监督学习则改为在无标签数据上预训练：利用数据结构「自造」标签，把预测任务交给网络，见 Figure [2.2](#fig-ch02-fig02)；这类任务也称 *pretext tasks*（前置/代理任务）。
+
 <a id="fig-ch02-fig02"></a>
 
 <div align="center">
@@ -79,6 +91,8 @@ are provided along with the dataset; they are typically created
 by human labelers. In self-supervised learning, the labels can be
 directly derived from the training examples.
 
+迁移学习与自监督学习的关键差别在于 Figure 2.1 与 2.2 中第 1 步的标签从何而来：前者依赖人工标注；后者标签可直接由样本本身推导。
+
 > Tips: 自监督学习中，数据集的标签，可以`直接`从训练样本中`推导`出来。
 
 A self-supervised learning task could be a missing-word prediction in a
@@ -91,11 +105,16 @@ computer vision context and have the neural network fill in the blanks.
 These are just two examples of self-supervised learning tasks; many more
 methods and paradigms for this type of learning exist.
 
+例如在 NLP 中可遮住词让模型预测；在视觉中可挖去图像块让网络补全。这里仅举两例，自监督任务的形式还有很多。
+
 In sum, we can think of self-supervised learning on the pretext task as
 *representation learning*. We can take the pretrained model to fine-tune
 it on the target task (also known as the *downstream* task).
 
+总之，可把在代理任务上的自监督预训练视为 *representation learning*（表示学习）；随后在目标（*downstream*）任务上微调即可。
+
 ## Leveraging Unlabeled Data
+> 本节说明自监督在大模型与 ViT 等架构中的必要性，以及在小 MLP 或树模型上通常不适用、也不兼容迁移的原因。
 [](#leveraging-unlabeled-data)
 
 Large neural network architectures require large amounts of labeled data
@@ -105,13 +124,19 @@ learning, we can leverage unlabeled data. Hence, self-supervised
 learning is likely to be useful when working with large neural networks
 and with a limited quantity of labeled training data.
 
+大网络往往需要大量有标签数据才能泛化好；许多领域却缺乏标注。自监督让我们利用无标签数据，因而在「大网络 + 有标签数据少」的场景特别有价值。
+
 Transformer-based architectures that form the basis of LLMs and vision
 transformers are known to require self-supervised learning for
 pretraining to perform well.
 
+LLM 与视觉 Transformer 等架构的预训练普遍依赖自监督才能发挥性能。
+
 For small neural network models such as multilayer perceptrons with two
 or three layers, self-supervised learning is typically considered
 neither useful nor necessary.
+
+对仅两三层的小 MLP，自监督通常既不必要也不划算。
 
 > Tips: 对于`小型`的神经网络模型，如具有两到三层的`多层感知器`，**自监督学习** 在这种情况下 *不实用* 也 *不必要* 。
 
@@ -122,6 +147,8 @@ parameter structure (in contrast to the weight matrices, for example).
 Thus, conventional tree-based methods are not capable of transfer
 learning and are incompatible with self-supervised learning.
 
+在随机森林、梯度提升等非参数树模型上，自监督同样不适用：树方法没有固定参数矩阵式的表示，难以做迁移，也与自监督流程不兼容。
+
 > Tips: 对于`非参数模型`，如基于树的**随机森林**或**梯度提升**，`自监督学习`通常不适用。
 > 
 > 传统的基于树的方法没有固定的参数结构（与权重矩阵相比），因此传统的基于树的方法**无法进行迁移学习**，也不兼容自监督学习。
@@ -129,6 +156,7 @@ learning and are incompatible with self-supervised learning.
 > FIXME 没理解???
 
 ## Self-Prediction and Contrastive Self-Supervised Learning
+> 本节区分自预测（掩码重建、去噪等）与对比式自监督（拉近正样本、拉远负样本），并介绍 Siamese 设定及样本对比与维度对比两类变体。
 [](#self-prediction-and-contrastive-self-supervised-learning)
 
 There are two main categories of self-supervised learning:
@@ -137,6 +165,8 @@ There are two main categories of self-supervised learning:
 Figure [2.3](#fig-ch02-fig03), we typically change or hide parts of the input
 and train the model to reconstruct the original inputs, such as by
 using a perturbation mask that obfuscates certain pixels in an image.
+
+自监督大致分两类：`self-prediction` 与 `contrastive self-supervised`。前者常遮挡或扰动输入的一部分，再训练模型重建原输入，见 Figure [2.3](#fig-ch02-fig03)。
 
 <a id="fig-ch02-fig03"></a>
 
@@ -149,6 +179,8 @@ A classic example is a denoising autoencoder that learns to remove noise
 from an input image. Alternatively, consider a masked autoencoder that
 reconstructs the missing parts of an image, as shown in
 Figure [2.4](#fig-ch02-fig04).
+
+经典例子包括去噪自编码器，以及 Figure [2.4](#fig-ch02-fig04) 所示的掩码自编码器（MAE）重建缺失区域。
 
 <a id="fig-ch02-fig04"></a>
 
@@ -167,12 +199,16 @@ we feed the network text fragments, where it has to predict the next
 word in the sequence (as we'll discuss further in
 Chapter [\[ch17\]](./ch17/_books_ml-q-and-ai-ch17.md)).
 
+NLP 中也广泛使用掩码或缺失输入式的自预测；许多生成式 LLM（如 GPT）以下一词预测为代理任务（详见第 14、17 章）。
+
 In *contrastive self-supervised learning*, we train the neural network
 to learn an embedding space where similar inputs are close to each other
 and dissimilar inputs are far apart. In other words, we train the
 network to produce embeddings that minimize the distance between similar
 training inputs and maximize the distance between dissimilar training
 examples.
+
+在 *contrastive self-supervised learning* 中，我们训练网络使相似输入的嵌入彼此靠近、不相似输入彼此远离。
 
 Let's discuss contrastive learning using concrete example inputs.
 Suppose we have a dataset consisting of random animal images. First, we
@@ -181,6 +217,8 @@ because we assume that the dataset is unlabeled). We then augment,
 corrupt, or perturb this cat image, such as by adding a random noise
 layer and cropping it differently, as shown in
 Figure [2.5](#fig-ch02-fig05).
+
+下面用猫图举例：从无标签动物图中随机抽一张猫，对其加噪、裁剪等得到扰动版本，见 Figure [2.5](#fig-ch02-fig05)。
 
 <a id="fig-ch02-fig05"></a>
 
@@ -194,6 +232,8 @@ want the network to produce a similar embedding vector. We also consider
 a random image drawn from the training set (for example, an elephant,
 but again, the network doesn't know the label).
 
+扰动后的猫仍应视为同一只猫，故希望嵌入相近；再抽一张例如大象的图作为负样本，网络不知道类别标签。
+
 For the cat-elephant pair, we want the network to produce dissimilar
 embeddings. This way, we implicitly force the network to capture the
 image's core content while being somewhat agnostic to small
@@ -203,12 +243,16 @@ produced by model $M(\cdot)$. Let's say we update the model
 weights to decrease the distance $||M(cat) - M(cat')||_2$ and increase the distance
 $||M(cat) - M(elephant)||_2$.
 
+对猫–象对则希望嵌入远离，从而迫使网络抓住语义主体而对小幅差异不敏感。最简单的对比损失可用嵌入间 $L_2$ 距离表示：缩小 $||M(cat) - M(cat')||_2$、增大 $||M(cat) - M(elephant)||_2$。
+
 Figure [2.6](#fig-ch02-fig06) summarizes the central concept behind 
 `contrastive learning` for the perturbed image scenario. The model is shown twice,
 which is known as a *siamese network* setup. Essentially, the same model
 is utilized in two instances: first, to generate the embedding for the
 original training example, and second, to produce the embedding for the
 perturbed version of the sample.
+
+Figure [2.6](#fig-ch02-fig06) 概括扰动图像场景下的对比学习：同一模型接两份输入，称为 *siamese network*（孪生网络）设定。
 
 <a id="fig-ch02-fig06"></a>
 
@@ -227,6 +271,8 @@ hand, we focus on making only certain variables in the embedding
 representations of similar training pairs appear close to each other
 while maximizing the distance of others.
 
+对比学习还有许多子变体，可粗分为 *sample contrastive*（样本对距离）与 *dimension contrastive*（只让嵌入的某些维度接近、其余维度推远）。
+
 > Tips: 对比学习，可以分为`样本对比`和`维度对比`两种方法。
 > 
 > - 样本对比，关注于学习嵌入，以最小化/最大化`训练对`之间的距离。
@@ -234,12 +280,17 @@ while maximizing the distance of others.
 
 
 ## Exercises
+> 本节提出两道思考题：自监督如何用于视频；以及表格数据上是否可行、如何设计。
 [](#exercises)
 
 2-1. How could we apply self-supervised learning to video data?
 
+2-1. 如何把自监督学习用到视频数据上？
+
 2-2. Can self-supervised learning be used for tabular data represented
 as rows and columns? If so, how could we approach this?
+
+2-2. 行列表格数据能否做自监督？若可以，可如何设计？
 
 ## Talk
 
@@ -283,22 +334,31 @@ as rows and columns? If so, how could we approach this?
 
 
 ## References
+> 本节列出 ImageNet、SimCLR、VICRegL、自监督 cookbook 及表格数据相关论文链接。
 [](#references)
 
 - For more on the ImageNet dataset:
   <https://en.wikipedia.org/wiki/ImageNet>.
 
+- 关于 ImageNet 数据集：<https://en.wikipedia.org/wiki/ImageNet>。
+
 - An example of a contrastive self-supervised learning method: Ting Chen
   et al., "A Simple Framework for Contrastive Learning of Visual
   Representations"? (2020), <https://arxiv.org/abs/2002.05709>.
+
+- 对比式自监督示例：Ting Chen 等，SimCLR (2020)，<https://arxiv.org/abs/2002.05709>。
 
 - An example of a dimension-contrastive method: Adrien Bardes, Jean
   Ponce, and Yann LeCun, "VICRegL: Self-Supervised Learning of Local
   Visual Features"? (2022), <https://arxiv.org/abs/2210.01571>.
 
+- 维度对比示例：VICRegL (2022)，<https://arxiv.org/abs/2210.01571>。
+
 - If you plan to employ self-supervised learning in practice: Randall
   Balestriero et al., "A Cookbook of Self-Supervised Learning"?
   (2023), <https://arxiv.org/abs/2304.12210>.
+
+- 实践指南：自监督 Cookbook (2023)，<https://arxiv.org/abs/2304.12210>。
 
 - A paper proposing a method of transfer learning and self-supervised
   learning for relatively small multilayer perceptrons on tabular
@@ -306,10 +366,14 @@ as rows and columns? If so, how could we approach this?
   Learning Using Random Feature Corruption"? (2021),
   <https://arxiv.org/abs/2106.15147>.
 
+- 表格数据上小 MLP 的自监督：SCARF (2021)，<https://arxiv.org/abs/2106.15147>。
+
 - A second paper proposing such a method: Roman Levin et al.,
   "Transfer Learning with Deep Tabular Models"? (2022),
   [*https://arxiv.org/abs/*](https://arxiv.org/abs/2206.15306)
   [*2206.15306*](https://arxiv.org/abs/2206.15306).
+
+- 另一篇深度表格迁移：Levin 等 (2022)，<https://arxiv.org/abs/2206.15306>。
 
 
 ------------------------------------------------------------------------

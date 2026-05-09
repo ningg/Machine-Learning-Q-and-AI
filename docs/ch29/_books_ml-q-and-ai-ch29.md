@@ -7,6 +7,7 @@
 
 
 # Chapter 29: Training and Test Set Discordance
+> 本章讨论「测试集表现明显优于训练集」时的排查路径：先查代码与评估流程，再分析分布差异与对抗验证，并简述缓解策略与练习。
 [](#chapter-29-training-and-test-set-discordance)
 
 
@@ -18,6 +19,8 @@ be unusual with the data. What are some approaches for looking into
 training and test set discrepancies, and what strategies can we use to
 mitigate these issues?**
 
+假设我们训练出的模型在测试集上表现远好于训练集；在相似配置曾在相似数据上工作正常的前提下，我们怀疑数据本身异常。可以如何排查训练集与测试集之间的不一致，又有哪些缓解策略？
+
 Before investigating the datasets in more detail, we should check for
 technical issues in the **data loading** and **evaluation** code. For instance,
 a simple sanity check is to temporarily replace the test set with the
@@ -26,6 +29,8 @@ identical training and test set performances (since these datasets are
 now identical). If we notice a discrepancy, we likely have a bug in the
 code; in my experience, such bugs are frequently related to incorrect
 shuffling or inconsistent (often missing) data normalization.
+
+在进一步细查数据集之前，应先检查**数据加载**与**评估**代码：例如暂时用训练集顶替测试集再评估，此时训练与测试指标应完全一致；若不一致则多半有 bug，常见原因是洗牌不当或归一化前后不一致（甚至遗漏归一化）。
 
 > 在进一步检查数据集之前，我们应该检查数据加载和评估代码中的技术问题。
 > - 例如，一个简单的健全性检查是暂时将测试集替换为训练集，并重新评估模型。
@@ -44,10 +49,14 @@ properly before splitting it into training and test data. For small
 tabular datasets, it is also feasible to compare feature distributions
 in the training and test sets using histograms.
 
+若测试明显优于训练，可基本排除过拟合，更可能是两集分布差异大（特征与目标均可受影响）。宜画标签/目标分布；若划分前未充分洗牌，测试集可能缺失某些类别。小型表格数据也可用直方图比较特征分布。
+
 Looking at feature distributions is a good approach for tabular data,
 but this is trickier for image and text data. A relatively easy and more
 general approach to check for discrepancies between training and test
 sets is adversarial validation.
+
+对表格数据看特征分布很有效；对图像与文本更难。更通用的一招是对抗验证（adversarial validation）。
 
 `Adversarial validation`, illustrated in
 
@@ -71,6 +80,8 @@ data distributions are similar. On the other hand, if the model performs
 well in predicting the *Is test?* label, it suggests a discrepancy
 between the training and test data that we need to investigate further.
 
+对抗验证（见图）用于衡量训练与测试数据的相似度：合并两集并构造二元目标（如 *Is test?*：训练为 0、测试为 1），再按 *k*-fold 或重划分训练分类器。理想情况下模型应几乎无法区分来源；若能较好预测「是否来自测试集」，则提示两集分布不一致，需要进一步排查。
+
 > **对抗验证**，用于识别训练和测试数据之间的**相似程度**。
 > 
 > - 我们首先将训练和测试集合并为一个数据集，然后创建一个二元目标变量，用于区分训练和测试数据。
@@ -92,6 +103,8 @@ not so trivial (such as with image and text data), we can also
 investigate whether removing individual training instances that are
 different from the test set can address the discrepancy issue.
 
+若对抗验证发现不一致，可尝试：对表格数据逐个删除特征（伪相关特征有时与目标强相关），并用顺序特征选择配合「最小化准确率」等反向目标；对图像/文本则可考虑删除与测试分布差异过大的训练样本。
+
 > 如果我们使用对抗验证检测到训练-测试集差异，我们应该使用什么缓解技术？
 > 如果我们使用表格数据集，我们可以一次删除一个特征，看看是否有助于解决这个问题，因为虚假特征有时与目标变量高度相关。
 > 为了实现这个策略，我们可以使用顺序特征选择算法，并更新目标函数。
@@ -101,15 +114,20 @@ different from the test set can address the discrepancy issue.
 
 
 ## Exercises
+> 本节两道思考题：对抗预测任务的合理基线；以及训练集远大于测试集时的类别不平衡与应对。
 [](#exercises)
 
 29-1. What is a good performance baseline for the adversarial prediction
 task?
 
+29-1. 对抗预测任务中，什么样的性能基线是合理的？
+
 29-2. Since training datasets are often bigger than test datasets,
 adversarial validation often results in an imbalanced prediction problem
 (with a majority of examples labeled as *Is test?* being false instead
 of true). Is this an issue, and if so, how can we mitigate that?
+
+29-2. 训练集通常比测试集大，对抗验证会得到类别极不平衡的「是否来自测试集」二分类问题（多数样本为 false）。这是否构成问题？若是，如何缓解？
 
 
 ------------------------------------------------------------------------

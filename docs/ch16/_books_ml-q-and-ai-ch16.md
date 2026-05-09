@@ -7,12 +7,15 @@
 
 
 # Chapter 16: Self-Attention
+> 从 RNN 的 Bahdanau 跨序列注意力到同一序列上的 self-attention；弄清命名由来与和早期注意力的区别。
 [](#chapter-16-self-attention)
 
 
 
 **Where does `self-attention` get its name, and how is it different from
 previously developed attention mechanisms?**
+
+「自注意力」因何得名？与更早的注意力机制有何不同？
 
 *Self-attention* enables a neural network to refer to other portions of
 the input while focusing on a particular segment, essentially allowing
@@ -23,6 +26,8 @@ embeddings. Since the attention mechanisms used in transformer-based
 large language models is designed to work on all elements of the same
 set, it is known as *self*-attention.
 
+自注意力让网络在关注一段输入时仍能参照其余部分，使每段都能「注意」全体输入。为 RNN 设计的原始注意力作用于两路序列：编码器与解码器嵌入。而基于 Transformer 的大语言模型所用的注意作用在同一集合的全部元素上，故称「自」注意。
+
 > Tips: `self-attention` 允许神经网络在关注特定部分时，同时参考其他部分。每个部分都能“关注”整个输入。
 
 This chapter first discusses an earlier attention mechanism developed
@@ -31,7 +36,10 @@ behind developing attention mechanism. We then compare the Bahdanau
 mechanism to the self-attention mechanism prevalent in transformer
 architectures today.
 
+本章先讨论 RNN 的 Bahdanau 注意力以说明注意力的动机，再与当今 Transformer 中主流的 self-attention 对比。
+
 ## Attention in RNNs
+> Bahdanau 注意力：编码器—解码器两路 RNN，用动态权重把全体输入加权送入解码逐步生成；缓解单隐状态瓶颈。
 [](#attention-in-rnns)
 
 One example of an attention mechanism used in `RNNs` to handle long
@@ -42,9 +50,13 @@ attention, the whole input (such as a sentence in English) was squashed
 into a single chunk of information, and important details could get
 lost, especially if the sentence was long.
 
+RNN 处理长序列的经典注意是 Bahdanau 注意力，旨在改善翻译等模型对长句的理解。此前整句常被压成单一信息，细节易丢失。
+
 To understand the difference between regular attention and self-
 attention, let's begin with the illustration of the Bahdanau attention
 mechanism in Figure [16.1](#fig-ch16-fig01).
+
+为理解普通注意力与自注意力的区别，先看图 [16.1](#fig-ch16-fig01) 的 Bahdanau 示意。
 
 <a id="fig-ch16-fig01"></a>
 
@@ -58,10 +70,15 @@ weights for the second sequence element and each other element in the
 sequence from 1 to *T*. Furthermore, this original attention mechanism
 involves `two RNNs`. 
 
+图 [16.1](#fig-ch16-fig01) 中 $\alpha$ 表示对第二个序列位置相对位置 1 至 *T* 的注意权重；该原始机制涉及 **两个 RNN**。
+
 * The RNN at the bottom, computing the attention
 weights, represents the encoder, 
 * while the RNN at the top, producing the
 output sequence, is a decoder.
+
+* 下方计算注意权重的 RNN 为编码器；  
+* 上方产生输出序列的为解码器。
 
 > Tips: 
 > - 原始注意力机制是应用于两个不同序列的：`编码器`和`解码器`嵌入。
@@ -80,11 +97,15 @@ the decoder to access all input sequence elements (the context) at each
 step. The key idea is that the attention weights (and context) may
 differ and change dynamically at each step.
 
+简言之，RNN 原始注意力用在编码器与解码器两路之间：每步解码依赖隐状态与编码器给的上下文向量；该向量覆盖输入 **全体** 元素，是加权求和，$\alpha$ 为权重；解码器每步都能访问全序列上下文，且注意权重可步步不同、动态变化。
+
 The motivation behind this complicated encoder-decoder design is that we
 cannot translate sentences word by word. This would result in
 grammatically incorrect outputs, as illustrated by the RNN architecture
 (a) in
 Figure [16.2](#fig-ch16-fig02).
+
+如此设计是因为不能逐词互译，否则会产出不合语法的句子，见图 [16.2](#fig-ch16-fig02)(a)。
 
 <a id="fig-ch16-fig02"></a>
 
@@ -96,12 +117,18 @@ Figure [16.2](#fig-ch16-fig02).
 Figure [16.2](#fig-ch16-fig02) shows two different sequence-to-sequence RNN
 designs for sentence translation.
 
+图 [16.2](#fig-ch16-fig02) 给出两种用于句到句翻译的 RNN 设计。
+
 Figure [16.2](#fig-ch16-fig02)(a) represents a regular sequence-to-sequence RNN
 that may be used to translate a sentence from German to English word by
 word.
 
+(a) 为普通 seq2seq，可德译英逐词进行。
+
 Figure [16.2](#fig-ch16-fig02)(b) depicts an encoder-decoder RNN that first reads
 the whole sentence before translating it.
+
+(b) 为编码器—解码器，先读完整句再翻译。
 
 RNN `architecture (a)` is best suited for time series tasks in which we
 want to make one prediction at a time, such as predicting a given stock
@@ -113,6 +140,8 @@ sentence. However, this creates a bottleneck where the RNN has to
 memorize the whole input sentence via a single hidden state, which does
 not work well for longer sequences.
 
+结构 (a) 适合时间序列逐步单点预测（如逐日股价）；翻译等多用 (b)：编码整句为中间表示再生成输出，但单隐状态要记住整句会形成瓶颈，长句差。
+
 The bottleneck depicted in `architecture (b)` prompted the `Bahdanau`
 attention mechanism's original design, allowing the decoder to access
 all elements in the input sentence at each time step. The attention
@@ -122,7 +151,10 @@ when generating the word *help* in the output sequence, the word
 *helfen* in the German input sentence may get a large attention weight,
 as it's highly relevant in this context.
 
+(b) 的瓶颈催生了 Bahdanau 注意：解码器每步可访问输入全部位置，且权重随当前生成词而变；例如输出 *help* 时，德语输入中的 *helfen* 可能得大权重。
+
 ## The Self-Attention Mechanism
+> 同一序列内元素两两注意得到上下文；无需 RNN 骨干即可建强 seq2seq，引出 Transformer。
 [](#the-self-attention-mechanism)
 
 The Bahdanau attention mechanism relies on a somewhat complicated
@@ -133,6 +165,8 @@ the Bahdanau mechanism, researchers worked on simplifying sequence-to-
 even needed to achieve good language translation performance. This led
 to the design of the original transformer architecture and
 self-attention mechanism.
+
+Bahdanau 依赖较复杂的编码器—解码器以建模 seq2seq 长依赖；约三年后研究者问：是否必用 RNN 骨干才能做好翻译？由此出现原始 Transformer 与 self-attention。
 
 > Tips: transformer 架构，在 2017 年提出，用于解决序列到序列（sequence-to-sequence）语言建模任务中的长程依赖问题。
 > 
@@ -149,6 +183,8 @@ Figure [16.3](#fig-ch16-fig03). Similar to the attention mechanism for RNNs, the
 context vector is an attention-weighted sum over the input sequence
 elements.
 
+自注意中，注意作用在同一序列全体元素之间（非两序列），见图 [16.3](#fig-ch16-fig03)；与 RNN 注意类似，上下文仍是输入位置的加权和。
+
 <a id="fig-ch16-fig03"></a>
 
 <div align="center">
@@ -160,21 +196,31 @@ While Figure [16.3](#fig-ch16-fig03) doesn't include weight matrices, the
 self-attention mechanism used in transformers typically involves
 multiple weight matrices to compute the attention weights.
 
+图 [16.3](#fig-ch16-fig03) 未画权重矩阵，而 Transformer 中实际自用注意多用多组矩阵计算注意权重。
+
 This chapter laid the groundwork for understanding the inner workings of
 transformer models and the attention mechanism. The next chapter covers
 the different types of transformer architectures in more detail.
 
+本章为理解 Transformer 与注意机制打基础；下一章更细讲各类 Transformer 架构。
+
 ## Exercises
+> 习题：自注意的时间/内存复杂度；除 NLP 外在视觉中的应用可能。
 [](#exercises)
 
 16-1. Considering that self-attention compares each sequence element
 with itself, what is the time and memory complexity of self-attention?
 
+习题 16-1：自注意力对每个序列元素与其余元素比较，其时间与空间复杂度各如何？
+
 16-2. We discussed self-attention in the context of natural language
 processing. Could this mechanism be useful for computer vision
 applications as well?
 
+习题 16-2：除自然语言外，自注意是否在计算机视觉中也有用？
+
 ## References
+> 本节列原始 scaled dot-product 自注意、Bahdanau 对齐注意，以及自注意从零实现博文链接。
 [](#references)
 
 - The paper introducing the original self-attention mechanism, also
@@ -182,15 +228,21 @@ applications as well?
   "Attention Is All You Need"? (2017),
   <https://arxiv.org/abs/1706.03762>.
 
+Vaswani 等提出 Transformer 与 scaled dot-product 自注意的论文（2017）。
+
 - The Bahdanau attention mechanism for RNNs: Dzmitry Bahdanau, Kyunghyun
   Cho, and Yoshua Bengio, "Neural Machine Translation by Jointly
   Learning to Align and Translate"? (2014),
   <https://arxiv.org/abs/1409.0473>.
 
+Bahdanau、Cho、Bengio 关于联合对齐与翻译的 RNN 神经机器翻译（2014）。
+
 - For more about the parameterized self-attention mechanism, check out
   my blog post: "Understanding and Coding the Self-Attention Mechanism
   of Large Language Models from Scratch"? at
   <https://sebastianraschka.com/blog/2023/self-attention-from-scratch.html>.
+
+作者博文：从零理解与编码大语言模型的自注意机制（见链接）。
 
 
 ------------------------------------------------------------------------
