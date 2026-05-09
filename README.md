@@ -34,13 +34,25 @@
 
 ## 3.在线阅读（GitHub Pages）
 
-**在线阅读**：[《大模型技术30讲》](https://ningg.top/Machine-Learning-Q-and-AI/) , pdf 文件：[《大模型技术30讲-PDF版本》](https://ningg.top/Machine-Learning-Q-and-AI/pdf/大模型技术30讲(英文&中文批注)_LLM_30_Essential_Lectures_AI.pdf)
+* **在线阅读**：[《大模型技术30讲》](https://ningg.top/Machine-Learning-Q-and-AI/)  ， [https://ningg.top/Machine-Learning-Q-and-AI/](https://ningg.top/Machine-Learning-Q-and-AI/)
+* pdf 文件下载：[《大模型技术30讲-PDF版本》](https://ningg.top/Machine-Learning-Q-and-AI/pdf/大模型技术30讲(英文&中文批注)_LLM_30_Essential_Lectures_AI.pdf)
 
-- *深入理解 LLM 核心原理，直击要点*
+
+
+*深入理解 LLM 核心原理，直击要点* :
+
+
+<div align='center'>
+    <img src="./docs/images/2023-ml-ai-beyond-cn.jpg" width="30%">
+    <img src="./docs/images/2023-ml-ai-beyond.jpg" width="30%">
+</div>
+
+
+
 
 当前工程中，维护的 大模型技术 30 讲，目录如下：
 
-点击展开
+<details><summary>点击展开</summary>
 
 - **Introduction**
   - [Introduction](./docs/introduction/_books_ml-q-and-ai-chapters_introduction.md)  ✅
@@ -80,6 +92,8 @@
   - [Chapter 29: Training and Test Set Discordance](./docs/ch29/_books_ml-q-and-ai-ch29.md) ✅
   - [Chapter 30: Limited Labeled Data](./docs/ch30/_books_ml-q-and-ai-ch30.md) ✅
 
+</details>
+
 ## 4.如何贡献
 
 我们欢迎任何形式的贡献！
@@ -94,7 +108,7 @@
 
 ### 附录A. 将网页内容，转录为 md，任务拆解
 
-点击展开
+<details><summary>点击展开</summary>
 
 几个方面：
 
@@ -111,9 +125,11 @@
 - remove_print_book.py
 - remove_after_separator.py
 
+</details>
+
 ### 附录B. GitHub 上锚点
 
-点击展开
+<details><summary>点击展开</summary>
 
 在 GitHub 的 Markdown（.md）文件中，**可以使用锚点（Anchor）来实现文档内部的跳转**。锚点通常用于目录（Table of Contents）跳转到文档的某个标题位置。
 
@@ -193,9 +209,11 @@ Markdown 不支持为图片设置原生锚点，但你可以用 HTML 的 `<a id=
 - **图片本身不能生成锚点，不能自动跳转到图片。**
 - 不推荐用 HTML 锚点，兼容性不好。
 
+</details>
+
 ### 附录C. 数学公式
 
-点击展开
+<details><summary>点击展开</summary>
 
 #### 公式标识
 
@@ -283,9 +301,11 @@ x_{ij}^{10}
 - 上标用 `^`，下标用 `_`
 - 多字符时用 `{}` 包裹
 
+</details>
+
 ### 附录D. 在线文件模板 （Docsify）
 
-点击展开
+<details><summary>点击展开</summary>
 
 参考： [happy-llm](https://github.com/datawhalechina/happy-llm/tree/main)
 
@@ -369,14 +389,16 @@ x_{ij}^{10}
 ### 常见问题
 
 - **文档无法显示？**  
-检查 index.html 是否直接引用了 jsdelivr CDN 上的 docsify 脚本，且 index.html 路径正确。
+ 检查 index.html 是否直接引用了 jsdelivr CDN 上的 docsify 脚本，且 index.html 路径正确。
+
 - **自定义导航/侧边栏？**  
-新建 `_sidebar.md` 或 `_navbar.md`，参见 [Docsify 官方文档](https://docsify.js.org/#/zh-cn/)。
+ 新建 `_sidebar.md` 或 `_navbar.md`，参见 [Docsify 官方文档](https://docsify.js.org/#/zh-cn/)。
 
----
-
-需要更详细的步骤或遇到具体问题，可以继续追问！
+</details>
 
 ### 附录E. Docsify 导出 pdf 文件
 
+
 参考： [ningg/docsify-to-pdf](https://github.com/ningg/docsify-to-pdf)
+
+
