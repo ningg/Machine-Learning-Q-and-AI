@@ -1,4 +1,4 @@
-# 大模型技术30讲（英文&中文批注）
+# 大模型技术30讲（英文&中英文&中文批注）
 
 大模型技术30讲（原版），30 Essential Questions and Answers on Machine Learning and AI
 
@@ -20,7 +20,7 @@
 
 ## 2.项目介绍
 
-本项目是系统性学习大模型技术要点的教程，基于原始的 *《30 Essential Questions and Answers on Machine Learning and AI》* ，进行中文批注，增强可读性。
+本项目是系统性学习大模型技术要点的教程，基于原始的 *《30 Essential Questions and Answers on Machine Learning and AI》* ，基于最先进的 AI 工具`翻译`，逐行校正添加`中文批注`，增强可读性。
 
 
 ### 2.1.你将收获什么？

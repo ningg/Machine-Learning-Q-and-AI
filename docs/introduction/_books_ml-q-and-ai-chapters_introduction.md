@@ -35,7 +35,7 @@ insights and discovering new techniques you can implement in your work.
 > Tips: 本书会突出`核心概念`，并且，会给出`示例`，辅助理解。
 
 ## Who Is This Book For?
-> 本节对比市面上入门书与偏重数学专著的两极，说明本书的定位、预备知识要求，以及书中「机器学习」一词的用法。
+> 本节对比市面上入门书与偏重数学理论书籍，说明本书的定位、预备知识要求，以及书中「机器学习」一词的用法。
 [](#who-is-this-book-for)
 
 Navigating the world of AI and machine learning literature can often
@@ -45,7 +45,7 @@ book illustrates and discusses important developments in these fields
 while staying approachable and not requiring an advanced math or coding
 background.
 
-AI 与机器学习读物往往两极：要么面向初学者的泛览，要么高度数学化的专著。本书在介绍重要进展的同时保持可读，不要求高等数学或编程背景。
+AI 与机器学习读物往往`两极分化`：要么面向初学者的泛览，要么高度数学化的专著。本书在介绍重要进展的同时保持可读，不要求高等数学或编程背景。
 
 > Tips: 本书，并不要求读者有高等数学知识、也无需编码背景。简单来说，普通的高中毕业，也可以流畅阅读。
 
@@ -83,7 +83,7 @@ models (LLMs) and vision transformers. Even experienced machine learning
 researchers and practitioners will encounter something new to add to
 their arsenal of techniques.
 
-全书主题覆盖面广：既有对卷积网络等成熟架构的新视角，也讨论 LLM、视觉 Transformer 等更前沿内容；即便有经验的研究者与实践者也能从中拾取可纳入工具箱的新知。
+全书主题覆盖面广：既有对卷积网络等成熟架构的新视角，也讨论 LLM、视觉 Transformer 等更前沿内容；即便有经验的研究者与实践者，也能从中拾取可纳入工具箱的新知识。
 
 
 > Tips: 本书，会介绍`AI 领域`的**典型概念**、知识，但不是数学或编码书籍。阅读时，无需证明或编码、突出易读性。
@@ -232,9 +232,8 @@ convolutional neural networks and vision transformers.
 
 Chapter [\[ch11\]](./ch11/_books_ml-q-and-ai-ch11.md):
 Calculating the Number of Parameters\
-Explains the\
-procedure for determining the parameters in a convolutional neural
-network, which is useful for gauging a model's storage and memory\
+Explains the procedure for determining the parameters in a convolutional neural
+network, which is useful for gauging a model's storage and memory 
 requirements.
 
 第 11 章：参数数量计算——估算卷积网络的存储与显存需求。

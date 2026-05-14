@@ -19,14 +19,14 @@ common, and how do they differ?**
 While these three terms are often used interchangeably, we can make
 subtle distinctions between them:
 
-这三个术语常被混用，但仍可作出细致区分：
-
 - `Embedding vectors` are representations of input data where similar
   items are close to each other.
 
 - `Latent vectors` are intermediate representations of input data.
 
 - `Representations` are encoded versions of the original input.
+
+这三个术语常被混用，但仍可作出细致区分：
 
 - `Embedding vectors`（嵌入向量）是对输入数据的表示，相似项在空间中彼此靠近。
 - `Latent vectors`（潜向量）是输入的中间表示。
@@ -93,7 +93,7 @@ objective, the output layer may also produce useful embedding vectors.
 For the sake of simplicity, the convolutional neural network in
 Figure [1.1](#fig-ch01-fig01)
 
-严格来说，神经网络任意中间层的输出都可视为嵌入向量；视训练目标而定，输出层也可能给出有用的嵌入。为简明起见，Figure [1.1](#fig-ch01-fig01) 中的卷积网络
+严格来说，神经网络任意中间层的输出，都可视为嵌入向量；视训练目标而定，输出层也可能给出有用的嵌入。为简明起见，Figure [1.1](#fig-ch01-fig01) 中的卷积网络，可视为一个嵌入层。
 
 Embeddings can have higher or lower numbers of dimensions than the
 original input. For instance, using embeddings methods for extreme
@@ -114,7 +114,7 @@ illustrated in Figure [1.2](#fig-ch01-fig02).
 *similarity*. This means that embeddings capture the semantics of the
 data such that similar inputs are close in the embeddings space.
 
-嵌入的一个**根本性质**是编码*距离*或*相似性*：相似输入在嵌入空间中彼此靠近，从而承载数据的语义。
+嵌入的一个**根本性质**是 编码或者携带了 *距离*或*相似性*：`相似输入`，在嵌入空间中`彼此靠近`，从而承载数据的语义。
 
 >Tips: **嵌入向量**，具有一个重要的**性质**，即编码`距离相近`或`相似性`。这意味着嵌入向量能够捕捉数据的语义，使得相似的输入在嵌入空间中彼此接近。这也称为`结构保持` structure-preserving 特性。
 
